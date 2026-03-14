@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-neutral-800 bg-white;
+  }
+
+  ::selection {
+    @apply bg-kaiho-green text-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wider
+           transition-all duration-300 ease-out;
+  }
+
+  .btn-primary {
+    @apply btn bg-kaiho-green text-white hover:bg-kaiho-green-dark;
+  }
+
+  .btn-outline {
+    @apply btn border border-kaiho-green text-kaiho-green bg-transparent
+           hover:bg-kaiho-green hover:text-white;
+  }
+
+  .btn-white {
+    @apply btn bg-white text-kaiho-green-dark hover:bg-kaiho-cream;
+  }
+
+  .section-label {
+    @apply text-xs font-medium tracking-widest uppercase text-kaiho-green mb-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-neutral-900;
+  }
+
+  .divider {
+    @apply w-12 h-px bg-kaiho-green;
+  }
+}
+
+/* Smooth page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}

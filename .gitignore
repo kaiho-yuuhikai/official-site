@@ -1,0 +1,33 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Python
+.venv
+__pycache__
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Data files (個人情報を含むため)
+analysis/data/*.tsv
+analysis/data/*.csv
+analysis/data/*.json
