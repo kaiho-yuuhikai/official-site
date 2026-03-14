@@ -913,41 +913,44 @@ function parseRssItems(xml: Document): NoteArticle[] {
   return articles
 }
 
+function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer))
+}
+
+async function tryFetchRSS(url: string): Promise<NoteArticle[]> {
+  const res = await fetchWithTimeout(url, 5000)
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  const text = await res.text()
+  if (!text.includes('<rss') && !text.includes('<channel')) throw new Error('Not RSS')
+  const parser = new DOMParser()
+  const xml = parser.parseFromString(text, 'text/xml')
+  if (xml.querySelector('parsererror')) throw new Error('XML parse error')
+  return parseRssItems(xml)
+}
+
 async function fetchNoteRSS() {
   const NOTE_RSS_URL = 'https://note.com/kaihoyuuhikai/rss'
-  const CORS_PROXY = 'https://api.allorigins.win/raw?url='
+  const PROXIES = [
+    'https://api.allorigins.win/raw?url=',
+    'https://corsproxy.io/?',
+  ]
 
-  try {
-    const res = await fetch(CORS_PROXY + encodeURIComponent(NOTE_RSS_URL))
-    if (!res.ok) throw new Error('Proxy fetch failed')
-
-    const text = await res.text()
-    const parser = new DOMParser()
-    const xml = parser.parseFromString(text, 'text/xml')
-    if (xml.querySelector('parsererror')) throw new Error('XML parse error')
-
-    noteArticles.value = parseRssItems(xml)
-    noteLoading.value = false
-  } catch (err) {
-    console.warn('RSS fetch via proxy failed, trying direct...', err)
-
+  for (const proxy of PROXIES) {
     try {
-      const res = await fetch(NOTE_RSS_URL)
-      if (!res.ok) throw new Error('Direct fetch failed')
-
-      const text = await res.text()
-      const parser = new DOMParser()
-      const xml = parser.parseFromString(text, 'text/xml')
-      if (xml.querySelector('parsererror')) throw new Error('XML parse error')
-
-      noteArticles.value = parseRssItems(xml)
+      noteArticles.value = await tryFetchRSS(proxy + encodeURIComponent(NOTE_RSS_URL))
       noteLoading.value = false
-    } catch (err2) {
-      console.warn('Direct RSS fetch also failed, using fallback data', err2)
-      noteArticles.value = NOTE_FALLBACK_DATA
-      noteLoading.value = false
+      return
+    } catch (err) {
+      console.warn(`Proxy ${proxy} failed:`, err)
     }
   }
+
+  // All proxies failed — use fallback data
+  console.warn('All RSS proxies failed, using fallback data')
+  noteArticles.value = NOTE_FALLBACK_DATA
+  noteLoading.value = false
 }
 
 // ── Count-up animation ──
