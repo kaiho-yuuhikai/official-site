@@ -108,6 +108,7 @@ const relatedLinks = [
   { icon: '🏫', title: '開邦高校公式サイト', description: '沖縄県立開邦高等学校', url: 'https://www.kaiho-h.open.ed.jp/' },
   { icon: '📝', title: 'note マガジン', description: '雄飛会の活動レポート', url: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49' },
   { icon: '📘', title: 'Facebook', description: '開邦雄飛会ページ', url: 'https://www.facebook.com/kaihoyuhi/' },
+  { icon: '📷', title: 'Instagram', description: '開邦雄飛会', url: 'https://www.instagram.com/kaihoyuuhikai/' },
   { icon: '🎉', title: '第3回大同窓会サイト', description: '2025年12月開催のイベントサイト', url: 'https://kaiho-yuuhikai.jp/' },
 ]
 

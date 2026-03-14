@@ -133,7 +133,6 @@
               <a href="https://www.facebook.com/kaihoyuhi/" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Facebook</a>
               <a href="https://www.instagram.com/kaihoyuuhikai/" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Instagram</a>
               <a href="https://note.com/kaihoyuuhikai" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">note マガジン</a>
-              <a href="#" class="block text-white/60 hover:text-white transition-colors text-sm">LINEオープンチャット</a>
             </div>
           </div>
 

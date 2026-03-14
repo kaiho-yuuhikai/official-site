@@ -800,11 +800,11 @@ function showMentor(category: string): boolean {
 
 // ── News items ──
 const newsItems = [
-  { date: '2026.02.20', category: 'お知らせ', title: '開邦雄飛会 新体制発足のお知らせ', isNew: true },
-  { date: '2026.02.15', category: '募集', title: '役員・運営メンバー募集のご案内', isNew: false },
-  { date: '2026.01.15', category: '報告', title: '第3回大同窓会 アンケート分析結果を公開', isNew: false },
-  { date: '2025.12.29', category: '報告', title: '第3回大同窓会 開催報告（参加者537名）', isNew: false },
-  { date: '2025.12.28', category: 'イベント', title: 'キャリア・クロスロード 2025 開催報告', isNew: false },
+  { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', isNew: true },
+  { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', isNew: true },
+  { date: '2026.03.01', category: '活動', title: '開邦高校卒業式にて同窓会入会式を実施', isNew: false },
+  { date: '2026.02.20', category: 'お知らせ', title: '開邦雄飛会 新体制発足・運営メンバー募集開始', isNew: false },
+  { date: '2025.12.28', category: 'イベント', title: '第3回大同窓会 開催（参加者537名）・キャリア・クロスロード初開催', isNew: false },
 ]
 
 // ── Note Magazine ──
