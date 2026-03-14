@@ -53,8 +53,30 @@
 
         <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <p class="text-neutral-600 text-sm leading-relaxed mb-6">
-            雄飛会の会則は以下のとおりです。最新版は随時更新されます。
+            雄飛会の会則は現在改定案を策定中です。改定の基本方針は以下のとおりです。
           </p>
+
+          <div class="bg-kaiho-green/5 rounded-xl p-6 mb-6">
+            <h4 class="font-bold text-neutral-900 text-sm mb-3">会則改定の方針</h4>
+            <ul class="space-y-2 text-sm text-neutral-600">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                <span>現在の運営実態に即した組織体制に整理する</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                <span>役員の負担を軽減し、継続可能な運営体制を構築する</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                <span>事務局と事業実行体制を明確化し、事業を進めやすくする</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                <span>同窓会に関わる人材の裾野を広げる</span>
+              </li>
+            </ul>
+          </div>
 
           <div class="space-y-4">
             <div v-for="(section, i) in bylawSections" :key="i" class="border border-neutral-200 rounded-lg">
@@ -77,9 +99,14 @@
             </div>
           </div>
 
-          <p class="text-neutral-500 text-xs mt-6">
-            ※ 会則の詳細は運営事務局までお問い合わせください。
-          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm text-kaiho-green font-bold hover:text-kaiho-green-dark transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              会則改定案（Google Docs）
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -144,11 +171,26 @@ const policies = [
 ]
 
 const bylawSections = [
-  { title: '第1章 総則（名称・目的）', content: '会則の詳細は現在整備中です。確定次第掲載いたします。' },
-  { title: '第2章 会員', content: '会則の詳細は現在整備中です。確定次第掲載いたします。' },
-  { title: '第3章 役員', content: '会則の詳細は現在整備中です。確定次第掲載いたします。' },
-  { title: '第4章 総会', content: '会則の詳細は現在整備中です。確定次第掲載いたします。' },
-  { title: '第5章 会計', content: '会則の詳細は現在整備中です。確定次第掲載いたします。' },
+  {
+    title: '第1章 総則（名称・所在地・目的・事業）',
+    content: '第1条（名称）本会は開邦雄飛会と称する。\n第2条（所在地）本会の所在地は沖縄県立開邦高等学校内に置く。ただし、役員会の決議により変更することができる。\n第3条（目的）本会は会員相互の親睦を図るとともに、母校の発展に寄与することを目的とする。\n第4条（事業）本会は前条の目的を達成するため、必要な事業を行う。',
+  },
+  {
+    title: '第2章 会員',
+    content: '第5条（会員）本会は卒業生及び本会の目的に賛同する者をもって会員とする。\n\n※ 詳細は改定案を審議中です。',
+  },
+  {
+    title: '第3章 役員',
+    content: '役員構成の見直しを検討中です。\n\n【改定の方向性】\n・役員体制の若返りを図る\n・引継ぎが自然にできる仕組みにする\n・実態に合った、無理のない体制にする\n\n※ 詳細は改定案を審議中です。',
+  },
+  {
+    title: '第4章 総会',
+    content: '総会の開催・議決・定足数について規定します。\n\n※ 詳細は改定案を審議中です。',
+  },
+  {
+    title: '第5章 会計',
+    content: '会計年度・収支報告・監査について規定します。\n\n※ 詳細は改定案を審議中です。',
+  },
 ]
 
 const timeline = [
@@ -156,8 +198,9 @@ const timeline = [
   { year: '1989年', title: '第1期生 卒業' },
   { year: '2015年', title: '第1回 大同窓会 開催', description: '創立30周年記念' },
   { year: '2020年', title: '第2回 大同窓会 開催', description: '創立35周年記念' },
-  { year: '2025年', title: '第3回 大同窓会 開催', description: '創立40周年記念。参加者537名。キャリア・クロスロード初開催。' },
-  { year: '2026年', title: '雄飛会 新体制発足', description: '恒常的な組織運営体制へ移行。公式サイト開設。' },
+  { year: '2025年12月', title: '第3回 大同窓会 開催', description: '創立40周年記念。参加者537名。キャリア・クロスロード初開催（メンター40名超、在校生22名）。' },
+  { year: '2026年2月', title: '雄飛会 新体制準備開始', description: '新事業アンケート実施。会則改定案の策定。27名の運営メンバーが参画。' },
+  { year: '2026年3月', title: '同窓会入会式・PTA連携開始', description: '卒業式にて同窓会入会式を実施。PTA連携による道路ボランティア清掃を初実施。公式サイト開設。' },
 ]
 
 onMounted(() => {
