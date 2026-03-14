@@ -17,7 +17,7 @@ export default {
       colors: {
         kaiho: {
           green: '#2d8c3c',
-          'green-dark': '#1f6b2a',
+          'green-dark': '#1a5e27',
           cream: '#f5f1e8',
           'cream-dark': '#e8e2d4',
           gold: '#d4a017',
