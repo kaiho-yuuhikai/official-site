@@ -30,14 +30,21 @@ function parseRSS(xml) {
     const pubDate = extract(itemXml, 'pubDate')
     const description = extract(itemXml, 'description')
 
-    // Extract image from enclosure or description
+    // Extract image: media:thumbnail > enclosure > description img
     let image = ''
-    const enclosureMatch = itemXml.match(/<enclosure[^>]+url="([^"]+)"/)
-    if (enclosureMatch) {
-      image = enclosureMatch[1]
+    const mediaThumbnailMatch = itemXml.match(/<media:thumbnail>([\s\S]*?)<\/media:thumbnail>/)
+    if (mediaThumbnailMatch) {
+      image = mediaThumbnailMatch[1].trim()
     }
     if (!image) {
-      // Try to find image in CDATA description
+      const mediaThumbnailUrlMatch = itemXml.match(/<media:thumbnail[^>]*url="([^"]+)"/)
+      if (mediaThumbnailUrlMatch) image = mediaThumbnailUrlMatch[1]
+    }
+    if (!image) {
+      const enclosureMatch = itemXml.match(/<enclosure[^>]+url="([^"]+)"/)
+      if (enclosureMatch) image = enclosureMatch[1]
+    }
+    if (!image) {
       const decoded = description.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
       const imgMatch = decoded.match(/<img[^>]+src="([^"]+)"/)
       if (imgMatch) image = imgMatch[1]
