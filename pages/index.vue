@@ -816,47 +816,9 @@ interface NoteArticle {
   image: string
 }
 
-const NOTE_FALLBACK_DATA: NoteArticle[] = [
-  {
-    title: '開邦高校卒業式と同窓会入会式への参加について',
-    link: 'https://note.com/kaihoyuuhikai/n/n8c6da4e93e9c',
-    pubDate: 'Sat, 21 Feb 2026 22:56:24 +0900',
-    description: '3月1日の卒業式で同窓会入会式を実施。新卒業生へ祝意と歓迎の気持ちを伝える予定',
-    image: 'https://assets.st-note.com/production/uploads/images/253475657/rectangle_large_type_2_c48b204663525ec85238286ddfb77f30.png?width=800'
-  },
-  {
-    title: '開邦雄飛会（学生記事）',
-    link: 'https://note.com/kaihoyuuhikai/n/n3f5b3febaf84',
-    pubDate: 'Sun, 15 Feb 2026 15:52:29 +0900',
-    description: '',
-    image: 'https://assets.st-note.com/production/uploads/images/251924439/rectangle_large_type_2_cd422fd457227af9a7cec8bce8331d42.png?width=800'
-  },
-  {
-    title: '開邦雄飛会（学生記事）',
-    link: 'https://note.com/kaihoyuuhikai/n/nb1b70041c97f',
-    pubDate: 'Sun, 15 Feb 2026 15:48:06 +0900',
-    description: '',
-    image: 'https://assets.st-note.com/production/uploads/images/251923982/rectangle_large_type_2_01e70f0b73fb9e50754547da704fd81f.jpg?width=800'
-  },
-  {
-    title: '【新体制および新事業アンケート実施中】',
-    link: 'https://note.com/kaihoyuuhikai/n/nff21d4dbde4b',
-    pubDate: 'Thu, 12 Feb 2026 11:31:38 +0900',
-    description: '新体制スタートおよび新事業検討に向けてアンケート実施中',
-    image: 'https://assets.st-note.com/production/uploads/images/251096549/rectangle_large_type_2_c73c9241e148d597a9663fc0958ab608.png?width=800'
-  },
-  {
-    title: '開邦雄飛会 公式note',
-    link: 'https://note.com/kaihoyuuhikai/n/nebe9d677fca2',
-    pubDate: 'Fri, 06 Feb 2026 12:04:27 +0900',
-    description: '同窓生のつながりを大切にし、在校生・母校への継続的支援を目的とした団体',
-    image: 'https://assets.st-note.com/production/uploads/images/250987892/rectangle_large_type_2_a7c2674524dd59697db4f2b766120267.png?width=800'
-  }
-]
-
-const noteLoading = ref(false)
+const noteLoading = ref(true)
 const noteError = ref(false)
-const noteArticles = ref<NoteArticle[]>(NOTE_FALLBACK_DATA)
+const noteArticles = ref<NoteArticle[]>([])
 
 const noteFallbackImageHtml = '<div class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center"><svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>'
 
@@ -885,71 +847,20 @@ function truncateText(text: string, maxLen: number): string {
   return text.substring(0, maxLen) + '...'
 }
 
-function parseRssItems(xml: Document): NoteArticle[] {
-  const items = xml.querySelectorAll('item')
-  if (items.length === 0) throw new Error('No items')
-
-  const articles: NoteArticle[] = []
-  items.forEach(item => {
-    const title = item.querySelector('title')?.textContent || ''
-    const link = item.querySelector('link')?.textContent || ''
-    const pubDate = item.querySelector('pubDate')?.textContent || ''
-    const description = item.querySelector('description')?.textContent || ''
-
-    let image = ''
-    const enclosure = item.querySelector('enclosure')
-    if (enclosure) {
-      image = enclosure.getAttribute('url') || ''
+async function loadNoteArticles() {
+  try {
+    const res = await fetch(useRuntimeConfig().app.baseURL + 'data/note-articles.json')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = await res.json()
+    if (data.articles && data.articles.length > 0) {
+      noteArticles.value = data.articles
     }
-    if (!image) {
-      const imgMatch = description.match(/<img[^>]+src="([^"]+)"/)
-      if (imgMatch) image = imgMatch[1]
-    }
-
-    articles.push({ title, link, pubDate, description, image })
-  })
-
-  return articles
-}
-
-function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), timeoutMs)
-  return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer))
-}
-
-async function tryFetchRSS(url: string): Promise<NoteArticle[]> {
-  const res = await fetchWithTimeout(url, 5000)
-  if (!res.ok) throw new Error(`HTTP ${res.status}`)
-  const text = await res.text()
-  if (!text.includes('<rss') && !text.includes('<channel')) throw new Error('Not RSS')
-  const parser = new DOMParser()
-  const xml = parser.parseFromString(text, 'text/xml')
-  if (xml.querySelector('parsererror')) throw new Error('XML parse error')
-  return parseRssItems(xml)
-}
-
-async function fetchNoteRSS() {
-  const NOTE_RSS_URL = 'https://note.com/kaihoyuuhikai/rss'
-  const PROXIES = [
-    'https://api.allorigins.win/raw?url=',
-    'https://corsproxy.io/?',
-  ]
-
-  for (const proxy of PROXIES) {
-    try {
-      noteArticles.value = await tryFetchRSS(proxy + encodeURIComponent(NOTE_RSS_URL))
-      noteLoading.value = false
-      return
-    } catch (err) {
-      console.warn(`Proxy ${proxy} failed:`, err)
-    }
+  } catch (err) {
+    console.warn('Failed to load note articles JSON:', err)
+    noteError.value = true
+  } finally {
+    noteLoading.value = false
   }
-
-  // All proxies failed — use fallback data
-  console.warn('All RSS proxies failed, using fallback data')
-  noteArticles.value = NOTE_FALLBACK_DATA
-  noteLoading.value = false
 }
 
 // ── Count-up animation ──
@@ -1045,8 +956,8 @@ onMounted(() => {
   const particleInterval = setInterval(createParticle, 400)
   for (let i = 0; i < 15; i++) createParticle()
 
-  // Fetch note RSS
-  fetchNoteRSS()
+  // Load note articles from static JSON
+  loadNoteArticles()
 
   // Cleanup
   onUnmounted(() => {
