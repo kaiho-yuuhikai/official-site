@@ -512,7 +512,7 @@
     <!-- ============================================================ -->
     <section id="magazine" class="py-24 md:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
+        <div class="text-center mb-16">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-neutral-400 mb-4">Magazine</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛会マガジン</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">note.com で活動の最新情報を発信中</p>
@@ -520,7 +520,7 @@
         </div>
 
         <!-- Loading state -->
-        <div v-if="noteLoading" class="text-center py-12 fade-in">
+        <div v-if="noteLoading" class="text-center py-12">
           <div class="inline-flex items-center gap-3 text-neutral-400">
             <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
             <span class="text-sm">note.com から最新記事を取得中...</span>
@@ -528,7 +528,7 @@
         </div>
 
         <!-- Articles container -->
-        <div v-if="noteArticles.length > 0 && !noteLoading" class="grid md:grid-cols-3 gap-8 fade-in">
+        <div v-if="noteArticles.length > 0 && !noteLoading" class="grid md:grid-cols-3 gap-8">
           <a v-for="article in noteArticles" :key="article.link"
              :href="article.link" target="_blank" rel="noopener noreferrer"
              class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
@@ -556,7 +556,7 @@
         </div>
 
         <!-- Error / fallback state -->
-        <div v-if="noteError && !noteLoading" class="text-center py-12 fade-in">
+        <div v-if="noteError && !noteLoading" class="text-center py-12">
           <div class="inline-flex flex-col items-center gap-4">
             <div class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
               <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
@@ -568,7 +568,7 @@
           </div>
         </div>
 
-        <div class="text-center mt-12 fade-in">
+        <div class="text-center mt-12">
           <a href="https://note.com/kaihoyuuhikai/m/m20c04499fc49" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-neutral-900 text-white font-bold rounded-full hover:bg-neutral-700 transition-colors">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.3c0-.5-.5-1-1.3-.8l-6.4 2.2L8 3.3C7.5 3 7 3 6.5 3.2L1.8 5c-.5.2-.8.5-.8 1v14.7c0 .5.5 1 1.3.8l6.4-2.2 6.3 2.2c.5.3 1 .3 1.5.1l4.7-1.8c.5-.2.8-.5.8-1V4.3z"/></svg>
             note マガジンをすべて読む
