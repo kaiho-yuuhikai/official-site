@@ -218,9 +218,9 @@
                   <span class="text-xs text-neutral-500">名のメンターが参加<br>22名の在校生が交流</span>
                 </div>
               </div>
-              <a href="#archive" class="inline-flex items-center gap-2 text-kaiho-orange text-sm font-bold hover:gap-3 transition-all">
-                開催報告を見る <span>&rarr;</span>
-              </a>
+              <NuxtLink to="/blog/career-crossroads-manual" class="inline-flex items-center gap-2 text-kaiho-orange text-sm font-bold hover:gap-3 transition-all">
+                運営マニュアルを見る <span>&rarr;</span>
+              </NuxtLink>
             </div>
           </div>
 
@@ -693,7 +693,7 @@
           </a>
 
           <!-- Career Crossroads Manual -->
-          <a href="#" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+          <NuxtLink to="/blog/career-crossroads-manual" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 bg-gradient-to-br from-kaiho-orange to-orange-500 flex items-center justify-center relative overflow-hidden">
               <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
               <div class="text-center relative z-10">
@@ -708,7 +708,7 @@
                 <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-orange transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </div>
             </div>
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </section>
