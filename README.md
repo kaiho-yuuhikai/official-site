@@ -12,21 +12,123 @@
 | Node.js | 20+ |
 | TypeScript | 5.6+ |
 
-## セットアップ
+## はじめかた（非エンジニア向け）
+
+技術的な知識がなくても、以下の手順でセットアップできます。
+
+### 方法 1: ワンコマンドで全自動セットアップ
+
+ターミナル（macOS の場合は「ターミナル.app」）を開いて、以下をコピペして実行してください:
 
 ```bash
-# 依存パッケージのインストール
-npm install
+# リポジトリをダウンロード
+git clone https://github.com/kaiho-yuuhikai/official-site.git
+cd official-site
 
-# 開発サーバー起動（http://localhost:3000）
-npm run dev
-
-# 静的サイト生成（GitHub Pages用）
-npm run generate
-
-# 生成結果のプレビュー
-npm run preview
+# 全ツールを自動インストール
+bash scripts/setup.sh
 ```
+
+途中でパスワードの入力を求められる場合があります。Mac のログインパスワードを入力してください。
+
+### 方法 2: AI エージェントにセットアップを任せる
+
+すでにいずれかの AI エージェントがインストールされている場合、AI に任せることもできます:
+
+```bash
+cd official-site
+
+# Claude Code の場合
+claude
+# → エージェントが起動したら入力:
+# /project:setup
+
+# Gemini CLI の場合
+gemini
+# → /setup
+
+# Codex CLI の場合
+codex
+# → /setup
+```
+
+### 方法 3: 手動セットアップ（上級者向け）
+
+<details>
+<summary>クリックして展開</summary>
+
+#### 前提ツール
+
+```bash
+# Homebrew（macOS パッケージマネージャー）
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Node.js
+brew install node@22
+
+# GitHub CLI
+brew install gh
+gh auth login
+```
+
+#### AI コーディングエージェント（3つから選択）
+
+```bash
+# Claude Code（Anthropic）— ネイティブインストーラー推奨
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Gemini CLI（Google）
+npm install -g @google/gemini-cli
+
+# Codex CLI（OpenAI）
+npm install -g @openai/codex
+```
+
+#### プロジェクト依存パッケージ
+
+```bash
+npm install
+```
+
+#### 開発サーバー
+
+```bash
+npm run dev
+# → http://localhost:3000/official-site/
+```
+
+</details>
+
+### 環境チェック
+
+セットアップが正しくできたか確認するには、AI エージェント内で:
+
+```
+/setup-check     # Gemini / Codex の場合
+/project:setup-check  # Claude Code の場合
+```
+
+## AI コーディングエージェント
+
+本プロジェクトは 3 つの AI コーディングエージェントに対応しています。どれを使っても同じワークフローで操作できます。
+
+| エージェント | 提供元 | 設定ファイル | 起動コマンド | 認証 |
+|:---|:---|:---|:---|:---|
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic | `CLAUDE.md` | `claude` | Claude.ai アカウント |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Google | `GEMINI.md` | `gemini` | Google アカウント |
+| [Codex CLI](https://github.com/openai/codex) | OpenAI | `AGENTS.md` | `codex` | ChatGPT アカウント |
+
+各エージェントの初回起動時にブラウザが開き、ログインが求められます。画面の指示に従ってください。
+
+### カスタムコマンド一覧
+
+| コマンド | 機能 | Claude Code | Gemini / Codex |
+|:---|:---|:---|:---|
+| セットアップ | 環境構築 | `/project:setup` | `/setup` |
+| 環境チェック | 状態確認 | `/project:setup-check` | `/setup-check` |
+| サイト更新 | コード修正 | `/project:site-update 要件` | `/site-update 要件` |
+| プレビュー | ローカル確認 | `/project:site-preview` | `/site-preview` |
+| 公開反映 | デプロイ | `/project:site-publish` | `/site-publish` |
 
 ## デプロイ
 
@@ -35,214 +137,6 @@ GitHub Pages に自動デプロイされます。
 - `main` ブランチへの push で自動デプロイ
 - 毎日 9:00 JST に note.com RSS の自動更新 + 再デプロイ
 - GitHub Actions の手動実行（workflow_dispatch）も可能
-
-## AI コーディングエージェント
-
-本プロジェクトは複数の AI コーディングエージェントに対応しています。各エージェントがプロジェクトのコンテキストを自動的に読み込めるよう、ルートディレクトリに設定ファイルを配置しています。
-
-### 対応エージェントと設定ファイル
-
-| エージェント | 設定ファイル | 起動コマンド |
-|:---|:---|:---|
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `CLAUDE.md` | `claude` |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `GEMINI.md` | `gemini` |
-| [Codex CLI](https://github.com/openai/codex) | `AGENTS.md` | `codex` |
-
-### 1. Claude Code（Anthropic）
-
-Anthropic の AI コーディングエージェント。`CLAUDE.md` をプロジェクトコンテキストとして自動読み込みします。
-
-**システム要件**
-- macOS 13.0+ / Windows 10 1809+ / Ubuntu 20.04+ / Debian 10+
-- RAM 4GB 以上
-- シェル: Bash または Zsh
-
-**インストール（ネイティブインストーラー推奨）**
-
-```bash
-# macOS / Linux / WSL（推奨）
-curl -fsSL https://claude.ai/install.sh | bash
-
-# Homebrew（macOS）
-brew install --cask claude-code
-```
-
-> **Note**: `npm install -g @anthropic-ai/claude-code` は非推奨です。ネイティブインストーラーを使用してください。
-> ネイティブインストーラーは自動更新に対応しています。Homebrew の場合は `brew upgrade claude-code` で手動更新します。
-
-**認証**
-- Claude Pro / Max プラン: Claude.ai アカウントでログイン
-- Claude Console: OAuth プロセスを完了
-- チーム / Enterprise: Claude for Teams または Enterprise プランを利用
-
-**更新・アンインストール**
-
-```bash
-# 手動更新
-claude update
-
-# インストール状態の確認
-claude doctor
-
-# アンインストール
-rm -f ~/.local/bin/claude && rm -rf ~/.local/share/claude
-```
-
-### 2. Gemini CLI（Google）
-
-Google の AI コーディングエージェント。`GEMINI.md` をプロジェクトコンテキストとして自動読み込みします。
-
-**システム要件**
-- macOS 15+ / Windows 11 24H2+ / Ubuntu 20.04+
-- Node.js 20.0.0+
-- RAM 4GB 以上（パワーユースは 16GB+ 推奨）
-
-**インストール**
-
-```bash
-# npm（推奨）
-npm install -g @google/gemini-cli
-
-# Homebrew（macOS / Linux）
-brew install gemini-cli
-
-# MacPorts（macOS）
-sudo port install gemini-cli
-
-# npx（インストール不要で即実行）
-npx @google/gemini-cli
-```
-
-**認証**
-- Google アカウントでログイン（初回起動時にブラウザが開きます）
-
-**更新**
-
-```bash
-# npm
-npm install -g @google/gemini-cli@latest
-
-# Homebrew
-brew upgrade gemini-cli
-
-# プレビュー版
-npm install -g @google/gemini-cli@preview
-```
-
-**リリースチャネル**
-- `@latest`: 安定版（毎週リリース）
-- `@preview`: プレビュー版（毎週リリース、未検証の可能性あり）
-- `@nightly`: ナイトリー（毎日リリース）
-
-### 3. Codex CLI（OpenAI）
-
-OpenAI の AI コーディングエージェント。`AGENTS.md` をプロジェクトコンテキストとして自動読み込みします。
-
-**システム要件**
-- macOS / Linux（Windows は WSL 推奨）
-- Node.js 20+
-
-**インストール**
-
-```bash
-# npm（推奨）
-npm install -g @openai/codex
-
-# Homebrew
-brew install codex
-```
-
-**認証**
-- ChatGPT アカウントまたは OpenAI API キーで認証（初回起動時にプロンプトが表示されます）
-- ChatGPT Plus / Pro / Business / Edu / Enterprise プランに含まれています
-
-**更新**
-
-```bash
-npm install -g @openai/codex@latest
-```
-
-### 4. GitHub CLI（gh）
-
-GitHub の公式コマンドラインツール。Issue、Pull Request、Release などの GitHub ワークフローをターミナルから操作できます。AI コーディングエージェントが `gh` コマンドを使って PR 作成やCI確認などを行う際にも必要です。
-
-**インストール**
-
-```bash
-# Homebrew（macOS / Linux）
-brew install gh
-
-# macOS（MacPorts）
-sudo port install gh
-
-# Windows（WinGet）
-winget install --id GitHub.cli
-
-# Windows（Scoop）
-scoop install gh
-
-# Conda
-conda install gh --channel conda-forge
-
-# Linux（apt / Debian・Ubuntu）
-(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
-  && sudo mkdir -p -m 755 /etc/apt/keyrings \
-  && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-  && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-  && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-  && sudo apt update \
-  && sudo apt install gh -y
-
-# Linux（dnf / Fedora・RHEL）
-sudo dnf install gh
-```
-
-**認証**
-
-```bash
-# ブラウザでGitHubアカウントにログイン
-gh auth login
-
-# 認証状態の確認
-gh auth status
-```
-
-**よく使うコマンド**
-
-```bash
-gh issue list              # Issue一覧
-gh pr list                 # PR一覧
-gh pr create               # PR作成
-gh pr view                 # PR詳細表示
-gh pr checks               # CIチェック状態
-gh run list                # GitHub Actions実行一覧
-gh release list            # リリース一覧
-```
-
-**更新**
-
-```bash
-# Homebrew
-brew upgrade gh
-```
-
-### 使い方
-
-プロジェクトルートで各コマンドを実行すると、対応する設定ファイルが自動的に読み込まれます。
-
-```bash
-cd /path/to/official-site
-
-# Claude Code → CLAUDE.md を読み込み
-claude
-
-# Gemini CLI → GEMINI.md を読み込み
-gemini
-
-# Codex CLI → AGENTS.md を読み込み
-codex
-```
 
 ## サイト更新ワークフロー（ビジネスユーザー向け）
 
