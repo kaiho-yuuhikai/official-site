@@ -12,209 +12,78 @@
 | Node.js | 20+ |
 | TypeScript | 5.6+ |
 
-## はじめかた（非エンジニア向け）
+## はじめかた
 
-技術的な知識がなくても、以下の手順でセットアップできます。
+ターミナルに **1行コピペするだけ** で、必要なツールが全て自動インストールされます。
+Git や Node.js が入っていなくても大丈夫です。
 
----
+### macOS / Linux
 
-### macOS の場合
-
-#### 方法 1: ワンコマンドで全自動セットアップ
-
-「ターミナル.app」を開いて（Spotlight で「ターミナル」と検索）、以下をコピペして実行してください:
+「ターミナル.app」を開いて（Spotlight で「ターミナル」と検索）、以下を貼り付けて Enter:
 
 ```bash
-# リポジトリをダウンロード
-git clone https://github.com/kaiho-yuuhikai/official-site.git
-cd official-site
-
-# 全ツールを自動インストール
-bash scripts/setup.sh
+curl -fsSL https://raw.githubusercontent.com/kaiho-yuuhikai/official-site/main/scripts/bootstrap.sh | bash
 ```
 
-途中でパスワードの入力を求められる場合があります。Mac のログインパスワードを入力してください。
+### Windows
 
-#### 方法 2: AI エージェントにセットアップを任せる
-
-すでにいずれかの AI エージェントがインストールされている場合、AI に任せることもできます:
-
-```bash
-cd official-site
-
-# Claude Code の場合
-claude
-# → エージェントが起動したら入力:
-# /project:setup
-
-# Gemini CLI の場合
-gemini
-# → /setup
-
-# Codex CLI の場合
-codex
-# → /setup
-```
-
-<details>
-<summary>方法 3: 手動セットアップ（上級者向け）</summary>
-
-```bash
-# Homebrew（macOS パッケージマネージャー）
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Node.js / GitHub CLI
-brew install node@22 gh
-gh auth login
-
-# AI コーディングエージェント（3つから選択）
-curl -fsSL https://claude.ai/install.sh | bash   # Claude Code
-npm install -g @google/gemini-cli                 # Gemini CLI
-npm install -g @openai/codex                      # Codex CLI
-
-# プロジェクト依存パッケージ
-npm install
-```
-
-</details>
-
----
-
-### Windows の場合
-
-#### 前提条件
-
-Windows では以下の 2 つを先にインストールする必要があります:
-
-1. **Git for Windows** — ファイルのバージョン管理ツール
-2. **Node.js** — JavaScript 実行環境
-
-#### 方法 1: ワンコマンドで全自動セットアップ（推奨）
-
-Git と Node.js がすでにインストール済みの場合、PowerShell で以下を実行するだけです:
+「PowerShell」を開いて（スタートメニューで「PowerShell」と検索）、以下を貼り付けて Enter:
 
 ```powershell
-git clone https://github.com/kaiho-yuuhikai/official-site.git
-cd official-site
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; .\scripts\setup.ps1
-```
-
-Git / Node.js も含めて全部入れたい場合は、以下の手順に従ってください。
-
-#### 方法 2: 手順に沿って手動セットアップ
-
-##### Step 1: Git for Windows をインストール
-
-1. ブラウザで https://git-scm.com/downloads/win を開く
-2. 「**Click here to download**」をクリックしてインストーラーをダウンロード
-3. ダウンロードした `.exe` ファイルをダブルクリック
-4. すべてデフォルト設定のまま「Next」→「Next」→ ... →「Install」をクリック
-5. インストール完了後「Finish」をクリック
-
-##### Step 2: Node.js をインストール
-
-1. ブラウザで https://nodejs.org/ を開く
-2. 「**LTS**」（推奨版）のダウンロードボタンをクリック
-3. ダウンロードした `.msi` ファイルをダブルクリック
-4. すべてデフォルト設定のまま「Next」→「Next」→ ... →「Install」をクリック
-5. インストール完了後「Finish」をクリック
-
-##### Step 3: GitHub CLI をインストール
-
-**PowerShell**（スタートメニューで「PowerShell」と検索）を開いて:
-
-```powershell
-winget install --id GitHub.cli
-```
-
-> WinGet が使えない場合は https://cli.github.com/ からインストーラーをダウンロードしてください。
-
-##### Step 4: AI コーディングエージェントをインストール
-
-引き続き PowerShell で、使いたいエージェントをインストールしてください（複数可）:
-
-```powershell
-# Claude Code（Anthropic）
-irm https://claude.ai/install.ps1 | iex
-
-# Gemini CLI（Google）
-npm install -g @google/gemini-cli
-
-# Codex CLI（OpenAI）
-npm install -g @openai/codex
-```
-
-##### Step 5: リポジトリをダウンロードしてセットアップ
-
-```powershell
-# リポジトリをダウンロード
-git clone https://github.com/kaiho-yuuhikai/official-site.git
-cd official-site
-
-# 依存パッケージをインストール
-npm install
-```
-
-##### Step 6: GitHub にログイン
-
-```powershell
-gh auth login
-```
-
-ブラウザが開くので、GitHub アカウントでログインしてください。
-
-##### Step 7: AI エージェントを起動
-
-```powershell
-# いずれか1つを起動
-claude    # Claude Code
-gemini    # Gemini CLI
-codex     # Codex CLI
+irm https://raw.githubusercontent.com/kaiho-yuuhikai/official-site/main/scripts/bootstrap.ps1 | iex
 ```
 
 > **Windows の注意事項**
-> - Claude Code は **Git Bash** または **WSL** 上で動作します。PowerShell から `claude` を実行すると Git Bash が自動的に使われます
-> - Codex CLI の Windows サポートは実験的です。WSL の利用を推奨します
-> - WSL を使う場合は、WSL 内で macOS と同じ手順（`bash scripts/setup.sh`）が使えます
+> - Claude Code / Codex CLI は WSL 上での動作を推奨します
+> - WSL を使う場合: PowerShell で `wsl --install` → 再起動 → Ubuntu を開いて macOS と同じコマンドを実行
 
-<details>
-<summary>WSL（Windows Subsystem for Linux）を使う場合</summary>
-
-WSL を使うと macOS/Linux と同じ環境でセットアップできます。より安定した動作が期待できます。
-
-**WSL のインストール（PowerShell を管理者として実行）:**
-
-```powershell
-wsl --install
-```
-
-PC を再起動後、スタートメニューから「Ubuntu」を起動します。
-
-**WSL 内でのセットアップ:**
+### セットアップ完了後
 
 ```bash
-# リポジトリをダウンロード
-git clone https://github.com/kaiho-yuuhikai/official-site.git
-cd official-site
-
-# 全自動セットアップ
-bash scripts/setup.sh
+cd ~/official-site
+claude    # または gemini / codex
 ```
 
-以降は macOS と同じ操作で使えます。
+AI エージェントが起動したら、すぐにサイトを更新できます:
+
+```
+/site-update トップページの見出しを変更して
+```
+
+<details>
+<summary>手動セットアップ（上級者向け）</summary>
+
+```bash
+# macOS
+brew install node@22 gh
+curl -fsSL https://claude.ai/install.sh | bash
+npm install -g @google/gemini-cli @openai/codex
+git clone https://github.com/kaiho-yuuhikai/official-site.git && cd official-site && npm install
+```
+
+```powershell
+# Windows (PowerShell)
+winget install Git.Git OpenJS.NodeJS.LTS GitHub.cli
+irm https://claude.ai/install.ps1 | iex
+npm install -g @google/gemini-cli @openai/codex
+git clone https://github.com/kaiho-yuuhikai/official-site.git; cd official-site; npm install
+```
 
 </details>
 
----
+<details>
+<summary>環境チェック</summary>
 
-### 環境チェック
-
-セットアップが正しくできたか確認するには、AI エージェント内で:
+AI エージェント内で以下を実行すると、ツールの状態を一覧確認できます:
 
 ```
 /setup-check          # Gemini / Codex の場合
 /project:setup-check  # Claude Code の場合
 ```
+
+不足がある場合は `/setup`（Claude Code は `/project:setup`）で自動修復できます。
+
+</details>
 
 ## AI コーディングエージェント
 
