@@ -59,7 +59,7 @@
               <div class="nav-dropdown absolute top-full right-0 pt-2 w-56">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
                   <a href="/#archive" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">第3回大同窓会</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリクロ運営マニュアル</a>
+                  <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリクロ運営マニュアル</NuxtLink>
                 </div>
               </div>
             </div>
