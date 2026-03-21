@@ -16,9 +16,13 @@
 
 技術的な知識がなくても、以下の手順でセットアップできます。
 
-### 方法 1: ワンコマンドで全自動セットアップ
+---
 
-ターミナル（macOS の場合は「ターミナル.app」）を開いて、以下をコピペして実行してください:
+### macOS の場合
+
+#### 方法 1: ワンコマンドで全自動セットアップ
+
+「ターミナル.app」を開いて（Spotlight で「ターミナル」と検索）、以下をコピペして実行してください:
 
 ```bash
 # リポジトリをダウンロード
@@ -31,7 +35,7 @@ bash scripts/setup.sh
 
 途中でパスワードの入力を求められる場合があります。Mac のログインパスワードを入力してください。
 
-### 方法 2: AI エージェントにセットアップを任せる
+#### 方法 2: AI エージェントにセットアップを任せる
 
 すでにいずれかの AI エージェントがインストールされている場合、AI に任せることもできます:
 
@@ -52,30 +56,86 @@ codex
 # → /setup
 ```
 
-### 方法 3: 手動セットアップ（上級者向け）
-
 <details>
-<summary>クリックして展開</summary>
-
-#### 前提ツール
+<summary>方法 3: 手動セットアップ（上級者向け）</summary>
 
 ```bash
 # Homebrew（macOS パッケージマネージャー）
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Node.js
-brew install node@22
-
-# GitHub CLI
-brew install gh
+# Node.js / GitHub CLI
+brew install node@22 gh
 gh auth login
+
+# AI コーディングエージェント（3つから選択）
+curl -fsSL https://claude.ai/install.sh | bash   # Claude Code
+npm install -g @google/gemini-cli                 # Gemini CLI
+npm install -g @openai/codex                      # Codex CLI
+
+# プロジェクト依存パッケージ
+npm install
 ```
 
-#### AI コーディングエージェント（3つから選択）
+</details>
 
-```bash
-# Claude Code（Anthropic）— ネイティブインストーラー推奨
-curl -fsSL https://claude.ai/install.sh | bash
+---
+
+### Windows の場合
+
+#### 前提条件
+
+Windows では以下の 2 つを先にインストールする必要があります:
+
+1. **Git for Windows** — ファイルのバージョン管理ツール
+2. **Node.js** — JavaScript 実行環境
+
+#### 方法 1: ワンコマンドで全自動セットアップ（推奨）
+
+Git と Node.js がすでにインストール済みの場合、PowerShell で以下を実行するだけです:
+
+```powershell
+git clone https://github.com/kaiho-yuuhikai/official-site.git
+cd official-site
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; .\scripts\setup.ps1
+```
+
+Git / Node.js も含めて全部入れたい場合は、以下の手順に従ってください。
+
+#### 方法 2: 手順に沿って手動セットアップ
+
+##### Step 1: Git for Windows をインストール
+
+1. ブラウザで https://git-scm.com/downloads/win を開く
+2. 「**Click here to download**」をクリックしてインストーラーをダウンロード
+3. ダウンロードした `.exe` ファイルをダブルクリック
+4. すべてデフォルト設定のまま「Next」→「Next」→ ... →「Install」をクリック
+5. インストール完了後「Finish」をクリック
+
+##### Step 2: Node.js をインストール
+
+1. ブラウザで https://nodejs.org/ を開く
+2. 「**LTS**」（推奨版）のダウンロードボタンをクリック
+3. ダウンロードした `.msi` ファイルをダブルクリック
+4. すべてデフォルト設定のまま「Next」→「Next」→ ... →「Install」をクリック
+5. インストール完了後「Finish」をクリック
+
+##### Step 3: GitHub CLI をインストール
+
+**PowerShell**（スタートメニューで「PowerShell」と検索）を開いて:
+
+```powershell
+winget install --id GitHub.cli
+```
+
+> WinGet が使えない場合は https://cli.github.com/ からインストーラーをダウンロードしてください。
+
+##### Step 4: AI コーディングエージェントをインストール
+
+引き続き PowerShell で、使いたいエージェントをインストールしてください（複数可）:
+
+```powershell
+# Claude Code（Anthropic）
+irm https://claude.ai/install.ps1 | iex
 
 # Gemini CLI（Google）
 npm install -g @google/gemini-cli
@@ -84,27 +144,75 @@ npm install -g @google/gemini-cli
 npm install -g @openai/codex
 ```
 
-#### プロジェクト依存パッケージ
+##### Step 5: リポジトリをダウンロードしてセットアップ
 
-```bash
+```powershell
+# リポジトリをダウンロード
+git clone https://github.com/kaiho-yuuhikai/official-site.git
+cd official-site
+
+# 依存パッケージをインストール
 npm install
 ```
 
-#### 開発サーバー
+##### Step 6: GitHub にログイン
 
-```bash
-npm run dev
-# → http://localhost:3000/official-site/
+```powershell
+gh auth login
 ```
 
+ブラウザが開くので、GitHub アカウントでログインしてください。
+
+##### Step 7: AI エージェントを起動
+
+```powershell
+# いずれか1つを起動
+claude    # Claude Code
+gemini    # Gemini CLI
+codex     # Codex CLI
+```
+
+> **Windows の注意事項**
+> - Claude Code は **Git Bash** または **WSL** 上で動作します。PowerShell から `claude` を実行すると Git Bash が自動的に使われます
+> - Codex CLI の Windows サポートは実験的です。WSL の利用を推奨します
+> - WSL を使う場合は、WSL 内で macOS と同じ手順（`bash scripts/setup.sh`）が使えます
+
+<details>
+<summary>WSL（Windows Subsystem for Linux）を使う場合</summary>
+
+WSL を使うと macOS/Linux と同じ環境でセットアップできます。より安定した動作が期待できます。
+
+**WSL のインストール（PowerShell を管理者として実行）:**
+
+```powershell
+wsl --install
+```
+
+PC を再起動後、スタートメニューから「Ubuntu」を起動します。
+
+**WSL 内でのセットアップ:**
+
+```bash
+# リポジトリをダウンロード
+git clone https://github.com/kaiho-yuuhikai/official-site.git
+cd official-site
+
+# 全自動セットアップ
+bash scripts/setup.sh
+```
+
+以降は macOS と同じ操作で使えます。
+
 </details>
+
+---
 
 ### 環境チェック
 
 セットアップが正しくできたか確認するには、AI エージェント内で:
 
 ```
-/setup-check     # Gemini / Codex の場合
+/setup-check          # Gemini / Codex の場合
 /project:setup-check  # Claude Code の場合
 ```
 
