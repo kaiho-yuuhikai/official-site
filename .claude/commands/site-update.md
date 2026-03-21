@@ -5,6 +5,40 @@
 
 ## 手順
 
+### Step 0: 最新状態への同期（衝突防止）
+
+**重要: 他のメンバーの変更を取り込んでから作業を開始する。**
+
+まずリモートURLを確認し、対応するGitHubアカウントを特定する:
+
+```bash
+git remote -v
+```
+
+GitHubアカウント対応表（CLAUDE.mdグローバル設定参照）に基づき `GH_TOKEN` を設定する。
+対応表にないリポジトリの場合はユーザーに確認する。
+
+```bash
+GH_TOKEN=$(gh auth token --user <対応するアカウント>) git pull --rebase origin main 2>&1
+```
+
+**結果に応じた対応:**
+
+- **正常に完了**: Step 1 に進む
+- **ローカルに未保存の変更がある場合**: 自動的に一時退避して同期する
+  ```bash
+  git stash
+  GH_TOKEN=$(gh auth token --user <対応するアカウント>) git pull --rebase origin main 2>&1
+  git stash pop 2>&1
+  ```
+- **競合（コンフリクト）が発生した場合**:
+  1. `git rebase --abort && git stash pop` で元の状態に戻す
+  2. ユーザーに以下を伝える:
+     「他のメンバーが同じ箇所を変更したため、自動で統合できませんでした。変更内容を確認しますので、どのような修正をしたか教えてください。」
+  3. 作業を中止する
+
+**ユーザーへの表示**: 「最新の状態を確認しています...」のみ。技術的な詳細（pull, rebase, stash等）は表示しない。
+
 ### Step 1: 要件の理解
 
 ユーザーの要件: $ARGUMENTS
@@ -84,7 +118,7 @@ npx playwright test --grep-invert "静的ビルド" 2>&1
 ### Step 6: ユーザー確認
 
 ユーザーの確認結果に応じて:
-- **OK の場合**: 「`/project:site-publish` で本番反映できます」と案内
+- **OK の場合**: 「`/site-publish` で本番サイトに公開できます」と案内
 - **修正指示がある場合**: Step 3 に戻って再修正（テストも再実行）
 
 ## 注意事項
