@@ -32,34 +32,34 @@ INSTALL_DIR="$HOME/official-site"
 # --- Homebrew ---
 if [[ "$(uname -s)" == "Darwin" ]]; then
   if ! command -v brew &>/dev/null; then
-    echo -e "${CYAN}[1/8]${NC} Homebrew をインストール中..."
+    echo -e "${CYAN}[1/9]${NC} Homebrew をインストール中..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [ -f /opt/homebrew/bin/brew ]; then
       eval "$(/opt/homebrew/bin/brew shellenv)"
       echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile 2>/dev/null || true
     fi
   else
-    echo -e "${GREEN}[1/8]${NC} Homebrew ✓"
+    echo -e "${GREEN}[1/9]${NC} Homebrew ✓"
   fi
 else
-  echo -e "${GREEN}[1/8]${NC} Homebrew（スキップ - Linux）"
+  echo -e "${GREEN}[1/9]${NC} Homebrew（スキップ - Linux）"
 fi
 
 # --- Git ---
 if ! command -v git &>/dev/null; then
-  echo -e "${CYAN}[2/8]${NC} Git をインストール中..."
+  echo -e "${CYAN}[2/9]${NC} Git をインストール中..."
   if [[ "$(uname -s)" == "Darwin" ]]; then
     brew install git
   else
     sudo apt-get update -qq && sudo apt-get install -y -qq git
   fi
 else
-  echo -e "${GREEN}[2/8]${NC} Git ✓"
+  echo -e "${GREEN}[2/9]${NC} Git ✓"
 fi
 
 # --- Node.js ---
 if ! command -v node &>/dev/null || [ "$(node --version | sed 's/v//' | cut -d. -f1)" -lt 20 ]; then
-  echo -e "${CYAN}[3/8]${NC} Node.js をインストール中..."
+  echo -e "${CYAN}[3/9]${NC} Node.js をインストール中..."
   if [[ "$(uname -s)" == "Darwin" ]]; then
     brew install node@22
   else
@@ -67,12 +67,12 @@ if ! command -v node &>/dev/null || [ "$(node --version | sed 's/v//' | cut -d. 
     sudo apt-get install -y -qq nodejs
   fi
 else
-  echo -e "${GREEN}[3/8]${NC} Node.js $(node --version) ✓"
+  echo -e "${GREEN}[3/9]${NC} Node.js $(node --version) ✓"
 fi
 
 # --- GitHub CLI ---
 if ! command -v gh &>/dev/null; then
-  echo -e "${CYAN}[4/8]${NC} GitHub CLI をインストール中..."
+  echo -e "${CYAN}[4/9]${NC} GitHub CLI をインストール中..."
   if [[ "$(uname -s)" == "Darwin" ]]; then
     brew install gh
   else
@@ -86,35 +86,35 @@ if ! command -v gh &>/dev/null; then
       && sudo apt-get install -y -qq gh
   fi
 else
-  echo -e "${GREEN}[4/8]${NC} GitHub CLI ✓"
+  echo -e "${GREEN}[4/9]${NC} GitHub CLI ✓"
 fi
 
 # --- Claude Code ---
 if ! command -v claude &>/dev/null; then
-  echo -e "${CYAN}[5/8]${NC} Claude Code をインストール中..."
+  echo -e "${CYAN}[5/9]${NC} Claude Code をインストール中..."
   curl -fsSL https://claude.ai/install.sh | bash
 else
-  echo -e "${GREEN}[5/8]${NC} Claude Code ✓"
+  echo -e "${GREEN}[5/9]${NC} Claude Code ✓"
 fi
 
 # --- Gemini CLI ---
 if ! command -v gemini &>/dev/null; then
-  echo -e "${CYAN}[6/8]${NC} Gemini CLI をインストール中..."
+  echo -e "${CYAN}[6/9]${NC} Gemini CLI をインストール中..."
   npm install -g @google/gemini-cli 2>/dev/null
 else
-  echo -e "${GREEN}[6/8]${NC} Gemini CLI ✓"
+  echo -e "${GREEN}[6/9]${NC} Gemini CLI ✓"
 fi
 
 # --- Codex CLI ---
 if ! command -v codex &>/dev/null; then
-  echo -e "${CYAN}[7/8]${NC} Codex CLI をインストール中..."
+  echo -e "${CYAN}[7/9]${NC} Codex CLI をインストール中..."
   npm install -g @openai/codex 2>/dev/null
 else
-  echo -e "${GREEN}[7/8]${NC} Codex CLI ✓"
+  echo -e "${GREEN}[7/9]${NC} Codex CLI ✓"
 fi
 
 # --- リポジトリ & npm install ---
-echo -e "${CYAN}[8/8]${NC} プロジェクトをセットアップ中..."
+echo -e "${CYAN}[8/9]${NC} プロジェクトをセットアップ中..."
 if [ -d "$INSTALL_DIR/.git" ]; then
   cd "$INSTALL_DIR"
   git pull --quiet origin main
@@ -123,6 +123,10 @@ else
   cd "$INSTALL_DIR"
 fi
 npm install --silent
+
+# --- Playwright ブラウザ ---
+echo -e "${CYAN}[9/9]${NC} Playwright ブラウザをインストール中..."
+npx playwright install chromium 2>/dev/null
 
 # --- 完了 ---
 echo ""

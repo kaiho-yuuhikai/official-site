@@ -27,6 +27,11 @@ __pycache__
 .env.*
 !.env.example
 
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
 # Data files (個人情報を含むため)
 analysis/data/*.tsv
 analysis/data/*.csv

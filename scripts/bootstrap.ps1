@@ -34,9 +34,9 @@ if (-not (Test-Cmd "winget")) {
 
 # --- Git ---
 if (Test-Cmd "git") {
-    Write-Host "  [1/8] Git OK" -ForegroundColor Green
+    Write-Host "  [1/9] Git OK" -ForegroundColor Green
 } else {
-    Write-Host "  [1/8] Installing Git..." -ForegroundColor Cyan
+    Write-Host "  [1/9] Installing Git..." -ForegroundColor Cyan
     winget install --id Git.Git --accept-source-agreements --accept-package-agreements --silent
     Refresh-Path
 }
@@ -45,32 +45,32 @@ if (Test-Cmd "git") {
 if (Test-Cmd "node") {
     $major = [int]((node --version) -replace 'v(\d+)\..*','$1')
     if ($major -ge 20) {
-        Write-Host "  [2/8] Node.js OK" -ForegroundColor Green
+        Write-Host "  [2/9] Node.js OK" -ForegroundColor Green
     } else {
-        Write-Host "  [2/8] Upgrading Node.js..." -ForegroundColor Cyan
+        Write-Host "  [2/9] Upgrading Node.js..." -ForegroundColor Cyan
         winget install --id OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements --silent
         Refresh-Path
     }
 } else {
-    Write-Host "  [2/8] Installing Node.js..." -ForegroundColor Cyan
+    Write-Host "  [2/9] Installing Node.js..." -ForegroundColor Cyan
     winget install --id OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements --silent
     Refresh-Path
 }
 
 # --- GitHub CLI ---
 if (Test-Cmd "gh") {
-    Write-Host "  [3/8] GitHub CLI OK" -ForegroundColor Green
+    Write-Host "  [3/9] GitHub CLI OK" -ForegroundColor Green
 } else {
-    Write-Host "  [3/8] Installing GitHub CLI..." -ForegroundColor Cyan
+    Write-Host "  [3/9] Installing GitHub CLI..." -ForegroundColor Cyan
     winget install --id GitHub.cli --accept-source-agreements --accept-package-agreements --silent
     Refresh-Path
 }
 
 # --- Claude Code ---
 if (Test-Cmd "claude") {
-    Write-Host "  [4/8] Claude Code OK" -ForegroundColor Green
+    Write-Host "  [4/9] Claude Code OK" -ForegroundColor Green
 } else {
-    Write-Host "  [4/8] Installing Claude Code..." -ForegroundColor Cyan
+    Write-Host "  [4/9] Installing Claude Code..." -ForegroundColor Cyan
     try { irm https://claude.ai/install.ps1 | iex } catch {
         Write-Host "       (Manual install may be needed: irm https://claude.ai/install.ps1 | iex)" -ForegroundColor Yellow
     }
@@ -78,22 +78,22 @@ if (Test-Cmd "claude") {
 
 # --- Gemini CLI ---
 if (Test-Cmd "gemini") {
-    Write-Host "  [5/8] Gemini CLI OK" -ForegroundColor Green
+    Write-Host "  [5/9] Gemini CLI OK" -ForegroundColor Green
 } else {
-    Write-Host "  [5/8] Installing Gemini CLI..." -ForegroundColor Cyan
+    Write-Host "  [5/9] Installing Gemini CLI..." -ForegroundColor Cyan
     npm install -g @google/gemini-cli 2>$null
 }
 
 # --- Codex CLI ---
 if (Test-Cmd "codex") {
-    Write-Host "  [6/8] Codex CLI OK" -ForegroundColor Green
+    Write-Host "  [6/9] Codex CLI OK" -ForegroundColor Green
 } else {
-    Write-Host "  [6/8] Installing Codex CLI..." -ForegroundColor Cyan
+    Write-Host "  [6/9] Installing Codex CLI..." -ForegroundColor Cyan
     npm install -g @openai/codex 2>$null
 }
 
 # --- Clone & npm install ---
-Write-Host "  [7/8] Setting up project..." -ForegroundColor Cyan
+Write-Host "  [7/9] Setting up project..." -ForegroundColor Cyan
 if (Test-Path (Join-Path $installDir ".git")) {
     Set-Location $installDir
     git pull --quiet origin main
@@ -102,8 +102,12 @@ if (Test-Path (Join-Path $installDir ".git")) {
     Set-Location $installDir
 }
 
-Write-Host "  [8/8] Installing dependencies..." -ForegroundColor Cyan
+Write-Host "  [8/9] Installing dependencies..." -ForegroundColor Cyan
 npm install --silent
+
+# --- Playwright browsers ---
+Write-Host "  [9/9] Installing Playwright browser..." -ForegroundColor Cyan
+npx playwright install chromium 2>$null
 
 # --- Done ---
 Write-Host ""
