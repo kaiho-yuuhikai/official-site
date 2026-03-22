@@ -26,7 +26,7 @@
         </h1>
 
         <p class="text-lg md:text-xl font-light text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-          開邦高校同窓会「開邦雄飛会」&#8212; 5,000名を超える卒業生がつくる<br class="hidden md:inline">ネットワークで、在校生と同窓生の未来を支える。
+          開邦高校同窓会「開邦雄飛会」&#8212; 8,000名を超える卒業生がつくる<br class="hidden md:inline">ネットワークで、在校生と同窓生の未来を支える。
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -45,13 +45,13 @@
         <div ref="heroStatsRef" class="grid grid-cols-3 gap-8 max-w-lg mx-auto">
           <div class="text-center">
             <div class="text-4xl md:text-5xl font-black mb-1">
-              <span class="count-number" data-target="37">0</span><span class="text-kaiho-gold">期</span>
+              <span class="count-number" data-target="38">0</span><span class="text-kaiho-gold">期</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">History</div>
           </div>
           <div class="text-center">
             <div class="text-4xl md:text-5xl font-black mb-1">
-              <span class="count-number" data-target="5000">0</span><span class="text-kaiho-gold">+</span>
+              <span class="count-number" data-target="8000">0</span><span class="text-kaiho-gold">+</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Alumni</div>
           </div>
@@ -103,7 +103,7 @@
             </div>
             <h3 class="text-xl font-bold mb-3 text-neutral-900">在校生・同窓生支援</h3>
             <p class="text-neutral-600 text-sm leading-relaxed">
-              探究活動基金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
+              特別活動基金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
             </p>
           </div>
 
@@ -146,7 +146,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-          <!-- Project 1: 探究活動基金 -->
+          <!-- Project 1: 特別活動基金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-purple to-purple-400"></div>
             <div class="p-8">
@@ -156,7 +156,7 @@
                 </div>
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">探究活動基金</h3>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">特別活動基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動を資金面から支援。研究費やフィールドワークの費用を助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
@@ -418,11 +418,11 @@
             <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
               <div class="text-center">
                 <div class="text-6xl mb-2">&#128300;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">探究活動</span>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">特別活動</span>
               </div>
             </div>
             <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">探究活動基金</h3>
+              <h3 class="text-xl font-bold text-neutral-900 mb-2">特別活動基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動を資金面で支援します。研究費やフィールドワーク費用の助成のほか、同窓生の活動支援にも活用されます。
               </p>
@@ -747,7 +747,7 @@
           </a>
 
           <!-- CTA 3 -->
-          <a href="https://docs.google.com/forms/d/19CDuF8fZy74A3_UN62PzLLbfL-Us-DhvHSloVj8QX6M/edit" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
             <div class="text-4xl mb-4">&#128587;</div>
             <h3 class="text-lg font-bold mb-2">運営メンバー募集</h3>
             <p class="text-white/80 text-sm mb-4">一緒に組織を創ろう</p>

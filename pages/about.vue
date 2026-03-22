@@ -150,7 +150,7 @@ const toggleBylaw = (index: number) => {
 const policies = [
   {
     title: '在校生への教育支援',
-    description: '探究活動基金やメンター制度を通じて、在校生の学びと成長を支援します。',
+    description: '特別活動基金やメンター制度を通じて、在校生の学びと成長を支援します。',
   },
   {
     title: '同窓生ネットワークの構築・維持',
