@@ -66,7 +66,7 @@
 所在地: 沖縄県立開邦高等学校内（会則案 第2条、役員会決議で変更可）
 目的: 会員相互の親睦を図るとともに、母校の発展に寄与する（会則案 第3条）
 関連校: 沖縄県立開邦高等学校
-会員数: 卒業生5,000名以上（1期〜37期）
+| 会員数: 卒業生8,000名以上（1期〜38期）
 連絡先: メールアドレス（要決定）
 運営基盤: LINE WORKS
 ```
@@ -360,7 +360,7 @@
 
 | 項目 | ステータス |
 |-----|-----------|
-| 基金カード（2種） | ✅ 探究活動基金 + 芸術家応援基金（UI） |
+| 基金カード（2種） | ✅ 特別活動基金 + 芸術家応援基金（UI） |
 | プログレスバー | ✅ UI実装済み（モック値: 78%, 60%） |
 | 累計寄付額カウンター | ✅ UI実装済み（モック値: ¥1,250,000） |
 | 寄付ボタン | ✅ UI あるがリンク先なし |
@@ -442,7 +442,7 @@
 | 新事業提案書 | https://docs.google.com/document/d/1jGWcsOg03JF6C2ay1IEe7Gsw7rXcsKgNii6rdkXEyqY/edit |
 | 探究活動メンター伴走提案書 | https://docs.google.com/document/d/16aPt89LpxO6fgC-fsy58dAhLpfDlfeXzxnGzCxJ_efE/edit |
 | 議案募集フォーム | https://docs.google.com/forms/d/e/1FAIpQLSdBLp8iJ515aS5wp-h0yemYyrLa9Fl5DQhfwaD9htwdIXqH2Q/viewform |
-| 運営メンバー募集フォーム | https://docs.google.com/forms/d/19CDuF8fZy74A3_UN62PzLLbfL-Us-DhvHSloVj8QX6M/edit |
+| 運営メンバー募集フォーム | https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog |
 | note マガジン | https://note.com/kaihoyuuhikai/m/m20c04499fc49 |
 | Facebook | https://www.facebook.com/kaihoyuhi/ |
 | Instagram | https://www.instagram.com/kaihoyuuhikai/ |
