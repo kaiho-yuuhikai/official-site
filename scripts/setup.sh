@@ -80,7 +80,7 @@ echo ""
 # Step 1: Homebrew（macOS のみ）
 # =============================================================================
 if [ "$OS" = "macos" ]; then
-  print_header "Step 1/7: Homebrew（パッケージマネージャー）"
+  print_header "Step 1/8: Homebrew（パッケージマネージャー）"
 
   if command -v brew &>/dev/null; then
     print_skip "Homebrew $(brew --version | head -1 | awk '{print $2}')"
@@ -96,14 +96,14 @@ if [ "$OS" = "macos" ]; then
     print_step "Homebrew をインストールしました"
   fi
 else
-  print_header "Step 1/7: Homebrew（スキップ - macOS 以外）"
+  print_header "Step 1/8: Homebrew（スキップ - macOS 以外）"
   print_info "Linux の場合は apt/dnf を使用します"
 fi
 
 # =============================================================================
 # Step 2: Node.js
 # =============================================================================
-print_header "Step 2/7: Node.js（JavaScript 実行環境）"
+print_header "Step 2/8: Node.js（JavaScript 実行環境）"
 
 if command -v node &>/dev/null; then
   NODE_VERSION=$(node --version)
@@ -134,7 +134,7 @@ fi
 # =============================================================================
 # Step 3: GitHub CLI
 # =============================================================================
-print_header "Step 3/7: GitHub CLI（gh コマンド）"
+print_header "Step 3/8: GitHub CLI（gh コマンド）"
 
 if command -v gh &>/dev/null; then
   print_skip "GitHub CLI $(gh --version | head -1 | awk '{print $3}')"
@@ -158,7 +158,7 @@ fi
 # =============================================================================
 # Step 4: Claude Code
 # =============================================================================
-print_header "Step 4/7: Claude Code（Anthropic AI エージェント）"
+print_header "Step 4/8: Claude Code（Anthropic AI エージェント）"
 
 if command -v claude &>/dev/null; then
   print_skip "Claude Code $(claude --version 2>/dev/null || echo '(バージョン不明)')"
@@ -171,7 +171,7 @@ fi
 # =============================================================================
 # Step 5: Gemini CLI
 # =============================================================================
-print_header "Step 5/7: Gemini CLI（Google AI エージェント）"
+print_header "Step 5/8: Gemini CLI（Google AI エージェント）"
 
 if command -v gemini &>/dev/null; then
   print_skip "Gemini CLI $(gemini --version 2>/dev/null || echo '(バージョン不明)')"
@@ -184,7 +184,7 @@ fi
 # =============================================================================
 # Step 6: Codex CLI
 # =============================================================================
-print_header "Step 6/7: Codex CLI（OpenAI AI エージェント）"
+print_header "Step 6/8: Codex CLI（OpenAI AI エージェント）"
 
 if command -v codex &>/dev/null; then
   print_skip "Codex CLI $(codex --version 2>/dev/null || echo '(バージョン不明)')"
@@ -197,7 +197,7 @@ fi
 # =============================================================================
 # Step 7: プロジェクト依存パッケージ
 # =============================================================================
-print_header "Step 7/7: プロジェクトの依存パッケージ"
+print_header "Step 7/8: プロジェクトの依存パッケージ"
 
 # リポジトリのルートにいるか確認
 if [ -f "package.json" ]; then
@@ -207,6 +207,25 @@ if [ -f "package.json" ]; then
 else
   print_info "プロジェクトディレクトリ外で実行されています"
   print_info "リポジトリをクローン後に npm install を実行してください"
+fi
+
+# =============================================================================
+# Step 8/8: Git ユーザー設定
+# =============================================================================
+print_header "Step 8/8: Git ユーザー設定"
+
+GIT_USER_NAME=$(git config user.name 2>/dev/null || true)
+GIT_USER_EMAIL=$(git config user.email 2>/dev/null || true)
+
+if [ -n "$GIT_USER_NAME" ] && [ -n "$GIT_USER_EMAIL" ]; then
+  print_skip "Git ユーザー: $GIT_USER_NAME <$GIT_USER_EMAIL>"
+else
+  print_action "Git のコミットに使用するユーザー情報を設定します"
+  read -p "  お名前（例: 山田太郎）: " INPUT_NAME
+  read -p "  メールアドレス（例: taro@example.com）: " INPUT_EMAIL
+  git config --global user.name "$INPUT_NAME"
+  git config --global user.email "$INPUT_EMAIL"
+  print_step "Git ユーザーを設定しました: $INPUT_NAME <$INPUT_EMAIL>"
 fi
 
 # =============================================================================

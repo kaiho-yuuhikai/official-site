@@ -58,7 +58,7 @@ Write-Host ""
 # =============================================================================
 # Step 1: Git for Windows
 # =============================================================================
-Write-Header "Step 1/7: Git for Windows"
+Write-Header "Step 1/8: Git for Windows"
 
 if (Test-Command "git") {
     $gitVer = (git --version) -replace "git version ", ""
@@ -77,7 +77,7 @@ if (Test-Command "git") {
 # =============================================================================
 # Step 2: Node.js
 # =============================================================================
-Write-Header "Step 2/7: Node.js"
+Write-Header "Step 2/8: Node.js"
 
 if (Test-Command "node") {
     $nodeVer = (node --version)
@@ -100,7 +100,7 @@ if (Test-Command "node") {
 # =============================================================================
 # Step 3: GitHub CLI
 # =============================================================================
-Write-Header "Step 3/7: GitHub CLI"
+Write-Header "Step 3/8: GitHub CLI"
 
 if (Test-Command "gh") {
     $ghVer = ((gh --version) | Select-Object -First 1) -replace "gh version (\S+).*", '$1'
@@ -115,7 +115,7 @@ if (Test-Command "gh") {
 # =============================================================================
 # Step 4: Claude Code
 # =============================================================================
-Write-Header "Step 4/7: Claude Code (Anthropic)"
+Write-Header "Step 4/8: Claude Code (Anthropic)"
 
 if (Test-Command "claude") {
     $claudeVer = (claude --version 2>$null) -join " "
@@ -133,7 +133,7 @@ if (Test-Command "claude") {
 # =============================================================================
 # Step 5: Gemini CLI
 # =============================================================================
-Write-Header "Step 5/7: Gemini CLI (Google)"
+Write-Header "Step 5/8: Gemini CLI (Google)"
 
 if (Test-Command "gemini") {
     $geminiVer = (gemini --version 2>$null) -join " "
@@ -147,7 +147,7 @@ if (Test-Command "gemini") {
 # =============================================================================
 # Step 6: Codex CLI
 # =============================================================================
-Write-Header "Step 6/7: Codex CLI (OpenAI)"
+Write-Header "Step 6/8: Codex CLI (OpenAI)"
 
 if (Test-Command "codex") {
     $codexVer = (codex --version 2>$null) -join " "
@@ -161,7 +161,7 @@ if (Test-Command "codex") {
 # =============================================================================
 # Step 7: Project dependencies
 # =============================================================================
-Write-Header "Step 7/7: Project Dependencies"
+Write-Header "Step 7/8: Project Dependencies"
 
 if (Test-Path "package.json") {
     Write-Action "Running npm install..."
@@ -169,6 +169,25 @@ if (Test-Path "package.json") {
     Write-Step "Dependencies installed"
 } else {
     Write-Notice "Not in project directory. Run 'npm install' after cloning the repo."
+}
+
+# =============================================================================
+# Step 8/8: Git User Config
+# =============================================================================
+Write-Header "Step 8/8: Git User Config"
+
+$gitUserName = git config user.name 2>$null
+$gitUserEmail = git config user.email 2>$null
+
+if ($gitUserName -and $gitUserEmail) {
+    Write-Skip "Git user: $gitUserName <$gitUserEmail>"
+} else {
+    Write-Action "Git のコミットに使用するユーザー情報を設定します"
+    $inputName = Read-Host "  お名前（例: 山田太郎）"
+    $inputEmail = Read-Host "  メールアドレス（例: taro@example.com）"
+    git config --global user.name "$inputName"
+    git config --global user.email "$inputEmail"
+    Write-Step "Git ユーザーを設定しました: $inputName <$inputEmail>"
 }
 
 # =============================================================================
