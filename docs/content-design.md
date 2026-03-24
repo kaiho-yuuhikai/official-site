@@ -193,7 +193,6 @@
 | Facebook | https://www.facebook.com/kaihoyuhi/ | ✅ 掲載済み |
 | Instagram | https://www.instagram.com/kaihoyuuhikai/ | ✅ フッターに掲載 |
 | LINE WORKS | 運営メンバー間の連絡基盤（一般公開はしない） | — 内部ツール |
-| 議案募集フォーム | Google Forms | ✅ 掲載済み |
 | 運営メンバー募集フォーム | Google Forms | ✅ 掲載済み |
 | 開邦高校公式サイト | https://www.kaiho-h.open.ed.jp/ | ✅ 掲載済み |
 | note マガジン | https://note.com/kaihoyuuhikai/m/m20c04499fc49 | ✅ 掲載済み |
@@ -360,9 +359,9 @@
 
 | 項目 | ステータス |
 |-----|-----------|
-| 基金カード（2種） | ✅ 特別活動基金 + 芸術家応援基金（UI） |
-| プログレスバー | ✅ UI実装済み（モック値: 78%, 60%） |
-| 累計寄付額カウンター | ✅ UI実装済み（モック値: ¥1,250,000） |
+| 基金カード | ✅ 雄飛会 支援基金（UI・統合済み） |
+| プログレスバー | ✅ UI実装済み（実績値: 80.6%） |
+| 累計寄付額カウンター | ✅ UI実装済み（実績値: ¥1,613,018） |
 | 寄付ボタン | ✅ UI あるがリンク先なし |
 | 振込先情報 | ❌ 未掲載 |
 
@@ -441,7 +440,6 @@
 | 会則（案）| https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit |
 | 新事業提案書 | https://docs.google.com/document/d/1jGWcsOg03JF6C2ay1IEe7Gsw7rXcsKgNii6rdkXEyqY/edit |
 | 探究活動メンター伴走提案書 | https://docs.google.com/document/d/16aPt89LpxO6fgC-fsy58dAhLpfDlfeXzxnGzCxJ_efE/edit |
-| 議案募集フォーム | https://docs.google.com/forms/d/e/1FAIpQLSdBLp8iJ515aS5wp-h0yemYyrLa9Fl5DQhfwaD9htwdIXqH2Q/viewform |
 | 運営メンバー募集フォーム | https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog |
 | note マガジン | https://note.com/kaihoyuuhikai/m/m20c04499fc49 |
 | Facebook | https://www.facebook.com/kaihoyuhi/ |

@@ -111,6 +111,112 @@
       </div>
     </section>
 
+    <!-- 収支報告 -->
+    <section class="py-24 bg-neutral-50 border-t border-neutral-100">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Financial Report</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">収支報告</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
+          <div class="prose prose-neutral max-w-none mb-12">
+            <p class="text-neutral-700 leading-relaxed">
+              雄飛会では、会員の皆様からお預かりした寄付金および基金の透明性を確保するため、毎年度の収支決算を公開しています。会計年度は毎年4月1日から翌年3月31日までとし、役員会による承認および監事による監査を経て、総会および公式サイトにて報告を行います。
+            </p>
+          </div>
+
+          <!-- Summary Table -->
+          <div class="space-y-12">
+            <div>
+              <h3 class="text-lg font-bold text-neutral-900 mb-6 flex items-center gap-2">
+                <span class="w-1.5 h-6 bg-kaiho-green rounded-full"></span>
+                令和5年度（2023年度）決算報告
+              </h3>
+              
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                  <thead class="text-xs text-neutral-400 uppercase tracking-wider border-b border-neutral-100">
+                    <tr>
+                      <th class="py-4 font-medium">項目</th>
+                      <th class="py-4 font-medium text-right">金額（円）</th>
+                      <th class="py-4 font-medium px-4">備考</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-neutral-100">
+                    <tr class="group">
+                      <td class="py-4 font-bold text-neutral-900" colspan="3">【収入の部】</td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">前年度繰越金</td>
+                      <td class="py-4 text-right font-medium">2,807,519</td>
+                      <td class="py-4 px-4 text-neutral-400"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">寄付金収入</td>
+                      <td class="py-4 text-right font-medium">1,613,018</td>
+                      <td class="py-4 px-4 text-neutral-400 text-xs">第3回大同窓会での寄付金を含む</td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">利息収入</td>
+                      <td class="py-4 text-right font-medium">0</td>
+                      <td class="py-4 px-4 text-neutral-400"></td>
+                    </tr>
+                    <tr class="bg-neutral-50/50">
+                      <td class="py-4 pl-4 font-bold text-neutral-900">収入合計</td>
+                      <td class="py-4 text-right font-bold text-kaiho-green">4,420,537</td>
+                      <td class="py-4 px-4"></td>
+                    </tr>
+
+                    <tr class="group">
+                      <td class="py-4 font-bold text-neutral-900" colspan="3">【支出の部】</td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">事業費</td>
+                      <td class="py-4 text-right font-medium">980,000</td>
+                      <td class="py-4 px-4 text-neutral-400 text-xs">大同窓会開催費用、キャリクロ運営等</td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">在校生支援金</td>
+                      <td class="py-4 text-right font-medium">300,000</td>
+                      <td class="py-4 px-4 text-neutral-400 text-xs">探究活動助成、部活動支援等</td>
+                    </tr>
+                    <tr>
+                      <td class="py-4 pl-4 text-neutral-600">事務局運営費</td>
+                      <td class="py-4 text-right font-medium">74,200</td>
+                      <td class="py-4 px-4 text-neutral-400 text-xs">通信費、会議費、サイト維持費等</td>
+                    </tr>
+                    <tr class="bg-neutral-50/50">
+                      <td class="py-4 pl-4 font-bold text-neutral-900">支出合計</td>
+                      <td class="py-4 text-right font-bold text-kaiho-purple">1,354,200</td>
+                      <td class="py-4 px-4"></td>
+                    </tr>
+
+                    <tr class="bg-kaiho-green/5">
+                      <td class="py-4 pl-4 font-bold text-kaiho-green text-base">次年度繰越金</td>
+                      <td class="py-4 text-right font-black text-kaiho-green text-lg">3,066,337</td>
+                      <td class="py-4 px-4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="bg-neutral-50 rounded-xl p-6 border border-neutral-100 flex items-start gap-4">
+              <div class="w-10 h-10 bg-kaiho-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              </div>
+              <p class="text-xs text-neutral-500 leading-relaxed">
+                ※ 令和5年度決算については、2026年3月の役員会において承認されました。<br>
+                ※ 雄飛会基金（特別活動基金）への寄付金は、全額が指定された事業（在校生支援・芸術支援等）に充てられます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 沿革 -->
     <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">

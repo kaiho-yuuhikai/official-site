@@ -33,11 +33,11 @@
           <a href="#about" class="inline-flex items-center justify-center px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl">
             開邦雄飛会について
           </a>
-          <a href="#mentor" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
-            メンターになる
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+            メンター・運営に参加
           </a>
-          <a href="#fund" class="inline-flex items-center justify-center px-8 py-4 border-2 border-kaiho-gold text-kaiho-gold font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300">
-            寄付する
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border-2 border-kaiho-gold text-kaiho-gold font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300">
+            寄付・支援をする
           </a>
         </div>
 
@@ -293,61 +293,30 @@
 
         <!-- Mentor Cards -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-          <!-- Mentor 1 -->
-          <div v-show="showMentor('tech')" class="card-hover bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100">
-            <div class="w-20 h-20 bg-gradient-to-br from-kaiho-blue to-blue-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-black">
-              K
+          <!-- Mentor Card (Loop) -->
+          <div v-for="mentor in filteredMentors" :key="mentor.name"
+               class="card-hover bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full mb-4 flex items-center justify-center text-white text-2xl font-black shadow-inner"
+                 :class="mentor.bgClass">
+              {{ mentor.initial }}
             </div>
-            <h4 class="font-bold text-neutral-900">神谷 乗治</h4>
-            <p class="text-xs text-kaiho-green font-medium mt-1">14期</p>
-            <p class="text-sm text-neutral-500 mt-2">ITエンジニア / 起業家</p>
+            <h4 class="font-bold text-neutral-900">{{ mentor.name }}</h4>
+            <p class="text-xs text-kaiho-green font-medium mt-1">{{ mentor.generation }}</p>
+            <p class="text-sm text-neutral-500 mt-2">{{ mentor.title }}</p>
             <div class="flex items-center justify-center gap-1 mt-2 text-xs text-neutral-400">
               <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              沖縄
+              {{ mentor.region }}
             </div>
             <div class="flex flex-wrap justify-center gap-1 mt-3">
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-blue/10 text-kaiho-blue rounded-full">IT</span>
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-orange/10 text-kaiho-orange rounded-full">起業</span>
+              <span v-for="tag in mentor.tags" :key="tag"
+                    class="text-[10px] px-2 py-0.5 rounded-full"
+                    :class="mentor.tagClass">
+                {{ tag }}
+              </span>
             </div>
           </div>
 
-          <!-- Mentor 2 -->
-          <div v-show="showMentor('education')" class="card-hover bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100">
-            <div class="w-20 h-20 bg-gradient-to-br from-kaiho-green to-emerald-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-black">
-              U
-            </div>
-            <h4 class="font-bold text-neutral-900">上間 祥子</h4>
-            <p class="text-xs text-kaiho-green font-medium mt-1">16期</p>
-            <p class="text-sm text-neutral-500 mt-2">広報 / コーディネーター</p>
-            <div class="flex items-center justify-center gap-1 mt-2 text-xs text-neutral-400">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              沖縄
-            </div>
-            <div class="flex flex-wrap justify-center gap-1 mt-3">
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-green/10 text-kaiho-green rounded-full">広報</span>
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-purple/10 text-kaiho-purple rounded-full">教育</span>
-            </div>
-          </div>
-
-          <!-- Mentor 3 -->
-          <div v-show="showMentor('education')" class="card-hover bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100">
-            <div class="w-20 h-20 bg-gradient-to-br from-kaiho-gold to-amber-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-black">
-              I
-            </div>
-            <h4 class="font-bold text-neutral-900">泉川 &#9675;&#9675;</h4>
-            <p class="text-xs text-kaiho-green font-medium mt-1">18期</p>
-            <p class="text-sm text-neutral-500 mt-2">教員（球陽高校）</p>
-            <div class="flex items-center justify-center gap-1 mt-2 text-xs text-neutral-400">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              沖縄
-            </div>
-            <div class="flex flex-wrap justify-center gap-1 mt-3">
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-gold/10 text-kaiho-gold rounded-full">教育</span>
-              <span class="text-[10px] px-2 py-0.5 bg-kaiho-blue/10 text-kaiho-blue rounded-full">人材育成</span>
-            </div>
-          </div>
-
-          <!-- Mentor 4 (placeholder) -->
+          <!-- Mentor Placeholder -->
           <div class="card-hover bg-gradient-to-br from-kaiho-green/5 to-kaiho-blue/5 rounded-2xl p-6 text-center border-2 border-dashed border-kaiho-green/30 flex flex-col items-center justify-center min-h-[240px]">
             <div class="w-20 h-20 bg-kaiho-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
               <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
@@ -406,65 +375,37 @@
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
           <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
           <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
-            &yen;<span class="count-number" data-target="1250000">0</span>
+            &yen;<span class="count-number" data-target="1613018">0</span>
           </div>
-          <p class="text-sm text-neutral-400"><span class="count-number" data-target="87">0</span>名の支援者に感謝します</p>
+          <p class="text-sm text-neutral-400">第3回大同窓会での寄付金を含みます</p>
         </div>
 
         <!-- Fund Cards -->
-        <div class="grid md:grid-cols-2 gap-8 fade-in">
+        <div class="max-w-2xl mx-auto fade-in">
           <!-- Fund 1 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
             <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
               <div class="text-center">
                 <div class="text-6xl mb-2">&#128300;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">特別活動</span>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">総合支援</span>
               </div>
             </div>
             <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">特別活動基金</h3>
+              <h3 class="text-xl font-bold text-neutral-900 mb-2">雄飛会 支援基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動を資金面で支援します。研究費やフィールドワーク費用の助成のほか、同窓生の活動支援にも活用されます。
+                在校生の探究活動や部活動、さらに芸術分野で活躍する同窓生アーティストの活動を幅広く支援します。寄付金は、雄飛会が責任を持って各支援事業に適切に配分いたします。
               </p>
               <div class="mb-4">
                 <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;390,000 / &yen;500,000</span>
-                  <span class="font-bold text-kaiho-purple">78%</span>
+                  <span class="text-neutral-500">&yen;1,613,018 / &yen;2,000,000</span>
+                  <span class="font-bold text-kaiho-purple">80.6%</span>
                 </div>
                 <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="78%"></div>
+                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="80.6%"></div>
                 </div>
               </div>
               <button class="w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors">
-                この基金に寄付する
-              </button>
-            </div>
-          </div>
-
-          <!-- Fund 2 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-            <div class="h-48 bg-gradient-to-br from-kaiho-gold/20 via-amber-100 to-yellow-100 flex items-center justify-center">
-              <div class="text-center">
-                <div class="text-6xl mb-2">&#127912;</div>
-                <span class="bg-kaiho-gold text-white text-xs font-bold px-3 py-1 rounded-full">芸術支援</span>
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">芸術家応援基金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                芸術科出身の同窓生アーティストを応援。展覧会開催費用、作品制作費、コンクール参加費を支援します。
-              </p>
-              <div class="mb-4">
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;180,000 / &yen;300,000</span>
-                  <span class="font-bold text-kaiho-gold">60%</span>
-                </div>
-                <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-gold to-amber-400 h-3 rounded-full" style="width: 0%" data-width="60%"></div>
-                </div>
-              </div>
-              <button class="w-full py-3 bg-kaiho-gold text-white font-bold rounded-xl hover:bg-amber-600 transition-colors">
-                この基金に寄付する
+                支援基金に寄付する
               </button>
             </div>
           </div>
@@ -500,6 +441,86 @@
                 <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載</h4>
                 <p class="text-xs text-neutral-500 mt-1">ご希望の方のみ</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- FINANCE SECTION                                               -->
+    <!-- ============================================================ -->
+    <section id="finance" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Finance</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">収支報告</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">雄飛会の活動を支える資金の使途を公開しています</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto fade-in">
+          <div class="bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+            <h3 class="text-xl font-bold text-neutral-900 mb-8 flex items-center gap-2">
+              <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              令和5年度（2023年度）収支決算サマリー
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-12">
+              <!-- Income -->
+              <div>
+                <h4 class="text-sm font-bold text-kaiho-green uppercase tracking-wider mb-4 flex items-center justify-between">
+                  <span>収入の部</span>
+                  <span class="text-neutral-900">&yen;4,420,537</span>
+                </h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">前年度繰越金</span>
+                    <span class="font-medium">&yen;2,807,519</span>
+                  </div>
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">寄付金（大同窓会等）</span>
+                    <span class="font-medium">&yen;1,613,018</span>
+                  </div>
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">受取利息</span>
+                    <span class="font-medium">&yen;0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Expenses -->
+              <div>
+                <h4 class="text-sm font-bold text-kaiho-purple uppercase tracking-wider mb-4 flex items-center justify-between">
+                  <span>支出の部</span>
+                  <span class="text-neutral-900">&yen;1,354,200</span>
+                </h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">事業費（大同窓会開催等）</span>
+                    <span class="font-medium">&yen;980,000</span>
+                  </div>
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">在校生支援金</span>
+                    <span class="font-medium">&yen;300,000</span>
+                  </div>
+                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
+                    <span class="text-neutral-600">事務局運営費</span>
+                    <span class="font-medium">&yen;74,200</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row justify-between items-center gap-6">
+              <div class="text-center md:text-left">
+                <p class="text-xs text-neutral-400 mb-1">次年度繰越金</p>
+                <p class="text-3xl font-black text-kaiho-green">&yen;3,066,337</p>
+              </div>
+              <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
+                詳細な会計報告を見る
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -636,8 +657,8 @@
         </div>
 
         <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <a v-for="(item, i) in newsItems" :key="i" href="#"
-             class="group flex gap-6 items-start py-6 block hover:bg-white/5 px-4 -mx-4 rounded-lg transition-colors"
+          <div v-for="(item, i) in newsItems" :key="i"
+             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
              :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
             <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
             <div class="flex-1 flex items-center justify-between gap-4">
@@ -646,11 +667,10 @@
                   <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
                   <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
                 </div>
-                <h3 class="text-white group-hover:text-kaiho-gold transition-colors font-medium">{{ item.title }}</h3>
+                <h3 class="text-white font-medium">{{ item.title }}</h3>
               </div>
-              <svg class="w-4 h-4 text-white/30 group-hover:text-kaiho-gold transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -756,14 +776,6 @@
             </span>
           </a>
         </div>
-
-        <!-- Proposal CTA -->
-        <div class="mt-12 text-center fade-in">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBLp8iJ515aS5wp-h0yemYyrLa9Fl5DQhfwaD9htwdIXqH2Q/viewform" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 border-2 border-neutral-200 rounded-full text-neutral-600 hover:border-kaiho-green hover:text-kaiho-green transition-all text-sm font-medium">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            議案を提案する
-          </a>
-        </div>
       </div>
     </section>
   </div>
@@ -790,21 +802,117 @@ const mentorCategories = [
 
 const mentorRegions = ['すべて', '沖縄', '東京', '関西', '海外']
 
+// ── Mentor data ──
+interface Mentor {
+  name: string
+  generation: string
+  initial: string
+  title: string
+  region: string
+  category: string
+  bgClass: string
+  tagClass: string
+  tags: string[]
+}
+
+const mentors: Mentor[] = [
+  {
+    name: '上里 直司', generation: '3期', initial: '上', title: '那覇市議会議員', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['政治', '行政']
+  },
+  {
+    name: '宮里 治', generation: '3期', initial: '宮', title: '投資家 / 元教員', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['投資', '教育']
+  },
+  {
+    name: '宮城 潤', generation: '3期', initial: '宮', title: '若狭公民館館長', region: '沖縄', category: 'education',
+    bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['地域教育', '文化']
+  },
+  {
+    name: '我謝 直也', generation: '4期', initial: '我', title: 'インフラ（沖縄電力）', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['インフラ', '運営']
+  },
+  {
+    name: '堀之内 美耶子', generation: '12期', initial: '堀', title: 'グラフィックデザイナー', region: '沖縄', category: 'arts',
+    bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['デザイン', 'アート']
+  },
+  {
+    name: '国吉 聡志', generation: '13期', initial: '国', title: '沖縄タイムス記者', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['メディア', '取材']
+  },
+  {
+    name: '神谷 乗治', generation: '14期', initial: '神', title: 'GScale代表取締役 / SE', region: '沖縄', category: 'tech',
+    bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['IT', '起業']
+  },
+  {
+    name: '又吉 吟', generation: '15期', initial: '又', title: '行政（沖縄県庁）', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['行政', '運営']
+  },
+  {
+    name: '上間 祥子', generation: '16期', initial: '上', title: '薬剤師 / 研究', region: '沖縄', category: 'medical',
+    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['医療', '研究']
+  },
+  {
+    name: '泉川 良基', generation: '18期', initial: '泉', title: '球陽高校教員', region: '沖縄', category: 'education',
+    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['教育', '人材育成']
+  },
+  {
+    name: '嶺井 健治', generation: '18期', initial: '嶺', title: '総合型選抜メンター / 探究活動事務局', region: '沖縄', category: 'research',
+    bgClass: 'bg-gradient-to-br from-kaiho-purple to-indigo-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['探究活動', '進路支援']
+  },
+  {
+    name: '崎原 有希', generation: '19期', initial: '崎', title: '地域価値創造プロデューサー', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-teal to-blue-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['地域創生', '企画']
+  },
+  {
+    name: '知念 拓', generation: '20期', initial: '知', title: '金融（ろうきん）', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['金融', '社会活動']
+  },
+  {
+    name: '砂川 佳慧', generation: '20期', initial: '砂', title: '経営管理 / 研究 / バレエ講師', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-orange to-red-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['経営', '芸術']
+  },
+  {
+    name: '瀬長 卓哉', generation: '24期', initial: '瀬', title: '行政（沖縄県庁）', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['行政', '法務']
+  },
+  {
+    name: '具志 日奈子', generation: '26期', initial: '具', title: 'ゲーム会社ディレクター', region: '沖縄', category: 'tech',
+    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['IT', '制作']
+  },
+  {
+    name: '辺土 百々花', generation: '33期', initial: '辺', title: '芸大生（音楽学） / 学生幹事', region: '沖縄', category: 'arts',
+    bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['音楽', '学生支援']
+  },
+  {
+    name: '我喜屋 奏利', generation: '36期', initial: '我', title: '東大生（ALOHA） / 学生幹事', region: '東京', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['学生支援', '教育']
+  },
+  {
+    name: '宮城 心輝', generation: '36期', initial: '宮', title: '東大生（ALOHA） / 学生幹事', region: '東京', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['学生支援', 'IT']
+  }
+]
+
+const filteredMentors = computed(() => {
+  return mentors.filter(m => {
+    const categoryMatch = activeMentorCategory.value === 'all' || m.category === activeMentorCategory.value
+    const regionMatch = activeMentorRegion.value === 'すべて' || m.region === activeMentorRegion.value
+    return categoryMatch && regionMatch
+  })
+})
+
 function filterMentors(category: string) {
   activeMentorCategory.value = category
 }
 
-function showMentor(category: string): boolean {
-  return activeMentorCategory.value === 'all' || activeMentorCategory.value === category
-}
-
 // ── News items ──
 const newsItems = [
-  { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', isNew: true },
-  { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', isNew: true },
-  { date: '2026.03.01', category: '活動', title: '開邦高校卒業式にて同窓会入会式を実施', isNew: false },
-  { date: '2026.02.20', category: 'お知らせ', title: '開邦雄飛会 新体制発足・運営メンバー募集開始', isNew: false },
-  { date: '2025.12.28', category: 'イベント', title: '第3回大同窓会 開催（参加者537名）・キャリア・クロスロード初開催', isNew: false },
+  { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: true },
+  { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: true },
+  { date: '2026.03.01', category: '活動', title: '開邦高校卒業式にて同窓会入会式を実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
+  { date: '2026.02.20', category: 'お知らせ', title: '開邦雄飛会 新体制発足・運営メンバー募集開始', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
+  { date: '2025.12.28', category: 'イベント', title: '第3回大同窓会 開催（参加者537名）・キャリア・クロスロード初開催', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
 ]
 
 // ── Note Magazine ──
