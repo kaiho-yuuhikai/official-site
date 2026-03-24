@@ -120,7 +120,6 @@
               <NuxtLink to="/about" class="block text-white/60 hover:text-white transition-colors text-sm">理念・方針</NuxtLink>
               <NuxtLink to="/about" class="block text-white/60 hover:text-white transition-colors text-sm">規約</NuxtLink>
               <NuxtLink to="/officers" class="block text-white/60 hover:text-white transition-colors text-sm">役員名簿</NuxtLink>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBLp8iJ515aS5wp-h0yemYyrLa9Fl5DQhfwaD9htwdIXqH2Q/viewform" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">議案募集</a>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">運営メンバー募集</a>
             </div>
           </div>

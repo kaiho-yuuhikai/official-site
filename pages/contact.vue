@@ -93,14 +93,9 @@
 <script setup lang="ts">
 const forms = [
   {
-    title: '議案募集フォーム',
-    description: '雄飛会の活動に関する提案を広く募集しています',
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdBLp8iJ515aS5wp-h0yemYyrLa9Fl5DQhfwaD9htwdIXqH2Q/viewform',
-  },
-  {
-    title: '運営メンバー募集フォーム',
-    description: '雄飛会の運営に興味のある方はこちら',
-    url: 'https://docs.google.com/forms/d/19CDuF8fZy74A3_UN62PzLLbfL-Us-DhvHSloVj8QX6M/edit',
+    title: '参加・支援フォーム（運営・メンター・寄付）',
+    description: '雄飛会への参加（運営・メンター）や寄付・支援の申し出はこちらから',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog',
   },
 ]
 

@@ -57,6 +57,45 @@ test('フッターが表示される', async ({ page }) => {
 })
 
 // ---------------------------------------------------------------------------
+// 収支報告（Financial Report）
+// ---------------------------------------------------------------------------
+
+test('トップページに収支報告セクションが表示される', async ({ page }) => {
+  await page.goto('/')
+  const financeSection = page.locator('#finance')
+  await expect(financeSection).toBeVisible()
+  await expect(financeSection).toContainText('収支報告')
+  await expect(financeSection).toContainText('令和5年度')
+})
+
+test('Aboutページに詳細な収支報告が表示される', async ({ page }) => {
+  await page.goto('/about')
+  const financeTitle = page.locator('h2', { hasText: '収支報告' })
+  await expect(financeTitle).toBeVisible()
+  const table = page.locator('table')
+  await expect(table).toBeVisible()
+  // h3 やテーブル内のテキストを検証
+  await expect(page.locator('h3', { hasText: '決算報告' })).toBeVisible()
+  await expect(table).toContainText('収入合計')
+})
+
+// ---------------------------------------------------------------------------
+// ニュース項目のリンク解除
+// ---------------------------------------------------------------------------
+
+test('トップページのお知らせ項目にリンクが含まれていない', async ({ page }) => {
+  await page.goto('/')
+  const newsItems = page.locator('#news .group')
+  const count = await newsItems.count()
+  for (let i = 0; i < count; i++) {
+    const tagName = await newsItems.nth(i).evaluate(el => el.tagName)
+    expect(tagName.toLowerCase()).not.toBe('a')
+    const links = newsItems.nth(i).locator('a')
+    expect(await links.count()).toBe(0)
+  }
+})
+
+// ---------------------------------------------------------------------------
 // レスポンシブ: モバイル幅で表示が崩れない
 // ---------------------------------------------------------------------------
 
