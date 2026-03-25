@@ -128,24 +128,30 @@
           </div>
 
           <!-- Financial Summary -->
-          <div class="grid md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-              <p class="text-xs text-neutral-500 mb-1">学校保管口座（入会金蓄積）</p>
-              <p class="text-2xl font-black text-neutral-900">約550<span class="text-sm font-bold ml-1">万円</span></p>
+          <div class="bg-neutral-50 rounded-2xl p-12 text-center border border-neutral-100 mb-12">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+              <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             </div>
-            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-              <p class="text-xs text-neutral-500 mb-1">雄飛会手元口座（活動費）</p>
-              <p class="text-2xl font-black text-neutral-900">約235<span class="text-sm font-bold ml-1">万円</span></p>
-            </div>
-            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-              <p class="text-xs text-neutral-500 mb-1">大同窓会収益金（調整中）</p>
-              <p class="text-2xl font-black text-neutral-900">約180<span class="text-sm font-bold ml-1">万円</span></p>
+            <h3 class="text-2xl font-bold text-neutral-900 mb-4">財務概況は会員限定公開です</h3>
+            <p class="text-neutral-500 max-w-md mx-auto leading-relaxed mb-8">
+              雄飛会では、組織運営の透明性とセキュリティの両立のため、具体的な数字を含む財務報告は会員の皆様にのみ公開しております。
+            </p>
+            <div class="bg-white rounded-xl p-6 border border-neutral-200 inline-block text-left">
+              <h4 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-kaiho-green rounded-full"></span>
+                閲覧方法
+              </h4>
+              <ul class="text-xs text-neutral-600 space-y-2">
+                <li>・年次総会での事業報告・決算報告</li>
+                <li>・会員向けメーリングリストでの配布</li>
+                <li>・事務局への個別お問い合わせ（本人確認後）</li>
+              </ul>
             </div>
           </div>
 
           <div class="bg-kaiho-green/5 rounded-2xl p-8 text-center border border-kaiho-green/10">
-            <p class="text-sm text-neutral-600 mb-2">総資産合計（概算）</p>
-            <p class="text-4xl md:text-5xl font-black text-kaiho-green">約965<span class="text-xl ml-1">万円</span></p>
+            <p class="text-sm text-neutral-600 mb-2">現在のフェーズ</p>
+            <p class="text-3xl md:text-4xl font-black text-kaiho-green">財務適正化・透明性向上</p>
             <p class="text-xs text-neutral-400 mt-4 leading-relaxed">
               ※ 2026年6月30日の決算に向けて、適正な管理・運用体制への移行を進めています。
             </p>

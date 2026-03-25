@@ -130,7 +130,7 @@
             <div class="space-y-2">
               <a href="https://www.kaiho-h.open.ed.jp/" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">開邦高校公式サイト</a>
               <a href="https://www.facebook.com/kaihoyuhi/" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Facebook</a>
-              <a href="https://www.instagram.com/kaihoyuuhikai/" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Instagram</a>
+              <a href="https://www.instagram.com/kaihoyuhi?igsh=MTRwdjVrNTNpZnpwcA%3D%3D&utm_source=qr" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Instagram</a>
               <a href="https://note.com/kaihoyuuhikai" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">note マガジン</a>
             </div>
           </div>
