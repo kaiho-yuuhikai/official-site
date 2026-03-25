@@ -302,7 +302,6 @@
             </div>
             <h4 class="font-bold text-neutral-900">{{ mentor.name }}</h4>
             <p class="text-xs text-kaiho-green font-medium mt-1">{{ mentor.generation }}</p>
-            <p class="text-sm text-neutral-500 mt-2">{{ mentor.title }}</p>
             <div class="flex items-center justify-center gap-1 mt-2 text-xs text-neutral-400">
               <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
               {{ mentor.region }}
@@ -458,32 +457,17 @@
               資産概況サマリー（2026年3月時点）
             </h3>
 
-            <div class="grid md:grid-cols-3 gap-6">
-              <!-- Asset 1 -->
-              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
-                <p class="text-xs text-neutral-400 mb-1">学校保管口座</p>
-                <p class="text-xl font-black text-neutral-900">&yen;5,500,000</p>
-                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">卒業時の入会金等の蓄積</p>
+            <div class="py-12 text-center">
+              <div class="w-16 h-16 bg-kaiho-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
               </div>
-              <!-- Asset 2 -->
-              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
-                <p class="text-xs text-neutral-400 mb-1">雄飛会手元口座</p>
-                <p class="text-xl font-black text-neutral-900">&yen;2,350,000</p>
-                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">運営・事業活動費</p>
-              </div>
-              <!-- Asset 3 -->
-              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
-                <p class="text-xs text-neutral-400 mb-1">大同窓会収益金</p>
-                <p class="text-xl font-black text-neutral-900">&yen;1,800,000</p>
-                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">第3回大同窓会純利益（調整中）</p>
-              </div>
+              <h4 class="text-lg font-bold text-neutral-900 mb-2">閲覧制限中</h4>
+              <p class="text-sm text-neutral-500 max-w-sm mx-auto leading-relaxed">
+                財務状況の詳細は、雄飛会会員（卒業生・教職員）のみに公開しております。適正な組織運営のため、ご理解のほどよろしくお願いいたします。
+              </p>
             </div>
 
-            <div class="mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row justify-between items-center gap-6">
-              <div class="text-center md:text-left">
-                <p class="text-xs text-neutral-400 mb-1">資産合計（概算）</p>
-                <p class="text-3xl font-black text-kaiho-green">&yen;9,650,000</p>
-              </div>
+            <div class="mt-8 pt-8 border-t border-neutral-200 text-center">
               <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
                 財務適正化方針を見る
               </NuxtLink>
@@ -783,79 +767,83 @@ interface Mentor {
 
 const mentors: Mentor[] = [
   {
-    name: '上里 直司', generation: '3期', initial: '上', title: '那覇市議会議員', region: '沖縄', category: 'business',
+    name: '上里', generation: '3期', initial: '上', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['政治', '行政']
   },
   {
-    name: '宮里 治', generation: '3期', initial: '宮', title: '投資家 / 元教員', region: '沖縄', category: 'business',
+    name: '宮里', generation: '3期', initial: '宮', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['投資', '教育']
   },
   {
-    name: '宮城 潤', generation: '3期', initial: '宮', title: '若狭公民館館長', region: '沖縄', category: 'education',
+    name: '宮城', generation: '3期', initial: '宮', title: '', region: '沖縄', category: 'education',
     bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['地域教育', '文化']
   },
   {
-    name: '我謝 直也', generation: '4期', initial: '我', title: 'インフラ（沖縄電力）', region: '沖縄', category: 'business',
+    name: '我謝', generation: '4期', initial: '我', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['インフラ', '運営']
   },
   {
-    name: '堀之内 美耶子', generation: '12期', initial: '堀', title: 'グラフィックデザイナー', region: '沖縄', category: 'arts',
+    name: '屋良', generation: '9期', initial: '屋', title: '', region: '沖縄', category: 'business',
+    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['経営', '運営']
+  },
+  {
+    name: '堀之内', generation: '12期', initial: '堀', title: '', region: '沖縄', category: 'arts',
     bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['デザイン', 'アート']
   },
   {
-    name: '国吉 聡志', generation: '13期', initial: '国', title: '沖縄タイムス記者', region: '沖縄', category: 'business',
+    name: '国吉', generation: '13期', initial: '国', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['メディア', '取材']
   },
   {
-    name: '神谷 乗治', generation: '14期', initial: '神', title: 'GScale代表取締役 / SE', region: '沖縄', category: 'tech',
+    name: '神谷', generation: '14期', initial: '神', title: '', region: '沖縄', category: 'tech',
     bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['IT', '起業']
   },
   {
-    name: '又吉 吟', generation: '15期', initial: '又', title: '行政（沖縄県庁）', region: '沖縄', category: 'business',
+    name: '又吉', generation: '15期', initial: '又', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['行政', '運営']
   },
   {
-    name: '上間 祥子', generation: '16期', initial: '上', title: '薬剤師 / 研究', region: '沖縄', category: 'medical',
+    name: '上間', generation: '16期', initial: '上', title: '', region: '沖縄', category: 'medical',
     bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['医療', '研究']
   },
   {
-    name: '泉川 良基', generation: '18期', initial: '泉', title: '球陽高校教員', region: '沖縄', category: 'education',
+    name: '泉川', generation: '18期', initial: '泉', title: '', region: '沖縄', category: 'education',
     bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['教育', '人材育成']
   },
   {
-    name: '嶺井 健治', generation: '18期', initial: '嶺', title: '総合型選抜メンター / 探究活動事務局', region: '沖縄', category: 'research',
+    name: '嶺井', generation: '18期', initial: '嶺', title: '', region: '沖縄', category: 'research',
     bgClass: 'bg-gradient-to-br from-kaiho-purple to-indigo-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['探究活動', '進路支援']
   },
   {
-    name: '崎原 有希', generation: '19期', initial: '崎', title: '地域価値創造プロデューサー', region: '沖縄', category: 'business',
+    name: '崎原', generation: '19期', initial: '崎', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-teal to-blue-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['地域創生', '企画']
   },
   {
-    name: '知念 拓', generation: '20期', initial: '知', title: '金融（ろうきん）', region: '沖縄', category: 'business',
+    name: '知念', generation: '20期', initial: '知', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['金融', '社会活動']
   },
   {
-    name: '砂川 佳慧', generation: '20期', initial: '砂', title: '経営管理 / 研究 / バレエ講師', region: '沖縄', category: 'business',
+    name: '砂川', generation: '20期', initial: '砂', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-orange to-red-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['経営', '芸術']
   },
   {
-    name: '瀬長 卓哉', generation: '24期', initial: '瀬', title: '行政（沖縄県庁）', region: '沖縄', category: 'business',
+    name: '瀬長', generation: '24期', initial: '瀬', title: '', region: '沖縄', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['行政', '法務']
   },
   {
-    name: '具志 日奈子', generation: '26期', initial: '具', title: 'ゲーム会社ディレクター', region: '沖縄', category: 'tech',
+    name: '具志', generation: '26期', initial: '具', title: '', region: '沖縄', category: 'tech',
     bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['IT', '制作']
   },
   {
-    name: '辺土 百々花', generation: '33期', initial: '辺', title: '芸大生（音楽学） / 学生幹事', region: '沖縄', category: 'arts',
+    name: '辺土', generation: '33期', initial: '辺', title: '', region: '沖縄', category: 'arts',
     bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['音楽', '学生支援']
   },
   {
-    name: '我喜屋 奏利', generation: '36期', initial: '我', title: '東大生（ALOHA） / 学生幹事', region: '東京', category: 'business',
+    name: '我喜屋', generation: '36期', initial: '我', title: '', region: '東京', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['学生支援', '教育']
   },
   {
-    name: '宮城 心輝', generation: '36期', initial: '宮', title: '東大生（ALOHA） / 学生幹事', region: '東京', category: 'business',
+    name: '宮城', generation: '36期', initial: '宮', title: '', region: '東京', category: 'business',
     bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['学生支援', 'IT']
   }
 ]

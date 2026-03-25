@@ -16,102 +16,27 @@
     <section class="py-24 bg-white">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <div class="bg-white rounded-3xl shadow-xl border border-neutral-100 overflow-hidden fade-in">
-          <div class="p-8 md:p-12">
-            <form @submit.prevent="submitForm" class="space-y-8">
-              <!-- 基本情報 -->
-              <div class="space-y-6">
-                <h3 class="text-lg font-bold text-neutral-900 border-l-4 border-kaiho-blue pl-4">基本情報</h3>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-bold text-neutral-700 mb-2">お名前 <span class="text-red-500">*</span></label>
-                    <input type="text" required v-model="form.name" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all">
-                  </div>
-                  <div>
-                    <label class="block text-sm font-bold text-neutral-700 mb-2">卒業期 <span class="text-red-500">*</span></label>
-                    <select required v-model="form.generation" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all">
-                      <option value="" disabled>選択してください</option>
-                      <option v-for="i in 40" :key="i" :value="i">{{ i }}期</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-neutral-700 mb-2">メールアドレス <span class="text-red-500">*</span></label>
-                  <input type="email" required v-model="form.email" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all" placeholder="example@mail.com">
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-neutral-700 mb-2">現住所（都道府県・海外など） <span class="text-red-500">*</span></label>
-                  <input type="text" required v-model="form.region" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all" placeholder="例：沖縄県、東京都、アメリカ合衆国など">
-                </div>
-              </div>
-
-              <!-- 専門・キャリア情報 -->
-              <div class="space-y-6 pt-8 border-t border-neutral-100">
-                <h3 class="text-lg font-bold text-neutral-900 border-l-4 border-kaiho-blue pl-4">専門・キャリア情報</h3>
-                
-                <div>
-                  <label class="block text-sm font-bold text-neutral-700 mb-2">職業・肩書き <span class="text-red-500">*</span></label>
-                  <input type="text" required v-model="form.title" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all" placeholder="例：ITエンジニア、医師、公務員、大学院生など">
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-neutral-700 mb-2">専門分野（複数選択可） <span class="text-red-500">*</span></label>
-                  <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <label v-for="cat in categories" :key="cat.value" class="flex items-center gap-2 p-3 rounded-xl border border-neutral-100 hover:bg-neutral-50 cursor-pointer transition-colors">
-                      <input type="checkbox" v-model="form.expertise" :value="cat.value" class="w-4 h-4 text-kaiho-blue rounded border-neutral-300 focus:ring-kaiho-blue">
-                      <span class="text-sm text-neutral-700">{{ cat.label }}</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-neutral-700 mb-2">キャリアや経験の概要</label>
-                  <textarea v-model="form.bio" rows="4" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-kaiho-blue focus:ring-2 focus:ring-kaiho-blue/20 outline-none transition-all" placeholder="後輩たちに伝えたい経験や、現在の活動について簡単にご記入ください。"></textarea>
-                </div>
-              </div>
-
-              <!-- サポート内容 -->
-              <div class="space-y-6 pt-8 border-t border-neutral-100">
-                <h3 class="text-lg font-bold text-neutral-900 border-l-4 border-kaiho-blue pl-4">可能なサポート内容</h3>
-                
-                <div class="space-y-3">
-                  <label v-for="support in supportTypes" :key="support.id" class="flex items-start gap-3 p-4 rounded-xl border border-neutral-100 hover:bg-neutral-50 cursor-pointer transition-colors">
-                    <input type="checkbox" v-model="form.supports" :value="support.id" class="mt-1 w-4 h-4 text-kaiho-blue rounded border-neutral-300 focus:ring-kaiho-blue">
-                    <div>
-                      <span class="block text-sm font-bold text-neutral-900">{{ support.label }}</span>
-                      <span class="block text-xs text-neutral-500 mt-1">{{ support.description }}</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-              <div class="pt-8">
-                <button type="submit" :disabled="submitting" class="w-full py-4 bg-kaiho-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 flex items-center justify-center gap-3">
-                  <svg v-if="submitting" class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-                  <span>{{ submitting ? '送信中...' : '登録内容を送信する' }}</span>
-                </button>
-                <p class="text-center text-xs text-neutral-400 mt-4 leading-relaxed">
-                  送信された内容は雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
-                  個人情報はメンター活動の目的以外には使用いたしません。
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <!-- Success Message (hidden by default) -->
-        <div v-if="submitted" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm">
-          <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl scale-in">
+          <div class="p-8 md:p-12 text-center">
             <div class="w-20 h-20 bg-kaiho-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <svg class="w-10 h-10 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
-            <h2 class="text-2xl font-black text-neutral-900 mb-2">送信完了！</h2>
-            <p class="text-neutral-500 text-sm mb-8">メンター登録へのご協力ありがとうございます。事務局より順次ご連絡を差し上げます。</p>
-            <NuxtLink to="/" class="block w-full py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors">
-              トップページに戻る
-            </NuxtLink>
+            <h2 class="text-2xl font-black text-neutral-900 mb-4">Googleフォームで登録する</h2>
+            <p class="text-neutral-500 mb-8 leading-relaxed">
+              メンター登録（入学期の入力等）は、以下の外部Googleフォームより受け付けております。<br>
+              お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
+            </p>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBztK-V7H795yXqhakLZcqWMnH2QUE4auiE99N3cToM4eAnw/viewform?usp=publish-editor" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl gap-3 w-full sm:w-auto">
+              <span>登録フォームを開く</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+
+            <p class="text-xs text-neutral-400 mt-8 leading-relaxed">
+              ※ 送信された内容は雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
+              個人情報はメンター活動の目的以外には使用いたしません。
+            </p>
           </div>
         </div>
       </div>
