@@ -73,7 +73,7 @@
               </li>
               <li class="flex items-start gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                <span>同窓会に関わる人材の裾野を広げる</span>
+                <span>同窓会に関わる人材の裾野を広げる（ゆるやかな参加の仕組み）</span>
               </li>
             </ul>
           </div>
@@ -111,107 +111,44 @@
       </div>
     </section>
 
-    <!-- 収支報告 -->
+    <!-- 財務状況 -->
     <section class="py-24 bg-neutral-50 border-t border-neutral-100">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Financial Report</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">収支報告</h2>
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Financial Status</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">財務状況</h2>
           <div class="section-divider" style="margin:0"></div>
         </div>
 
         <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <div class="prose prose-neutral max-w-none mb-12">
             <p class="text-neutral-700 leading-relaxed">
-              雄飛会では、会員の皆様からお預かりした寄付金および基金の透明性を確保するため、毎年度の収支決算を公開しています。会計年度は毎年4月1日から翌年3月31日までとし、役員会による承認および監事による監査を経て、総会および公式サイトにて報告を行います。
+              雄飛会では、次世代への円滑なバトンタッチと組織の透明性確保のため、財務状況の適正化を進めています。2026年3月時点の資産概況は以下の通りです。現在、過去6年間の収支整理を進めており、2026年度の総会にて正式に報告・承認を行う予定です。
             </p>
           </div>
 
-          <!-- Summary Table -->
-          <div class="space-y-12">
-            <div>
-              <h3 class="text-lg font-bold text-neutral-900 mb-6 flex items-center gap-2">
-                <span class="w-1.5 h-6 bg-kaiho-green rounded-full"></span>
-                令和5年度（2023年度）決算報告
-              </h3>
-              
-              <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left">
-                  <thead class="text-xs text-neutral-400 uppercase tracking-wider border-b border-neutral-100">
-                    <tr>
-                      <th class="py-4 font-medium">項目</th>
-                      <th class="py-4 font-medium text-right">金額（円）</th>
-                      <th class="py-4 font-medium px-4">備考</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-neutral-100">
-                    <tr class="group">
-                      <td class="py-4 font-bold text-neutral-900" colspan="3">【収入の部】</td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">前年度繰越金</td>
-                      <td class="py-4 text-right font-medium">2,807,519</td>
-                      <td class="py-4 px-4 text-neutral-400"></td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">寄付金収入</td>
-                      <td class="py-4 text-right font-medium">1,613,018</td>
-                      <td class="py-4 px-4 text-neutral-400 text-xs">第3回大同窓会での寄付金を含む</td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">利息収入</td>
-                      <td class="py-4 text-right font-medium">0</td>
-                      <td class="py-4 px-4 text-neutral-400"></td>
-                    </tr>
-                    <tr class="bg-neutral-50/50">
-                      <td class="py-4 pl-4 font-bold text-neutral-900">収入合計</td>
-                      <td class="py-4 text-right font-bold text-kaiho-green">4,420,537</td>
-                      <td class="py-4 px-4"></td>
-                    </tr>
-
-                    <tr class="group">
-                      <td class="py-4 font-bold text-neutral-900" colspan="3">【支出の部】</td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">事業費</td>
-                      <td class="py-4 text-right font-medium">980,000</td>
-                      <td class="py-4 px-4 text-neutral-400 text-xs">大同窓会開催費用、キャリクロ運営等</td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">在校生支援金</td>
-                      <td class="py-4 text-right font-medium">300,000</td>
-                      <td class="py-4 px-4 text-neutral-400 text-xs">探究活動助成、部活動支援等</td>
-                    </tr>
-                    <tr>
-                      <td class="py-4 pl-4 text-neutral-600">事務局運営費</td>
-                      <td class="py-4 text-right font-medium">74,200</td>
-                      <td class="py-4 px-4 text-neutral-400 text-xs">通信費、会議費、サイト維持費等</td>
-                    </tr>
-                    <tr class="bg-neutral-50/50">
-                      <td class="py-4 pl-4 font-bold text-neutral-900">支出合計</td>
-                      <td class="py-4 text-right font-bold text-kaiho-purple">1,354,200</td>
-                      <td class="py-4 px-4"></td>
-                    </tr>
-
-                    <tr class="bg-kaiho-green/5">
-                      <td class="py-4 pl-4 font-bold text-kaiho-green text-base">次年度繰越金</td>
-                      <td class="py-4 text-right font-black text-kaiho-green text-lg">3,066,337</td>
-                      <td class="py-4 px-4"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <!-- Financial Summary -->
+          <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
+              <p class="text-xs text-neutral-500 mb-1">学校保管口座（入会金蓄積）</p>
+              <p class="text-2xl font-black text-neutral-900">約550<span class="text-sm font-bold ml-1">万円</span></p>
             </div>
-
-            <div class="bg-neutral-50 rounded-xl p-6 border border-neutral-100 flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-              </div>
-              <p class="text-xs text-neutral-500 leading-relaxed">
-                ※ 令和5年度決算については、2026年3月の役員会において承認されました。<br>
-                ※ 雄飛会基金（特別活動基金）への寄付金は、全額が指定された事業（在校生支援・芸術支援等）に充てられます。
-              </p>
+            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
+              <p class="text-xs text-neutral-500 mb-1">雄飛会手元口座（活動費）</p>
+              <p class="text-2xl font-black text-neutral-900">約235<span class="text-sm font-bold ml-1">万円</span></p>
             </div>
+            <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
+              <p class="text-xs text-neutral-500 mb-1">大同窓会収益金（調整中）</p>
+              <p class="text-2xl font-black text-neutral-900">約180<span class="text-sm font-bold ml-1">万円</span></p>
+            </div>
+          </div>
+
+          <div class="bg-kaiho-green/5 rounded-2xl p-8 text-center border border-kaiho-green/10">
+            <p class="text-sm text-neutral-600 mb-2">総資産合計（概算）</p>
+            <p class="text-4xl md:text-5xl font-black text-kaiho-green">約965<span class="text-xl ml-1">万円</span></p>
+            <p class="text-xs text-neutral-400 mt-4 leading-relaxed">
+              ※ 2026年6月30日の決算に向けて、適正な管理・運用体制への移行を進めています。
+            </p>
           </div>
         </div>
       </div>
@@ -255,24 +192,24 @@ const toggleBylaw = (index: number) => {
 
 const policies = [
   {
-    title: '在校生への教育支援',
-    description: '特別活動基金やメンター制度を通じて、在校生の学びと成長を支援します。',
+    title: '学校・先生方の負担軽減',
+    description: '多忙な教職員の皆様をサポートし、学校現場の負担を減らす視点を持って活動します。',
   },
   {
-    title: '同窓生ネットワークの構築・維持',
-    description: '世代や地域を越えたつながりを構築し、定期的な交流の場を設けます。',
+    title: '在校生への教育支援・ICT活用',
+    description: '特別活動基金やメンター制度、ICT活用を通じて、生徒の探究活動と成長を支援します。',
   },
   {
-    title: '学校・地域への貢献',
-    description: '母校と沖縄の地域社会の発展に貢献する活動を行います。',
+    title: '同窓生ネットワークの「ゆるやかな」構築',
+    description: '世代や地域を越え、興味のある人がプロジェクト単位で気軽に参加できる仕組みを創ります。',
+  },
+  {
+    title: '地域社会への貢献',
+    description: '道路ボランティア清掃など、PTAや生徒と協力して地域に根ざした活動を行います。',
   },
   {
     title: '次世代リーダーの育成',
     description: 'キャリア・クロスロードなどを通じて、未来を担う人材の育成に取り組みます。',
-  },
-  {
-    title: '支部を通じた全国・海外展開',
-    description: '東京・関西・海外の各支部を通じて、全国的なネットワークを展開します。',
   },
 ]
 
@@ -287,26 +224,30 @@ const bylawSections = [
   },
   {
     title: '第3章 役員',
-    content: '役員構成の見直しを検討中です。\n\n【改定の方向性】\n・役員体制の若返りを図る\n・引継ぎが自然にできる仕組みにする\n・実態に合った、無理のない体制にする\n\n※ 詳細は改定案を審議中です。',
+    content: '役員構成の見直しを検討中です。\n\n【改定の方向性】\n・ピラミッド型からプロジェクト型組織への移行\n・役員体制の若返りを図る（実務リーダーを10期〜20期以降へ）\n・引継ぎが自然にできる仕組みにする\n\n※ 詳細は改定案を審議中です。',
   },
   {
     title: '第4章 総会',
-    content: '総会の開催・議決・定足数について規定します。\n\n※ 詳細は改定案を審議中です。',
+    content: '総会のリブランディング（交流メイン）やウェブ総会の導入を検討しています。\n\n※ 詳細は改定案を審議中です。',
   },
   {
     title: '第5章 会計',
-    content: '会計年度・収支報告・監査について規定します。\n\n※ 詳細は改定案を審議中です。',
+    content: '会計年度・収支報告・監査について規定します。資産の適正な引き継ぎを目指します。\n\n※ 詳細は改定案を審議中です。',
   },
 ]
 
 const timeline = [
   { year: '1986年', title: '沖縄県立開邦高等学校 開校' },
-  { year: '1989年', title: '第1期生 卒業' },
-  { year: '2015年', title: '第1回 大同窓会 開催', description: '創立30周年記念' },
-  { year: '2020年', title: '第2回 大同窓会 開催', description: '創立35周年記念' },
-  { year: '2025年12月', title: '第3回 大同窓会 開催', description: '創立40周年記念。参加者537名。キャリア・クロスロード初開催（メンター40名超、在校生22名）。' },
-  { year: '2026年2月', title: '雄飛会 新体制準備開始', description: '新事業アンケート実施。会則改定案の策定。27名の運営メンバーが参画。' },
-  { year: '2026年3月', title: '同窓会入会式・PTA連携開始', description: '卒業式にて同窓会入会式を実施。PTA連携による道路ボランティア清掃を初実施。公式サイト開設。' },
+  { year: '1989年', title: '開邦雄飛会 設立', description: '第1期生 卒業。初代 赤嶺太一会長 就任。' },
+  { year: '2006年', title: '雄飛会 再始動', description: '「弁が岳の集い」（ななさんどー）に合わせて活動を本格再開。今年で再始動20周年。' },
+  { year: '2010年', title: '第2代 上里直司会長 就任' },
+  { year: '2011年', title: '創立記念日 特別授業 開始', description: '同窓生講師による授業。現在も続くメイン活動。' },
+  { year: '2014年', title: '雄飛会 設立25周年記念パーティ 開催' },
+  { year: '2015年', title: '第1回 大同窓会 開催', description: '創立30周年記念。' },
+  { year: '2018年', title: '第2回 大同窓会 開催', description: '創立35周年記念。' },
+  { year: '2019年7月', title: '令和元年度 雄飛会総会 開催', description: '那覇市泉崎にて開催。以降、コロナ禍により中断。' },
+  { year: '2025年12月', title: '第3回 大同窓会 開催', description: '創立40周年記念。参加者537名。キャリア・クロスロード初開催。' },
+  { year: '2026年3月', title: '組織再編会議・ボランティア開始', description: '若狭公民館にて活性化会議を開催。那覇市と協定を結び、PTA・生徒合同の道路ボランティア清掃を初実施。' },
 ]
 
 onMounted(() => {

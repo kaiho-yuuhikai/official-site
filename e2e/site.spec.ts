@@ -57,26 +57,38 @@ test('フッターが表示される', async ({ page }) => {
 })
 
 // ---------------------------------------------------------------------------
-// 収支報告（Financial Report）
+// 財務状況（Financial Status）
 // ---------------------------------------------------------------------------
 
-test('トップページに収支報告セクションが表示される', async ({ page }) => {
+test('トップページに財務状況セクションが表示される', async ({ page }) => {
   await page.goto('/')
   const financeSection = page.locator('#finance')
   await expect(financeSection).toBeVisible()
-  await expect(financeSection).toContainText('収支報告')
-  await expect(financeSection).toContainText('令和5年度')
+  await expect(financeSection).toContainText('財務状況')
+  await expect(financeSection).toContainText('資産概況')
 })
 
-test('Aboutページに詳細な収支報告が表示される', async ({ page }) => {
+test('Aboutページに詳細な財務状況が表示される', async ({ page }) => {
   await page.goto('/about')
-  const financeTitle = page.locator('h2', { hasText: '収支報告' })
+  const financeTitle = page.locator('h2', { hasText: '財務状況' })
   await expect(financeTitle).toBeVisible()
-  const table = page.locator('table')
-  await expect(table).toBeVisible()
-  // h3 やテーブル内のテキストを検証
-  await expect(page.locator('h3', { hasText: '決算報告' })).toBeVisible()
-  await expect(table).toContainText('収入合計')
+  
+  // 資産概況のカードまたはテキストを確認
+  await expect(page.locator('body')).toContainText('学校保管口座')
+  await expect(page.locator('body')).toContainText('雄飛会手元口座')
+  await expect(page.locator('body')).toContainText('資産合計')
+})
+
+// ---------------------------------------------------------------------------
+// メンター登録
+// ---------------------------------------------------------------------------
+
+test('メンター登録ページが表示され、フォームが存在する', async ({ page }) => {
+  await page.goto('/mentor/registration')
+  await expect(page.locator('h1')).toContainText('メンター登録')
+  await expect(page.locator('form')).toBeVisible()
+  await expect(page.locator('input[type="text"]').first()).toBeVisible()
+  await expect(page.locator('input[type="email"]')).toBeVisible()
 })
 
 // ---------------------------------------------------------------------------

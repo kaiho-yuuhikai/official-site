@@ -93,9 +93,16 @@
 <script setup lang="ts">
 const forms = [
   {
-    title: '参加・支援フォーム（運営・メンター・寄付）',
-    description: '雄飛会への参加（運営・メンター）や寄付・支援の申し出はこちらから',
+    title: 'メンター登録フォーム',
+    description: 'あなたの経験を後輩に伝えるメンターとして登録いただけます（サイト内フォーム）',
+    url: '/mentor/registration',
+    internal: true,
+  },
+  {
+    title: '参加・支援フォーム（運営・寄付）',
+    description: '雄飛会への参加（運営）や寄付・支援の申し出はこちらから',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog',
+    internal: false,
   },
 ]
 
