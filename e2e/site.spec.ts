@@ -11,6 +11,7 @@ const pages = [
   { path: '/officers', name: '役員一覧' },
   { path: '/news', name: 'お知らせ' },
   { path: '/privacy', name: 'プライバシーポリシー' },
+  { path: '/terms', name: '利用規約' },
   { path: '/blog/career-crossroads-manual', name: 'キャリクロ運営マニュアル' },
 ]
 
