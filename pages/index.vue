@@ -323,9 +323,9 @@
             </div>
             <h4 class="font-bold text-kaiho-green">メンターになる</h4>
             <p class="text-xs text-neutral-500 mt-2">あなたの経験を<br>後輩に共有しませんか？</p>
-            <a href="#" class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors">
+            <NuxtLink to="/mentor/registration" class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors">
               登録する <span>&rarr;</span>
-            </a>
+            </NuxtLink>
           </div>
         </div>
 
@@ -414,7 +414,7 @@
         <!-- Donor benefits -->
         <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 fade-in">
           <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">寄付者特典</h3>
-          <div class="grid sm:grid-cols-3 gap-6">
+          <div class="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/></svg>
@@ -422,15 +422,6 @@
               <div>
                 <h4 class="font-bold text-sm text-neutral-900">活動報告会への招待</h4>
                 <p class="text-xs text-neutral-500 mt-1">電子チケットを配布します</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-sm text-neutral-900">年次報告書の送付</h4>
-                <p class="text-xs text-neutral-500 mt-1">基金の使途を透明に報告</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -455,8 +446,8 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Finance</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">収支報告</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">雄飛会の活動を支える資金の使途を公開しています</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">財務状況</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">雄飛会の活動を支える資産概況を公開しています</p>
           <div class="section-divider mt-6"></div>
         </div>
 
@@ -464,62 +455,37 @@
           <div class="bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
             <h3 class="text-xl font-bold text-neutral-900 mb-8 flex items-center gap-2">
               <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-              令和5年度（2023年度）収支決算サマリー
+              資産概況サマリー（2026年3月時点）
             </h3>
 
-            <div class="grid md:grid-cols-2 gap-12">
-              <!-- Income -->
-              <div>
-                <h4 class="text-sm font-bold text-kaiho-green uppercase tracking-wider mb-4 flex items-center justify-between">
-                  <span>収入の部</span>
-                  <span class="text-neutral-900">&yen;4,420,537</span>
-                </h4>
-                <div class="space-y-3">
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">前年度繰越金</span>
-                    <span class="font-medium">&yen;2,807,519</span>
-                  </div>
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">寄付金（大同窓会等）</span>
-                    <span class="font-medium">&yen;1,613,018</span>
-                  </div>
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">受取利息</span>
-                    <span class="font-medium">&yen;0</span>
-                  </div>
-                </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <!-- Asset 1 -->
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+                <p class="text-xs text-neutral-400 mb-1">学校保管口座</p>
+                <p class="text-xl font-black text-neutral-900">&yen;5,500,000</p>
+                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">卒業時の入会金等の蓄積</p>
               </div>
-
-              <!-- Expenses -->
-              <div>
-                <h4 class="text-sm font-bold text-kaiho-purple uppercase tracking-wider mb-4 flex items-center justify-between">
-                  <span>支出の部</span>
-                  <span class="text-neutral-900">&yen;1,354,200</span>
-                </h4>
-                <div class="space-y-3">
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">事業費（大同窓会開催等）</span>
-                    <span class="font-medium">&yen;980,000</span>
-                  </div>
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">在校生支援金</span>
-                    <span class="font-medium">&yen;300,000</span>
-                  </div>
-                  <div class="flex justify-between text-sm border-b border-neutral-200 pb-2">
-                    <span class="text-neutral-600">事務局運営費</span>
-                    <span class="font-medium">&yen;74,200</span>
-                  </div>
-                </div>
+              <!-- Asset 2 -->
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+                <p class="text-xs text-neutral-400 mb-1">雄飛会手元口座</p>
+                <p class="text-xl font-black text-neutral-900">&yen;2,350,000</p>
+                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">運営・事業活動費</p>
+              </div>
+              <!-- Asset 3 -->
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+                <p class="text-xs text-neutral-400 mb-1">大同窓会収益金</p>
+                <p class="text-xl font-black text-neutral-900">&yen;1,800,000</p>
+                <p class="text-[10px] text-neutral-400 mt-2 leading-tight">第3回大同窓会純利益（調整中）</p>
               </div>
             </div>
 
             <div class="mt-12 pt-8 border-t border-neutral-200 flex flex-col md:flex-row justify-between items-center gap-6">
               <div class="text-center md:text-left">
-                <p class="text-xs text-neutral-400 mb-1">次年度繰越金</p>
-                <p class="text-3xl font-black text-kaiho-green">&yen;3,066,337</p>
+                <p class="text-xs text-neutral-400 mb-1">資産合計（概算）</p>
+                <p class="text-3xl font-black text-kaiho-green">&yen;9,650,000</p>
               </div>
               <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
-                詳細な会計報告を見る
+                財務適正化方針を見る
               </NuxtLink>
             </div>
           </div>
@@ -747,14 +713,14 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in">
           <!-- CTA 1 -->
-          <a href="#" class="card-hover block bg-gradient-to-br from-kaiho-blue to-blue-600 rounded-2xl p-8 text-white text-center">
+          <NuxtLink to="/mentor/registration" class="card-hover block bg-gradient-to-br from-kaiho-blue to-blue-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#129309;</div>
             <h3 class="text-lg font-bold mb-2">メンター登録</h3>
             <p class="text-white/80 text-sm mb-4">あなたの経験を後輩に</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
               登録フォーム &rarr;
             </span>
-          </a>
+          </NuxtLink>
 
           <!-- CTA 2 -->
           <a href="#" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
