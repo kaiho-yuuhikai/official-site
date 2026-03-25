@@ -150,7 +150,10 @@
           <p class="text-white/30 text-xs tracking-wider">
             &copy; {{ new Date().getFullYear() }} 開邦雄飛会 All Rights Reserved.
           </p>
-          <NuxtLink to="/privacy" class="text-white/30 hover:text-white/60 text-xs transition-colors">プライバシーポリシー</NuxtLink>
+          <div class="flex gap-6">
+            <NuxtLink to="/terms" class="text-white/30 hover:text-white/60 text-xs transition-colors">利用規約</NuxtLink>
+            <NuxtLink to="/privacy" class="text-white/30 hover:text-white/60 text-xs transition-colors">プライバシーポリシー</NuxtLink>
+          </div>
         </div>
       </div>
     </footer>
