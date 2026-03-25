@@ -80,14 +80,14 @@
 
         <!-- Mobile Menu -->
         <div class="mobile-menu lg:hidden" :class="{ open: mobileMenuOpen }">
-          <div class="bg-white rounded-b-xl shadow-xl py-4 px-4 space-y-3 -mx-6">
+          <div class="bg-white rounded-b-xl shadow-xl py-4 px-4 space-y-3">
             <NuxtLink to="/" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">Home</NuxtLink>
             <NuxtLink to="/about" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">開邦雄飛会について</NuxtLink>
             <a href="/#projects" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">事業・プロジェクト</a>
             <a href="/#mentor" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">メンター制度</a>
             <a href="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">基金・寄付</a>
             <a href="/#news" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お知らせ</a>
-            <a href="/#archive" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">アーカイブ</a>
+            <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">アーカイブ</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
             <NuxtLink to="/contact" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせ</NuxtLink>
           </div>
