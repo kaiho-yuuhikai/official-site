@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: '沖縄県立開邦高等学校の同窓会「雄飛会」公式サイト。メンター制度、特別活動基金、キャリア・クロスロードなど、在校生と卒業生をつなぐ活動を展開しています。' },
+        { name: 'description', content: '沖縄県立開邦高等学校の同窓会「雄飛会」公式サイト。メンター制度、雄飛会支援基金、キャリア・クロスロードなど、在校生と卒業生をつなぐ活動を展開しています。' },
         { property: 'og:site_name', content: '開邦高校同窓会 雄飛会' },
         { property: 'og:title', content: '開邦高校同窓会 雄飛会 | 公式サイト' },
         { property: 'og:description', content: '沖縄県立開邦高等学校の同窓会「雄飛会」公式サイト。在校生と卒業生をつなぐ活動を展開しています。' },

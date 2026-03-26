@@ -103,7 +103,7 @@
             </div>
             <h3 class="text-xl font-bold mb-3 text-neutral-900">在校生・同窓生支援</h3>
             <p class="text-neutral-600 text-sm leading-relaxed">
-              特別活動基金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
+              雄飛会支援基金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
             </p>
           </div>
 
@@ -146,7 +146,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-          <!-- Project 1: 特別活動基金 -->
+          <!-- Project 1: 雄飛会支援基金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-purple to-purple-400"></div>
             <div class="p-8">
@@ -156,7 +156,7 @@
                 </div>
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">特別活動基金</h3>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">雄飛会支援基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動を資金面から支援。研究費やフィールドワークの費用を助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
