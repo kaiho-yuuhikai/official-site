@@ -157,14 +157,14 @@
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">雄飛会支援基金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動を資金面から支援。研究費やフィールドワークの費用を助成します。</p>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動・部活動および芸術科アーティストの活動を資金面から支援・助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
-                  <span>達成率</span>
-                  <span class="font-bold text-kaiho-purple">78%</span>
+                  <span>達成率（目標¥1,000万）</span>
+                  <span class="font-bold text-kaiho-purple">16.1%</span>
                 </div>
                 <div class="w-full bg-neutral-100 rounded-full h-2.5">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-2.5 rounded-full" style="width: 0%" data-width="78%"></div>
+                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-2.5 rounded-full" style="width: 0%" data-width="16.1%"></div>
                 </div>
               </div>
               <a href="#fund" class="inline-flex items-center gap-2 text-kaiho-purple text-sm font-bold hover:gap-3 transition-all">
@@ -392,15 +392,15 @@
             <div class="p-8">
               <h3 class="text-xl font-bold text-neutral-900 mb-2">雄飛会 支援基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動や部活動、さらに芸術分野で活躍する同窓生アーティストの活動を幅広く支援します。寄付金は、雄飛会が責任を持って各支援事業に適切に配分いたします。
+                在校生の探究活動・部活動および芸術科アーティストの活動を幅広く支援します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
               </p>
               <div class="mb-4">
                 <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;1,613,018 / &yen;2,000,000</span>
-                  <span class="font-bold text-kaiho-purple">80.6%</span>
+                  <span class="text-neutral-500">&yen;1,613,018 / &yen;10,000,000</span>
+                  <span class="font-bold text-kaiho-purple">16.1%</span>
                 </div>
                 <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="80.6%"></div>
+                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="16.1%"></div>
                 </div>
               </div>
               <button class="w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors">

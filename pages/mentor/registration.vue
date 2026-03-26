@@ -26,7 +26,7 @@
               お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
             </p>
             
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBztK-V7H795yXqhakLZcqWMnH2QUE4auiE99N3cToM4eAnw/viewform?usp=publish-editor" 
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
                target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl gap-3 w-full sm:w-auto">
               <span>登録フォームを開く</span>
@@ -45,44 +45,6 @@
 </template>
 
 <script setup lang="ts">
-const submitting = ref(false)
-const submitted = ref(false)
-
-const form = reactive({
-  name: '',
-  generation: '',
-  email: '',
-  region: '',
-  title: '',
-  expertise: [],
-  bio: '',
-  supports: []
-})
-
-const categories = [
-  { value: 'business', label: 'ビジネス・起業' },
-  { value: 'research', label: '研究・学術' },
-  { value: 'arts', label: '芸術・文化' },
-  { value: 'tech', label: 'IT・テクノロジー' },
-  { value: 'medical', label: '医療・福祉' },
-  { value: 'education', label: '教育・行政' },
-]
-
-const supportTypes = [
-  { id: 'lecture', label: '特設授業での講話', description: '母校でのキャリア講演や実社会の経験談' },
-  { id: 'inquiry', label: '探究活動アドバイス', description: '生徒の研究テーマへの助言・フィードバック' },
-  { id: 'consultation', label: 'オンライン相談', description: '進路や専門分野に関する個別・グループ相談' },
-  { id: 'internship', label: 'インターン受入', description: '職場見学や短期インターンの受け入れ検討' }
-]
-
-const submitForm = async () => {
-  submitting.value = true
-  // 実際の実装ではここでAPIを叩く
-  await new Promise(resolve => setTimeout(resolve, 1500))
-  submitting.value = false
-  submitted.value = true
-}
-
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
