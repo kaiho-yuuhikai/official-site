@@ -16,137 +16,38 @@
     <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
 
-        <!-- 送信完了メッセージ -->
-        <div v-if="submitted" class="mb-12 fade-in">
-          <div class="bg-kaiho-green/10 border border-kaiho-green/20 rounded-2xl p-8 text-center">
-            <div class="w-16 h-16 bg-kaiho-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-neutral-900 mb-2">お問い合わせを受け付けました</h3>
-            <p class="text-neutral-600 text-sm">メールクライアントが開きましたら、内容をご確認の上お送りください。<br>通常3〜5営業日以内にご返信いたします。</p>
-            <button @click="submitted = false" class="mt-6 text-sm text-kaiho-green hover:text-kaiho-green-dark font-medium transition-colors">
-              別のお問い合わせをする →
-            </button>
-          </div>
+        <!-- フォームヘッダー -->
+        <div class="mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Contact Form</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">お問い合わせフォーム</h2>
+          <div class="section-divider" style="margin:0"></div>
         </div>
 
-        <div v-else>
-          <!-- フォームヘッダー -->
-          <div class="mb-12 fade-in">
-            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Contact Form</p>
-            <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">お問い合わせフォーム</h2>
-            <div class="section-divider" style="margin:0"></div>
+        <!-- Google フォームカード -->
+        <div class="bg-white rounded-3xl shadow-xl border border-neutral-100 overflow-hidden fade-in mb-12">
+          <div class="p-8 md:p-12 text-center">
+            <div class="w-20 h-20 bg-kaiho-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h2 class="text-2xl font-black text-neutral-900 mb-4">Googleフォームでお問い合わせ</h2>
+            <p class="text-neutral-500 mb-8 leading-relaxed">
+              お問い合わせは、以下の外部Googleフォームより受け付けております。<br>
+              お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-green text-white font-bold rounded-xl hover:bg-kaiho-green-dark transition-all shadow-lg hover:shadow-xl gap-3 w-full sm:w-auto">
+              <span>お問い合わせフォームを開く</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+
+            <p class="text-xs text-neutral-400 mt-8 leading-relaxed">
+              ※ 送信された内容は雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
+              個人情報はお問い合わせへの対応以外には使用いたしません。詳しくは<NuxtLink to="/privacy" class="text-kaiho-green hover:underline">プライバシーポリシー</NuxtLink>をご覧ください。
+            </p>
           </div>
-
-          <!-- フォーム -->
-          <form @submit.prevent="handleSubmit" class="space-y-6 fade-in">
-            <!-- お名前 -->
-            <div>
-              <label for="name" class="block text-sm font-bold text-neutral-900 mb-2">
-                お名前 <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="name"
-                v-model="form.name"
-                type="text"
-                required
-                placeholder="山田 太郎"
-                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-kaiho-green/30 focus:border-kaiho-green transition-colors"
-              />
-            </div>
-
-            <!-- メールアドレス -->
-            <div>
-              <label for="email" class="block text-sm font-bold text-neutral-900 mb-2">
-                メールアドレス <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="email"
-                v-model="form.email"
-                type="email"
-                required
-                placeholder="example@email.com"
-                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-kaiho-green/30 focus:border-kaiho-green transition-colors"
-              />
-            </div>
-
-            <!-- お問い合わせ種別 -->
-            <div>
-              <label for="category" class="block text-sm font-bold text-neutral-900 mb-2">
-                お問い合わせ種別 <span class="text-red-500">*</span>
-              </label>
-              <select
-                id="category"
-                v-model="form.category"
-                required
-                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-kaiho-green/30 focus:border-kaiho-green transition-colors bg-white"
-              >
-                <option value="" disabled>選択してください</option>
-                <option value="general">一般的なお問い合わせ</option>
-                <option value="mentor">メンター制度について</option>
-                <option value="fund">雄飛会支援基金・寄付について</option>
-                <option value="event">イベント・活動について</option>
-                <option value="membership">会員・入会について</option>
-                <option value="media">取材・メディア関係</option>
-                <option value="other">その他</option>
-              </select>
-            </div>
-
-            <!-- 件名 -->
-            <div>
-              <label for="subject" class="block text-sm font-bold text-neutral-900 mb-2">
-                件名 <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="subject"
-                v-model="form.subject"
-                type="text"
-                required
-                placeholder="お問い合わせの件名"
-                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-kaiho-green/30 focus:border-kaiho-green transition-colors"
-              />
-            </div>
-
-            <!-- メッセージ -->
-            <div>
-              <label for="message" class="block text-sm font-bold text-neutral-900 mb-2">
-                メッセージ <span class="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                v-model="form.message"
-                required
-                rows="6"
-                placeholder="お問い合わせ内容をご記入ください"
-                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-kaiho-green/30 focus:border-kaiho-green transition-colors resize-none"
-              ></textarea>
-            </div>
-
-            <!-- 注記 -->
-            <div class="bg-neutral-50 rounded-xl p-4 text-xs text-neutral-500 leading-relaxed">
-              <p>送信ボタンを押すと、メールクライアントが開きます。内容をご確認の上、お送りください。</p>
-              <p class="mt-1">ご入力いただいた情報は、お問い合わせへの対応のみに利用します。詳しくは<NuxtLink to="/privacy" class="text-kaiho-green hover:underline">プライバシーポリシー</NuxtLink>をご覧ください。</p>
-            </div>
-
-            <!-- 送信ボタン -->
-            <div class="flex justify-end">
-              <button
-                type="submit"
-                class="inline-flex items-center gap-3 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                メールで送信する
-              </button>
-            </div>
-          </form>
         </div>
-
-        <!-- 区切り -->
-        <div class="my-20 border-t border-neutral-100"></div>
 
         <!-- SNS連絡先 -->
         <div class="mb-16 fade-in">
@@ -195,7 +96,8 @@
         <div class="mb-16 fade-in">
           <h3 class="text-lg font-bold text-neutral-900 mb-6">各種応募・申請フォーム</h3>
           <div class="space-y-4">
-            <a v-for="form in forms" :key="form.title"
+            <!-- 通常フォーム -->
+            <a v-for="form in forms.filter(f => !f.comingSoon)" :key="form.title"
                :href="form.url" :target="form.internal ? undefined : '_blank'" :rel="form.internal ? undefined : 'noopener noreferrer'"
                class="card-hover flex items-center justify-between p-6 bg-white border border-neutral-200 rounded-2xl hover:border-kaiho-green transition-all duration-200">
               <div>
@@ -206,6 +108,20 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
+            <!-- 準備中フォーム -->
+            <div v-for="form in forms.filter(f => f.comingSoon)" :key="form.title"
+               class="flex items-center justify-between p-6 bg-neutral-50 border border-neutral-200 rounded-2xl opacity-60 cursor-not-allowed">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold text-neutral-500 text-sm">{{ form.title }}</h4>
+                  <span class="text-xs bg-neutral-200 text-neutral-500 px-2 py-0.5 rounded-full font-bold">準備中</span>
+                </div>
+                <p class="text-xs text-neutral-400">{{ form.description }}</p>
+              </div>
+              <svg class="w-5 h-5 text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -230,52 +146,27 @@
 </template>
 
 <script setup lang="ts">
-const submitted = ref(false)
-
-const form = reactive({
-  name: '',
-  email: '',
-  category: '',
-  subject: '',
-  message: '',
-})
-
-const categoryLabels: Record<string, string> = {
-  general: '一般的なお問い合わせ',
-  mentor: 'メンター制度について',
-  fund: '雄飛会支援基金・寄付について',
-  event: 'イベント・活動について',
-  membership: '会員・入会について',
-  media: '取材・メディア関係',
-  other: 'その他',
-}
-
-const handleSubmit = () => {
-  const to = 'info@kaiho-yuuhikai.jp'
-  const subject = encodeURIComponent(`[雄飛会お問い合わせ] ${form.subject}`)
-  const body = encodeURIComponent(
-    `【お名前】${form.name}\n` +
-    `【メールアドレス】${form.email}\n` +
-    `【種別】${categoryLabels[form.category] || form.category}\n\n` +
-    `【お問い合わせ内容】\n${form.message}\n\n` +
-    `---\n開邦雄飛会公式サイト お問い合わせフォームより`
-  )
-  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`
-  submitted.value = true
-}
-
 const forms = [
   {
     title: 'メンター登録フォーム',
     description: 'あなたの経験を後輩に伝えるメンターとして登録いただけます（サイト内フォーム）',
     url: '/mentor/registration',
     internal: true,
+    comingSoon: false,
   },
   {
-    title: '参加・支援フォーム（運営・寄付）',
-    description: '雄飛会への参加（運営）や寄付・支援の申し出はこちらから',
+    title: '運営メンバー参加フォーム',
+    description: '雄飛会の運営・活動に参加したい方はこちらから',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog',
     internal: false,
+    comingSoon: false,
+  },
+  {
+    title: '寄付・支援フォーム',
+    description: '雄飛会支援基金への寄付・支援の申し出はこちら（受付準備中）',
+    url: '',
+    internal: false,
+    comingSoon: true,
   },
 ]
 

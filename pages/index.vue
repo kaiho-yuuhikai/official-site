@@ -36,9 +36,9 @@
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             メンター・運営に参加
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border-2 border-kaiho-gold text-kaiho-gold font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300">
-            寄付・支援をする
-          </a>
+          <span class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white/40 font-bold rounded-full cursor-not-allowed">
+            寄付・支援をする（準備中）
+          </span>
         </div>
 
         <!-- Stats Counter -->
@@ -403,9 +403,9 @@
                   <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="16.1%"></div>
                 </div>
               </div>
-              <button class="w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors">
-                支援基金に寄付する
-              </button>
+              <div class="w-full py-3 bg-neutral-100 text-neutral-400 font-bold rounded-xl text-center text-sm cursor-not-allowed">
+                寄付フォーム 準備中
+              </div>
             </div>
           </div>
         </div>
@@ -707,14 +707,14 @@
           </NuxtLink>
 
           <!-- CTA 2 -->
-          <a href="#" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
+          <div class="block bg-gradient-to-br from-kaiho-purple/50 to-purple-600/50 rounded-2xl p-8 text-white text-center opacity-70">
             <div class="text-4xl mb-4">&#128157;</div>
             <h3 class="text-lg font-bold mb-2">寄付・基金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
-            <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              寄付する &rarr;
+            <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full cursor-not-allowed">
+              準備中
             </span>
-          </a>
+          </div>
 
           <!-- CTA 3 -->
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
