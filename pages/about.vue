@@ -98,14 +98,6 @@
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-3">
-            <a href="https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit"
-               target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-sm text-kaiho-green font-bold hover:text-kaiho-green-dark transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-              会則改定案 全文（Google Docs）
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -142,7 +134,6 @@
               </h4>
               <ul class="text-xs text-neutral-600 space-y-2">
                 <li>・年次総会での事業報告・決算報告</li>
-                <li>・会員向けメーリングリストでの配布</li>
                 <li>・事務局への個別お問い合わせ（本人確認後）</li>
               </ul>
             </div>
