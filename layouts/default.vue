@@ -16,53 +16,67 @@
           </NuxtLink>
 
           <!-- Desktop Nav -->
-          <div class="hidden lg:flex items-center space-x-8">
+          <div class="hidden lg:flex items-center space-x-7">
             <NuxtLink to="/" class="nav-link text-sm tracking-wider transition-colors"
                       :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
               Home
             </NuxtLink>
-            <NuxtLink to="/about" class="nav-link text-sm tracking-wider transition-colors"
-                      :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
-              About
-            </NuxtLink>
             <div class="nav-group relative">
-              <a href="/#projects" class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
+              <NuxtLink to="/about" class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
                  :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
-                Projects <span class="text-[10px]">&#9660;</span>
-              </a>
+                About <span class="text-[10px]">&#9660;</span>
+              </NuxtLink>
               <div class="nav-dropdown absolute top-full left-0 pt-2 w-48">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <a href="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">基金・寄付</a>
-                  <a href="/#mentor" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">メンター制度</a>
-                  <a href="/#projects" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">同窓生交流活動</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">イベント企画</a>
+                  <NuxtLink to="/about#philosophy" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">理念・方針</NuxtLink>
+                  <NuxtLink to="/about#bylaws" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">会則</NuxtLink>
+                  <NuxtLink to="/about#history" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">沿革</NuxtLink>
+                  <NuxtLink to="/officers" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">役員名簿</NuxtLink>
                 </div>
               </div>
             </div>
-            <a href="/#mentor" class="nav-link text-sm tracking-wider transition-colors"
+            <div class="nav-group relative">
+              <NuxtLink to="/#projects" class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
+                 :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
+                Projects <span class="text-[10px]">&#9660;</span>
+              </NuxtLink>
+              <div class="nav-dropdown absolute top-full left-0 pt-2 w-52">
+                <div class="bg-white rounded-lg shadow-xl py-2 border">
+                  <NuxtLink to="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">雄飛会支援基金</NuxtLink>
+                  <NuxtLink to="/#mentor" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">メンター制度</NuxtLink>
+                  <NuxtLink to="/#projects" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">同窓生交流活動</NuxtLink>
+                  <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリア・クロスロード</NuxtLink>
+                </div>
+              </div>
+            </div>
+            <NuxtLink to="/#mentor" class="nav-link text-sm tracking-wider transition-colors"
                :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
               Mentor
-            </a>
-            <a href="/#fund" class="nav-link text-sm tracking-wider transition-colors"
+            </NuxtLink>
+            <NuxtLink to="/#fund" class="nav-link text-sm tracking-wider transition-colors"
                :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
               Fund
-            </a>
-            <a href="/#news" class="nav-link text-sm tracking-wider transition-colors"
+            </NuxtLink>
+            <NuxtLink to="/#news" class="nav-link text-sm tracking-wider transition-colors"
                :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
               News
-            </a>
+            </NuxtLink>
             <div class="nav-group relative">
-              <a href="/#archive" class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
+              <span class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
                  :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
                 Archive <span class="text-[10px]">&#9660;</span>
-              </a>
+              </span>
               <div class="nav-dropdown absolute top-full right-0 pt-2 w-56">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <a href="/#archive" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">第3回大同窓会</a>
+                  <a href="https://kaiho-yuuhikai.jp/" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">第3回大同窓会サイト ↗</a>
                   <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリクロ運営マニュアル</NuxtLink>
                 </div>
               </div>
             </div>
+            <NuxtLink to="/contact" class="nav-link text-sm tracking-wider transition-colors"
+               :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
+              Contact
+            </NuxtLink>
           </div>
 
           <!-- Mobile Menu Button -->
@@ -83,11 +97,12 @@
           <div class="bg-white rounded-b-xl shadow-xl py-4 px-4 space-y-3">
             <NuxtLink to="/" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">Home</NuxtLink>
             <NuxtLink to="/about" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">開邦雄飛会について</NuxtLink>
-            <a href="/#projects" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">事業・プロジェクト</a>
-            <a href="/#mentor" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">メンター制度</a>
-            <a href="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">基金・寄付</a>
-            <a href="/#news" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お知らせ</a>
-            <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">アーカイブ</NuxtLink>
+            <NuxtLink to="/#projects" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">事業・プロジェクト</NuxtLink>
+            <NuxtLink to="/#mentor" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">メンター制度</NuxtLink>
+            <NuxtLink to="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">基金・寄付</NuxtLink>
+            <NuxtLink to="/#news" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お知らせ</NuxtLink>
+            <a href="https://kaiho-yuuhikai.jp/" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">第3回大同窓会サイト ↗</a>
+            <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">キャリクロ運営マニュアル</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
             <NuxtLink to="/contact" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせ</NuxtLink>
           </div>
@@ -117,8 +132,8 @@
           <div>
             <p class="text-xs font-bold tracking-widest uppercase text-white/30 mb-4">開邦雄飛会について</p>
             <div class="space-y-2">
-              <NuxtLink to="/about" class="block text-white/60 hover:text-white transition-colors text-sm">理念・方針</NuxtLink>
-              <NuxtLink to="/about" class="block text-white/60 hover:text-white transition-colors text-sm">規約</NuxtLink>
+              <NuxtLink to="/about#philosophy" class="block text-white/60 hover:text-white transition-colors text-sm">理念・方針</NuxtLink>
+              <NuxtLink to="/about#bylaws" class="block text-white/60 hover:text-white transition-colors text-sm">規約</NuxtLink>
               <NuxtLink to="/officers" class="block text-white/60 hover:text-white transition-colors text-sm">役員名簿</NuxtLink>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">運営メンバー募集</a>
             </div>

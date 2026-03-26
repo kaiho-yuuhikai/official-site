@@ -21,10 +21,10 @@
           <aside class="hidden lg:block">
             <nav class="sticky top-24 space-y-1">
               <p class="text-xs font-bold tracking-widest uppercase text-neutral-400 mb-3">目次</p>
-              <a v-for="item in toc" :key="item.id" :href="'#' + item.id"
+              <NuxtLink v-for="item in toc" :key="item.id" :to="'#' + item.id"
                  class="block py-1.5 text-[13px] text-neutral-500 hover:text-kaiho-green border-l-2 border-transparent hover:border-kaiho-green pl-3 transition-all leading-snug">
                 {{ item.label }}
-              </a>
+              </NuxtLink>
             </nav>
           </aside>
 
@@ -33,10 +33,10 @@
             <details class="bg-neutral-50 rounded-xl border">
               <summary class="px-5 py-4 text-sm font-bold text-neutral-700 cursor-pointer">目次を表示</summary>
               <nav class="px-5 pb-4 space-y-1">
-                <a v-for="item in toc" :key="'m-' + item.id" :href="'#' + item.id"
+                <NuxtLink v-for="item in toc" :key="'m-' + item.id" :to="'#' + item.id"
                    class="block py-1.5 text-sm text-kaiho-green">
                   {{ item.label }}
-                </a>
+                </NuxtLink>
               </nav>
             </details>
           </div>

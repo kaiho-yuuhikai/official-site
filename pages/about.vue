@@ -12,7 +12,7 @@
     </section>
 
     <!-- 理念・目的 -->
-    <section class="py-24 bg-white">
+    <section id="philosophy" class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Philosophy</p>
@@ -43,7 +43,7 @@
     </section>
 
     <!-- 会則 -->
-    <section class="py-24 bg-neutral-50">
+    <section id="bylaws" class="py-24 bg-neutral-50">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Bylaws</p>
@@ -112,7 +112,7 @@
     </section>
 
     <!-- 財務状況 -->
-    <section class="py-24 bg-neutral-50 border-t border-neutral-100">
+    <section id="finance" class="py-24 bg-neutral-50 border-t border-neutral-100">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Financial Status</p>
@@ -161,7 +161,7 @@
     </section>
 
     <!-- 沿革 -->
-    <section class="py-24 bg-white">
+    <section id="history" class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">History</p>
@@ -203,7 +203,7 @@ const policies = [
   },
   {
     title: '在校生への教育支援・ICT活用',
-    description: '特別活動基金やメンター制度、ICT活用を通じて、生徒の探究活動と成長を支援します。',
+    description: '雄飛会支援基金やメンター制度、ICT活用を通じて、生徒の探究活動と成長を支援します。',
   },
   {
     title: '同窓生ネットワークの「ゆるやかな」構築',
