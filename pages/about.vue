@@ -7,7 +7,7 @@
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">About</p>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">雄飛会について</h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">開邦雄飛会について</h1>
       </div>
     </section>
 
@@ -22,7 +22,7 @@
 
         <div class="prose prose-neutral max-w-none fade-in">
           <p class="text-lg text-neutral-700 leading-relaxed mb-8">
-            「雄飛」&#8212; 大きく羽ばたくこと。開邦高校同窓会「雄飛会」は、
+            「雄飛」&#8212; 大きく羽ばたくこと。開邦高校同窓会「開邦雄飛会」は、
             卒業生と在校生、そして学校をつなぐ架け橋として活動しています。
           </p>
 
@@ -53,10 +53,10 @@
 
         <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <p class="text-neutral-600 text-sm leading-relaxed mb-6">
-            雄飛会の会則は現在改定案を策定中です。改定の基本方針は以下のとおりです。
+            開邦雄飛会の会則は現在改定案を策定中です。改定の基本方針は以下のとおりです。
           </p>
 
-          <div class="bg-kaiho-green/5 rounded-xl p-6 mb-6">
+          <div class="bg-kaiho-green/5 rounded-xl p-6 mb-8">
             <h4 class="font-bold text-neutral-900 text-sm mb-3">会則改定の方針</h4>
             <ul class="space-y-2 text-sm text-neutral-600">
               <li class="flex items-start gap-2">
@@ -78,33 +78,32 @@
             </ul>
           </div>
 
-          <div class="space-y-4">
-            <div v-for="(section, i) in bylawSections" :key="i" class="border border-neutral-200 rounded-lg">
-              <button
-                @click="toggleBylaw(i)"
-                class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-neutral-50 transition-colors"
-              >
-                <span class="font-bold text-neutral-900 text-sm">{{ section.title }}</span>
-                <svg
-                  class="w-5 h-5 text-neutral-400 transition-transform duration-200"
-                  :class="{ 'rotate-180': openBylaw === i }"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div v-if="openBylaw === i" class="px-6 pb-4">
-                <p class="text-sm text-neutral-600 leading-relaxed whitespace-pre-line">{{ section.content }}</p>
-              </div>
+          <!-- 組織図案 -->
+          <div class="mb-8">
+            <div class="flex items-center gap-3 mb-4">
+              <h4 class="font-bold text-neutral-900 text-sm">新会則 組織体制案（2026年3月策定）</h4>
+              <span class="bg-kaiho-gold/20 text-kaiho-gold text-xs font-bold px-2.5 py-1 rounded-full">案</span>
             </div>
+            <p class="text-xs text-neutral-500 mb-4">代表幹事制（役員会議・2年任期）・脱ピラミッド型　約10名規模</p>
+            <div class="border border-neutral-200 rounded-xl overflow-hidden">
+              <img
+                :src="`${config.app.baseURL}images/org-chart-2026.jpg`"
+                alt="開邦雄飛会 組織図（新会則案）2026年3月策定"
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-xs text-neutral-400 mt-3 text-center">
+              ※ この組織図は改定案であり、2026年度総会での承認を経て正式に発効します。
+            </p>
           </div>
 
-          <div class="mt-6 flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3">
             <a href="https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit"
                target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 text-sm text-kaiho-green font-bold hover:text-kaiho-green-dark transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-              会則改定案（Google Docs）
+              会則改定案 全文（Google Docs）
             </a>
           </div>
         </div>
@@ -123,7 +122,7 @@
         <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <div class="prose prose-neutral max-w-none mb-12">
             <p class="text-neutral-700 leading-relaxed">
-              雄飛会では、次世代への円滑なバトンタッチと組織の透明性確保のため、財務状況の適正化を進めています。2026年3月時点の資産概況は以下の通りです。現在、過去6年間の収支整理を進めており、2026年度の総会にて正式に報告・承認を行う予定です。
+              開邦雄飛会では、次世代への円滑なバトンタッチと組織の透明性確保のため、財務状況の適正化を進めています。2026年3月時点の資産概況は以下の通りです。現在、過去6年間の収支整理を進めており、2026年度の総会にて正式に報告・承認を行う予定です。
             </p>
           </div>
 
@@ -134,7 +133,7 @@
             </div>
             <h3 class="text-2xl font-bold text-neutral-900 mb-4">財務概況は会員限定公開です</h3>
             <p class="text-neutral-500 max-w-md mx-auto leading-relaxed mb-8">
-              雄飛会では、組織運営の透明性とセキュリティの両立のため、具体的な数字を含む財務報告は会員の皆様にのみ公開しております。
+              開邦雄飛会では、組織運営の透明性とセキュリティの両立のため、具体的な数字を含む財務報告は会員の皆様にのみ公開しております。
             </p>
             <div class="bg-white rounded-xl p-6 border border-neutral-200 inline-block text-left">
               <h4 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
@@ -190,11 +189,7 @@
 </template>
 
 <script setup lang="ts">
-const openBylaw = ref<number | null>(null)
-
-const toggleBylaw = (index: number) => {
-  openBylaw.value = openBylaw.value === index ? null : index
-}
+const config = useRuntimeConfig()
 
 const policies = [
   {
@@ -216,29 +211,6 @@ const policies = [
   {
     title: '次世代リーダーの育成',
     description: 'キャリア・クロスロードなどを通じて、未来を担う人材の育成に取り組みます。',
-  },
-]
-
-const bylawSections = [
-  {
-    title: '第1章 総則（名称・所在地・目的・事業）',
-    content: '第1条（名称）本会は開邦雄飛会と称する。\n第2条（所在地）本会の所在地は沖縄県立開邦高等学校内に置く。ただし、役員会の決議により変更することができる。\n第3条（目的）本会は会員相互の親睦を図るとともに、母校の発展に寄与することを目的とする。\n第4条（事業）本会は前条の目的を達成するため、必要な事業を行う。',
-  },
-  {
-    title: '第2章 会員',
-    content: '第5条（会員）本会は卒業生及び本会の目的に賛同する者をもって会員とする。\n\n※ 詳細は改定案を審議中です。',
-  },
-  {
-    title: '第3章 役員',
-    content: '役員構成の見直しを検討中です。\n\n【改定の方向性】\n・ピラミッド型からプロジェクト型組織への移行\n・役員体制の若返りを図る（実務リーダーを10期〜20期以降へ）\n・引継ぎが自然にできる仕組みにする\n\n※ 詳細は改定案を審議中です。',
-  },
-  {
-    title: '第4章 総会',
-    content: '総会のリブランディング（交流メイン）やウェブ総会の導入を検討しています。\n\n※ 詳細は改定案を審議中です。',
-  },
-  {
-    title: '第5章 会計',
-    content: '会計年度・収支報告・監査について規定します。資産の適正な引き継ぎを目指します。\n\n※ 詳細は改定案を審議中です。',
   },
 ]
 
