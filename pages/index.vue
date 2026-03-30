@@ -145,7 +145,7 @@
           <div class="section-divider mt-6"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
           <!-- Project 1: 雄飛会支援基金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-purple to-purple-400"></div>
@@ -247,7 +247,34 @@
               </a>
             </div>
           </div>
+
+          <!-- Project 5: 創立記念特設授業 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">開催報告</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">創立記念特設授業</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">卒業生講師が母校を訪れ、キャリアの歩みを在校生に届ける授業。2011年から続くメイン活動。</p>
+              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
+                <div class="flex items-center gap-2 flex-wrap gap-y-1">
+                  <span class="text-xs text-neutral-500">2025年10月31日 新校舎にて開催</span>
+                </div>
+                <p class="text-xs text-neutral-500 mt-1">中高生 50分 × 2クラス講演</p>
+              </div>
+              <NuxtLink to="/activities/special-lecture" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
+                詳しく見る <span>&rarr;</span>
+              </NuxtLink>
+            </div>
+          </div>
         </div>
+
+
+
       </div>
     </section>
 
