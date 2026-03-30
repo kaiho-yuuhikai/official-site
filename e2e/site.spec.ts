@@ -13,6 +13,7 @@ const pages = [
   { path: '/privacy', name: 'プライバシーポリシー' },
   { path: '/terms', name: '利用規約' },
   { path: '/blog/career-crossroads-manual', name: 'キャリクロ運営マニュアル' },
+  { path: '/news/soukai', name: '令和8年度定期総会' },
 ]
 
 for (const page of pages) {
