@@ -55,7 +55,22 @@
           <h2 class="text-3xl font-black tracking-tight mb-6">その他のご連絡方法</h2>
           <div class="section-divider" style="margin:0 0 2rem"></div>
 
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- メール -->
+            <div class="card-hover bg-gradient-to-br from-kaiho-gold/5 to-amber-50 rounded-2xl p-8 border border-kaiho-gold/10">
+              <div class="w-12 h-12 rounded-2xl bg-kaiho-gold/10 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-neutral-900 mb-2">メール（広報担当）</h3>
+              <p class="text-sm text-neutral-600 mb-4">取材・メディア関係のお問い合わせはこちら。</p>
+              <a href="mailto:kaihoyuuhikai@gmail.com"
+                 class="inline-flex items-center gap-2 text-sm text-kaiho-gold font-bold hover:text-amber-600 transition-colors break-all">
+                kaihoyuuhikai@gmail.com
+              </a>
+            </div>
+
             <!-- SNS -->
             <div class="card-hover bg-gradient-to-br from-kaiho-blue/5 to-blue-50 rounded-2xl p-8 border border-kaiho-blue/10">
               <div class="w-12 h-12 rounded-2xl bg-kaiho-blue/10 flex items-center justify-center mb-4">
