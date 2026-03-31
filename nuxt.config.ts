@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   ],
 
   app: {
-    baseURL: '/official-site/',
+    baseURL: '/',
     head: {
       htmlAttrs: {
         lang: 'ja'
