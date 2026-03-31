@@ -358,6 +358,9 @@
             </div>
           </div>
         </div>
+
+        <!-- 注意書き -->
+        <p class="text-xs text-neutral-400 text-center mt-8 fade-in">※ メンターとして具体的な活動は、開邦雄飛会が本人の了承を得たうえで確定します</p>
       </div>
     </section>
 
@@ -635,7 +638,7 @@
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto fade-in">
           <!-- 大同窓会 Archive -->
-          <a href="#" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+          <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 bg-gradient-to-br from-kaiho-green-dark to-kaiho-green flex items-center justify-center relative overflow-hidden">
               <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
               <div class="text-center relative z-10">
@@ -653,6 +656,23 @@
               <div class="flex items-center justify-between">
                 <p class="text-neutral-500 text-sm">開催報告・登壇者・協賛企業・アンケート分析</p>
                 <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 第2回 大同窓会 Archive -->
+          <a href="https://yuhikai.amebaownd.com/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+            <div class="h-56 bg-gradient-to-br from-kaiho-teal to-teal-500 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
+              <div class="text-center relative z-10">
+                <h3 class="text-3xl font-black text-white mb-2">第2回 大同窓会</h3>
+                <p class="text-white/80 font-medium">開邦高校同窓会</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between">
+                <p class="text-neutral-500 text-sm">開催報告・アーカイブ</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-teal transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </div>
             </div>
           </a>
