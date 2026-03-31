@@ -291,67 +291,44 @@
           <div class="section-divider mt-6"></div>
         </div>
 
-        <!-- Category Filter -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
-          <button
-            v-for="cat in mentorCategories"
-            :key="cat.value"
-            class="mentor-tag px-4 py-2 rounded-full text-sm font-medium"
-            :class="activeMentorCategory === cat.value ? 'bg-kaiho-green text-white' : 'bg-neutral-100 text-neutral-600'"
-            @click="filterMentors(cat.value)"
-          >
-            {{ cat.label }}
-          </button>
-        </div>
-
-        <!-- Region Filter -->
-        <div class="flex justify-center gap-2 mb-12 fade-in">
-          <span class="text-xs text-neutral-400 mr-2 self-center">地域:</span>
-          <button
-            v-for="region in mentorRegions"
-            :key="region"
-            class="text-xs px-3 py-1.5 rounded-full font-medium transition-colors"
-            :class="activeMentorRegion === region ? 'bg-kaiho-teal/10 text-kaiho-teal' : 'bg-neutral-50 text-neutral-500 hover:bg-kaiho-teal/10 hover:text-kaiho-teal'"
-            @click="activeMentorRegion = region"
-          >
-            {{ region }}
-          </button>
-        </div>
-
-        <!-- Mentor Cards -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-          <!-- Mentor Card (Loop) -->
-          <div v-for="mentor in filteredMentors" :key="mentor.name"
-               class="card-hover bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 flex flex-col items-center">
-            <div class="w-20 h-20 rounded-full mb-4 flex items-center justify-center text-white text-2xl font-black shadow-inner"
-                 :class="mentor.bgClass">
-              {{ mentor.initial }}
+        <!-- Mentors grouped by category -->
+        <div class="space-y-8 fade-in">
+          <div v-for="group in mentorsByCategory" :key="group.value">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-bold tracking-widest uppercase text-kaiho-blue">{{ group.label }}</span>
+              <span class="text-xs text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-full">{{ group.mentors.length }}名</span>
+              <div class="flex-1 h-px bg-neutral-100"></div>
             </div>
-            <h4 class="font-bold text-neutral-900">{{ mentor.name }}</h4>
-            <p class="text-xs text-kaiho-green font-medium mt-1">{{ mentor.generation }}</p>
-            <div class="flex items-center justify-center gap-1 mt-2 text-xs text-neutral-400">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              {{ mentor.region }}
-            </div>
-            <div class="flex flex-wrap justify-center gap-1 mt-3">
-              <span v-for="tag in mentor.tags" :key="tag"
-                    class="text-[10px] px-2 py-0.5 rounded-full"
-                    :class="mentor.tagClass">
-                {{ tag }}
-              </span>
+            <div class="flex flex-wrap gap-2">
+              <div v-for="mentor in group.mentors" :key="mentor.name + mentor.generation"
+                   class="inline-flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-neutral-100 hover:border-kaiho-blue/30 transition-colors">
+                <span class="text-[10px] font-medium text-neutral-400">{{ mentor.generation }}</span>
+                <span class="font-bold text-neutral-900 text-sm">{{ mentor.name }}</span>
+                <div class="flex gap-1">
+                  <span v-for="tag in mentor.tags" :key="tag"
+                        class="text-[10px] px-1.5 py-0.5 rounded-full"
+                        :class="mentor.tagClass">{{ tag }}</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Mentor Placeholder -->
-          <div class="card-hover bg-gradient-to-br from-kaiho-green/5 to-kaiho-blue/5 rounded-2xl p-6 text-center border-2 border-dashed border-kaiho-green/30 flex flex-col items-center justify-center min-h-[240px]">
-            <div class="w-20 h-20 bg-kaiho-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+          <!-- Become a mentor -->
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-bold tracking-widest uppercase text-kaiho-green">参加する</span>
+              <div class="flex-1 h-px bg-neutral-100"></div>
             </div>
-            <h4 class="font-bold text-kaiho-green">メンターになる</h4>
-            <p class="text-xs text-neutral-500 mt-2">あなたの経験を<br>後輩に共有しませんか？</p>
-            <NuxtLink to="/mentor/registration" class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors">
-              登録する <span>&rarr;</span>
-            </NuxtLink>
+            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-kaiho-green/5 to-kaiho-blue/5 rounded-xl px-5 py-3 border-2 border-dashed border-kaiho-green/30">
+              <svg class="w-5 h-5 text-kaiho-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              <div>
+                <span class="font-bold text-kaiho-green text-sm">メンターになる</span>
+                <span class="text-xs text-neutral-500 ml-2">あなたの経験を後輩に共有しませんか？</span>
+              </div>
+              <NuxtLink to="/mentor/registration" class="text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors flex-shrink-0">
+                登録する &rarr;
+              </NuxtLink>
+            </div>
           </div>
         </div>
 
@@ -754,129 +731,58 @@
 const particlesRef = ref<HTMLElement | null>(null)
 const heroStatsRef = ref<HTMLElement | null>(null)
 
-// ── Mentor filter state ──
-const activeMentorCategory = ref('all')
-const activeMentorRegion = ref('すべて')
-
-const mentorCategories = [
-  { value: 'all', label: 'すべて' },
-  { value: 'business', label: 'ビジネス・起業' },
-  { value: 'research', label: '研究・学術' },
-  { value: 'arts', label: '芸術・文化' },
-  { value: 'tech', label: 'IT・テクノロジー' },
-  { value: 'medical', label: '医療・福祉' },
-  { value: 'education', label: '教育' },
-]
-
-const mentorRegions = ['すべて', '沖縄', '東京', '関西', '海外']
-
 // ── Mentor data ──
 interface Mentor {
   name: string
   generation: string
-  initial: string
   title: string
   region: string
   category: string
-  bgClass: string
   tagClass: string
   tags: string[]
 }
 
+const mentorCategoryLabels: Record<string, string> = {
+  business: 'ビジネス・起業',
+  tech: 'IT・テクノロジー',
+  medical: '医療・福祉',
+  education: '教育',
+  research: '研究・学術',
+  arts: '芸術・文化',
+}
+
 const mentors: Mentor[] = [
-  {
-    name: '上里', generation: '3期', initial: '上', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['政治', '行政']
-  },
-  {
-    name: '宮里', generation: '3期', initial: '宮', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['投資', '教育']
-  },
-  {
-    name: '宮城', generation: '3期', initial: '宮', title: '', region: '沖縄', category: 'education',
-    bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['地域教育', '文化']
-  },
-  {
-    name: '我謝', generation: '4期', initial: '我', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['インフラ', '運営']
-  },
-  {
-    name: '屋良', generation: '9期', initial: '屋', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['経営', '運営']
-  },
-  {
-    name: '堀之内', generation: '12期', initial: '堀', title: '', region: '沖縄', category: 'arts',
-    bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['デザイン', 'アート']
-  },
-  {
-    name: '国吉', generation: '13期', initial: '国', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['メディア', '取材']
-  },
-  {
-    name: '神谷', generation: '14期', initial: '神', title: '', region: '沖縄', category: 'tech',
-    bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['IT', '起業']
-  },
-  {
-    name: '又吉', generation: '15期', initial: '又', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-orange to-amber-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['行政', '運営']
-  },
-  {
-    name: '上間', generation: '16期', initial: '上', title: '', region: '沖縄', category: 'medical',
-    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['医療', '研究']
-  },
-  {
-    name: '泉川', generation: '18期', initial: '泉', title: '', region: '沖縄', category: 'education',
-    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['教育', '人材育成']
-  },
-  {
-    name: '嶺井', generation: '18期', initial: '嶺', title: '', region: '沖縄', category: 'research',
-    bgClass: 'bg-gradient-to-br from-kaiho-purple to-indigo-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['探究活動', '進路支援']
-  },
-  {
-    name: '崎原', generation: '19期', initial: '崎', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-teal to-blue-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['地域創生', '企画']
-  },
-  {
-    name: '知念', generation: '20期', initial: '知', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-teal to-emerald-400', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['金融', '社会活動']
-  },
-  {
-    name: '砂川', generation: '20期', initial: '砂', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-orange to-red-400', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['経営', '芸術']
-  },
-  {
-    name: '瀬長', generation: '24期', initial: '瀬', title: '', region: '沖縄', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['行政', '法務']
-  },
-  {
-    name: '具志', generation: '26期', initial: '具', title: '', region: '沖縄', category: 'tech',
-    bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['IT', '制作']
-  },
-  {
-    name: '辺土', generation: '33期', initial: '辺', title: '', region: '沖縄', category: 'arts',
-    bgClass: 'bg-gradient-to-br from-kaiho-purple to-pink-400', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['音楽', '学生支援']
-  },
-  {
-    name: '我喜屋', generation: '36期', initial: '我', title: '', region: '東京', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['学生支援', '教育']
-  },
-  {
-    name: '宮城', generation: '36期', initial: '宮', title: '', region: '東京', category: 'business',
-    bgClass: 'bg-gradient-to-br from-kaiho-blue to-indigo-400', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['学生支援', 'IT']
-  }
+  { name: '上里', generation: '3期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['政治', '行政'] },
+  { name: '宮里', generation: '3期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['投資', '教育'] },
+  { name: '宮城', generation: '3期', title: '', region: '沖縄', category: 'education', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['地域教育', '文化'] },
+  { name: '我謝', generation: '4期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['インフラ', '運営'] },
+  { name: '屋良', generation: '9期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['経営', '運営'] },
+  { name: '堀之内', generation: '12期', title: '', region: '沖縄', category: 'arts', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['デザイン', 'アート'] },
+  { name: '国吉', generation: '13期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['メディア', '取材'] },
+  { name: '神谷', generation: '14期', title: '', region: '沖縄', category: 'tech', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['IT', '起業'] },
+  { name: '又吉', generation: '15期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['行政', '運営'] },
+  { name: '上間', generation: '16期', title: '', region: '沖縄', category: 'medical', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['医療', '研究'] },
+  { name: '泉川', generation: '18期', title: '', region: '沖縄', category: 'education', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['教育', '人材育成'] },
+  { name: '嶺井', generation: '18期', title: '', region: '沖縄', category: 'research', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['探究活動', '進路支援'] },
+  { name: '崎原', generation: '19期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['地域創生', '企画'] },
+  { name: '知念', generation: '20期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['金融', '社会活動'] },
+  { name: '砂川', generation: '20期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['経営', '芸術'] },
+  { name: '瀬長', generation: '24期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['行政', '法務'] },
+  { name: '具志', generation: '26期', title: '', region: '沖縄', category: 'tech', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['IT', '制作'] },
+  { name: '辺土', generation: '33期', title: '', region: '沖縄', category: 'arts', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['音楽', '学生支援'] },
+  { name: '我喜屋', generation: '36期', title: '', region: '東京', category: 'business', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['学生支援', '教育'] },
+  { name: '宮城', generation: '36期', title: '', region: '東京', category: 'business', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['学生支援', 'IT'] },
 ]
 
-const filteredMentors = computed(() => {
-  return mentors.filter(m => {
-    const categoryMatch = activeMentorCategory.value === 'all' || m.category === activeMentorCategory.value
-    const regionMatch = activeMentorRegion.value === 'すべて' || m.region === activeMentorRegion.value
-    return categoryMatch && regionMatch
-  })
+const mentorsByCategory = computed(() => {
+  return Object.keys(mentorCategoryLabels)
+    .map(value => ({
+      value,
+      label: mentorCategoryLabels[value],
+      mentors: mentors.filter(m => m.category === value),
+    }))
+    .filter(g => g.mentors.length > 0)
 })
-
-function filterMentors(category: string) {
-  activeMentorCategory.value = category
-}
 
 // ── News items ──
 const newsItems = [
