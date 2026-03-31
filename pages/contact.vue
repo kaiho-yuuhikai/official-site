@@ -35,7 +35,7 @@
               お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
             </p>
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWuRf9WQ10CllN16qjRAe7o_S0NUQJ1h-lNPu6-vXPn8cSZQ/viewform?usp=header"
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
                target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-green text-white font-bold rounded-xl hover:bg-kaiho-green-dark transition-all shadow-lg hover:shadow-xl gap-3 w-full sm:w-auto">
               <span>お問い合わせフォームを開く</span>
