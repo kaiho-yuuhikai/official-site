@@ -360,7 +360,10 @@
         </div>
 
         <!-- 注意書き -->
-        <p class="text-xs text-neutral-400 text-center mt-8 fade-in">※ メンターとして具体的な活動は、開邦雄飛会が本人の了承を得たうえで確定します</p>
+        <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
+          ※ メンターが提供するサポート内容については、開邦雄飛会がメンター本人の意思を確認し、了承を得たうえで最終確定いたします。<br>
+          無理のない範囲で安心して活動いただけるよう、内容や関わり方は個別に調整します。
+        </p>
       </div>
     </section>
 
