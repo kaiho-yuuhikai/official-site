@@ -74,18 +74,10 @@
                 </div>
               </div>
             </div>
-            <div class="nav-group relative">
-              <span class="nav-link text-sm tracking-wider transition-colors cursor-pointer"
-                 :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
-                Contact <span class="text-[10px]">&#9660;</span>
-              </span>
-              <div class="nav-dropdown absolute top-full right-0 pt-2 w-56">
-                <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <NuxtLink to="/contact" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">お問い合わせページ</NuxtLink>
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">お問い合わせフォーム ↗</a>
-                </div>
-              </div>
-            </div>
+            <NuxtLink to="/contact" class="nav-link text-sm tracking-wider transition-colors"
+               :class="scrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/80 hover:text-white'">
+              Contact
+            </NuxtLink>
           </div>
 
           <!-- Mobile Menu Button -->
@@ -115,7 +107,6 @@
             <NuxtLink to="/activities/special-lecture" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">創立記念特設授業</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
             <NuxtLink to="/contact" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせ</NuxtLink>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせフォーム ↗</a>
           </div>
         </div>
       </nav>
