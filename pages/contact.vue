@@ -148,6 +148,13 @@
 <script setup lang="ts">
 const forms = [
   {
+    title: 'お問い合わせフォーム',
+    description: '雄飛会へのご質問・ご意見・ご要望はこちらから',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog',
+    internal: false,
+    comingSoon: false,
+  },
+  {
     title: 'メンター登録フォーム',
     description: 'あなたの経験を後輩に伝えるメンターとして登録いただけます（サイト内フォーム）',
     url: '/mentor/registration',
