@@ -69,7 +69,7 @@
               </span>
               <div class="nav-dropdown absolute top-full right-0 pt-2 w-56">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <a href="https://kaiho-yuuhikai.jp/" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">第3回大同窓会サイト ↗</a>
+                  <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">第3回大同窓会サイト ↗</a>
                   <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリクロ運営マニュアル</NuxtLink>
                 </div>
               </div>
@@ -102,7 +102,7 @@
             <NuxtLink to="/#mentor" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">メンター制度</NuxtLink>
             <NuxtLink to="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">基金・寄付</NuxtLink>
             <NuxtLink to="/#news" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お知らせ</NuxtLink>
-            <a href="https://kaiho-yuuhikai.jp/" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">第3回大同窓会サイト ↗</a>
+            <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">第3回大同窓会サイト ↗</a>
             <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">キャリクロ運営マニュアル</NuxtLink>
             <NuxtLink to="/activities/special-lecture" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">創立記念特設授業</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
