@@ -82,7 +82,7 @@
         <h2>10. お問い合わせ窓口</h2>
         <p>個人情報の取り扱いに関するお問い合わせは、以下の窓口までご連絡ください。</p>
         <div class="bg-kaiho-green/5 rounded-xl p-6 not-prose">
-          <p class="font-bold text-neutral-900 mb-1">開邦高校同窓会 雄飛会 事務局</p>
+          <p class="font-bold text-neutral-900 mb-1">開邦高校同窓会 開邦雄飛会 事務局</p>
           <p class="text-sm text-neutral-600">所在地：開邦高校内（沖縄県島尻郡南風原町字新川646番地）</p>
           <p class="text-sm text-neutral-600 mt-2">
             お問い合わせは
