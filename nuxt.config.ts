@@ -22,9 +22,12 @@ export default defineNuxtConfig({
         { property: 'og:title', content: '開邦雄飛会｜沖縄・開邦高校同窓会の公式サイト' },
         { property: 'og:description', content: '沖縄県立開邦高校の同窓会「開邦雄飛会」公式サイト。8,000名超の卒業生ネットワークで、メンター制度・奨学支援基金・キャリア支援など、在校生と同窓生をつなぐ活動を展開しています。' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: '/images/og-image.png' },
+        { property: 'og:url', content: 'https://kaiho-yuuhikai.jp/' },
+        { property: 'og:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:image', content: '/images/og-image.png' }
+        { property: 'twitter:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/favicon.png' },
