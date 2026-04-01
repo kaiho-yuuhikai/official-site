@@ -43,7 +43,7 @@
             </a>
 
             <p class="text-xs text-neutral-400 mt-8 leading-relaxed">
-              ※ 送信された内容は雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
+              ※ 送信された内容は開邦雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
               個人情報はお問い合わせへの対応以外には使用いたしません。詳しくは<NuxtLink to="/privacy" class="text-kaiho-green hover:underline">プライバシーポリシー</NuxtLink>をご覧ください。
             </p>
           </div>
@@ -164,7 +164,7 @@
 const forms = [
   {
     title: 'お問い合わせフォーム',
-    description: '雄飛会へのご質問・ご意見・ご要望はこちらから',
+    description: '開邦雄飛会へのご質問・ご意見・ご要望はこちらから',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog',
     internal: false,
     comingSoon: false,
@@ -178,14 +178,14 @@ const forms = [
   },
   {
     title: '運営メンバー参加フォーム',
-    description: '雄飛会の運営・活動に参加したい方はこちらから',
+    description: '開邦雄飛会の運営・活動に参加したい方はこちらから',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog',
     internal: false,
     comingSoon: false,
   },
   {
     title: '寄付・支援フォーム',
-    description: '雄飛会支援基金への寄付・支援の申し出はこちら（受付準備中）',
+    description: '開邦雄飛会支援基金への寄付・支援の申し出はこちら（受付準備中）',
     url: '',
     internal: false,
     comingSoon: true,
@@ -194,7 +194,7 @@ const forms = [
 
 const relatedLinks = [
   { icon: '🏫', title: '開邦高校公式サイト', description: '沖縄県立開邦高等学校', url: 'https://www.kaiho-h.open.ed.jp/' },
-  { icon: '📝', title: 'note マガジン', description: '雄飛会の活動レポート', url: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49' },
+  { icon: '📝', title: 'note マガジン', description: '開邦雄飛会の活動レポート', url: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49' },
   { icon: '📘', title: 'Facebook', description: '開邦雄飛会ページ', url: 'https://www.facebook.com/kaihoyuhi/' },
   { icon: '📷', title: 'Instagram', description: '開邦雄飛会', url: 'https://www.instagram.com/kaihoyuuhikai/' },
   { icon: '🎉', title: '第3回大同窓会サイト', description: '2025年12月開催のイベントサイト', url: 'https://kaiho-yuuhikai.jp/' },
