@@ -99,6 +99,14 @@ test.skip('メンター登録ページが表示され、登録リンクが存在
 // ニュース項目のリンク解除
 // ---------------------------------------------------------------------------
 
+test('トップページにThreadsセクションが表示される', async ({ page }) => {
+  await page.goto('/')
+  const threadsSection = page.locator('#threads')
+  await expect(threadsSection).toBeVisible()
+  const threadsLink = page.locator('#threads a[href*="threads.com"]')
+  await expect(threadsLink).toBeVisible()
+})
+
 test('トップページのお知らせ項目にリンクが含まれていない', async ({ page }) => {
   await page.goto('/')
   const newsItems = page.locator('#news .group')
