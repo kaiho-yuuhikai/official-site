@@ -103,7 +103,7 @@ test('トップページにThreadsセクションが表示される', async ({ p
   await page.goto('/')
   const threadsSection = page.locator('#threads')
   await expect(threadsSection).toBeVisible()
-  const threadsLink = page.locator('#threads a[href*="threads.com"]')
+  const threadsLink = page.locator('#threads a[href*="threads.com"]').first()
   await expect(threadsLink).toBeVisible()
 })
 
