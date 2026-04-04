@@ -195,7 +195,7 @@
                   <div class="w-8 h-8 bg-kaiho-gold rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
                   <div class="w-8 h-8 bg-kaiho-purple rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">I</div>
                 </div>
-                <span class="text-xs text-neutral-500">他 <strong>20名</strong> が登録中</span>
+                <span class="text-xs text-neutral-500"><strong>{{ mentors.length }}名</strong> が登録中</span>
               </div>
               <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
                 メンター一覧を見る <span>&rarr;</span>
@@ -294,34 +294,61 @@
           <div class="section-divider mt-6"></div>
         </div>
 
-        <!-- Mentors grouped by category -->
-        <div class="space-y-8 fade-in">
-          <div v-for="group in mentorsByCategory" :key="group.value">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-bold tracking-widest uppercase text-kaiho-blue">{{ group.label }}</span>
-              <span class="text-xs text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-full">{{ group.mentors.length }}名</span>
-              <div class="flex-1 h-px bg-neutral-100"></div>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <div v-for="mentor in group.mentors" :key="mentor.name + mentor.generation"
-                   class="inline-flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-neutral-100 hover:border-kaiho-blue/30 transition-colors">
-                <span class="text-[10px] font-medium text-neutral-400">{{ mentor.generation }}</span>
-                <span class="font-bold text-neutral-900 text-sm">{{ mentor.name }}</span>
-                <div class="flex gap-1">
-                  <span v-for="tag in mentor.tags" :key="tag"
-                        class="text-[10px] px-1.5 py-0.5 rounded-full"
-                        :class="mentor.tagClass">{{ tag }}</span>
+        <!-- Mentor Slides -->
+        <div class="relative fade-in">
+          <!-- Slide container -->
+          <div class="overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentMentorSlide * 100}%)` }">
+              <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
+                   class="w-full flex-shrink-0 px-4">
+                <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg border border-neutral-100 overflow-hidden">
+                  <div class="h-2 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+                  <div class="p-8 md:p-12">
+                    <div class="flex items-center gap-6 mb-6">
+                      <div class="w-20 h-20 rounded-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-3xl font-black flex-shrink-0">
+                        {{ mentor.name.charAt(0) }}
+                      </div>
+                      <div>
+                        <p class="text-xs text-neutral-400 tracking-widest mb-1">{{ mentor.furigana }}</p>
+                        <h3 class="text-2xl font-black text-neutral-900">{{ mentor.name }}</h3>
+                        <div class="flex flex-wrap items-center gap-2 mt-2">
+                          <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-1 rounded-full">{{ mentor.generation }}</span>
+                          <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
+                          <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-neutral-50 rounded-2xl p-6 mb-6">
+                      <p class="text-neutral-700 leading-relaxed text-sm">{{ mentor.profile }}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                      <span v-for="tag in mentor.tags" :key="tag"
+                            class="text-xs px-3 py-1 rounded-full font-medium"
+                            :class="mentor.tagClass">{{ tag }}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Become a mentor -->
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-bold tracking-widest uppercase text-kaiho-green">参加する</span>
-              <div class="flex-1 h-px bg-neutral-100"></div>
+          <!-- Navigation (複数メンターの場合のみ表示) -->
+          <div v-if="mentors.length > 1" class="flex items-center justify-center gap-4 mt-8">
+            <button @click="prevMentorSlide" class="w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="flex gap-2">
+              <button v-for="(_, i) in mentors" :key="i" @click="currentMentorSlide = i"
+                      class="w-2 h-2 rounded-full transition-colors"
+                      :class="currentMentorSlide === i ? 'bg-kaiho-blue' : 'bg-neutral-300'"></button>
             </div>
+            <button @click="nextMentorSlide" class="w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- メンター登録 -->
+          <div class="mt-8 flex justify-center">
             <div class="inline-flex items-center gap-3 bg-gradient-to-r from-kaiho-green/5 to-kaiho-blue/5 rounded-xl px-5 py-3 border-2 border-dashed border-kaiho-green/30">
               <svg class="w-5 h-5 text-kaiho-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
               <div>
@@ -642,21 +669,41 @@
           <div class="w-12 h-0.5 bg-white/20 mx-auto mt-6"></div>
         </div>
 
-        <div class="max-w-md mx-auto fade-in">
-          <a href="https://www.threads.com/@kaihoyuhi" target="_blank" rel="noopener noreferrer"
-             class="group flex items-center gap-5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-300">
-            <!-- Threads Icon -->
-            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform duration-300">
-              <svg class="w-9 h-9" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+        <!-- 投稿カード一覧 -->
+        <div class="max-w-3xl mx-auto fade-in">
+          <!-- ローディング -->
+          <div v-if="threadsLoading" class="flex justify-center py-12">
+            <div class="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
+          </div>
+
+          <!-- 投稿カード -->
+          <div v-else class="space-y-4">
+            <a v-for="post in threadsPosts" :key="post.url"
+               :href="post.url" target="_blank" rel="noopener noreferrer"
+               class="group block bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-5 transition-all duration-300">
+              <div class="flex items-center gap-2 mb-3">
+                <!-- Threads icon (small) -->
+                <svg class="w-4 h-4 flex-shrink-0 text-white/60" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.378-.887h-.018c-.852 0-1.668.228-2.27.644-.508.355-.816.814-.878 1.317l-2.043-.256c.217-1.557 1.048-2.848 2.352-3.637C11.011 7.208 12.162 6.9 13.39 6.9h.028c1.673.006 3.013.538 3.979 1.579 1.137 1.228 1.643 3.03 1.466 5.072-.018.217-.043.43-.075.637.654.418 1.209.914 1.655 1.48 1.186 1.512 1.604 3.533.876 5.547-.81 2.22-2.6 3.784-5.195 4.573-.988.3-2.046.462-3.157.462z"/>
+                </svg>
+                <span class="text-white/60 text-xs font-medium">@kaihoyuhi</span>
+                <span class="ml-auto text-white/30 text-xs">{{ formatThreadsDate(post.date) }}</span>
+              </div>
+              <p class="text-white/80 text-sm leading-relaxed whitespace-pre-line">{{ post.text }}</p>
+              <span class="inline-block text-white/40 text-xs mt-3 group-hover:text-white/60 transition-colors">続きを見る →</span>
+            </a>
+          </div>
+
+          <!-- プロフィールリンク -->
+          <div class="text-center mt-8">
+            <a href="https://www.threads.com/@kaihoyuhi" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.378-.887h-.018c-.852 0-1.668.228-2.27.644-.508.355-.816.814-.878 1.317l-2.043-.256c.217-1.557 1.048-2.848 2.352-3.637C11.011 7.208 12.162 6.9 13.39 6.9h.028c1.673.006 3.013.538 3.979 1.579 1.137 1.228 1.643 3.03 1.466 5.072-.018.217-.043.43-.075.637.654.418 1.209.914 1.655 1.48 1.186 1.512 1.604 3.533.876 5.547-.81 2.22-2.6 3.784-5.195 4.573-.988.3-2.046.462-3.157.462z"/>
               </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-white/40 text-xs tracking-widest uppercase mb-1">Threads</p>
-              <p class="text-white font-bold text-xl">@kaihoyuhi</p>
-              <p class="text-white/50 text-sm mt-1">フォローして最新情報をチェック →</p>
-            </div>
-          </a>
+              Threadsで全ての投稿を見る
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -792,55 +839,37 @@ const heroStatsRef = ref<HTMLElement | null>(null)
 // ── Mentor data ──
 interface Mentor {
   name: string
+  furigana: string
   generation: string
-  title: string
+  course: string
   region: string
   category: string
   tagClass: string
   tags: string[]
-}
-
-const mentorCategoryLabels: Record<string, string> = {
-  business: 'ビジネス・起業',
-  tech: 'IT・テクノロジー',
-  medical: '医療・福祉',
-  education: '教育',
-  research: '研究・学術',
-  arts: '芸術・文化',
+  profile: string
 }
 
 const mentors: Mentor[] = [
-  { name: '上里', generation: '3期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['政治', '行政'] },
-  { name: '宮里', generation: '3期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['投資', '教育'] },
-  { name: '宮城', generation: '3期', title: '', region: '沖縄', category: 'education', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['地域教育', '文化'] },
-  { name: '我謝', generation: '4期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['インフラ', '運営'] },
-  { name: '屋良', generation: '9期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['経営', '運営'] },
-  { name: '堀之内', generation: '12期', title: '', region: '沖縄', category: 'arts', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['デザイン', 'アート'] },
-  { name: '国吉', generation: '13期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['メディア', '取材'] },
-  { name: '神谷', generation: '14期', title: '', region: '沖縄', category: 'tech', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['IT', '起業'] },
-  { name: '又吉', generation: '15期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['行政', '運営'] },
-  { name: '上間', generation: '16期', title: '', region: '沖縄', category: 'medical', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['医療', '研究'] },
-  { name: '泉川', generation: '18期', title: '', region: '沖縄', category: 'education', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['教育', '人材育成'] },
-  { name: '嶺井', generation: '18期', title: '', region: '沖縄', category: 'research', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['探究活動', '進路支援'] },
-  { name: '崎原', generation: '19期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['地域創生', '企画'] },
-  { name: '知念', generation: '20期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-teal/10 text-kaiho-teal', tags: ['金融', '社会活動'] },
-  { name: '砂川', generation: '20期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-orange/10 text-kaiho-orange', tags: ['経営', '芸術'] },
-  { name: '瀬長', generation: '24期', title: '', region: '沖縄', category: 'business', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['行政', '法務'] },
-  { name: '具志', generation: '26期', title: '', region: '沖縄', category: 'tech', tagClass: 'bg-kaiho-green/10 text-kaiho-green', tags: ['IT', '制作'] },
-  { name: '辺土', generation: '33期', title: '', region: '沖縄', category: 'arts', tagClass: 'bg-kaiho-purple/10 text-kaiho-purple', tags: ['音楽', '学生支援'] },
-  { name: '我喜屋', generation: '36期', title: '', region: '東京', category: 'business', tagClass: 'bg-kaiho-gold/10 text-kaiho-gold', tags: ['学生支援', '教育'] },
-  { name: '宮城', generation: '36期', title: '', region: '東京', category: 'business', tagClass: 'bg-kaiho-blue/10 text-kaiho-blue', tags: ['学生支援', 'IT'] },
+  {
+    name: '岸本克巳',
+    furigana: 'キシモトカツミ',
+    generation: '7期',
+    course: '理数科',
+    region: '沖縄県',
+    category: 'tech',
+    tagClass: 'bg-kaiho-blue/10 text-kaiho-blue',
+    tags: ['IT', 'ネットワーク'],
+    profile: '三井情報株式会社でネットワークエンジニアとして沖縄営業所に在籍。在地方初のスペシャリスト職として、県外のプロジェクトにも参画してます。',
+  },
 ]
 
-const mentorsByCategory = computed(() => {
-  return Object.keys(mentorCategoryLabels)
-    .map(value => ({
-      value,
-      label: mentorCategoryLabels[value],
-      mentors: mentors.filter(m => m.category === value),
-    }))
-    .filter(g => g.mentors.length > 0)
-})
+const currentMentorSlide = ref(0)
+function prevMentorSlide() {
+  currentMentorSlide.value = (currentMentorSlide.value - 1 + mentors.length) % mentors.length
+}
+function nextMentorSlide() {
+  currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
+}
 
 // ── News items ──
 const newsItems = [
@@ -864,6 +893,16 @@ interface NoteArticle {
 const noteLoading = ref(true)
 const noteError = ref(false)
 const noteArticles = ref<NoteArticle[]>([])
+
+// ── Threads posts ──
+interface ThreadsPost {
+  text: string
+  date: string
+  url: string
+}
+
+const threadsLoading = ref(true)
+const threadsPosts = ref<ThreadsPost[]>([])
 const baseURL = useRuntimeConfig().app.baseURL
 
 const noteFallbackImageHtml = '<div class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center"><svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>'
@@ -907,6 +946,28 @@ async function loadNoteArticles() {
   } finally {
     noteLoading.value = false
   }
+}
+
+async function loadThreadsPosts() {
+  try {
+    const res = await fetch(baseURL + 'data/threads-posts.json')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = await res.json()
+    if (data.posts && data.posts.length > 0) {
+      threadsPosts.value = data.posts.slice(0, 3)
+    }
+  } catch (err) {
+    console.warn('Failed to load threads posts JSON:', err)
+  } finally {
+    threadsLoading.value = false
+  }
+}
+
+function formatThreadsDate(dateStr: string): string {
+  const d = new Date(dateStr)
+  const m = d.getMonth() + 1
+  const day = d.getDate()
+  return `${m}月${day}日`
 }
 
 // ── Count-up animation ──
@@ -1004,6 +1065,7 @@ onMounted(() => {
 
   // Load note articles from static JSON
   loadNoteArticles()
+  loadThreadsPosts()
 
   // Cleanup
   onUnmounted(() => {
