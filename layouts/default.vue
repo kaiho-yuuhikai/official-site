@@ -150,6 +150,7 @@
               <a href="https://www.instagram.com/kaihoyuhi?igsh=MTRwdjVrNTNpZnpwcA%3D%3D&utm_source=qr" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Instagram</a>
               <a href="https://www.threads.com/@kaihoyuhi" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">Threads</a>
               <a href="https://note.com/kaihoyuuhikai" target="_blank" class="block text-white/60 hover:text-white transition-colors text-sm">note マガジン</a>
+              <a href="https://line.me/ti/g2/FvOXR7Kr0WdVAGjiHdKocaz2_GL8ijFc0vBIJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer" class="block text-white/60 hover:text-white transition-colors text-sm">LINEオープンチャット</a>
             </div>
           </div>
 
