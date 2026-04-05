@@ -45,9 +45,9 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         run: node scripts/fetch-threads-posts.mjs
 
-      # データが更新されていたらコミット（schedule/dispatch時のみ）
+      # データが更新されていたらコミット（botによるpushは除く）
       - name: Commit data if changed
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
