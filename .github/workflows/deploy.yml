@@ -37,14 +37,22 @@ jobs:
       - name: Fetch note RSS
         run: node scripts/fetch-note-rss.mjs
 
-      # RSS データが更新されていたらコミット（schedule/dispatch時のみ）
-      - name: Commit RSS data if changed
+      # Threads 最新投稿を取得して JSON に保存
+      - name: Fetch Threads posts
+        if: env.THREADS_ACCESS_TOKEN != ''
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: node scripts/fetch-threads-posts.mjs
+
+      # データが更新されていたらコミット（schedule/dispatch時のみ）
+      - name: Commit data if changed
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/note-articles.json
-          git diff --cached --quiet || git commit -m "chore: note RSS データを自動更新"
+          git add public/data/note-articles.json public/data/threads-posts.json
+          git diff --cached --quiet || git commit -m "chore: note RSS・Threads データを自動更新"
           git push || true
 
       - run: npx nuxt generate

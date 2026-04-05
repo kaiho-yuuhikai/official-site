@@ -129,26 +129,10 @@ function getBgClass(index: number) {
 }
 
 const members = [
-  { name: '上里', generation: '3期', initial: '上', bgClass: getBgClass(0), note: '' },
-  { name: '宮里', generation: '3期', initial: '宮', bgClass: getBgClass(1), note: '' },
-  { name: '宮城', generation: '3期', initial: '宮', bgClass: getBgClass(2), note: '' },
-  { name: '我謝', generation: '4期', initial: '我', bgClass: getBgClass(3), note: '' },
-  { name: '屋良', generation: '9期', initial: '屋', bgClass: getBgClass(4), note: '' },
-  { name: '国吉', generation: '13期', initial: '国', bgClass: getBgClass(5), note: '' },
-  { name: '神谷', generation: '14期', initial: '神', bgClass: getBgClass(5), note: '' },
-  { name: '又吉', generation: '15期', initial: '又', bgClass: getBgClass(0), note: '' },
-  { name: '上間', generation: '16期', initial: '上', bgClass: getBgClass(1), note: '' },
-  { name: '泉川', generation: '18期', initial: '泉', bgClass: getBgClass(2), note: '' },
-  { name: '嶺井', generation: '18期', initial: '嶺', bgClass: getBgClass(3), note: '' },
-  { name: '知念', generation: '20期', initial: '知', bgClass: getBgClass(4), note: '' },
-  { name: '砂川', generation: '20期', initial: '砂', bgClass: getBgClass(5), note: '' },
-  { name: '瀬長', generation: '24期', initial: '瀬', bgClass: getBgClass(0), note: '' },
-  { name: '具志', generation: '26期', initial: '具', bgClass: getBgClass(1), note: '' },
-  { name: '堀之内', generation: '12期', initial: '堀', bgClass: getBgClass(2), note: '' },
-  { name: '崎原', generation: '19期', initial: '崎', bgClass: getBgClass(3), note: '' },
-  { name: '我喜屋', generation: '36期', initial: '我', bgClass: getBgClass(4), note: '' },
-  { name: '宮城', generation: '36期', initial: '宮', bgClass: getBgClass(5), note: '' },
-  { name: '辺土', generation: '33期', initial: '辺', bgClass: getBgClass(0), note: '' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '広報コーディネーター' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営・バレエ講師' },
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン・探究活動事務局' },
 ]
 
 const teams = [
