@@ -75,6 +75,16 @@
             <p class="text-neutral-600 text-sm leading-relaxed mb-4">
               開邦高校PTAと連携し、在校生の学習環境の改善や地域貢献活動に取り組んでいます。
             </p>
+            <!-- PTA連携者 -->
+            <div class="mb-4 flex items-center gap-3 bg-neutral-50 rounded-xl px-5 py-3">
+              <div class="w-8 h-8 rounded-full bg-kaiho-green/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-kaiho-green text-xs font-bold">金</span>
+              </div>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
+                <p class="text-neutral-500 text-xs">PTA連携・道路ボランティア主導</p>
+              </div>
+            </div>
             <div class="bg-kaiho-green/5 rounded-xl p-6">
               <h4 class="font-bold text-neutral-900 text-sm mb-3">活動実績</h4>
               <ul class="space-y-2 text-sm text-neutral-600">
