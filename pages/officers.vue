@@ -26,9 +26,10 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
           <div v-for="member in members" :key="member.name"
                class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
-                 :class="member.bgClass">
-              {{ member.initial }}
+            <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
+                 :class="!member.photo ? member.bgClass : ''">
+              <img v-if="member.photo" :src="baseURL + member.photo" :alt="member.name" class="w-full h-full object-cover" />
+              <span v-else>{{ member.initial }}</span>
             </div>
             <div class="min-w-0">
               <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
@@ -115,6 +116,8 @@
 </template>
 
 <script setup lang="ts">
+const baseURL = useRuntimeConfig().app.baseURL
+
 const colorClasses = [
   'bg-gradient-to-br from-kaiho-green to-emerald-400',
   'bg-gradient-to-br from-kaiho-blue to-blue-400',
@@ -129,10 +132,10 @@ function getBgClass(index: number) {
 }
 
 const members = [
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '広報コーディネーター' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営・バレエ講師' },
-  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン・探究活動事務局' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '広報コーディネーター', photo: 'images/members/uema.png' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営・バレエ講師', photo: 'images/members/kae.jpg' },
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン・探究活動事務局', photo: '' },
 ]
 
 const teams = [
