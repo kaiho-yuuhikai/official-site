@@ -187,7 +187,7 @@
                 <span class="bg-kaiho-blue/10 text-kaiho-blue text-xs font-bold px-3 py-1 rounded-full badge-pulse">登録受付中</span>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">メンター制度</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">各分野で活躍する卒業生がメンターとして、在校生の探究活動やキャリア形成をサポート。</p>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択を支援する。</p>
               <div class="flex items-center gap-3 mb-4">
                 <div class="flex -space-x-2">
                   <div class="w-8 h-8 bg-kaiho-green rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">K</div>
