@@ -785,7 +785,7 @@
             <div class="h-56 bg-gradient-to-br from-kaiho-teal to-teal-500 flex items-center justify-center relative overflow-hidden">
               <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
               <div class="text-center relative z-10">
-                <h3 class="text-3xl font-black text-white mb-2">第2回 大同窓会</h3>
+                <h3 class="text-3xl font-black text-white mb-2">第2回 大同窓会<span class="block text-base font-medium mt-1 text-white/80">2018・10・20 開催</span></h3>
                 <p class="text-white/80 font-medium">開邦高校同窓会</p>
               </div>
             </div>
