@@ -153,7 +153,7 @@ const members = [
   { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg' },
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png' },
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
   { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
 ]
 
