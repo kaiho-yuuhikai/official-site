@@ -149,8 +149,8 @@ function getBgClass(index: number) {
 }
 
 const members = [
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', comment: 'システムやデータ分析を手伝います' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', comment: 'サークル活動のように遊びながら楽しんでやっていきます' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg' },
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
