@@ -945,7 +945,8 @@ async function loadNoteArticles() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const data = await res.json()
     if (data.articles && data.articles.length > 0) {
-      noteArticles.value = data.articles
+      // 最新記事を3件のみ表示
+      noteArticles.value = data.articles.slice(0, 3)
     }
   } catch (err) {
     console.warn('Failed to load note articles JSON:', err)
