@@ -294,8 +294,35 @@
           <div class="section-divider mt-6"></div>
         </div>
 
+        <!-- Mentor support types -->
+        <div class="bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#127908;</div>
+              <h4 class="font-bold text-sm text-neutral-900">特設授業での講話</h4>
+              <p class="text-xs text-neutral-500 mt-1">学校での特別講演</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#128300;</div>
+              <h4 class="font-bold text-sm text-neutral-900">探究活動アドバイス</h4>
+              <p class="text-xs text-neutral-500 mt-1">研究テーマの相談</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#128187;</div>
+              <h4 class="font-bold text-sm text-neutral-900">オンライン相談</h4>
+              <p class="text-xs text-neutral-500 mt-1">遠方でもサポート</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#127970;</div>
+              <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
+              <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
+            </div>
+          </div>
+        </div>
+
         <!-- Mentor Slides -->
-        <div class="relative fade-in">
+        <div class="relative mt-16 fade-in">
           <!-- Slide container -->
           <div class="overflow-hidden">
             <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentMentorSlide * 100}%)` }">
@@ -359,33 +386,6 @@
                 <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
               </div>
             </NuxtLink>
-          </div>
-        </div>
-
-        <!-- Mentor support types -->
-        <div class="mt-16 bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127908;</div>
-              <h4 class="font-bold text-sm text-neutral-900">特設授業での講話</h4>
-              <p class="text-xs text-neutral-500 mt-1">学校での特別講演</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#128300;</div>
-              <h4 class="font-bold text-sm text-neutral-900">探究活動アドバイス</h4>
-              <p class="text-xs text-neutral-500 mt-1">研究テーマの相談</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#128187;</div>
-              <h4 class="font-bold text-sm text-neutral-900">オンライン相談</h4>
-              <p class="text-xs text-neutral-500 mt-1">遠方でもサポート</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127970;</div>
-              <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
-              <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
-            </div>
           </div>
         </div>
 
