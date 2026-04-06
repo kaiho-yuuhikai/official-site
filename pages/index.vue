@@ -594,6 +594,29 @@
           <div class="section-divider mt-6"></div>
         </div>
 
+        <!-- 参加方法の流れ -->
+        <div class="max-w-2xl mx-auto mb-10 fade-in">
+          <div class="bg-kaiho-teal/5 rounded-2xl px-6 py-5">
+            <p class="text-xs font-bold tracking-widest text-kaiho-teal uppercase text-center mb-4">参加方法</p>
+            <div class="flex items-center justify-center gap-2 flex-wrap">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+                <span class="text-sm text-neutral-700">リンクをクリック</span>
+              </div>
+              <span class="text-kaiho-teal/40 text-lg font-light">›</span>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+                <span class="text-sm text-neutral-700">参加リクエストを送信</span>
+              </div>
+              <span class="text-kaiho-teal/40 text-lg font-light">›</span>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+                <span class="text-sm text-neutral-700">管理者が承認</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="grid md:grid-cols-3 gap-8 fade-in">
           <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
             <div class="text-5xl mb-4">🗼</div>
