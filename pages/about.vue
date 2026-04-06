@@ -26,6 +26,13 @@
             卒業生と在校生、そして学校をつなぐ架け橋として活動しています。
           </p>
 
+          <div class="bg-kaiho-gold/10 border-l-4 border-kaiho-gold rounded-r-xl px-6 py-5 mb-8 not-prose">
+            <p class="text-base font-bold text-neutral-800 leading-relaxed">
+              開邦生のお互いを高めあおうとするマインドを大切に&#8212;<br>
+              <span class="font-normal text-neutral-600">切磋琢磨する精神を受け継ぎ、同窓生・在校生が共に成長できるコミュニティを育てます。</span>
+            </p>
+          </div>
+
           <h3 class="text-xl font-bold text-neutral-900 mt-12 mb-6">活動方針</h3>
           <div class="space-y-6">
             <div v-for="(policy, i) in policies" :key="i" class="flex gap-4">
