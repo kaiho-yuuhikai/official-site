@@ -322,7 +322,10 @@
         </div>
 
         <!-- Mentor Slides -->
-        <div class="relative mt-16 fade-in">
+        <div class="mt-16 mb-6 text-center fade-in">
+          <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
+        </div>
+        <div class="relative fade-in">
           <!-- Slide container -->
           <div class="overflow-hidden">
             <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentMentorSlide * 100}%)` }">
