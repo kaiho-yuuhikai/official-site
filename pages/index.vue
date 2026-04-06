@@ -23,6 +23,7 @@
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tight">
           <span class="block">邦を開き、</span>
           <span class="block text-kaiho-gold">世界に羽ばたく。</span>
+          <span class="block text-xl md:text-2xl font-semibold text-white/70 mt-3 tracking-normal">お互いを高めあうマインドを大切に</span>
         </h1>
 
         <p class="text-lg md:text-xl font-light text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
