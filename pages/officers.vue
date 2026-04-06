@@ -25,17 +25,24 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
           <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
-                 :class="!member.photo ? member.bgClass : ''">
-              <img v-if="member.photo" :src="baseURL + member.photo" :alt="member.name" class="w-full h-full object-cover" />
-              <span v-else>{{ member.initial }}</span>
+               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-start gap-4"
+               :class="member.comment ? 'flex-col' : ''">
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
+                   :class="!member.photo ? member.bgClass : ''">
+                <img v-if="member.photo" :src="baseURL + member.photo" :alt="member.name" class="w-full h-full object-cover" />
+                <span v-else>{{ member.initial }}</span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
+                  <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
+                </div>
+                <p class="text-xs text-neutral-500">{{ member.generation }}</p>
+                <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
+              </div>
             </div>
-            <div class="min-w-0">
-              <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
-              <p class="text-xs text-neutral-500">{{ member.generation }}</p>
-              <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
-            </div>
+            <p v-if="member.comment" class="text-[11px] text-neutral-500 leading-relaxed italic border-l-2 border-kaiho-green/30 pl-3">{{ member.comment }}</p>
           </div>
         </div>
       </div>
@@ -146,7 +153,8 @@ const members = [
   { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg' },
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png' },
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '' },
+  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
 ]
 
 const teams = [
