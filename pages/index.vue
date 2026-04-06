@@ -597,19 +597,19 @@
         <!-- 参加方法の流れ -->
         <div class="max-w-2xl mx-auto mb-10 fade-in">
           <div class="bg-kaiho-teal/5 rounded-2xl px-6 py-5">
-            <p class="text-xs font-bold tracking-widest text-kaiho-teal uppercase text-center mb-4">参加方法</p>
-            <div class="flex items-center justify-center gap-2 flex-wrap">
-              <div class="flex items-center gap-2">
+            <p class="text-xs font-bold text-kaiho-teal text-center mb-4">開邦雄飛会Facebookの各支部グループ参加方法</p>
+            <div class="flex flex-col items-center gap-1">
+              <div class="flex items-center gap-3 w-44">
                 <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
                 <span class="text-sm text-neutral-700">リンクをクリック</span>
               </div>
-              <span class="text-kaiho-teal/40 text-lg font-light">›</span>
-              <div class="flex items-center gap-2">
+              <span class="text-kaiho-teal/40 text-sm leading-none">↓</span>
+              <div class="flex items-center gap-3 w-44">
                 <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
                 <span class="text-sm text-neutral-700">参加リクエストを送信</span>
               </div>
-              <span class="text-kaiho-teal/40 text-lg font-light">›</span>
-              <div class="flex items-center gap-2">
+              <span class="text-kaiho-teal/40 text-sm leading-none">↓</span>
+              <div class="flex items-center gap-3 w-44">
                 <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
                 <span class="text-sm text-neutral-700">管理者が承認</span>
               </div>
