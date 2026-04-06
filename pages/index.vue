@@ -599,33 +599,33 @@
             <div class="text-5xl mb-4">🗼</div>
             <h3 class="text-xl font-bold text-neutral-900 mb-2">東京支部</h3>
             <p class="text-neutral-500 text-sm mb-4">首都圏在住の同窓生の交流拠点</p>
-            <div class="flex items-center gap-3 bg-neutral-50 rounded-xl px-4 py-3 text-left">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-kaiho-teal to-teal-400 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">ひ</div>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">ひなこ</p>
-                <p class="text-xs text-neutral-500">26期 理数科</p>
-              </div>
-            </div>
+            <a href="https://www.facebook.com/groups/2423519921418763/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebookグループへ
+            </a>
           </div>
 
           <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
             <div class="text-5xl mb-4">⛩️</div>
             <h3 class="text-xl font-bold text-neutral-900 mb-2">関西支部</h3>
             <p class="text-neutral-500 text-sm mb-4">関西圏在住の同窓生の交流拠点</p>
-            <div class="inline-flex items-center gap-2 text-sm text-kaiho-teal font-medium">
-              <span class="w-2 h-2 bg-kaiho-teal rounded-full"></span>
-              メンバー準備中
-            </div>
+            <a href="https://www.facebook.com/groups/1208559580721409/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebookグループへ
+            </a>
           </div>
 
           <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
             <div class="text-5xl mb-4">🌏</div>
             <h3 class="text-xl font-bold text-neutral-900 mb-2">海外支部</h3>
             <p class="text-neutral-500 text-sm mb-4">世界各地で活躍する同窓生の拠点</p>
-            <div class="inline-flex items-center gap-2 text-sm text-kaiho-teal font-medium">
-              <span class="w-2 h-2 bg-kaiho-teal rounded-full"></span>
-              メンバー準備中
-            </div>
+            <a href="https://www.facebook.com/groups/911574427886649/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebookグループへ
+            </a>
           </div>
         </div>
       </div>
@@ -829,7 +829,7 @@
           </div>
 
           <!-- CTA 3 -->
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128587;</div>
             <h3 class="text-lg font-bold mb-2">運営メンバー募集</h3>
             <p class="text-white/80 text-sm mb-4">一緒に組織を創ろう</p>
@@ -837,6 +837,16 @@
               応募する &rarr;
             </span>
           </a>
+
+          <!-- CTA 4 -->
+          <NuxtLink to="/officers" class="card-hover block bg-gradient-to-br from-neutral-700 to-neutral-900 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
+            <div class="text-4xl mb-4">&#128101;</div>
+            <h3 class="text-lg font-bold mb-2">運営メンバー紹介</h3>
+            <p class="text-white/80 text-sm mb-4">活動を支えるメンバーたち</p>
+            <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
+              メンバーを見る &rarr;
+            </span>
+          </NuxtLink>
         </div>
       </div>
     </section>
