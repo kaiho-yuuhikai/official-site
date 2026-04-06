@@ -158,9 +158,9 @@
           <div>
             <p class="text-xs font-bold tracking-widest uppercase text-white/30 mb-4">支部</p>
             <div class="space-y-2">
-              <a href="#" class="block text-white/60 hover:text-white transition-colors text-sm">東京支部</a>
-              <a href="#" class="block text-white/60 hover:text-white transition-colors text-sm">関西支部</a>
-              <a href="#" class="block text-white/60 hover:text-white transition-colors text-sm">海外支部</a>
+              <a href="https://www.facebook.com/groups/2423519921418763/" target="_blank" rel="noopener noreferrer" class="block text-white/60 hover:text-white transition-colors text-sm">東京支部</a>
+              <a href="https://www.facebook.com/groups/1208559580721409/" target="_blank" rel="noopener noreferrer" class="block text-white/60 hover:text-white transition-colors text-sm">関西支部</a>
+              <a href="https://www.facebook.com/groups/911574427886649/" target="_blank" rel="noopener noreferrer" class="block text-white/60 hover:text-white transition-colors text-sm">海外支部</a>
             </div>
           </div>
         </div>

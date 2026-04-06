@@ -862,7 +862,7 @@
           </a>
 
           <!-- CTA 4 -->
-          <NuxtLink to="/officers" class="card-hover block bg-gradient-to-br from-neutral-700 to-neutral-900 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
+          <NuxtLink to="/officers" class="card-hover block bg-gradient-to-br from-kaiho-teal to-teal-500 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
             <div class="text-4xl mb-4">&#128101;</div>
             <h3 class="text-lg font-bold mb-2">運営メンバー紹介</h3>
             <p class="text-white/80 text-sm mb-4">活動を支えるメンバーたち</p>
