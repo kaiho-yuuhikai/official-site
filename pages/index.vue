@@ -394,8 +394,7 @@
 
         <!-- 注意書き -->
         <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
-          ※ メンターが提供するサポート内容については、開邦雄飛会がメンター本人の意思を確認し、了承を得たうえで最終確定いたします。<br>
-          無理のない範囲で安心して活動いただけるよう、内容や関わり方は個別に調整します。
+          ※ メンターが提供できるサポート内容に関しては、開邦雄飛会が学校と調整したうえで、無理のない範囲で安心して活動いただけるように個別に調整いたします。
         </p>
       </div>
     </section>
@@ -600,9 +599,12 @@
             <div class="text-5xl mb-4">🗼</div>
             <h3 class="text-xl font-bold text-neutral-900 mb-2">東京支部</h3>
             <p class="text-neutral-500 text-sm mb-4">首都圏在住の同窓生の交流拠点</p>
-            <div class="inline-flex items-center gap-2 text-sm text-kaiho-teal font-medium">
-              <span class="w-2 h-2 bg-kaiho-teal rounded-full"></span>
-              メンバー準備中
+            <div class="flex items-center gap-3 bg-neutral-50 rounded-xl px-4 py-3 text-left">
+              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-kaiho-teal to-teal-400 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">ひ</div>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">ひなこ</p>
+                <p class="text-xs text-neutral-500">26期 理数科</p>
+              </div>
             </div>
           </div>
 
