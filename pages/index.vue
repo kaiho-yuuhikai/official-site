@@ -301,29 +301,29 @@
             <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentMentorSlide * 100}%)` }">
               <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
                    class="w-full flex-shrink-0 px-4">
-                <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg border border-neutral-100 overflow-hidden">
-                  <div class="h-2 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-                  <div class="p-8 md:p-12">
-                    <div class="flex items-center gap-6 mb-6">
-                      <div class="w-20 h-20 rounded-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-3xl font-black flex-shrink-0">
+                <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
+                  <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+                  <div class="p-5 md:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                      <div class="w-14 h-14 rounded-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black flex-shrink-0">
                         {{ mentor.name.charAt(0) }}
                       </div>
                       <div>
-                        <p class="text-xs text-neutral-400 tracking-widest mb-1">{{ mentor.furigana }}</p>
-                        <h3 class="text-2xl font-black text-neutral-900">{{ mentor.name }}</h3>
-                        <div class="flex flex-wrap items-center gap-2 mt-2">
-                          <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-1 rounded-full">{{ mentor.generation }}</span>
+                        <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
+                        <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
+                        <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                          <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
                           <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
                           <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
                         </div>
                       </div>
                     </div>
-                    <div class="bg-neutral-50 rounded-2xl p-6 mb-6">
-                      <p class="text-neutral-700 leading-relaxed text-sm">{{ mentor.profile }}</p>
+                    <div class="bg-neutral-50 rounded-xl p-4 mb-4">
+                      <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
                     </div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-1.5">
                       <span v-for="tag in mentor.tags" :key="tag"
-                            class="text-xs px-3 py-1 rounded-full font-medium"
+                            class="text-xs px-2.5 py-0.5 rounded-full font-medium"
                             :class="mentor.tagClass">{{ tag }}</span>
                     </div>
                   </div>
@@ -348,17 +348,17 @@
           </div>
 
           <!-- メンター登録 -->
-          <div class="mt-8 flex justify-center">
-            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-kaiho-green/5 to-kaiho-blue/5 rounded-xl px-5 py-3 border-2 border-dashed border-kaiho-green/30">
-              <svg class="w-5 h-5 text-kaiho-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-              <div>
-                <span class="font-bold text-kaiho-green text-sm">メンターになる</span>
-                <span class="text-xs text-neutral-500 ml-2">あなたの経験を後輩に共有しませんか？</span>
+          <div class="mt-10 flex justify-center">
+            <NuxtLink to="/mentor/registration"
+              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
               </div>
-              <NuxtLink to="/mentor/registration" class="text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors flex-shrink-0">
-                登録する &rarr;
-              </NuxtLink>
-            </div>
+              <div class="text-center">
+                <p class="text-white font-black text-lg leading-tight">メンターになる</p>
+                <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
+              </div>
+            </NuxtLink>
           </div>
         </div>
 
