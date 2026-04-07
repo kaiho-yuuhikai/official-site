@@ -783,6 +783,14 @@
                 <p class="text-neutral-500 text-sm">開催報告・登壇者・協賛企業・アンケート分析</p>
                 <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
+              <a :href="`${baseURL}files/special-lecture-2024-questionnaire.pdf`" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">事後アンケート回答結果（PDF）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              </a>
+              <a :href="`${baseURL}files/daidosoukai-3rd-slides.pdf`" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">大同窓会スライド（PDF）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              </a>
             </div>
           </div>
 
