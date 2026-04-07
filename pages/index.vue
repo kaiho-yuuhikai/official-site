@@ -758,27 +758,28 @@
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto fade-in">
           <!-- 大同窓会 Archive -->
-          <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-56 bg-gradient-to-br from-kaiho-green-dark to-kaiho-green flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
-              <div class="text-center relative z-10">
-                <p class="text-white/60 text-sm mb-2">2025.12.28 開催</p>
-                <h3 class="text-3xl font-black text-white mb-2">第3回 大同窓会</h3>
-                <p class="text-kaiho-gold font-medium">創立40周年記念</p>
-                <div class="mt-4 flex items-center justify-center gap-4 text-white/80 text-sm">
-                  <span>参加者 <strong>537名</strong></span>
-                  <span>|</span>
-                  <span>協賛 <strong>25社</strong></span>
-                </div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
+            <div class="bg-gradient-to-br from-kaiho-green-dark to-kaiho-green px-6 pt-6 pb-4">
+              <p class="text-white/60 text-sm mb-1">2025.12.28 開催</p>
+              <h3 class="text-2xl font-black text-white mb-1">第3回 大同窓会</h3>
+              <p class="text-kaiho-gold font-medium text-sm">創立40周年記念</p>
+              <div class="mt-2 flex items-center gap-4 text-white/80 text-sm">
+                <span>参加者 <strong>537名</strong></span>
+                <span>|</span>
+                <span>協賛 <strong>25社</strong></span>
               </div>
+            </div>
+            <!-- Facebook リール埋め込み -->
+            <div class="flex justify-center bg-black">
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1521567145808218%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
             <div class="p-6">
-              <div class="flex items-center justify-between">
+              <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between">
                 <p class="text-neutral-500 text-sm">開催報告・登壇者・協賛企業・アンケート分析</p>
-                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </div>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
             </div>
-          </a>
+          </div>
 
           <!-- 第2回 大同窓会 Archive -->
           <a href="https://yuhikai.amebaownd.com/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
