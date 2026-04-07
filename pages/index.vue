@@ -203,30 +203,6 @@
             </div>
           </div>
 
-          <!-- Project 3: キャリア・クロスロード -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-orange to-orange-400"></div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-orange/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"/></svg>
-                </div>
-                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">開催報告</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">キャリア・クロスロード</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">40名超のメンターと学生が交わるトークセッション。2025年12月に第1回を開催しました。</p>
-              <div class="bg-kaiho-orange/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-3">
-                  <span class="text-2xl font-black text-kaiho-orange">40+</span>
-                  <span class="text-xs text-neutral-500">名のメンターが参加<br>22名の在校生が交流</span>
-                </div>
-              </div>
-              <NuxtLink to="/blog/career-crossroads-manual" class="inline-flex items-center gap-2 text-kaiho-orange text-sm font-bold hover:gap-3 transition-all">
-                運営マニュアルを見る <span>&rarr;</span>
-              </NuxtLink>
-            </div>
-          </div>
-
           <!-- Project 4: 同窓生交流 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
             <div class="h-40 relative overflow-hidden">
