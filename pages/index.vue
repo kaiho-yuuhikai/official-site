@@ -317,8 +317,11 @@
                   <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
                   <div class="p-5 md:p-7">
                     <div class="flex items-center gap-4 mb-4">
-                      <div class="w-14 h-14 rounded-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black flex-shrink-0">
-                        {{ mentor.name.charAt(0) }}
+                      <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                        <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
+                        <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
+                          {{ mentor.name.charAt(0) }}
+                        </div>
                       </div>
                       <div>
                         <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
@@ -892,6 +895,7 @@ interface Mentor {
   tagClass: string
   tags: string[]
   profile: string
+  image?: string
 }
 
 const mentors: Mentor[] = [
@@ -905,6 +909,19 @@ const mentors: Mentor[] = [
     tagClass: 'bg-kaiho-blue/10 text-kaiho-blue',
     tags: ['IT', 'ネットワーク'],
     profile: '三井情報株式会社でネットワークエンジニアとして沖縄営業所に在籍。在地方初のスペシャリスト職として、県外のプロジェクトにも参画してます。',
+    image: 'images/mentors/kishimoto-katsumi.jpg',
+  },
+  {
+    name: '宮城光男',
+    furigana: 'ミヤギミツオ',
+    generation: '7期',
+    course: '芸術科',
+    region: '沖縄県',
+    category: 'art',
+    tagClass: 'bg-kaiho-gold/20 text-amber-700',
+    tags: ['芸術', 'シーサー', '陶芸'],
+    profile: '沖縄 那覇市の壺屋の工房・ギャラリーと、恩納村のアトリエにて、シーサーを中心に制作活動してる藝術家です。2019年に火災により消失した平成首里城の瓦礫を使いシーサーとして復活させています。夢・目標はこの世界遺産・平成首里城の瓦礫を素材に、世界一の巨大シーサーを沖縄に作ることです。',
+    image: 'images/mentors/miyagi-mitsuo.jpg',
   },
 ]
 
