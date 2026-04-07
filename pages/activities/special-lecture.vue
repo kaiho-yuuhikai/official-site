@@ -180,6 +180,67 @@
       </div>
     </section>
 
+    <!-- 活動実績 -->
+    <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Archive</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">活動実績</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <!-- 2024年 -->
+        <div class="fade-in">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2024年（令和6年）</h3>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2024.jpeg`"
+                alt="令和6年度 創立記念特設授業 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-4">
+              <p class="text-neutral-600 text-sm leading-relaxed">2024年11月1日（金）開催。OG・OB特設授業およびキャリア相談会を実施しました。</p>
+              <div class="space-y-3">
+                <a
+                  :href="`${config.app.baseURL}files/special-lecture-2024-questionnaire.pdf`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-3 bg-white rounded-xl p-4 border border-neutral-200 hover:border-kaiho-green hover:shadow-sm transition-all group"
+                >
+                  <div class="w-10 h-10 bg-kaiho-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-bold text-neutral-900 text-sm group-hover:text-kaiho-green transition-colors">事後アンケート回答結果</p>
+                    <p class="text-xs text-neutral-400 mt-0.5">PDF</p>
+                  </div>
+                  <svg class="w-4 h-4 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                </a>
+                <a
+                  :href="`${config.app.baseURL}files/daidosoukai-3rd-slides.pdf`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-3 bg-white rounded-xl p-4 border border-neutral-200 hover:border-kaiho-green hover:shadow-sm transition-all group"
+                >
+                  <div class="w-10 h-10 bg-kaiho-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-bold text-neutral-900 text-sm group-hover:text-kaiho-green transition-colors">第三回開邦高校大同窓会スライド</p>
+                    <p class="text-xs text-neutral-400 mt-0.5">PDF</p>
+                  </div>
+                  <svg class="w-4 h-4 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="py-24 bg-kaiho-green">
       <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
