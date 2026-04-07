@@ -807,12 +807,13 @@
 
           <!-- Career Crossroads Manual -->
           <NuxtLink to="/blog/career-crossroads-manual" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-56 bg-gradient-to-br from-kaiho-orange to-orange-500 flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
-              <div class="text-center relative z-10">
-                <div class="text-5xl mb-3">&#128203;</div>
-                <h3 class="text-2xl font-black text-white mb-2">キャリア・クロスロード</h3>
-                <p class="text-white/80 font-medium">運営マニュアル</p>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://drive.google.com/uc?export=view&id=1AjFfYLWtGbNFSfw5hCi0LjvnRxcMmhzV" alt="キャリア・クロスロード" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
+                <div>
+                  <h3 class="text-2xl font-black text-white mb-1">キャリア・クロスロード</h3>
+                  <p class="text-white/80 text-sm font-medium">運営マニュアル</p>
+                </div>
               </div>
             </div>
             <div class="p-6">

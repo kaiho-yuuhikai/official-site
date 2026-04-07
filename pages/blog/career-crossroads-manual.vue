@@ -128,6 +128,19 @@
                 </div>
               </div>
               <p class="text-xs text-neutral-400">2025年12月28日（日）13:00〜14:30 / ホテル宴会場 / 第3回大同窓会の事前イベント</p>
+
+              <div class="mt-4">
+                <a href="https://drive.google.com/file/d/1AjFfYLWtGbNFSfw5hCi0LjvnRxcMmhzV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-neutral-50 rounded-xl p-4 border border-neutral-200 hover:border-kaiho-orange hover:shadow-sm transition-all group">
+                  <div class="w-10 h-10 bg-kaiho-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-kaiho-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-bold text-neutral-900 text-sm group-hover:text-kaiho-orange transition-colors">第1回 アーカイブ資料</p>
+                    <p class="text-xs text-neutral-400 mt-0.5">Google Drive</p>
+                  </div>
+                  <svg class="w-4 h-4 text-neutral-400 group-hover:text-kaiho-orange transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
             </section>
 
             <hr class="border-neutral-100">
