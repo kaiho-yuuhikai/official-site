@@ -818,21 +818,21 @@
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">開邦雄飛会を支えるメンバーたち</p>
           <div class="section-divider mt-6"></div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
           <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
+               class="bg-white rounded-2xl p-6 shadow-md border border-neutral-200 flex flex-col items-center text-center gap-3">
+            <div class="w-16 h-16 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-xl"
                  :class="!member.photo ? member.bgClass : ''">
               <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
               <span v-else>{{ member.initial }}</span>
             </div>
-            <div class="min-w-0">
-              <div class="flex items-center gap-2 flex-wrap">
-                <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
+            <div>
+              <div class="flex items-center justify-center gap-1.5 flex-wrap mb-1">
+                <h4 class="font-bold text-neutral-900">{{ member.name }}</h4>
                 <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
               </div>
-              <p class="text-xs text-neutral-500">{{ member.generation }}</p>
-              <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
+              <p class="text-xs text-neutral-400 mb-1">{{ member.generation }}</p>
+              <p v-if="member.note" class="text-xs text-neutral-600 leading-snug">{{ member.note }}</p>
             </div>
           </div>
         </div>
