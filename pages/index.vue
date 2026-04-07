@@ -303,63 +303,43 @@
           </div>
         </div>
 
-        <!-- Mentor Slides -->
+        <!-- Mentor Grid -->
         <div class="mt-16 mb-6 text-center fade-in">
           <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
         </div>
-        <div class="relative fade-in">
-          <!-- Slide container -->
-          <div class="overflow-hidden">
-            <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentMentorSlide * 100}%)` }">
-              <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
-                   class="w-full flex-shrink-0 px-4">
-                <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
-                  <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-                  <div class="p-5 md:p-7">
-                    <div class="flex items-center gap-4 mb-4">
-                      <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                        <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
-                        <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
-                          {{ mentor.name.charAt(0) }}
-                        </div>
-                      </div>
-                      <div>
-                        <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
-                        <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
-                        <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                          <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
-                          <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
-                          <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
-                        </div>
-                      </div>
+        <div class="fade-in">
+          <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
+                 class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
+              <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+              <div class="p-5 md:p-6">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
+                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
+                      {{ mentor.name.charAt(0) }}
                     </div>
-                    <div class="bg-neutral-50 rounded-xl p-4 mb-4">
-                      <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5">
-                      <span v-for="tag in mentor.tags" :key="tag"
-                            class="text-xs px-2.5 py-0.5 rounded-full font-medium"
-                            :class="mentor.tagClass">{{ tag }}</span>
+                  </div>
+                  <div>
+                    <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
+                    <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
+                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                      <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
+                      <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
+                      <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
                     </div>
                   </div>
                 </div>
+                <div class="bg-neutral-50 rounded-xl p-4 mb-4">
+                  <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <span v-for="tag in mentor.tags" :key="tag"
+                        class="text-xs px-2.5 py-0.5 rounded-full font-medium"
+                        :class="mentor.tagClass">{{ tag }}</span>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Navigation (複数メンターの場合のみ表示) -->
-          <div v-if="mentors.length > 1" class="flex items-center justify-center gap-4 mt-8">
-            <button @click="prevMentorSlide" class="w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <div class="flex gap-2">
-              <button v-for="(_, i) in mentors" :key="i" @click="currentMentorSlide = i"
-                      class="w-2 h-2 rounded-full transition-colors"
-                      :class="currentMentorSlide === i ? 'bg-kaiho-blue' : 'bg-neutral-300'"></button>
-            </div>
-            <button @click="nextMentorSlide" class="w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
           </div>
 
           <!-- メンター登録 -->
@@ -497,6 +477,36 @@
 
 
     <!-- ============================================================ -->
+    <!-- NEWS SECTION                                                  -->
+    <!-- ============================================================ -->
+    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto space-y-0 fade-in">
+          <div v-for="(item, i) in newsItems" :key="i"
+             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
+             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
+            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
+            <div class="flex-1 flex items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
+                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
+                </div>
+                <h3 class="text-white font-medium">{{ item.title }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- NOTE MAGAZINE SECTION                                         -->
     <!-- ============================================================ -->
     <section id="magazine" class="py-24 md:py-32 bg-white">
@@ -562,36 +572,6 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.3c0-.5-.5-1-1.3-.8l-6.4 2.2L8 3.3C7.5 3 7 3 6.5 3.2L1.8 5c-.5.2-.8.5-.8 1v14.7c0 .5.5 1 1.3.8l6.4-2.2 6.3 2.2c.5.3 1 .3 1.5.1l4.7-1.8c.5-.2.8-.5.8-1V4.3z"/></svg>
             note マガジンをすべて読む
           </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NEWS SECTION                                                  -->
-    <!-- ============================================================ -->
-    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
-        </div>
-
-        <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <div v-for="(item, i) in newsItems" :key="i"
-             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
-             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
-            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
-            <div class="flex-1 flex items-center justify-between gap-4">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
-                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
-                </div>
-                <h3 class="text-white font-medium">{{ item.title }}</h3>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -718,11 +698,16 @@
         <!-- Threadsアイコン＋リンク -->
         <div class="flex flex-col items-center gap-6 fade-in">
           <a href="https://www.threads.com/@kaihoyuhi" target="_blank" rel="noopener noreferrer"
-             class="group flex flex-col items-center gap-4 text-white/50 hover:text-white transition-colors duration-300">
-            <svg class="w-16 h-16 opacity-50 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.378-.887h-.018c-.852 0-1.668.228-2.27.644-.508.355-.816.814-.878 1.317l-2.043-.256c.217-1.557 1.048-2.848 2.352-3.637C11.011 7.208 12.162 6.9 13.39 6.9h.028c1.673.006 3.013.538 3.979 1.579 1.137 1.228 1.643 3.03 1.466 5.072-.018.217-.043.43-.075.637.654.418 1.209.914 1.655 1.48 1.186 1.512 1.604 3.533.876 5.547-.81 2.22-2.6 3.784-5.195 4.573-.988.3-2.046.462-3.157.462z"/>
-            </svg>
-            <span class="text-sm font-medium">@kaihoyuhi</span>
+             class="group flex flex-col items-center gap-4 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-24 h-24 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+              <svg class="w-14 h-14 text-neutral-900" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.378-.887h-.018c-.852 0-1.668.228-2.27.644-.508.355-.816.814-.878 1.317l-2.043-.256c.217-1.557 1.048-2.848 2.352-3.637C11.011 7.208 12.162 6.9 13.39 6.9h.028c1.673.006 3.013.538 3.979 1.579 1.137 1.228 1.643 3.03 1.466 5.072-.018.217-.043.43-.075.637.654.418 1.209.914 1.655 1.48 1.186 1.512 1.604 3.533.876 5.547-.81 2.22-2.6 3.784-5.195 4.573-.988.3-2.046.462-3.157.462z"/>
+              </svg>
+            </div>
+            <div class="text-center">
+              <p class="text-white font-bold text-base">@kaihoyuhi</p>
+              <p class="text-white/60 text-xs mt-1">Threads でフォロー</p>
+            </div>
           </a>
         </div>
       </div>
@@ -902,15 +887,6 @@
             </span>
           </a>
 
-          <!-- CTA 4 -->
-          <NuxtLink to="/officers" class="card-hover block bg-gradient-to-br from-kaiho-gold to-amber-500 rounded-2xl p-8 text-white text-center sm:col-span-2 lg:col-span-1">
-            <div class="text-4xl mb-4">&#128101;</div>
-            <h3 class="text-lg font-bold mb-2">運営メンバー紹介</h3>
-            <p class="text-white/80 text-sm mb-4">活動を支えるメンバーたち</p>
-            <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              メンバーを見る &rarr;
-            </span>
-          </NuxtLink>
         </div>
       </div>
     </section>
