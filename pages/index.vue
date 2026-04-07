@@ -816,7 +816,7 @@
           <!-- Career Crossroads Manual -->
           <NuxtLink to="/blog/career-crossroads-manual" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 relative overflow-hidden">
-              <img src="https://drive.google.com/uc?export=view&id=1AjFfYLWtGbNFSfw5hCi0LjvnRxcMmhzV" alt="キャリア・クロスロード" class="w-full h-full object-cover">
+              <img :src="`${baseURL}images/career-crossroads.jpeg`" alt="キャリア・クロスロード" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
                 <div>
                   <h3 class="text-2xl font-black text-white mb-1">キャリア・クロスロード</h3>
