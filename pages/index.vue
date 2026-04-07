@@ -287,8 +287,8 @@
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
-              <h4 class="font-bold text-sm text-neutral-900">探究活動アドバイス</h4>
-              <p class="text-xs text-neutral-500 mt-1">研究テーマの相談</p>
+              <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
+              <p class="text-xs text-neutral-500 mt-1"></p>
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128187;</div>
@@ -376,7 +376,7 @@
 
         <!-- 注意書き -->
         <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
-          ※ メンターが提供できるサポート内容に関しては、開邦雄飛会が学校と調整したうえで、無理のない範囲で安心して活動いただけるように個別に調整いたします。
+          メンターが提供できるサポート内容に関しては、無理のない範囲で安心して活動いただけるように個別に調整いたします。
         </p>
       </div>
     </section>
