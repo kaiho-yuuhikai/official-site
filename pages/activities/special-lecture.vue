@@ -215,10 +215,10 @@
         <h2 class="text-3xl font-black text-white mb-4">講師として参加しませんか？</h2>
         <p class="text-white/80 mb-8 leading-relaxed">
           後輩たちへ、あなたの歩みと言葉を届けてください。<br>
-          お問い合わせ・参加希望は事務局までご連絡ください。
+          参加希望の方は下記のフォームよりお申し込みください。
         </p>
-        <NuxtLink to="/contact" class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors">
-          お問い合わせ <span>&rarr;</span>
+        <NuxtLink to="/mentor/registration" class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors">
+          メンター応募フォーム <span>&rarr;</span>
         </NuxtLink>
       </div>
     </section>
