@@ -759,14 +759,19 @@
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto fade-in">
           <!-- 大同窓会 Archive -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-            <div class="bg-gradient-to-br from-kaiho-green-dark to-kaiho-green px-6 pt-6 pb-4">
-              <p class="text-white/60 text-sm mb-1">2025.12.28 開催</p>
-              <h3 class="text-2xl font-black text-white mb-1">第3回 大同窓会</h3>
-              <p class="text-kaiho-gold font-medium text-sm">創立40周年記念</p>
-              <div class="mt-2 flex items-center gap-4 text-white/80 text-sm">
-                <span>参加者 <strong>537名</strong></span>
-                <span>|</span>
-                <span>協賛 <strong>25社</strong></span>
+            <div class="h-56 relative overflow-hidden">
+              <img :src="`${baseURL}images/daidosoukai-3rd.jpg`" alt="第3回大同窓会 集合写真" class="w-full h-full object-cover object-top">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                <div>
+                  <p class="text-white/70 text-xs mb-1">2025.12.28 開催</p>
+                  <h3 class="text-2xl font-black text-white mb-1">第3回 大同窓会</h3>
+                  <p class="text-kaiho-gold font-medium text-sm">創立40周年記念</p>
+                  <div class="mt-1 flex items-center gap-3 text-white/80 text-xs">
+                    <span>参加者 <strong>537名</strong></span>
+                    <span>|</span>
+                    <span>協賛 <strong>25社</strong></span>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="p-6 space-y-3">
