@@ -155,7 +155,6 @@ const members = [
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
   { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
-  { name: 'みつお', generation: '7期 芸術科', initial: 'み', bgClass: getBgClass(0), note: 'シーサー藝術家', photo: 'images/members/mitsuo.jpg', comment: '開邦のおかげで仲間と工房を立ち上げ、シーサー作家として暮らせています。同窓会の皆さんに感謝' },
   { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
 ]
 

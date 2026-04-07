@@ -568,6 +568,36 @@
 
 
     <!-- ============================================================ -->
+    <!-- NEWS SECTION                                                  -->
+    <!-- ============================================================ -->
+    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto space-y-0 fade-in">
+          <div v-for="(item, i) in newsItems" :key="i"
+             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
+             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
+            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
+            <div class="flex-1 flex items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
+                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
+                </div>
+                <h3 class="text-white font-medium">{{ item.title }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- BRANCHES SECTION                                              -->
     <!-- ============================================================ -->
     <section class="py-24 md:py-32 bg-gradient-to-br from-kaiho-teal/5 via-white to-teal-50">
@@ -667,36 +697,6 @@
               </svg>
               LINEで参加する
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NEWS SECTION                                                  -->
-    <!-- ============================================================ -->
-    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
-        </div>
-
-        <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <div v-for="(item, i) in newsItems" :key="i"
-             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
-             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
-            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
-            <div class="flex-1 flex items-center justify-between gap-4">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
-                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
-                </div>
-                <h3 class="text-white font-medium">{{ item.title }}</h3>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -823,6 +823,44 @@
 
 
     <!-- ============================================================ -->
+    <!-- MEMBERS SECTION                                               -->
+    <!-- ============================================================ -->
+    <section class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Members</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">運営メンバー紹介</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">開邦雄飛会を支えるメンバーたち</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+          <div v-for="member in members" :key="member.name"
+               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
+                 :class="!member.photo ? member.bgClass : ''">
+              <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
+              <span v-else>{{ member.initial }}</span>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
+                <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
+              </div>
+              <p class="text-xs text-neutral-500">{{ member.generation }}</p>
+              <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <NuxtLink to="/officers" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+            役員・メンバー詳細ページへ <span>&rarr;</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- CTA SECTION                                                   -->
     <!-- ============================================================ -->
     <section class="py-24 md:py-32 bg-white">
@@ -932,6 +970,28 @@ function prevMentorSlide() {
 function nextMentorSlide() {
   currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
 }
+
+// ── Members ──
+const memberColorClasses = [
+  'bg-gradient-to-br from-kaiho-green to-emerald-400',
+  'bg-gradient-to-br from-kaiho-blue to-blue-400',
+  'bg-gradient-to-br from-kaiho-gold to-amber-400',
+  'bg-gradient-to-br from-kaiho-purple to-purple-400',
+  'bg-gradient-to-br from-kaiho-orange to-orange-400',
+  'bg-gradient-to-br from-kaiho-teal to-teal-400',
+]
+function getMemberBgClass(index: number) {
+  return memberColorClasses[index % memberColorClasses.length]
+}
+const members = [
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '' },
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '' },
+  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部' },
+  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getMemberBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', branch: '' },
+]
 
 // ── News items ──
 const newsItems = [
