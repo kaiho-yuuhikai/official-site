@@ -148,9 +148,9 @@
           <div class="section-divider mt-6"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
           <!-- Project 1: 雄飛会支援基金 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-purple to-purple-400"></div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
@@ -177,7 +177,7 @@
           </div>
 
           <!-- Project 2: メンター制度 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
@@ -204,7 +204,7 @@
           </div>
 
           <!-- Project 4: 同窓生交流 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-40 relative overflow-hidden">
               <img :src="`${baseURL}images/alumni-exchange.jpeg`" alt="同窓生交流活動" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black/30"></div>
@@ -231,7 +231,7 @@
           </div>
 
           <!-- Project 5: 創立記念特設授業 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-40 relative overflow-hidden">
               <img :src="`${baseURL}images/special-lecture-classroom.jpeg`" alt="創立記念特設授業" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black/30"></div>
