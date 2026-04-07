@@ -184,7 +184,10 @@
                 <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
                   <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
                 </div>
-                <span class="bg-kaiho-blue/10 text-kaiho-blue text-xs font-bold px-3 py-1 rounded-full badge-pulse">登録受付中</span>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">NEW</span>
+                  <span class="bg-kaiho-blue/10 text-kaiho-blue text-[10px] font-bold px-2 py-0.5 rounded-full">2026年度 開始予定</span>
+                </div>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">メンター制度</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択を支援する。</p>
@@ -384,6 +387,10 @@
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-blue mb-4">Mentor</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">メンター制度</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの経験が、後輩の未来を拓く</p>
+          <div class="inline-flex items-center gap-2 mt-5 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+            <span class="text-emerald-700 text-xs font-bold">2026年度より開始予定の新規事業</span>
+          </div>
           <div class="section-divider mt-6"></div>
         </div>
 
