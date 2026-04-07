@@ -769,12 +769,12 @@
                 <span>協賛 <strong>25社</strong></span>
               </div>
             </div>
-            <!-- Facebook リール埋め込み -->
-            <div class="flex justify-center bg-black">
-              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1521567145808218%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-            </div>
-            <div class="p-6">
-              <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between">
+            <div class="p-6 space-y-3">
+              <a href="https://www.facebook.com/reel/1521567145808218" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">ダイジェスト動画（Facebook リール）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
                 <p class="text-neutral-500 text-sm">開催報告・登壇者・協賛企業・アンケート分析</p>
                 <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
