@@ -816,6 +816,7 @@
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Members</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">運営メンバー紹介</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">開邦雄飛会を支えるメンバーたち</p>
+          <p class="text-neutral-500 text-sm mt-3 max-w-xl mx-auto">現在、2026年度の新体制に向けて準備を進めています。世代を超えた多様なメンバーが開邦雄飛会の運営に参画しています。</p>
           <div class="section-divider mt-6"></div>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
