@@ -253,7 +253,10 @@
 
           <!-- Project 5: 創立記念特設授業 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
+            <div class="h-40 relative overflow-hidden">
+              <img :src="`${baseURL}images/special-lecture-classroom.jpeg`" alt="創立記念特設授業" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/30"></div>
+            </div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
                 <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">

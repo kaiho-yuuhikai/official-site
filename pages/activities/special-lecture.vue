@@ -190,7 +190,7 @@
         </div>
 
         <!-- 2024年 -->
-        <div class="fade-in">
+        <div class="fade-in mb-16">
           <h3 class="text-xl font-bold text-neutral-900 mb-6">2024年（令和6年）</h3>
           <div class="grid md:grid-cols-2 gap-8 items-start">
             <div class="flex justify-center">
@@ -203,6 +203,42 @@
             </div>
             <div>
               <p class="text-neutral-600 text-sm leading-relaxed">2024年11月1日（金）開催。OG・OB特設授業およびキャリア相談会を実施しました。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2021年 -->
+        <div class="fade-in mb-16">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2021年（令和3年）</h3>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2021.jpeg`"
+                alt="令和3年度 創立記念特設授業 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-neutral-600 text-sm leading-relaxed">2021年11月1日（月）開催。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2020年 -->
+        <div class="fade-in">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2020年（令和2年）</h3>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2020.jpeg`"
+                alt="令和2年度 創立記念特設授業 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-neutral-600 text-sm leading-relaxed">2020年11月6日（金）開催。</p>
             </div>
           </div>
         </div>
