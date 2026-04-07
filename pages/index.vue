@@ -265,107 +265,6 @@
 
 
     <!-- ============================================================ -->
-    <!-- MENTOR SECTION                                                -->
-    <!-- ============================================================ -->
-    <section id="mentor" class="py-24 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-blue mb-4">Mentor</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">メンター制度</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの経験が、後輩の未来を拓く</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- Mentor support types -->
-        <div class="bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127908;</div>
-              <h4 class="font-bold text-sm text-neutral-900">特設授業での講話</h4>
-              <p class="text-xs text-neutral-500 mt-1">学校での特別講演</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#128300;</div>
-              <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
-              <p class="text-xs text-neutral-500 mt-1"></p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#128187;</div>
-              <h4 class="font-bold text-sm text-neutral-900">オンライン相談</h4>
-              <p class="text-xs text-neutral-500 mt-1">遠方でもサポート</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127970;</div>
-              <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
-              <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mentor Grid -->
-        <div class="mt-16 mb-6 text-center fade-in">
-          <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
-        </div>
-        <div class="fade-in">
-          <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
-                 class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
-              <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-              <div class="p-5 md:p-6">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
-                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
-                      {{ mentor.name.charAt(0) }}
-                    </div>
-                  </div>
-                  <div>
-                    <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
-                    <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
-                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                      <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
-                      <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
-                      <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4 mb-4">
-                  <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
-                </div>
-                <div class="flex flex-wrap gap-1.5">
-                  <span v-for="tag in mentor.tags" :key="tag"
-                        class="text-xs px-2.5 py-0.5 rounded-full font-medium"
-                        :class="mentor.tagClass">{{ tag }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- メンター登録 -->
-          <div class="mt-10 flex justify-center">
-            <NuxtLink to="/mentor/registration"
-              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-              </div>
-              <div class="text-center">
-                <p class="text-white font-black text-lg leading-tight">メンターになる</p>
-                <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
-              </div>
-            </NuxtLink>
-          </div>
-        </div>
-
-        <!-- 注意書き -->
-        <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
-          メンターが提供できるサポート内容に関しては、無理のない範囲で安心して活動いただけるように個別に調整いたします。
-        </p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
     <!-- FUND / DONATION SECTION                                       -->
     <!-- ============================================================ -->
     <section id="fund" class="py-24 md:py-32 bg-gradient-to-br from-kaiho-purple/5 via-white to-purple-50">
@@ -472,6 +371,107 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- MENTOR SECTION                                                -->
+    <!-- ============================================================ -->
+    <section id="mentor" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-blue mb-4">Mentor</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">メンター制度</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの経験が、後輩の未来を拓く</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <!-- Mentor support types -->
+        <div class="bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#127908;</div>
+              <h4 class="font-bold text-sm text-neutral-900">特設授業での講話</h4>
+              <p class="text-xs text-neutral-500 mt-1">学校での特別講演</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#128300;</div>
+              <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
+              <p class="text-xs text-neutral-500 mt-1"></p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#128187;</div>
+              <h4 class="font-bold text-sm text-neutral-900">オンライン相談</h4>
+              <p class="text-xs text-neutral-500 mt-1">遠方でもサポート</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+              <div class="text-2xl mb-2">&#127970;</div>
+              <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
+              <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentor Grid -->
+        <div class="mt-16 mb-6 text-center fade-in">
+          <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
+        </div>
+        <div class="fade-in">
+          <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
+                 class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
+              <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+              <div class="p-5 md:p-6">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
+                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
+                      {{ mentor.name.charAt(0) }}
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
+                    <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
+                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                      <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
+                      <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
+                      <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4 mb-4">
+                  <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <span v-for="tag in mentor.tags" :key="tag"
+                        class="text-xs px-2.5 py-0.5 rounded-full font-medium"
+                        :class="mentor.tagClass">{{ tag }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- メンター登録 -->
+          <div class="mt-10 flex justify-center">
+            <NuxtLink to="/mentor/registration"
+              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-black text-lg leading-tight">メンターになる</p>
+                <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- 注意書き -->
+        <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
+          メンターが提供できるサポート内容に関しては、無理のない範囲で安心して活動いただけるように個別に調整いたします。
+        </p>
       </div>
     </section>
 
