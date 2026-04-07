@@ -783,11 +783,13 @@
 
           <!-- 第2回 大同窓会 Archive -->
           <a href="https://yuhikai.amebaownd.com/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-56 bg-gradient-to-br from-kaiho-teal to-teal-500 flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22/%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
-              <div class="text-center relative z-10">
-                <h3 class="text-3xl font-black text-white mb-2">第2回 大同窓会<span class="block text-base font-medium mt-1 text-white/80">2018・10・20 開催</span></h3>
-                <p class="text-white/80 font-medium">開邦高校同窓会</p>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://cdn.amebaowndme.com/madrid-prd/madrid-web/images/sites/454607/a3b54ac3a4278c6d9688153603a13c2d_906d6b028bcd8293e895f3e33fe2511b.jpg?width=1600" alt="第2回大同窓会" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
+                <div>
+                  <h3 class="text-2xl font-black text-white mb-1">第2回 大同窓会<span class="block text-sm font-medium mt-0.5 text-white/80">2018・10・20 開催</span></h3>
+                  <p class="text-white/80 text-sm font-medium">開邦高校同窓会</p>
+                </div>
               </div>
             </div>
             <div class="p-6">
