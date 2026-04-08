@@ -828,13 +828,20 @@
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
           <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-2xl p-6 shadow-md border border-neutral-200 flex flex-col items-center text-center gap-3">
-            <div class="w-16 h-16 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-xl"
-                 :class="!member.photo ? member.bgClass : ''">
-              <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
-              <span v-else>{{ member.initial }}</span>
+               class="bg-white rounded-2xl p-5 shadow-md border border-neutral-200 flex flex-col gap-4">
+            <!-- 写真 + 吹き出しコメント -->
+            <div class="flex items-start gap-3">
+              <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-lg"
+                   :class="!member.photo ? member.bgClass : ''">
+                <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
+                <span v-else>{{ member.initial }}</span>
+              </div>
+              <div v-if="member.comment" class="speech-bubble flex-1 text-xs text-neutral-600 leading-relaxed">
+                {{ member.comment }}
+              </div>
             </div>
-            <div>
+            <!-- 名前・期・役職 -->
+            <div class="text-center">
               <div class="flex items-center justify-center gap-1.5 flex-wrap mb-1">
                 <h4 class="font-bold text-neutral-900">{{ member.name }}</h4>
                 <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
@@ -968,17 +975,18 @@ function getMemberBgClass(index: number) {
   return memberColorClasses[index % memberColorClasses.length]
 }
 const members = [
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '' },
-  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '' },
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '' },
-  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部' },
-  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getMemberBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', branch: '' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪' },
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
+  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。' },
+  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getMemberBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', branch: '', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
 ]
 
 // ── News items ──
 const newsItems = [
+  { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
   { date: '2026.03.30', category: '総会', title: '令和8年度 定期総会 開催予定（準備中）— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
   { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
   { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: true },

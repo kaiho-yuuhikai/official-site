@@ -164,6 +164,25 @@
   transition: width 0.1s;
 }
 
+/* Member speech bubble */
+.speech-bubble {
+  position: relative;
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 10px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 7px solid #f9fafb;
+}
+
 /* Smooth page transitions */
 .page-enter-active,
 .page-leave-active {
