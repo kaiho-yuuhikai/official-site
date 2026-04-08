@@ -129,6 +129,15 @@ const baseURL = useRuntimeConfig().app.baseURL
 // 手動掲載のニュース項目
 const manualItems: NewsItem[] = [
   {
+    date: '2026.04.01',
+    category: 'お知らせ',
+    title: '開邦雄飛会公式ホームページ稼働開始',
+    summary: null,
+    link: null,
+    isNew: false,
+    sortKey: new Date('2026-04-01').getTime(),
+  },
+  {
     date: '2026.03.30',
     category: '総会',
     title: '令和8年度 定期総会 開催予定（準備中）',
