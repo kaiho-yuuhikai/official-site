@@ -796,7 +796,7 @@
               <img :src="`${baseURL}images/daidosoukai-1st.jpg`" alt="第1回大同窓会" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
                 <div>
-                  <p class="text-white/70 text-xs mb-1">第1回 開催記念</p>
+                  <p class="text-white/70 text-xs mb-1">2015・10・3 開催</p>
                   <h3 class="text-2xl font-black text-white mb-1">第1回 大同窓会</h3>
                   <p class="text-kaiho-gold font-medium text-sm">開邦高校同窓会</p>
                 </div>
