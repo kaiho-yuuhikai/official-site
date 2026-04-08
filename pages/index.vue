@@ -774,7 +774,7 @@
           <!-- 第2回 大同窓会 Archive -->
           <a href="https://yuhikai.amebaownd.com/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 relative overflow-hidden">
-              <img src="https://cdn.amebaowndme.com/madrid-prd/madrid-web/images/sites/454607/a3b54ac3a4278c6d9688153603a13c2d_906d6b028bcd8293e895f3e33fe2511b.jpg?width=1600" alt="第2回大同窓会" class="w-full h-full object-cover">
+              <img :src="`${baseURL}images/daidosoukai-2nd.jpg`" alt="第2回大同窓会" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
                 <div>
                   <h3 class="text-2xl font-black text-white mb-1">第2回 大同窓会<span class="block text-sm font-medium mt-0.5 text-white/80">2018・10・20 開催</span></h3>
