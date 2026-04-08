@@ -207,6 +207,42 @@
           </div>
         </div>
 
+        <!-- 2023年 -->
+        <div class="fade-in mb-16">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2023年（令和5年）</h3>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2023.jpg`"
+                alt="令和5年度 創立記念特設授業 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-neutral-600 text-sm leading-relaxed">2023年11月1日（水）開催。創立記念特別授業として同窓生講師を募集し実施しました。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2022年 -->
+        <div class="fade-in mb-16">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2022年（令和4年）</h3>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2022.jpg`"
+                alt="令和4年度 創立記念日特別授業2022 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-neutral-600 text-sm leading-relaxed">2022年11月1日（火）開催。同窓生講師募集のもと特別授業を実施しました。</p>
+            </div>
+          </div>
+        </div>
+
         <!-- 2021年 -->
         <div class="fade-in mb-16">
           <h3 class="text-xl font-bold text-neutral-900 mb-6">2021年（令和3年）</h3>
