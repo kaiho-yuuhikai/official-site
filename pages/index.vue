@@ -151,7 +151,10 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
           <!-- Project 1: 雄飛会支援基金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-purple to-purple-400"></div>
+            <div class="h-36 relative overflow-hidden">
+              <img :src="`${baseURL}images/kaiho-van.jpg`" alt="開邦高校 学校車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-kaiho-purple/60 to-transparent"></div>
+            </div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
                 <div class="w-14 h-14 bg-kaiho-purple/10 rounded-xl flex items-center justify-center">
