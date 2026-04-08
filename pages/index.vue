@@ -790,6 +790,25 @@
             </div>
           </a>
 
+          <!-- 第1回 大同窓会 Archive -->
+          <a :href="`${baseURL}files/daidosoukai-1st-2nd-materials.pdf`" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+            <div class="h-56 relative overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-kaiho-green-dark via-kaiho-green to-emerald-400 flex items-end p-5">
+                <div>
+                  <p class="text-white/70 text-xs mb-1">第1回 開催記念</p>
+                  <h3 class="text-2xl font-black text-white mb-1">第1回 大同窓会</h3>
+                  <p class="text-kaiho-gold font-medium text-sm">開邦高校同窓会</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between">
+                <p class="text-neutral-500 text-sm">第1回・第2回 開催資料（PDF）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              </div>
+            </div>
+          </a>
+
           <!-- Career Crossroads Manual -->
           <NuxtLink to="/blog/career-crossroads-manual" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 relative overflow-hidden">
