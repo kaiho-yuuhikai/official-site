@@ -153,7 +153,7 @@
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-36 relative overflow-hidden">
               <img :src="`${baseURL}images/kaiho-van.jpg`" alt="開邦高校 学校車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-kaiho-purple/60 to-transparent"></div>
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
