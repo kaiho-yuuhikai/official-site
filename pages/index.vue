@@ -793,7 +793,8 @@
           <!-- 第1回 大同窓会 Archive -->
           <a :href="`${baseURL}files/daidosoukai-1st-2nd-materials.pdf`" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-56 relative overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-kaiho-green-dark via-kaiho-green to-emerald-400 flex items-end p-5">
+              <img :src="`${baseURL}images/daidosoukai-1st.jpg`" alt="第1回大同窓会" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
                 <div>
                   <p class="text-white/70 text-xs mb-1">第1回 開催記念</p>
                   <h3 class="text-2xl font-black text-white mb-1">第1回 大同窓会</h3>
