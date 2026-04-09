@@ -583,6 +583,41 @@
             note マガジンをすべて読む
           </a>
         </div>
+
+        <!-- Creator Recruitment Banner -->
+        <div class="mt-16 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-shrink-0 w-20 h-20 bg-kaiho-green/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+              </svg>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+              <div class="inline-flex items-center gap-2 bg-kaiho-green text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                <span>RECRUIT</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">
+                クリエイター募集中
+              </h3>
+              <p class="text-neutral-600 leading-relaxed max-w-xl">
+                同窓生・在校生のためになる記事を書いてみませんか？<br class="hidden md:inline">
+                キャリア・進路・留学・研究・地域活動など、あなたの経験や知識を発信しましょう。
+              </p>
+              <ul class="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">大学・進学体験</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">留学・海外経験</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">研究・専門知識</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">地域・社会活動</li>
+              </ul>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-colors shadow-md shadow-kaiho-green/20 whitespace-nowrap">
+                執筆を申し込む
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
