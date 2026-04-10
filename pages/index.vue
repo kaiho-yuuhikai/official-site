@@ -420,6 +420,7 @@
               <div class="text-2xl mb-2">&#127970;</div>
               <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
               <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
+              <p class="text-xs text-neutral-400 mt-1">※対応できない場合もあります</p>
             </div>
           </div>
         </div>
