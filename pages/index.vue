@@ -1010,6 +1010,29 @@ const mentors: Mentor[] = [
     profile: '沖縄 那覇市の壺屋の工房・ギャラリーと、恩納村のアトリエにて、シーサーを中心に制作活動してる藝術家です。2019年に火災により消失した平成首里城の瓦礫を使いシーサーとして復活させています。夢・目標はこの世界遺産・平成首里城の瓦礫を素材に、世界一の巨大シーサーを沖縄に作ることです。',
     image: 'images/mentors/miyagi-mitsuo.jpg',
   },
+  {
+    name: '具志 日南子',
+    furigana: 'グシ ヒナコ',
+    generation: '26期',
+    course: '理数科',
+    region: '沖縄県（7月末から埼玉）',
+    category: 'tech',
+    tagClass: 'bg-kaiho-blue/10 text-kaiho-blue',
+    tags: ['ゲームアプリ', '開発', '運営'],
+    profile: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
+  },
+  {
+    name: '我喜屋奏利',
+    furigana: 'ガキヤカナト',
+    generation: '36期',
+    course: '学術探究科',
+    region: '東京都',
+    category: 'education',
+    tagClass: 'bg-kaiho-green/10 text-kaiho-green',
+    tags: ['東京大学', '工学部', 'ALOHA'],
+    profile: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
+    image: 'images/mentors/gakiya-kanato.jpg',
+  },
 ]
 
 const currentMentorSlide = ref(0)
