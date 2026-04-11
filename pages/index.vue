@@ -587,19 +587,13 @@
 
         <!-- Creators Showcase -->
         <div class="mt-16">
-          <div class="flex items-end justify-between mb-8">
-            <div>
-              <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
-              <h3 class="text-2xl md:text-3xl font-black tracking-tight">同窓生クリエイター</h3>
-            </div>
-            <NuxtLink to="/creators" class="text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors flex items-center gap-1">
-              一覧を見る
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-            </NuxtLink>
+          <div class="mb-8">
+            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
+            <h3 class="text-2xl md:text-3xl font-black tracking-tight">同窓生クリエイター</h3>
           </div>
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <NuxtLink v-for="creator in spotlightCreators" :key="creator.name" to="/creators"
-                      class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-center">
+            <div v-for="creator in spotlightCreators" :key="creator.name"
+                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
               <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
                 <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
                 <div v-else class="w-full h-full flex items-center justify-center">
@@ -612,9 +606,9 @@
                   <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
                 </div>
                 <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
-                <p class="text-xs text-neutral-500 line-clamp-2 mt-0.5">{{ creator.bio }}</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
               </div>
-            </NuxtLink>
+            </div>
           </div>
         </div>
 
@@ -1141,7 +1135,7 @@ const spotlightCreators = [
     department: '芸術科',
     initial: '辺',
     photo: 'images/creators/hento-momoka.jpg',
-    bio: '沖縄県立芸術大学大学院修士課程1年。民族音楽学専攻、沖縄の愛唱歌《てぃんさぐぬ花》を研究。',
+    bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
   },
 ]
 
