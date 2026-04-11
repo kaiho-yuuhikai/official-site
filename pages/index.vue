@@ -947,6 +947,55 @@
 
 
     <!-- ============================================================ -->
+    <!-- ROAD CLEANING VOLUNTEER SECTION                               -->
+    <!-- ============================================================ -->
+    <section class="py-24 md:py-32 bg-neutral-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Volunteer</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">道路清掃ボランティア</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">地域とともに、開邦の環境を守る</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto fade-in">
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100">
+            <p class="text-neutral-600 text-sm leading-relaxed mb-6">
+              開邦中高校生・PTA・同窓生が合同で、開邦周辺の道路清掃を行うボランティア活動です。
+              寮〜ローソン〜裏門エリアを対象に、地域の環境整備に取り組んでいます。
+              PTA評議員会で承認を受け、道路管理課との協定書も提出済みです。
+            </p>
+
+            <div class="bg-kaiho-green/5 rounded-xl p-6 mb-6">
+              <h4 class="font-bold text-neutral-900 text-sm mb-3">活動について</h4>
+              <ul class="space-y-2 text-sm text-neutral-600">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                  <span><strong>実施タイミング</strong> — 土曜模試に合わせて定期実施</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                  <span><strong>参加対象</strong> — 開邦中高校生・PTA・同窓生（どなたでも参加歓迎）</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
+                  <span><strong>参加方法</strong> — 参加は自由。実施予定はHP・SNS・オープンチャットでお知らせします</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="text-center">
+              <NuxtLink to="/officers" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+                詳細・活動実績を見る <span>&rarr;</span>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- CTA SECTION                                                   -->
     <!-- ============================================================ -->
     <section class="py-24 md:py-32 bg-white">
