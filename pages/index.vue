@@ -585,8 +585,41 @@
           </a>
         </div>
 
+        <!-- Creators Showcase -->
+        <div class="mt-16">
+          <div class="flex items-end justify-between mb-8">
+            <div>
+              <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight">同窓生クリエイター</h3>
+            </div>
+            <NuxtLink to="/creators" class="text-sm font-bold text-kaiho-green hover:text-kaiho-green-dark transition-colors flex items-center gap-1">
+              一覧を見る
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </NuxtLink>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <NuxtLink v-for="creator in spotlightCreators" :key="creator.name" to="/creators"
+                      class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-center">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
+                <div v-else class="w-full h-full flex items-center justify-center">
+                  <span class="text-2xl font-black text-neutral-200">{{ creator.initial }}</span>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
+                </div>
+                <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
+                <p class="text-xs text-neutral-500 line-clamp-2 mt-0.5">{{ creator.bio }}</p>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+
         <!-- Creator Recruitment Banner -->
-        <div class="mt-16 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
+        <div class="mt-10 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-shrink-0 w-20 h-20 bg-kaiho-green/10 rounded-2xl flex items-center justify-center">
               <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1100,6 +1133,17 @@ interface ThreadsPost {
 const threadsLoading = ref(true)
 const threadsPosts = ref<ThreadsPost[]>([])
 const baseURL = useRuntimeConfig().app.baseURL
+
+const spotlightCreators = [
+  {
+    name: '辺土 百々花',
+    generation: '33期',
+    department: '芸術科',
+    initial: '辺',
+    photo: 'images/creators/hento-momoka.jpg',
+    bio: '沖縄県立芸術大学大学院修士課程1年。民族音楽学専攻、沖縄の愛唱歌《てぃんさぐぬ花》を研究。',
+  },
+]
 
 const noteFallbackImageHtml = '<div class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center"><svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>'
 
