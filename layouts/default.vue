@@ -32,6 +32,7 @@
                   <NuxtLink to="/about#bylaws" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">会則</NuxtLink>
                   <NuxtLink to="/about#history" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">沿革</NuxtLink>
                   <NuxtLink to="/officers" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">役員名簿</NuxtLink>
+                  <NuxtLink to="/creators" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">クリエイター一覧</NuxtLink>
                 </div>
               </div>
             </div>
@@ -106,6 +107,7 @@
             <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">キャリクロ運営マニュアル</NuxtLink>
             <NuxtLink to="/activities/special-lecture" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">創立記念特設授業</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
+            <NuxtLink to="/creators" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">クリエイター一覧</NuxtLink>
             <NuxtLink to="/contact" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせ</NuxtLink>
           </div>
         </div>
