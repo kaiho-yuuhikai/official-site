@@ -966,6 +966,17 @@
               PTA評議員会で承認を受け、道路管理課との協定書も提出済みです。
             </p>
 
+            <!-- リーダー紹介 -->
+            <div class="flex items-center gap-3 bg-neutral-50 rounded-xl px-5 py-3 mb-6">
+              <div class="w-9 h-9 rounded-full bg-kaiho-green/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-kaiho-green text-xs font-bold">金</span>
+              </div>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
+                <p class="text-neutral-500 text-xs">PTA連携・道路ボランティア主導</p>
+              </div>
+            </div>
+
             <div class="bg-kaiho-green/5 rounded-xl p-6 mb-6">
               <h4 class="font-bold text-neutral-900 text-sm mb-3">活動について</h4>
               <ul class="space-y-2 text-sm text-neutral-600">
