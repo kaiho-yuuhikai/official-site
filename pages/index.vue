@@ -1130,7 +1130,7 @@ const mentors: Mentor[] = [
     region: '沖縄県',
     category: 'finance',
     tagClass: 'bg-kaiho-gold/20 text-amber-700',
-    tags: ['金融', 'ファイナンス', 'ライフプラン'],
+    tags: ['投資家', '金融', 'ファイナンス', 'ライフプラン'],
     profile: '『お金が全てではないが、全てのことにお金がかかる』人生を幸せに豊かに過ごすために、金融リテラシーを高めましょう。',
     image: 'images/mentors/miyazato-osamu.jpg',
     imagePosition: 'object-top',
