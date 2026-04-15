@@ -409,7 +409,7 @@
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
               <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
-              <p class="text-xs text-neutral-500 mt-1"></p>
+              <p class="text-xs text-neutral-500 mt-1">同窓生の人生設計支援</p>
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128187;</div>
