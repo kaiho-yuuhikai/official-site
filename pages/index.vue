@@ -163,7 +163,7 @@
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">雄飛会支援基金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動・部活動および芸術科アーティストの活動を資金面から支援・助成します。</p>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
                   <span>達成率（目標¥1,000万）</span>
@@ -304,7 +304,7 @@
             <div class="p-8">
               <h3 class="text-xl font-bold text-neutral-900 mb-2">雄飛会 支援基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動・部活動および芸術科アーティストの活動を幅広く支援します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
+                在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
               </p>
               <div class="mb-4">
                 <div class="flex justify-between text-sm mb-2">
@@ -408,8 +408,8 @@
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
-              <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
-              <p class="text-xs text-neutral-500 mt-1">同窓生の人生設計支援</p>
+              <p class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</p>
+              <p class="font-bold text-sm text-neutral-900 mt-1">同窓生の人生設計支援</p>
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128187;</div>
