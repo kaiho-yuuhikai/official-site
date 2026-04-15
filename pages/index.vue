@@ -437,7 +437,7 @@
               <div class="p-5 md:p-6">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover">
+                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover" :class="mentor.imagePosition ?? 'object-center'">
                     <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
                       {{ mentor.name.charAt(0) }}
                     </div>
@@ -1071,6 +1071,7 @@ interface Mentor {
   tags: string[]
   profile: string
   image?: string
+  imagePosition?: string
 }
 
 const mentors: Mentor[] = [
@@ -1132,6 +1133,7 @@ const mentors: Mentor[] = [
     tags: ['金融', 'ファイナンス', 'ライフプラン'],
     profile: '『お金が全てではないが、全てのことにお金がかかる』人生を幸せに豊かに過ごすために、金融リテラシーを高めましょう。',
     image: 'images/mentors/miyazato-osamu.jpg',
+    imagePosition: 'object-top',
   },
 ]
 
