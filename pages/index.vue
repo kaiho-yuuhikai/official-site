@@ -996,9 +996,9 @@
             </div>
 
             <div class="text-center">
-              <NuxtLink to="/officers" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+              <a href="https://note.com/kaihoyuuhikai/n/n2dcb08afcc8d" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
                 詳細・活動実績を見る <span>&rarr;</span>
-              </NuxtLink>
+              </a>
             </div>
           </div>
         </div>
