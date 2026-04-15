@@ -1121,6 +1121,18 @@ const mentors: Mentor[] = [
     profile: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
     image: 'images/mentors/gakiya-kanato.jpg',
   },
+  {
+    name: '宮里治',
+    furigana: 'ミヤザトオサム',
+    generation: '3期',
+    course: '理数科',
+    region: '沖縄県',
+    category: 'finance',
+    tagClass: 'bg-kaiho-gold/20 text-amber-700',
+    tags: ['金融', 'ファイナンス', 'ライフプラン'],
+    profile: '『お金が全てではないが、全てのことにお金がかかる』人生を幸せに豊かに過ごすために、金融リテラシーを高めましょう。',
+    image: 'images/mentors/miyazato-osamu.jpg',
+  },
 ]
 
 const currentMentorSlide = ref(0)
