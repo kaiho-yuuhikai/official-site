@@ -106,7 +106,7 @@
             </div>
             <h3 class="text-xl font-bold mb-3 text-neutral-900">在校生・同窓生支援</h3>
             <p class="text-neutral-600 text-sm leading-relaxed">
-              雄飛会支援基金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
+              寄付協賛金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
             </p>
           </div>
 
@@ -149,7 +149,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <!-- Project 1: 雄飛会支援基金 -->
+          <!-- Project 1: 寄付協賛金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-36 relative overflow-hidden">
               <img :src="`${baseURL}images/kaiho-van.jpg`" alt="開邦高校 学校車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -162,7 +162,7 @@
                 </div>
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">雄飛会支援基金</h3>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">寄付協賛金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
@@ -277,7 +277,7 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">基金・寄付</h2>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">寄付・協賛</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
           <div class="section-divider mt-6"></div>
         </div>
@@ -302,7 +302,7 @@
               </div>
             </div>
             <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">雄飛会 支援基金</h3>
+              <h3 class="text-xl font-bold text-neutral-900 mb-2">寄付協賛金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
               </p>
@@ -1031,7 +1031,7 @@
           <!-- CTA 2 -->
           <div class="block bg-gradient-to-br from-kaiho-purple/50 to-purple-600/50 rounded-2xl p-8 text-white text-center opacity-70">
             <div class="text-4xl mb-4">&#128157;</div>
-            <h3 class="text-lg font-bold mb-2">寄付・基金</h3>
+            <h3 class="text-lg font-bold mb-2">寄付・協賛</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full cursor-not-allowed">
               準備中

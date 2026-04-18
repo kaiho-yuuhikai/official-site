@@ -42,7 +42,7 @@
               </NuxtLink>
               <div class="nav-dropdown absolute top-full left-0 pt-2 w-52">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <NuxtLink to="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">雄飛会支援基金</NuxtLink>
+                  <NuxtLink to="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">寄付協賛金</NuxtLink>
                   <NuxtLink to="/#mentor" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">メンター制度</NuxtLink>
                   <NuxtLink to="/#projects" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">同窓生交流活動</NuxtLink>
                   <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリア・クロスロード</NuxtLink>
@@ -100,7 +100,7 @@
             <NuxtLink to="/about" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">開邦雄飛会について</NuxtLink>
             <NuxtLink to="/#projects" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">事業・プロジェクト</NuxtLink>
             <NuxtLink to="/#mentor" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">メンター制度</NuxtLink>
-            <NuxtLink to="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">基金・寄付</NuxtLink>
+            <NuxtLink to="/#fund" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">寄付・協賛</NuxtLink>
             <NuxtLink to="/#news" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お知らせ</NuxtLink>
             <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">第3回大同窓会サイト ↗</a>
             <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">キャリクロ運営マニュアル</NuxtLink>
