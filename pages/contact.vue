@@ -185,7 +185,7 @@ const forms = [
   },
   {
     title: '寄付・支援フォーム',
-    description: '開邦雄飛会支援基金への寄付・支援の申し出はこちら（受付準備中）',
+    description: '寄付協賛金への寄付・支援の申し出はこちら（受付準備中）',
     url: '',
     internal: false,
     comingSoon: true,

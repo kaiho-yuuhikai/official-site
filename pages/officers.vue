@@ -162,7 +162,7 @@ const teams = [
   { name: '企画チーム', description: 'イベントやプロジェクトの企画・立案を担当します。', borderClass: 'border-kaiho-blue' },
   { name: '広報チーム', description: 'note記事の執筆、SNS運用、対外的な情報発信を担います。', borderClass: 'border-kaiho-orange' },
   { name: '渉外チーム', description: 'メンター確保、学校・PTA・外部団体との連携を推進します。', borderClass: 'border-kaiho-teal' },
-  { name: '財務チーム', description: '会計管理、収支報告、基金運営を担当します。', borderClass: 'border-kaiho-purple' },
+  { name: '財務チーム', description: '会計管理、収支報告を担当します。', borderClass: 'border-kaiho-purple' },
   { name: 'IT/デジタルチーム', description: '公式サイト運営、データ管理、デジタルツール整備を行います。', borderClass: 'border-kaiho-green' },
 ]
 
