@@ -272,78 +272,6 @@
 
 
     <!-- ============================================================ -->
-    <!-- KOEN CORNER SECTION                                           -->
-    <!-- ============================================================ -->
-    <section id="koen" class="py-24 md:py-32 bg-gradient-to-br from-kaiho-gold/5 via-white to-yellow-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">Presentation</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">後演コーナー</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">同窓生・在校生が自らの活動や想いを発信できるプレゼンテーションの場</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- 準備中バナー -->
-        <div class="max-w-3xl mx-auto mb-16 fade-in">
-          <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-6 flex items-start gap-4">
-            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-yellow-800 mb-1">現在準備中です</h3>
-              <p class="text-sm text-yellow-700">現在、<strong>1件</strong>の企画が審査予定です。詳細が決まり次第、このページおよびSNSでお知らせします。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 申請の流れ -->
-        <div class="max-w-3xl mx-auto fade-in">
-          <h3 class="text-xl font-black text-neutral-900 mb-8 text-center">申請の流れ</h3>
-          <div class="space-y-6">
-            <div class="flex items-start gap-6">
-              <div class="w-12 h-12 bg-kaiho-gold rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0">1</div>
-              <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6 flex-1">
-                <h4 class="font-bold text-neutral-900 mb-1">広報担当へメール</h4>
-                <p class="text-sm text-neutral-500">開邦雄飛会の広報担当（<a href="mailto:kaihoyuuhikai@gmail.com" class="text-kaiho-gold underline hover:no-underline">kaihoyuuhikai@gmail.com</a>）へメールにてお問い合わせください。</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-6">
-              <div class="w-12 h-12 bg-kaiho-gold/80 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0">2</div>
-              <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6 flex-1">
-                <h4 class="font-bold text-neutral-900 mb-1">運営ミーティングにて企画書を提案</h4>
-                <p class="text-sm text-neutral-500">運営ミーティングの場で企画書を発表し、内容をご提案いただきます。</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-6">
-              <div class="w-12 h-12 bg-kaiho-gold/60 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0">3</div>
-              <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6 flex-1">
-                <h4 class="font-bold text-neutral-900 mb-1">承認</h4>
-                <p class="text-sm text-neutral-500">運営メンバーによる審査・承認を経て、開催が決定します。</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-6">
-              <div class="w-12 h-12 bg-kaiho-gold/40 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0">4</div>
-              <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6 flex-1">
-                <h4 class="font-bold text-neutral-900 mb-1">HPやSNSで告知</h4>
-                <p class="text-sm text-neutral-500">承認後、公式サイトおよびSNSにて広く告知します。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="text-center mt-16 fade-in">
-          <a href="mailto:kaihoyuuhikai@gmail.com" class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-            広報担当へメールする &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
     <!-- FUND / DONATION SECTION                                       -->
     <!-- ============================================================ -->
     <section id="fund" class="py-24 md:py-32 bg-gradient-to-br from-kaiho-purple/5 via-white to-purple-50">
@@ -717,6 +645,59 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- KOEN CORNER SECTION (COMPACT)                                 -->
+    <!-- ============================================================ -->
+    <section id="koen" class="py-16 bg-neutral-50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-sm border border-neutral-100 overflow-hidden">
+          <div class="bg-gradient-to-r from-kaiho-gold/10 to-yellow-50 px-8 py-6 border-b border-neutral-100">
+            <div class="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-1">Sponsorship</p>
+                <h2 class="text-2xl font-black tracking-tight">後援コーナー</h2>
+              </div>
+              <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1.5 rounded-full">準備中・審査予定1件</span>
+            </div>
+            <p class="text-sm text-neutral-500 mt-3">同窓生・在校生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
+          </div>
+          <div class="px-8 py-6 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-kaiho-gold text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-sm text-neutral-700">広報担当へメール（<a href="mailto:kaihoyuuhikai@gmail.com" class="text-kaiho-gold underline hover:no-underline">kaihoyuuhikai@gmail.com</a>）</span>
+            </div>
+            <div class="flex items-center gap-3 pl-3">
+              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-kaiho-gold/70 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-sm text-neutral-700">運営ミーティングにて企画書を提案</span>
+            </div>
+            <div class="flex items-center gap-3 pl-3">
+              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-kaiho-gold/50 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-sm text-neutral-700">承認 &rarr; 後援が決定</span>
+            </div>
+            <div class="flex items-center gap-3 pl-3">
+              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-kaiho-gold/30 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-sm text-neutral-700">HPやSNSで告知</span>
+            </div>
+          </div>
+          <div class="px-8 pb-6">
+            <a href="mailto:kaihoyuuhikai@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors text-sm">
+              広報担当へメールする &rarr;
+            </a>
           </div>
         </div>
       </div>
