@@ -112,6 +112,19 @@ test.skip('メンター登録ページが表示され、登録リンクが存在
 // ニュース項目のリンク解除
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// 後演コーナーセクション
+// ---------------------------------------------------------------------------
+
+test('トップページに後演コーナーセクションが表示される', async ({ page }) => {
+  await page.goto('/')
+  const section = page.locator('#koen')
+  await expect(section).toBeVisible()
+  await expect(section).toContainText('後演コーナー')
+  await expect(section).toContainText('準備中')
+  await expect(section).toContainText('申請の流れ')
+})
+
 test('トップページにThreadsセクションが表示される', async ({ page }) => {
   await page.goto('/')
   const threadsSection = page.locator('#threads')
