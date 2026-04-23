@@ -655,49 +655,36 @@
     <!-- KOEN CORNER SECTION (COMPACT)                                 -->
     <!-- ============================================================ -->
     <section id="koen" class="py-16 bg-neutral-50">
-      <div class="max-w-3xl mx-auto px-6 lg:px-8">
-        <div class="bg-white rounded-3xl shadow-sm border border-neutral-100 overflow-hidden">
-          <div class="bg-gradient-to-r from-kaiho-gold/10 to-yellow-50 px-8 py-6 border-b border-neutral-100">
-            <div class="flex items-center justify-between flex-wrap gap-3">
-              <div>
-                <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-1">Sponsorship</p>
-                <h2 class="text-2xl font-black tracking-tight">後援コーナー</h2>
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-kaiho-gold/5 to-yellow-50 border border-kaiho-gold/20 rounded-3xl p-8 md:p-12">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-shrink-0 w-20 h-20 bg-kaiho-gold/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-10 h-10 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/>
+              </svg>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+              <div class="inline-flex items-center gap-2 bg-kaiho-gold text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                <span>準備中・審査予定1件</span>
               </div>
-              <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1.5 rounded-full">準備中・審査予定1件</span>
+              <h2 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">後援コーナー</h2>
+              <p class="text-neutral-600 leading-relaxed max-w-xl">同窓生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
+              <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-sm text-neutral-500">
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>広報担当へメール</span>
+                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>企画書を提案</span>
+                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/50 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">3</span>後援が決定</span>
+                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/30 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">4</span>HPやSNSで告知</span>
+              </div>
             </div>
-            <p class="text-sm text-neutral-500 mt-3">同窓生・在校生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
-          </div>
-          <div class="px-8 py-6 space-y-3">
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-kaiho-gold text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
-              <span class="text-sm text-neutral-700">広報担当へメール（<a href="mailto:kaihoyuuhikai@gmail.com" class="text-kaiho-gold underline hover:no-underline">kaihoyuuhikai@gmail.com</a>）</span>
+            <div class="flex-shrink-0">
+              <a href="mailto:kaihoyuuhikai@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors shadow-md shadow-kaiho-gold/20 whitespace-nowrap">
+                広報担当へメールする
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
-            <div class="flex items-center gap-3 pl-3">
-              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-kaiho-gold/70 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
-              <span class="text-sm text-neutral-700">運営ミーティングにて企画書を提案</span>
-            </div>
-            <div class="flex items-center gap-3 pl-3">
-              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-kaiho-gold/50 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
-              <span class="text-sm text-neutral-700">承認 &rarr; 後援が決定</span>
-            </div>
-            <div class="flex items-center gap-3 pl-3">
-              <span class="text-kaiho-gold/40 text-xs">&darr;</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-kaiho-gold/30 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
-              <span class="text-sm text-neutral-700">HPやSNSで告知</span>
-            </div>
-          </div>
-          <div class="px-8 pb-6">
-            <a href="mailto:kaihoyuuhikai@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors text-sm">
-              広報担当へメールする &rarr;
-            </a>
           </div>
         </div>
       </div>
