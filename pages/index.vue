@@ -1210,8 +1210,9 @@ const members = [
 
 // ── News items ──
 const newsItems = [
+  { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（10:00〜）', link: null, isNew: true },
   { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
-  { date: '2026.03.30', category: '総会', title: '令和8年度 定期総会 開催予定（準備中）— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
+  { date: '2026.07', category: '総会', title: '令和8年度 定期総会 開催予定（準備中）— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
   { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
   { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: true },
   { date: '2026.03.01', category: '活動', title: '開邦高校卒業式にて同窓会入会式を実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },

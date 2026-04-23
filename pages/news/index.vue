@@ -129,6 +129,15 @@ const baseURL = useRuntimeConfig().app.baseURL
 // 手動掲載のニュース項目
 const manualItems: NewsItem[] = [
   {
+    date: '2026.04.26',
+    category: 'お知らせ',
+    title: '運営ミーティング（10:00〜）',
+    summary: null,
+    link: null,
+    isNew: true,
+    sortKey: new Date('2026-04-26').getTime(),
+  },
+  {
     date: '2026.04.01',
     category: 'お知らせ',
     title: '開邦雄飛会公式ホームページ稼働開始',
@@ -138,13 +147,13 @@ const manualItems: NewsItem[] = [
     sortKey: new Date('2026-04-01').getTime(),
   },
   {
-    date: '2026.03.30',
+    date: '2026.07',
     category: '総会',
     title: '令和8年度 定期総会 開催予定（準備中）',
     summary: '収支報告・予算案・会則変更・新体制・新事業についてご説明します。',
     link: '/news/soukai',
     isNew: true,
-    sortKey: new Date('2026-03-30').getTime(),
+    sortKey: new Date('2026-07-01').getTime(),
   },
   {
     date: '2026.03.15',
