@@ -163,7 +163,7 @@
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">寄付協賛金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。</p>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や部活動に資金面から支援・助成します。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
                   <span>達成率（目標¥1,000万）</span>
@@ -175,36 +175,6 @@
               </div>
               <a href="#fund" class="inline-flex items-center gap-2 text-kaiho-purple text-sm font-bold hover:gap-3 transition-all">
                 詳しく見る <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 2: メンター制度 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
-                </div>
-                <div class="flex flex-col items-end gap-1">
-                  <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">NEW</span>
-                  <span class="bg-kaiho-blue/10 text-kaiho-blue text-[10px] font-bold px-2 py-0.5 rounded-full">2026年度 開始予定</span>
-                </div>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">メンター制度</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択、同窓生の人生設計支援を行う。</p>
-              <div class="flex items-center gap-3 mb-4">
-                <div class="flex -space-x-2">
-                  <div class="w-8 h-8 bg-kaiho-green rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">K</div>
-                  <div class="w-8 h-8 bg-kaiho-blue rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">U</div>
-                  <div class="w-8 h-8 bg-kaiho-gold rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
-                  <div class="w-8 h-8 bg-kaiho-purple rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">I</div>
-                </div>
-                <span class="text-xs text-neutral-500"><strong>{{ mentors.length }}名</strong> が登録中</span>
-              </div>
-              <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
-                メンター一覧を見る <span>&rarr;</span>
               </a>
             </div>
           </div>
@@ -263,6 +233,36 @@
             </div>
           </div>
 
+          <!-- Project 2: メンター制度 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                </div>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">NEW</span>
+                  <span class="bg-kaiho-blue/10 text-kaiho-blue text-[10px] font-bold px-2 py-0.5 rounded-full">2026年度 開始予定</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">メンター制度</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択を支援する。</p>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex -space-x-2">
+                  <div class="w-8 h-8 bg-kaiho-green rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">K</div>
+                  <div class="w-8 h-8 bg-kaiho-blue rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">U</div>
+                  <div class="w-8 h-8 bg-kaiho-gold rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
+                  <div class="w-8 h-8 bg-kaiho-purple rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">I</div>
+                </div>
+                <span class="text-xs text-neutral-500"><strong>{{ mentors.length }}名</strong> が登録中</span>
+              </div>
+              <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
+                メンター一覧を見る <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
 
@@ -305,7 +305,7 @@
             <div class="p-8">
               <h3 class="text-xl font-bold text-neutral-900 mb-2">寄付協賛金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動や部活動、同窓生の人生設計支援に資金面から支援・助成します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
+                在校生の探究活動や部活動に資金面から支援・助成します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
               </p>
               <div class="mb-4">
                 <div class="flex justify-between text-sm mb-2">
@@ -375,6 +375,36 @@
               <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
                 財務適正化方針を見る
               </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- NEWS SECTION                                                  -->
+    <!-- ============================================================ -->
+    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto space-y-0 fade-in">
+          <div v-for="(item, i) in newsItems" :key="i"
+             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
+             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
+            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
+            <div class="flex-1 flex items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
+                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
+                </div>
+                <h3 class="text-white font-medium">{{ item.title }}</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -484,36 +514,6 @@
         <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
           メンターが提供できるサポート内容に関しては、対応できない場合もありますので、あらかじめご了承ください。
         </p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NEWS SECTION                                                  -->
-    <!-- ============================================================ -->
-    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
-        </div>
-
-        <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <div v-for="(item, i) in newsItems" :key="i"
-             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
-             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
-            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
-            <div class="flex-1 flex items-center justify-between gap-4">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
-                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
-                </div>
-                <h3 class="text-white font-medium">{{ item.title }}</h3>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -672,7 +672,7 @@
               <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-sm text-neutral-500">
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>広報担当へメール</span>
                 <span class="text-kaiho-gold/40">&rarr;</span>
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>企画書を提案</span>
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>ミーティングにて主催者の同窓生が企画書を提案</span>
                 <span class="text-kaiho-gold/40">&rarr;</span>
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/50 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">3</span>後援が決定</span>
                 <span class="text-kaiho-gold/40">&rarr;</span>
