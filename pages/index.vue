@@ -439,8 +439,7 @@
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
-              <p class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</p>
-              <p class="font-bold text-sm text-neutral-900 mt-1">同窓生の人生設計支援</p>
+              <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
             </div>
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128187;</div>
@@ -669,13 +668,13 @@
               </div>
               <h2 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">後援コーナー</h2>
               <p class="text-neutral-600 leading-relaxed max-w-xl">同窓生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
-              <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-sm text-neutral-500">
+              <div class="mt-4 flex flex-col md:flex-row md:flex-wrap md:justify-start gap-y-1 md:gap-x-4 text-sm text-neutral-500">
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>広報担当へメール</span>
-                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>ミーティングにて主催者の同窓生が企画書を提案</span>
-                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/50 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">3</span>後援が決定</span>
-                <span class="text-kaiho-gold/40">&rarr;</span>
+                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/30 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">4</span>HPやSNSで告知</span>
               </div>
             </div>
@@ -1008,13 +1007,14 @@
             </p>
 
             <!-- リーダー紹介 -->
-            <div class="flex items-center gap-3 bg-neutral-50 rounded-xl px-5 py-3 mb-6">
-              <div class="w-9 h-9 rounded-full bg-kaiho-green/10 flex items-center justify-center flex-shrink-0">
-                <span class="text-kaiho-green text-xs font-bold">金</span>
+            <div class="flex items-start gap-4 bg-neutral-50 rounded-xl px-5 py-4 mb-6">
+              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                <img :src="`${baseURL}images/members/yasuichi.jpg`" alt="金城安一" class="w-full h-full object-cover">
               </div>
-              <div>
+              <div class="flex-1">
                 <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
-                <p class="text-neutral-500 text-xs">PTA連携・道路ボランティア主導</p>
+                <p class="text-neutral-500 text-xs mb-2">33期・38期 保護者 | 会社員 | PTA連携・道路ボランティア主導</p>
+                <p class="text-neutral-600 text-xs leading-relaxed">地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。</p>
               </div>
             </div>
 
@@ -1205,12 +1205,11 @@ const members = [
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
   { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。' },
-  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getMemberBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', branch: '', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
 ]
 
 // ── News items ──
 const newsItems = [
-  { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（10:00〜）', link: null, isNew: true },
+  { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（新体制に向けて）（10:00〜）　若狭公民館（Web併用）', link: null, isNew: true },
   { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
   { date: '2026.07', category: '総会', title: '令和8年度 定期総会 開催予定（準備中）— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
   { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },

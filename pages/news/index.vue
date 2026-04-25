@@ -131,8 +131,8 @@ const manualItems: NewsItem[] = [
   {
     date: '2026.04.26',
     category: 'お知らせ',
-    title: '運営ミーティング（10:00〜）',
-    summary: null,
+    title: '運営ミーティング（新体制に向けて）（10:00〜）',
+    summary: '場所：若狭公民館（Web併用）',
     link: null,
     isNew: true,
     sortKey: new Date('2026-04-26').getTime(),
