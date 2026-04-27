@@ -1092,7 +1092,7 @@
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの参加が、開邦の未来をつくります</p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto fade-in">
           <!-- CTA 1 -->
           <NuxtLink to="/mentor/registration" class="card-hover block bg-gradient-to-br from-kaiho-blue to-blue-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#129309;</div>
@@ -1120,6 +1120,16 @@
             <p class="text-white/80 text-sm mb-4">一緒に組織を創ろう</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
               応募する &rarr;
+            </span>
+          </a>
+
+          <!-- CTA 4 -->
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-gold to-amber-500 rounded-2xl p-8 text-white text-center">
+            <div class="text-4xl mb-4">&#127891;</div>
+            <h3 class="text-lg font-bold mb-2">特設授業講師</h3>
+            <p class="text-white/80 text-sm mb-4">後輩に経験と言葉を届ける</p>
+            <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
+              申し込む &rarr;
             </span>
           </a>
 
@@ -1239,6 +1249,7 @@ const members = [
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
   { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。' },
+  { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(6), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです' },
 ]
 
 // ── News items ──
@@ -1279,7 +1290,7 @@ const baseURL = useRuntimeConfig().app.baseURL
 
 const spotlightCreators = [
   {
-    name: '辺土 百々花',
+    name: '辺土',
     generation: '33期',
     department: '芸術科',
     initial: '辺',
@@ -1287,7 +1298,7 @@ const spotlightCreators = [
     bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
   },
   {
-    name: '我喜屋奏利',
+    name: '我喜屋',
     generation: '36期',
     department: '学術探究科',
     initial: '我',
@@ -1295,7 +1306,7 @@ const spotlightCreators = [
     bio: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
   },
   {
-    name: '上間 祥子',
+    name: '上間',
     generation: '16期',
     department: '理数科',
     initial: '上',
