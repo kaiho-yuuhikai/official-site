@@ -431,12 +431,7 @@
         <!-- Mentor support types -->
         <div class="bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
           <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127908;</div>
-              <h4 class="font-bold text-sm text-neutral-900">特設授業での講話</h4>
-              <p class="text-xs text-neutral-500 mt-1">学校での特別講演</p>
-            </div>
+          <div class="grid sm:grid-cols-3 gap-4">
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
               <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
@@ -513,6 +508,45 @@
         <p class="text-xs text-neutral-400 text-center mt-8 fade-in leading-relaxed">
           メンターが提供できるサポート内容に関しては、対応できない場合もありますので、あらかじめご了承ください。
         </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- SPECIAL LECTURE SECTION                                       -->
+    <!-- ============================================================ -->
+    <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Special Lecture</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">創立記念特設授業</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">卒業生が講師として在校生にキャリアの歩みを届ける</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-neutral-100 fade-in">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-kaiho-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <span class="text-xl">&#127908;</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900">特設授業での講話</h3>
+          </div>
+          <p class="text-neutral-600 leading-relaxed mb-8">
+            毎年創立記念日に開催される「創立記念特設授業」では、卒業生が講師として母校を訪れ、在校生にキャリアの歩みや想いを授業という形で届けます。同じ学び舎を歩んだ先輩だからこそ話せる、リアルな言葉を後輩に届けてください。
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <NuxtLink to="/activities/special-lecture"
+              class="inline-flex items-center justify-center gap-2 border-2 border-kaiho-green text-kaiho-green font-bold px-8 py-4 rounded-xl hover:bg-kaiho-green/5 transition-colors">
+              特設授業について詳しく見る <span>&rarr;</span>
+            </NuxtLink>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center gap-2 bg-kaiho-green text-white font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">
+              申し込みフォームを開く
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1117,8 +1151,8 @@ interface Mentor {
 
 const mentors: Mentor[] = [
   {
-    name: '岸本克巳',
-    furigana: 'キシモトカツミ',
+    name: '岸本',
+    furigana: 'キシモト',
     generation: '7期',
     course: '理数科',
     region: '沖縄県',
@@ -1129,8 +1163,8 @@ const mentors: Mentor[] = [
     image: 'images/mentors/kishimoto-katsumi.jpg',
   },
   {
-    name: '宮城光男',
-    furigana: 'ミヤギミツオ',
+    name: '宮城',
+    furigana: 'ミヤギ',
     generation: '7期',
     course: '芸術科',
     region: '沖縄県',
@@ -1141,8 +1175,8 @@ const mentors: Mentor[] = [
     image: 'images/mentors/miyagi-mitsuo.jpg',
   },
   {
-    name: '具志 日南子',
-    furigana: 'グシ ヒナコ',
+    name: '具志',
+    furigana: 'グシ',
     generation: '26期',
     course: '理数科',
     region: '沖縄県（7月末から埼玉）',
@@ -1152,8 +1186,8 @@ const mentors: Mentor[] = [
     profile: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
   },
   {
-    name: '我喜屋奏利',
-    furigana: 'ガキヤカナト',
+    name: '我喜屋',
+    furigana: 'ガキヤ',
     generation: '36期',
     course: '学術探究科',
     region: '東京都',
@@ -1164,8 +1198,8 @@ const mentors: Mentor[] = [
     image: 'images/mentors/gakiya-kanato.jpg',
   },
   {
-    name: '宮里治',
-    furigana: 'ミヤザトオサム',
+    name: '宮里',
+    furigana: 'ミヤザト',
     generation: '3期',
     course: '理数科',
     region: '沖縄県',
