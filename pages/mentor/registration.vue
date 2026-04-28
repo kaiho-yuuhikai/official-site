@@ -7,7 +7,7 @@
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">Registration</p>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">メンター登録</h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">講師登録</h1>
         <p class="text-white/80 mt-6 text-lg">あなたの経験を、母校の後輩たちの未来のために。</p>
       </div>
     </section>
@@ -22,7 +22,7 @@
             </div>
             <h2 class="text-2xl font-black text-neutral-900 mb-4">Googleフォームで登録する</h2>
             <p class="text-neutral-500 mb-8 leading-relaxed">
-              メンター登録（入学期の入力等）は、以下の外部Googleフォームより受け付けております。<br>
+              講師登録（入学期の入力等）は、以下の外部Googleフォームより受け付けております。<br>
               お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
             </p>
             
@@ -35,7 +35,7 @@
 
             <p class="text-xs text-neutral-400 mt-8 leading-relaxed">
               ※ 送信された内容は開邦雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
-              個人情報はメンター活動の目的以外には使用いたしません。
+              個人情報は講師活動の目的以外には使用いたしません。
             </p>
           </div>
         </div>
