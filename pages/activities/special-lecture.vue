@@ -290,7 +290,7 @@
           参加希望の方は下記のフォームよりお申し込みください。
         </p>
         <NuxtLink to="/mentor/registration" class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors">
-          メンター応募フォーム <span>&rarr;</span>
+          講師応募フォーム <span>&rarr;</span>
         </NuxtLink>
       </div>
     </section>
