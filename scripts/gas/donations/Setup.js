@@ -234,3 +234,25 @@ function showProperties() {
   const props = PropertiesService.getScriptProperties().getProperties()
   Logger.log(JSON.stringify(props, null, 2))
 }
+
+/**
+ * 既存のスプレッドシート/フォームを再利用するケース用。
+ * setupAll() は新規作成も含むため、既存リソースを使う場合はこちらを実行する。
+ *
+ * 動作:
+ *   - DONATIONS_TOKEN を生成（既にあれば再利用）してログに出力
+ *   - スプレッドシート構造（I/J/K列、データ検証）は触らない
+ *
+ * 用途:
+ *   - 既に運営側でフォーム + スプレッドシートが作成されている前提で、
+ *     エンドポイント認証用トークンだけを発行したいとき
+ */
+function bootstrapToken() {
+  const props = PropertiesService.getScriptProperties()
+  const token = ensureToken_(props)
+  Logger.log('===== DONATIONS_TOKEN =====')
+  Logger.log(token)
+  Logger.log('===========================')
+  Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN にこの値を登録してください。')
+  return token
+}
