@@ -17,7 +17,7 @@ const OUTPUT_PATH = 'public/data/donations.json'
 
 const FALLBACK = {
   fetchedAt: null,
-  fund: '開邦雄飛会基金',
+  fund: '開邦雄飛応援金',
   totalAmount: 0,
   donorCount: 0,
   donors: [],

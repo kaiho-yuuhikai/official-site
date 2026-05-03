@@ -397,7 +397,7 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛会基金</h2>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛応援金</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
           <div class="section-divider mt-6"></div>
         </div>
@@ -419,11 +419,11 @@
             <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
               <div class="text-center">
                 <div class="text-6xl mb-2">&#128157;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">開邦雄飛会基金</span>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">開邦雄飛応援金</span>
               </div>
             </div>
             <div class="p-8 md:p-10">
-              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える基金</h3>
+              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える応援金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
@@ -468,7 +468,7 @@
               </div>
               <div>
                 <h4 class="font-bold text-sm text-neutral-900">年次報告書の送付</h4>
-                <p class="text-xs text-neutral-500 mt-1">基金の使途を透明に報告</p>
+                <p class="text-xs text-neutral-500 mt-1">応援金の使途を透明に報告</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -718,7 +718,7 @@
           <!-- CTA 2 -->
           <a href="#" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128157;</div>
-            <h3 class="text-lg font-bold mb-2">寄付・基金</h3>
+            <h3 class="text-lg font-bold mb-2">寄付・応援金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
               寄付する &rarr;
@@ -802,12 +802,12 @@ interface DonationsData {
   donors: Donor[]
 }
 
-// 寄付申し出フォーム URL — 同窓会用 Google アカウント配下のフォーム公開URLを設定する
-const donationFormUrl = 'https://forms.gle/PLACEHOLDER-DONATION-FORM'
+// 寄付申し出フォーム URL — 同窓会用 Google アカウント配下のフォーム公開URL
+const donationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform'
 
 const donations = ref<DonationsData>({
   fetchedAt: null,
-  fund: '開邦雄飛会基金',
+  fund: '開邦雄飛応援金',
   totalAmount: 0,
   donorCount: 0,
   donors: [],

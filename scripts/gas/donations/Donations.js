@@ -27,7 +27,7 @@
  */
 
 const SHEET_NAME = 'donations'
-const FUND_LABEL = '開邦雄飛会基金'
+const FUND_LABEL = '開邦雄飛応援金'
 const STATUS_CONFIRMED = '確認済'
 const PUBLISH_OK = '氏名で掲載OK'
 

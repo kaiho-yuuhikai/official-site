@@ -13,8 +13,8 @@ const REAL_FORM_URL_PATTERN = /^https:\/\/docs\.google\.com\/forms\/d\/e\/[A-Za-
 describe('Issue #2: 寄付セクションの呼称統一とフォームURL差し替え', () => {
   describe('pages/index.vue (FUND / DONATION セクション)', () => {
     const source = read('pages/index.vue')
-    const start = source.indexOf('<!-- FUND / DONATION SECTION')
-    const end = source.indexOf('<!-- ============', start + 1)
+    const start = source.indexOf('<section id="fund"')
+    const end = source.indexOf('</section>', start)
     const donationSection = source.slice(start, end)
 
     it('セクション境界が抽出できる', () => {
