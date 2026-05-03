@@ -256,3 +256,45 @@ function bootstrapToken() {
   Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN にこの値を登録してください。')
   return token
 }
+
+/**
+ * スタンドアロンスクリプト（スプレッドシート非バインド）として運用するための初期化。
+ *
+ * 使い方:
+ *   1. Apps Script エディタで対象のスプレッドシート ID を引数に渡して実行
+ *      例: bootstrapStandalone('1Y5S1uwFnRILxT19NSh90O0v4qfP-_0ERtORczJcIFik')
+ *   2. もしくは clasp run-function bootstrapStandalone --params '["<sheet_id>"]'
+ *
+ * 動作:
+ *   - SPREADSHEET_ID を Script Properties に保存
+ *   - DONATIONS_TOKEN を生成（既にあれば再利用）
+ *   - ログに両方を出力
+ *
+ * 注意: Donations.js の findDonationsSheet_() は SPREADSHEET_ID があれば openById を、
+ *       なければ getActive() を使う。スタンドアロン運用では必ずこの関数を1回実行すること。
+ */
+function bootstrapStandalone(spreadsheetId) {
+  if (!spreadsheetId || typeof spreadsheetId !== 'string') {
+    throw new Error('spreadsheetId (string) is required. Example: bootstrapStandalone("1Y5S1uw...")')
+  }
+  const props = PropertiesService.getScriptProperties()
+  // 事前にアクセスチェック
+  const ss = SpreadsheetApp.openById(spreadsheetId)
+  Logger.log('Spreadsheet name: ' + ss.getName())
+
+  props.setProperty('SPREADSHEET_ID', spreadsheetId)
+  const token = ensureToken_(props)
+
+  Logger.log('===== Standalone bootstrap complete =====')
+  Logger.log('SPREADSHEET_ID:  ' + spreadsheetId)
+  Logger.log('DONATIONS_TOKEN: ' + token)
+  Logger.log('=========================================')
+  Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN に上記 TOKEN を、')
+  Logger.log('Web アプリ URL を DONATIONS_ENDPOINT_URL に登録してください。')
+
+  return {
+    spreadsheetId: spreadsheetId,
+    spreadsheetName: ss.getName(),
+    donationsToken: token,
+  }
+}

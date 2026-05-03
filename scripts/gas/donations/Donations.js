@@ -91,7 +91,10 @@ function buildPayload_() {
 }
 
 function findDonationsSheet_() {
-  const ss = SpreadsheetApp.getActive()
+  const props = PropertiesService.getScriptProperties()
+  const ssId = props.getProperty('SPREADSHEET_ID')
+  const ss = ssId ? SpreadsheetApp.openById(ssId) : SpreadsheetApp.getActive()
+  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID via bootstrapStandalone() or bind script to a sheet.')
   const named = ss.getSheetByName(SHEET_NAME)
   if (named) return named
   const sheets = ss.getSheets()
