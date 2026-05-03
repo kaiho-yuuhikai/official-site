@@ -434,7 +434,7 @@
         <!-- Mentor support types -->
         <div class="bg-kaiho-blue/5 rounded-2xl p-8 md:p-12 fade-in">
           <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">メンターが提供できるサポート</h3>
-          <div class="grid sm:grid-cols-3 gap-4">
+          <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white rounded-xl p-4 text-center shadow-sm">
               <div class="text-2xl mb-2">&#128300;</div>
               <h4 class="font-bold text-sm text-neutral-900">探究活動や進路の伴走支援</h4>
@@ -443,12 +443,6 @@
               <div class="text-2xl mb-2">&#128187;</div>
               <h4 class="font-bold text-sm text-neutral-900">オンライン相談</h4>
               <p class="text-xs text-neutral-500 mt-1">遠方でもサポート</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 text-center shadow-sm">
-              <div class="text-2xl mb-2">&#127970;</div>
-              <h4 class="font-bold text-sm text-neutral-900">インターン受入</h4>
-              <p class="text-xs text-neutral-500 mt-1">実務体験の機会</p>
-              <p class="text-xs text-neutral-400 mt-1">※対応できない場合もあります</p>
             </div>
           </div>
         </div>
@@ -722,6 +716,19 @@
               </a>
             </div>
           </div>
+          <!-- 担当者 -->
+          <div class="mt-8 pt-6 border-t border-kaiho-gold/20">
+            <p class="text-xs font-bold text-kaiho-gold tracking-widest mb-4">担当</p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                <img :src="`${baseURL}images/members/miyagi-jun.png`" alt="宮城潤" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">宮城潤</p>
+                <p class="text-neutral-500 text-xs">3期 芸術科 | 地域サポートわかさ理事</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -989,28 +996,37 @@
           <p class="text-neutral-500 text-sm mt-3 max-w-xl mx-auto">現在、2026年度の新体制に向けて準備を進めています。世代を超えた多様なメンバーが開邦雄飛会の運営に参画しています。</p>
           <div class="section-divider mt-6"></div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-          <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-2xl p-5 shadow-md border border-neutral-200 flex flex-col gap-4">
-            <!-- 写真 + 吹き出しコメント -->
-            <div class="flex items-start gap-3">
-              <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-lg"
-                   :class="!member.photo ? member.bgClass : ''">
-                <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
-                <span v-else>{{ member.initial }}</span>
-              </div>
-              <div v-if="member.comment" class="speech-bubble flex-1 text-xs text-neutral-600 leading-relaxed">
-                {{ member.comment }}
-              </div>
+        <div class="space-y-10 fade-in">
+          <div v-for="corner in memberCorners" :key="corner.name">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">{{ corner.icon }}</span>
+              <h3 class="text-base font-bold text-neutral-800">{{ corner.name }}</h3>
+              <div class="flex-1 h-px bg-neutral-200"></div>
             </div>
-            <!-- 名前・期・役職 -->
-            <div class="text-center">
-              <div class="flex items-center justify-center gap-1.5 flex-wrap mb-1">
-                <h4 class="font-bold text-neutral-900">{{ member.name }}</h4>
-                <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div v-for="member in corner.members" :key="member.name"
+                   class="bg-white rounded-2xl p-5 shadow-md border border-neutral-200 flex flex-col gap-4">
+                <!-- 写真 + 吹き出しコメント -->
+                <div class="flex items-start gap-3">
+                  <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-lg"
+                       :class="!member.photo ? member.bgClass : ''">
+                    <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover" />
+                    <span v-else>{{ member.initial }}</span>
+                  </div>
+                  <div v-if="member.comment" class="speech-bubble flex-1 text-xs text-neutral-600 leading-relaxed">
+                    {{ member.comment }}
+                  </div>
+                </div>
+                <!-- 名前・期・役職 -->
+                <div class="text-center">
+                  <div class="flex items-center justify-center gap-1.5 flex-wrap mb-1">
+                    <h4 class="font-bold text-neutral-900">{{ member.name }}</h4>
+                    <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
+                  </div>
+                  <p class="text-xs text-neutral-400 mb-1">{{ member.generation }}</p>
+                  <p v-if="member.note" class="text-xs text-neutral-600 leading-snug">{{ member.note }}</p>
+                </div>
               </div>
-              <p class="text-xs text-neutral-400 mb-1">{{ member.generation }}</p>
-              <p v-if="member.note" class="text-xs text-neutral-600 leading-snug">{{ member.note }}</p>
             </div>
           </div>
         </div>
@@ -1245,14 +1261,21 @@ const memberColorClasses = [
 function getMemberBgClass(index: number) {
   return memberColorClasses[index % memberColorClasses.length]
 }
-const members = [
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪' },
-  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
-  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getMemberBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '東京支部', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。' },
-  { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(6), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです' },
+const memberList = [
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(0), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。', role: 'mentor' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
+  { name: '具志', generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
+  { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
+]
+
+const memberCorners = [
+  { name: 'メンター制度担当', icon: '🤝', members: memberList.filter(m => m.role === 'mentor') },
+  { name: 'note記事担当', icon: '✍️', members: memberList.filter(m => m.role === 'note') },
+  { name: 'HP作成担当', icon: '💻', members: memberList.filter(m => m.role === 'hp') },
+  { name: '特設授業担当', icon: '🎓', members: memberList.filter(m => m.role === 'lecture') },
 ]
 
 // ── News items ──
@@ -1315,6 +1338,14 @@ const spotlightCreators = [
     initial: '上',
     photo: 'images/members/uema.png',
     bio: '子育てや仕事の話、同窓会活動について執筆しています。',
+  },
+  {
+    name: '具志',
+    generation: '26期',
+    department: '理数科',
+    initial: '具',
+    photo: '',
+    bio: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
   },
 ]
 
