@@ -298,3 +298,12 @@ function bootstrapStandalone(spreadsheetId) {
     donationsToken: token,
   }
 }
+
+/**
+ * GAS エディタの「▶ 実行」ボタンから引数なしで動かすための入口。
+ * 寄付スプレッドシート (1Y5S1...) を Script Properties に登録し、TOKEN を生成する。
+ * 実行は kaihoyuuhikai@gmail.com（スプレッドシート所有者）で行うこと。
+ */
+function runBootstrap() {
+  return bootstrapStandalone('1Y5S1uwFnRILxT19NSh90O0v4qfP-_0ERtORczJcIFik')
+}
