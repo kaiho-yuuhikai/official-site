@@ -125,12 +125,12 @@ test('トップページに後援コーナーセクションが表示される',
   await expect(section).toContainText('後援が決定')
 })
 
-test('トップページにThreadsセクションが表示される', async ({ page }) => {
+test('トップページにInstagramセクションが表示される', async ({ page }) => {
   await page.goto('/')
-  const threadsSection = page.locator('#threads')
-  await expect(threadsSection).toBeVisible()
-  const threadsLink = page.locator('#threads a[href*="threads.com"]').first()
-  await expect(threadsLink).toBeVisible()
+  const instagramSection = page.locator('#instagram')
+  await expect(instagramSection).toBeVisible()
+  const instagramLink = page.locator('#instagram a[href*="instagram.com"]').first()
+  await expect(instagramLink).toBeVisible()
 })
 
 test('トップページのお知らせ項目にリンクが含まれていない', async ({ page }) => {
