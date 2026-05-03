@@ -671,7 +671,7 @@
         <div class="mt-16">
           <div class="mb-8">
             <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
-            <h3 class="text-2xl md:text-3xl font-black tracking-tight">同窓生クリエイター</h3>
+            <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
           </div>
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div v-for="creator in spotlightCreators" :key="creator.name"
@@ -725,46 +725,6 @@
                 執筆を申し込む
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
-            </div>
-          </div>
-          <!-- 担当 -->
-          <div class="mt-8 pt-6 border-t border-kaiho-green/20">
-            <p class="text-xs font-bold text-kaiho-green tracking-widest mb-4">担当</p>
-            <div class="flex flex-wrap gap-6">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-kaiho-purple to-purple-400 flex items-center justify-center text-white font-bold flex-shrink-0">具</div>
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">具志</p>
-                  <p class="text-neutral-500 text-xs">26期 理数科 | 会社員（ゲームアプリ開発・運営）</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                  <img :src="`${baseURL}images/creators/hento-momoka.jpg`" alt="辺土" class="w-full h-full object-cover object-top">
-                </div>
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">辺土</p>
-                  <p class="text-neutral-500 text-xs">33期 芸術科 | 沖縄県立芸術大学大学院</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                  <img :src="`${baseURL}images/mentors/gakiya-kanato.jpg`" alt="我喜屋" class="w-full h-full object-cover">
-                </div>
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">我喜屋</p>
-                  <p class="text-neutral-500 text-xs">36期 学術探究科 | 東京大学工学部</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                  <img :src="`${baseURL}images/members/uema.png`" alt="上間" class="w-full h-full object-cover">
-                </div>
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">上間</p>
-                  <p class="text-neutral-500 text-xs">16期 理数科 | 薬剤師</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
