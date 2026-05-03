@@ -11,59 +11,38 @@
       </div>
     </section>
 
-    <!-- 役員一覧 -->
+    <!-- 運営メンバー一覧 -->
     <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Executive Board</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">役員</h2>
-          <div class="section-divider" style="margin:0"></div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <div v-for="officer in executives" :key="officer.name"
-               class="card-hover bg-gradient-to-br from-kaiho-green/5 to-emerald-50 rounded-2xl p-8 text-center border border-kaiho-green/10">
-            <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center"
-                 :class="officer.bgClass">
-              <span class="text-3xl text-white font-black">{{ officer.initial }}</span>
-            </div>
-            <p class="text-xs text-kaiho-green font-bold tracking-wider mb-1">{{ officer.role }}</p>
-            <h3 class="text-lg font-bold text-neutral-900">{{ officer.name }}</h3>
-            <p class="text-sm text-neutral-500 mt-1">{{ officer.generation }}</p>
-            <p v-if="officer.note" class="text-xs text-neutral-400 mt-2">{{ officer.note }}</p>
-          </div>
-        </div>
-
-        <p class="text-center text-neutral-500 text-sm mt-12">
-          ※ 役員体制は2026年3月の運営打合せにて確定予定です。
-        </p>
-      </div>
-    </section>
-
-    <!-- 新体制メンバー -->
-    <section class="py-24 bg-neutral-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">New Team</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">新体制メンバー</h2>
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Members</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">運営メンバー</h2>
           <div class="section-divider" style="margin:0"></div>
           <p class="text-neutral-500 text-sm mt-6 max-w-2xl">
-            第3回大同窓会（2025年12月）を経て、雄飛会の新体制に参画しているメンバーです。
+            現在、2026年度の新体制構築に向けて準備を進めています。世代を超えた多様なメンバーが雄飛会の運営に参画しています。
           </p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
           <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
-                 :class="member.bgClass">
-              {{ member.initial }}
+               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-start gap-4"
+               :class="member.comment ? 'flex-col' : ''">
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
+                   :class="!member.photo ? member.bgClass : ''">
+                <img v-if="member.photo" :src="baseURL + member.photo" :alt="member.name" class="w-full h-full object-cover" />
+                <span v-else>{{ member.initial }}</span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
+                  <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
+                </div>
+                <p class="text-xs text-neutral-500">{{ member.generation }}</p>
+                <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
+              </div>
             </div>
-            <div class="min-w-0">
-              <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
-              <p class="text-xs text-neutral-500">{{ member.generation }}</p>
-              <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
-            </div>
+            <p v-if="member.comment" class="text-[11px] text-neutral-500 leading-relaxed italic border-l-2 border-kaiho-green/30 pl-3">{{ member.comment }}</p>
           </div>
         </div>
       </div>
@@ -103,6 +82,16 @@
             <p class="text-neutral-600 text-sm leading-relaxed mb-4">
               開邦高校PTAと連携し、在校生の学習環境の改善や地域貢献活動に取り組んでいます。
             </p>
+            <!-- PTA連携者 -->
+            <div class="mb-4 flex items-center gap-3 bg-neutral-50 rounded-xl px-5 py-3">
+              <div class="w-8 h-8 rounded-full bg-kaiho-green/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-kaiho-green text-xs font-bold">金</span>
+              </div>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
+                <p class="text-neutral-500 text-xs">PTA連携・道路ボランティア主導</p>
+              </div>
+            </div>
             <div class="bg-kaiho-green/5 rounded-xl p-6">
               <h4 class="font-bold text-neutral-900 text-sm mb-3">活動実績</h4>
               <ul class="space-y-2 text-sm text-neutral-600">
@@ -133,7 +122,7 @@
           雄飛会の運営に興味のある方は、ぜひご応募ください。<br>
           卒業年度や居住地は問いません。
         </p>
-        <a href="https://docs.google.com/forms/d/19CDuF8fZy74A3_UN62PzLLbfL-Us-DhvHSloVj8QX6M/edit"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog"
            target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center justify-center px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg">
           応募フォームを開く
@@ -144,6 +133,8 @@
 </template>
 
 <script setup lang="ts">
+const baseURL = useRuntimeConfig().app.baseURL
+
 const colorClasses = [
   'bg-gradient-to-br from-kaiho-green to-emerald-400',
   'bg-gradient-to-br from-kaiho-blue to-blue-400',
@@ -157,41 +148,21 @@ function getBgClass(index: number) {
   return colorClasses[index % colorClasses.length]
 }
 
-const executives = [
-  { name: '上里 直司', role: '会長', generation: '3期', initial: '上', bgClass: 'bg-gradient-to-br from-kaiho-green to-emerald-400', note: '' },
-  { name: '上間 祥子', role: '副会長・広報', generation: '16期', initial: '上', bgClass: 'bg-gradient-to-br from-kaiho-blue to-blue-400', note: '新事業推進・note運営' },
-  { name: '我謝 直也', role: '事務局', generation: '4期', initial: '我', bgClass: 'bg-gradient-to-br from-kaiho-gold to-amber-400', note: '運営打合せ幹事' },
-  { name: '神谷 乗治', role: 'IT/デジタル', generation: '14期', initial: '神', bgClass: 'bg-gradient-to-br from-kaiho-purple to-purple-400', note: '公式サイト制作・運営' },
-]
-
 const members = [
-  { name: '宮城 潤', generation: '3期', initial: '宮', bgClass: getBgClass(0), note: 'Zoom環境整備' },
-  { name: '宮里 治', generation: '3期', initial: '宮', bgClass: getBgClass(1), note: '' },
-  { name: '喜屋武 幸容', generation: '4期', initial: '喜', bgClass: getBgClass(2), note: '' },
-  { name: '喜友名 智子', generation: '7期', initial: '喜', bgClass: getBgClass(3), note: '' },
-  { name: '堀之内 美耶子', generation: '12期', initial: '堀', bgClass: getBgClass(4), note: '' },
-  { name: '国吉 聡志', generation: '13期', initial: '国', bgClass: getBgClass(5), note: '学校連携' },
-  { name: '又吉 吟', generation: '15期', initial: '又', bgClass: getBgClass(0), note: '' },
-  { name: '泉川 良基', generation: '18期', initial: '泉', bgClass: getBgClass(1), note: '教員・探究活動' },
-  { name: '崎原 有希', generation: '19期', initial: '崎', bgClass: getBgClass(2), note: '' },
-  { name: '砂川 佳慧', generation: '20期', initial: '砂', bgClass: getBgClass(3), note: '' },
-  { name: '知念 拓', generation: '20期', initial: '知', bgClass: getBgClass(4), note: '' },
-  { name: '山藤 唯美子', generation: '23期', initial: '山', bgClass: getBgClass(5), note: '' },
-  { name: '瀬長 卓哉', generation: '24期', initial: '瀬', bgClass: getBgClass(0), note: '' },
-  { name: '具志 日南子', generation: '26期', initial: '具', bgClass: getBgClass(1), note: '' },
-  { name: '嶺井 健治', generation: '—', initial: '嶺', bgClass: getBgClass(2), note: '探究活動提案' },
-  { name: '辺土 百々花', generation: '33期', initial: '辺', bgClass: getBgClass(3), note: '' },
-  { name: '我喜屋 奏利', generation: '36期', initial: '我', bgClass: getBgClass(4), note: '' },
-  { name: '宮城 心輝', generation: '—', initial: '宮', bgClass: getBgClass(5), note: '' },
-  { name: '諌山 幸枝', generation: '—', initial: '諌', bgClass: getBgClass(0), note: '' },
-  { name: '金城 安一', generation: 'PTA', initial: '金', bgClass: getBgClass(1), note: 'PTA連携・ボランティア' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', comment: 'システムやデータ分析を手伝います' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪' },
+  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getBgClass(3), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。' },
+  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
+  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
+  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
 ]
 
 const teams = [
   { name: '企画チーム', description: 'イベントやプロジェクトの企画・立案を担当します。', borderClass: 'border-kaiho-blue' },
   { name: '広報チーム', description: 'note記事の執筆、SNS運用、対外的な情報発信を担います。', borderClass: 'border-kaiho-orange' },
   { name: '渉外チーム', description: 'メンター確保、学校・PTA・外部団体との連携を推進します。', borderClass: 'border-kaiho-teal' },
-  { name: '財務チーム', description: '会計管理、収支報告、基金運営を担当します。', borderClass: 'border-kaiho-purple' },
+  { name: '財務チーム', description: '会計管理、収支報告を担当します。', borderClass: 'border-kaiho-purple' },
   { name: 'IT/デジタルチーム', description: '公式サイト運営、データ管理、デジタルツール整備を行います。', borderClass: 'border-kaiho-green' },
 ]
 

@@ -8,29 +8,33 @@ export default defineNuxtConfig({
   ],
 
   app: {
-    baseURL: '/official-site/',
+    baseURL: '/',
     head: {
       htmlAttrs: {
         lang: 'ja'
       },
-      title: '開邦高校同窓会 雄飛会 | 公式サイト',
+      title: '開邦雄飛会｜沖縄・開邦高校同窓会の公式サイト',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: '沖縄県立開邦高等学校の同窓会「雄飛会」公式サイト。メンター制度、探究活動基金、キャリア・クロスロードなど、在校生と卒業生をつなぐ活動を展開しています。' },
-        { property: 'og:site_name', content: '開邦高校同窓会 雄飛会' },
-        { property: 'og:title', content: '開邦高校同窓会 雄飛会 | 公式サイト' },
-        { property: 'og:description', content: '沖縄県立開邦高等学校の同窓会「雄飛会」公式サイト。在校生と卒業生をつなぐ活動を展開しています。' },
+        { name: 'description', content: '沖縄県立開邦高校の同窓会「開邦雄飛会」公式サイト。8,000名超の卒業生ネットワークで、メンター制度・キャリア支援・寄付協賛など、在校生と同窓生をつなぐ活動を展開しています。' },
+        { property: 'og:site_name', content: '開邦雄飛会' },
+        { property: 'og:title', content: '開邦雄飛会｜沖縄・開邦高校同窓会の公式サイト' },
+        { property: 'og:description', content: '沖縄県立開邦高校の同窓会「開邦雄飛会」公式サイト。8,000名超の卒業生ネットワークで、メンター制度・キャリア支援・寄付協賛など、在校生と同窓生をつなぐ活動を展開しています。' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: '/images/og-image.png' },
+        { property: 'og:url', content: 'https://kaiho-yuuhikai.jp/' },
+        { property: 'og:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:image', content: '/images/og-image.png' }
+        { property: 'twitter:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/favicon.png' },
         { rel: 'apple-touch-icon', type: 'image/png', href: '/images/favicon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap' }
       ]
     }
   },
