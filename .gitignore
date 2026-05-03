@@ -31,3 +31,7 @@ __pycache__
 analysis/data/*.tsv
 analysis/data/*.csv
 analysis/data/*.json
+
+# clasp (Apps Script CLI) のローカル設定 — リポジトリには含めない
+.clasp.json
+.clasprc.json

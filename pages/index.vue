@@ -397,7 +397,7 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">基金・寄付</h2>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛会基金</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
           <div class="section-divider mt-6"></div>
         </div>
@@ -406,67 +406,46 @@
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
           <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
           <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
-            &yen;<span class="count-number" data-target="1250000">0</span>
+            &yen;{{ donationsTotalDisplay }}
           </div>
-          <p class="text-sm text-neutral-400"><span class="count-number" data-target="87">0</span>名の支援者に感謝します</p>
+          <p class="text-sm text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
+          <p v-if="donations.fetchedAt" class="text-xs text-neutral-300 mt-2">最終更新: {{ formatDateShort(donations.fetchedAt) }}</p>
+          <p v-else class="text-xs text-neutral-300 mt-2">寄付の受付準備中です</p>
         </div>
 
-        <!-- Fund Cards -->
-        <div class="grid md:grid-cols-2 gap-8 fade-in">
-          <!-- Fund 1 -->
+        <!-- Fund Card (unified) -->
+        <div class="max-w-3xl mx-auto fade-in">
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
             <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
               <div class="text-center">
-                <div class="text-6xl mb-2">&#128300;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">探究活動</span>
+                <div class="text-6xl mb-2">&#128157;</div>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">開邦雄飛会基金</span>
               </div>
             </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">探究活動基金</h3>
+            <div class="p-8 md:p-10">
+              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える基金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動を資金面で支援します。研究費やフィールドワーク費用の助成のほか、同窓生の活動支援にも活用されます。
+                在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
-              <div class="mb-4">
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;390,000 / &yen;500,000</span>
-                  <span class="font-bold text-kaiho-purple">78%</span>
-                </div>
-                <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="78%"></div>
-                </div>
-              </div>
-              <button class="w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors">
-                この基金に寄付する
-              </button>
+              <a :href="donationFormUrl" target="_blank" rel="noopener"
+                class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
+                寄付を申し出る
+              </a>
+              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をメールでご案内します</p>
             </div>
           </div>
+        </div>
 
-          <!-- Fund 2 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-            <div class="h-48 bg-gradient-to-br from-kaiho-gold/20 via-amber-100 to-yellow-100 flex items-center justify-center">
-              <div class="text-center">
-                <div class="text-6xl mb-2">&#127912;</div>
-                <span class="bg-kaiho-gold text-white text-xs font-bold px-3 py-1 rounded-full">芸術支援</span>
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">芸術家応援基金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                芸術科出身の同窓生アーティストを応援。展覧会開催費用、作品制作費、コンクール参加費を支援します。
-              </p>
-              <div class="mb-4">
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;180,000 / &yen;300,000</span>
-                  <span class="font-bold text-kaiho-gold">60%</span>
-                </div>
-                <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-gold to-amber-400 h-3 rounded-full" style="width: 0%" data-width="60%"></div>
-                </div>
-              </div>
-              <button class="w-full py-3 bg-kaiho-gold text-white font-bold rounded-xl hover:bg-amber-600 transition-colors">
-                この基金に寄付する
-              </button>
-            </div>
+        <!-- Donor list (掲載OKの方のみ) -->
+        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto fade-in">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
+            <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
+              <li v-for="donor in donations.donors" :key="donor.name + donor.confirmedAt" class="text-neutral-700">
+                <span class="font-medium">{{ donor.name }}</span>
+                <span v-if="donor.period" class="text-neutral-400 text-xs ml-1">({{ donor.period }})</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -807,6 +786,56 @@ const newsItems = [
   { date: '2025.12.28', category: 'イベント', title: '第3回大同窓会 開催（参加者537名）・キャリア・クロスロード初開催', isNew: false },
 ]
 
+// ── Donations ──
+interface Donor {
+  name: string
+  period: string
+  amount: number
+  message: string
+  confirmedAt: string
+}
+interface DonationsData {
+  fetchedAt: string | null
+  fund: string
+  totalAmount: number
+  donorCount: number
+  donors: Donor[]
+}
+
+// 寄付申し出フォーム URL — 同窓会用 Google アカウント配下のフォーム公開URLを設定する
+const donationFormUrl = 'https://forms.gle/PLACEHOLDER-DONATION-FORM'
+
+const donations = ref<DonationsData>({
+  fetchedAt: null,
+  fund: '開邦雄飛会基金',
+  totalAmount: 0,
+  donorCount: 0,
+  donors: [],
+})
+
+const donationsTotalDisplay = computed(() => donations.value.totalAmount.toLocaleString('ja-JP'))
+const donationsCountDisplay = computed(() => donations.value.donorCount.toLocaleString('ja-JP'))
+
+function formatDateShort(iso: string): string {
+  try {
+    const d = new Date(iso)
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+  } catch {
+    return ''
+  }
+}
+
+async function loadDonations() {
+  try {
+    const res = await fetch(baseURL + 'data/donations.json')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = await res.json() as DonationsData
+    donations.value = data
+  } catch (err) {
+    console.warn('Failed to load donations JSON:', err)
+  }
+}
+
 // ── Note Magazine ──
 interface NoteArticle {
   title: string
@@ -959,6 +988,9 @@ onMounted(() => {
 
   // Load note articles from static JSON
   loadNoteArticles()
+
+  // Load donations from static JSON
+  loadDonations()
 
   // Cleanup
   onUnmounted(() => {
