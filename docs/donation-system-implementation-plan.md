@@ -1,0 +1,458 @@
+# 寄付システム・収支管理 実装計画
+
+**作成日**: 2026年4月26日
+**最終更新**: 2026年5月3日（LINE WORKS 4/26〜4/28 の議論を反映）
+**元ドキュメント**: [Google Doc](https://docs.google.com/document/d/1f06cLiMMXjXIGk1Nm2yxDlKuI4zerqb1lJnc2-a7jIY/edit) / `docs/donation-and-finance-proposal.md`
+**目的**: 構築プランで合意された方針を、サイト実装側の具体タスクに落とし込む
+
+## ステータス更新
+
+### 2026-04-15: Google Workspace 取得（上間さん） — ❌ 後に解約
+- 当初は `office@kaiho-yuhikai.com`（独自ドメイン `kaiho-yuhikai.com`）を取得
+- → **2026-04-27時点で解約済み**（有料プラン不要との判断）
+- 以降のリソース所有は `kaihoyuuhikai@gmail.com`（無料個人アカウント）に集約
+
+### 2026-04-18: 既存フォーム/スプレッドシート群の整備（上間さん）
+| 種別 | URL | スプレッドシート |
+|---|---|---|
+| 寄付申し出フォーム（編集） | `https://docs.google.com/forms/d/19Ig4BRdEENCpHUU6xzEmu1KkbCev3r7MfFYi3FrPpr8/edit` | `1Y5S1uwFnRILxT19NSh90O0v4qfP-_0ERtORczJcIFik`（寄付管理） |
+| 寄付申し出フォーム（公開） | `https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform` | 同上 |
+| フォーム① 事業計画申請（編集） | `https://docs.google.com/forms/d/1GgiX8ZhwT5KFq_LaWuLFEr-yjG0ELPaIz9kKCeTeSqQ/edit` | （Phase 2 で集約） |
+| フォーム① 事業計画申請（公開） | `https://docs.google.com/forms/d/e/1FAIpQLSdMtPcgIJuu81SlYnnz4dSNuIsOZV1oo-55L0bse2I8Wdq7Hw/viewform` | 同上 |
+| フォーム② 事業報告・精算（編集） | `https://docs.google.com/forms/d/1WguEzGypbFkOOnkX-RQ3js9A02iNwDFEo_rCvbsIvHA/edit` | `1AleHTw9A6Od1p3XXF9AkM2lElN2B5ocypLB7EApZQVE`（事業集約） |
+| フォーム② 事業報告・精算（公開） | `https://docs.google.com/forms/d/e/1FAIpQLSdH6dKAwy6nIcnmx71JiYg4gahCS-fxGPiTrFHNDv2hrrfnLA/viewform` | 同上 |
+
+### 2026-04-18: 「基金」呼称の法的リスク指摘（屋良さん）
+- 「基金」の語はファンド組成・税務上の厳格な要件を連想させ、リスク管理上の懸念ありと指摘
+- → **HP・フォーム上の「開邦雄飛会基金」は「開邦雄飛応援金」等に呼称変更**（§0 に反映）
+
+### 2026-04-19: 寄付ルート B（個別対応型）の提案（上間さん）
+- HP の寄付ボタン → 既存の「お問い合わせ」フォームに繋ぐ簡易方式
+- 個別に振込先を案内 → 入金確認後、フォーム②（事業報告・精算）に「入金実績」として入力
+- → 採否は §2-0 で整理。**実装中の Route A（専用フォーム＋GAS連携）を主、Route B をフォールバックとする**
+
+### 2026-04-26: HP連携方式を確定（GCP不採用）
+- Service Account / GCP プロジェクトは使わず、スプレッドシート紐付きの **Google Apps Script Web アプリ** を JSON エンドポイントとして公開
+- GitHub Actions が `fetch()` でJSONを取得（無料個人 Google アカウントでもデプロイ可能）
+
+### 2026-04-26: コード側 PR 準備完了
+- `scripts/fetch-donations.mjs` / `scripts/gas/donations/` / `pages/index.vue` / `.github/workflows/deploy.yml` / `public/data/donations.json` 実装済み
+- `pages/index.vue` の寄付セクションは1基金統一UIに改修済み（探究/芸術の2カードは廃止）
+- 残作業: `scripts/gas/donations/` を `kaihoyuuhikai@gmail.com` でデプロイし Secrets 登録
+
+### 2026-04-27: 無料プラン継続を確定（神谷）
+- 上間さん「自動採番にして一つのスプレッドシートにするには有料化しなくてはいけないのであれば、スプレッドシートを分ける無料の方法で良い」
+- → Phase 2 は **「フォーム①応答シート」「フォーム②応答シート」を別々に持ち、`事業ID` をキーに集約スプレッドシート (`1AleHTw9...`) で結合** する方式を採用
+
+### 2026-04-27: Phase 3（HP収支報告ページ）保留決定（神谷）
+- 「収支報告をHPにアップする Phase 3 は保留にしておきますね」
+- → §4 を「保留」明記に更新。Phase 1・2 完了後に再評価
+
+### 2026-04-27: 屋良さんがシステムチーム退室
+- 元計画で屋良さんが担当していた「振込確認オペ手順書」「会計取りまとめ」は **当面、上間さん（または新会計担当）に再アサインが必要**
+- 退室の経緯は §6-2 を参照（運営報酬・通帳管理など、別レイヤの議論と分離）
+
+### 2026-04-28: 集約スプレッドシートの閲覧権限付与（上間さん → 神谷）
+- `1AleHTw9...`（事業集約）に `george@gscale.jp` から閲覧アクセス可能を確認
+
+---
+
+## 0. 元ドキュメントから取り込む変更点（重要）
+
+Google Doc のレビュー指摘 + LINE WORKS の議論で確定した方針を、本実装計画に反映する。
+
+| # | 項目 | 変更前（モック / 旧案） | 変更後（採用方針） |
+|---|---|---|---|
+| 1 | 基金区分 | 探究活動基金 / 芸術家応援基金 の2本 | **「開邦雄飛応援金」1本に統一**（呼称変更含む / 基金は法的リスクで不採用） |
+| 2 | 学年フィールド | 卒業期 | **入学期**（1〜38期 + 関係者）+ プルダウンに早見表添付 |
+| 3 | 寄付金額 | 3,000 / 5,000 / 10,000 / その他 | **一万円1口に統一**（その他は任意入力欄を残す） |
+| 4 | 振込確認ステータス | テキスト | **プルダウン選択式**（未確認 / 確認済 / キャンセル） |
+| 5 | HP表示 | 基金別の進捗バー2本 | **統一の累計と支援者数のみ**。基金別は出さない |
+| 6 | Phase 3 | 基金別使途 | **保留**（Phase 1/2 安定後に再評価） |
+| 7 | アカウント所有 | `office@kaiho-yuhikai.com`（有料Workspace） | **`kaihoyuuhikai@gmail.com`（無料個人）に統一** |
+| 8 | スプレッドシート構成 | 1シート自動採番 | **複数シート分離 + 事業ID手動採番**（無料プラン制約） |
+| 9 | 寄付ルート | 専用フォーム1本 | **専用フォーム継続（Route A）、お問い合わせ経由（Route B）はフォールバック** |
+| 10 | 寄付UI呼称 | 「開邦雄飛会基金」 | **「開邦雄飛応援金」**（HP本文 / フォーム / JSON `fund` フィールド全箇所） |
+
+⚠️ サイト側の `pages/index.vue` は「開邦雄飛会基金」という見出しと、`donations.json` の `fund` 値が「開邦雄飛会基金」のままなので、§2-5 で **「開邦雄飛応援金」に文言差し替え**が必要。
+
+---
+
+## 1. フェーズ別マイルストーン
+
+| フェーズ | 内容 | 主担当 | 期限 | 状態 |
+|---|---|---|---|---|
+| Phase 1 | 寄付システム（フォーム→Sheets→HP表示） | 神谷（HP/Actions）/ 上間（Form/Sheet）/ 振込確認オペ要再アサイン | 2026年5月末 | 進行中 |
+| Phase 2 | 事業計画・報告・精算フロー（2段フォーム+集約Sheet） | 上間 / 必要に応じ神谷 | 2026年6月末 | フォーム作成済 / 集約ロジック未 |
+| Phase 3 | 収支報告ページ（HP公開） | – | – | **保留**（4/27決定） |
+
+直近の最優先は **Phase 1 の本番疎通**（既存フォーム→GAS→HP）。Phase 2 は集約シート上での `事業ID` 結合ロジックの整備のみ。
+
+---
+
+## 2. Phase 1: 寄付システム
+
+### 2-0. 寄付ルートの選定
+
+| ルート | 概要 | 採否 |
+|---|---|---|
+| **Route A（専用フォーム + GAS連携）** | 既存の寄付申し出フォーム（`19Ig...`）→ 寄付シート（`1Y5S1...`）→ Apps Script Web App → GitHub Actions → HP | **採用（主軸）** |
+| Route B（お問い合わせ経由 / 個別対応型） | HP の寄付ボタン → お問い合わせフォーム → メールで振込先案内 → 入金後フォーム②に「収入実績」として記録 | **フォールバック** |
+
+**Route A 採用の理由:**
+- 既に上間さんが寄付フォーム + 寄付シートを作成済み
+- 既に神谷側で `scripts/`・`pages/index.vue`・`.github/workflows/deploy.yml` を実装済み
+- HPにリアルタイムで累計額・支援者数を表示でき、寄付の透明性と機運醸成に直結
+- Route B では HP の動的表示が成立しない（Phase 3 が保留のため、結局可視化が遅れる）
+
+**Route B のフォールバック条件:**
+- GAS の Web App デプロイが kaihoyuuhikai@gmail.com で安定動作しない場合
+- 個人情報管理上、専用フォームよりお問い合わせ経由の方が安全と再判断された場合
+- → そのときは HP の `donationFormUrl` を `mailto:kaihoyuuhikai@gmail.com` か `#contact` に向け、累計額表示は「準備中」に切り替え
+
+**呼称（Route A 確定後）:**
+- HP・フォーム・JSONすべて **「開邦雄飛応援金」** に統一（基金の語は使わない）
+
+### 2-1. データフロー（Route A）
+
+```
+寄付者
+  └─[1]→ 寄付申し出フォーム（19Ig...）
+              └─[2]→ 寄付シート（1Y5S1...）
+                          └─[3]→ 会計担当が振込確認、ステータス「確認済」更新
+                                      └─[4]→ GitHub Actions（cron 1日1回）
+                                                  └─ Apps Script Web App から確認済のみ取得
+                                                      └─[5]→ public/data/donations.json を生成・コミット
+                                                                  └─[6]→ Nuxt generate で HP に反映
+```
+
+`[4]–[6]` は既存の `scripts/fetch-note-rss.mjs` + `.github/workflows/deploy.yml` と同型。
+
+### 2-2. 寄付申し出フォーム仕様（既存フォーム `19Ig...`）
+
+> 既に上間さんが作成済み。本表は **HP連携時に GAS が読む列**との対応の確認用。
+
+フォーム公開URL: https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform
+
+呼称変更（フォーム本文の「基金」→「開邦雄飛応援金」）は **上間さんに依頼が必要**。
+
+| # | 項目 | UI種別 | 必須 | 備考 |
+|---|---|---|---|---|
+| 1 | お名前 | 短文 | ○ | |
+| 2 | 入学期 | プルダウン | ○ | 1〜38期 + 「関係者」 |
+| 3 | メールアドレス | 短文 | ○ | 振込先案内の自動返信送付先 |
+| 4 | 寄付先 | （表示のみ） | – | 「開邦雄飛応援金」固定文言 |
+| 5 | 寄付金額 | プルダウン | ○ | 「10,000円（1口）」「その他」 |
+| 6 | 任意金額 | 短文（数値） | – | #5で「その他」選択時 |
+| 7 | メッセージ | 段落 | – | |
+| 8 | HP掲載可否 | ラジオ | ○ | 「氏名で掲載OK」「匿名希望」「掲載不要」 |
+
+### 2-3. スプレッドシート列定義（既存シート `1Y5S1...`）
+
+> ⚠️ `george@gscale.jp` には現状アクセス権なし。**実列構成は上間さんに権限付与してもらった上で、§2-4 の GAS コードのインデックスを実シートに合わせて調整する**ことが必須。下表は仮定。
+
+| 列（仮） | 内容 | 入力元 | 備考 |
+|---|---|---|---|
+| A | タイムスタンプ | フォーム自動 | |
+| B | 氏名 | フォーム | |
+| C | 入学期 | フォーム | |
+| D | メールアドレス | フォーム | JSONには出さない（個人情報） |
+| E | 寄付先 | 固定値「開邦雄飛応援金」 | |
+| F | 申し出金額 | フォーム | プルダウン or 任意入力をマージ |
+| G | HP掲載可否 | フォーム | |
+| H | メッセージ | フォーム | |
+| I | 振込確認ステータス | **会計が選択式更新** | データ検証で「未確認/確認済/キャンセル」固定 |
+| J | 確認日 | 会計 | |
+| K | 確認者 | 会計 | |
+
+**P1-A1（新規追加タスク）**: 上間さんに `1Y5S1...` の現列構成を確認し、`scripts/gas/donations/Donations.js` の列インデックスを合わせ込む。
+
+### 2-4. データ連携パイプライン（Apps Script Web App 方式）
+
+> **方針**: GCPプロジェクト・Service Account は不使用。スプレッドシートに紐付く **Apps Script Web アプリ** を JSON エンドポイントとして公開。
+> **アカウント**: 全リソース `kaihoyuuhikai@gmail.com`（無料個人 Google アカウント）所有。Apps Script Web App は無料アカウントでも問題なくデプロイ可能。
+
+#### 構成
+
+```
+寄付シート 1Y5S1...（kaihoyuuhikai@gmail.com 所有）
+   └─ 紐付き Apps Script（scripts/gas/donations/ をclasp push）
+        └─ doGet() でフィルタ・集計し JSON を返す
+              └─ Web アプリとしてデプロイ（自分実行 / 全員アクセス + トークン認証）
+                    └─ GitHub Actions が fetch() で取得
+                          └─ public/data/donations.json に保存・コミット
+```
+
+#### Apps Script コード
+
+`scripts/gas/donations/Donations.js` および `scripts/gas/donations/Setup.js` に実装済み。
+- `doGet(e)`: トークン照合 → 「確認済」のみフィルタ → 集計 JSON 返却
+- `setupAll()`: 寄付シート / 寄付フォーム を初回構築するヘルパ（既存リソース利用なら不要、参考実装）
+
+> **注意**: 既に上間さんが寄付フォーム/シートを作成済みのため、`setupAll()` は **再実行しない**。
+> `Donations.js` を **既存シート（`1Y5S1...`）に紐付け**するのが正しい運用。手順は §2-8。
+
+#### デプロイ設定
+
+- 「デプロイ」→「新しいデプロイ」→ 種類: **ウェブアプリ**
+- 実行するユーザー: **自分（`kaihoyuuhikai@gmail.com`）**
+- アクセスできるユーザー: **全員**（トークンで実質的に制限）
+- デプロイURL（例: `https://script.google.com/macros/s/AKfycb.../exec`）を控える
+
+#### GitHub Secrets
+
+| 名前 | 値 |
+|---|---|
+| `DONATIONS_ENDPOINT_URL` | デプロイされた Web アプリ URL |
+| `DONATIONS_ENDPOINT_TOKEN` | Apps Script の `TOKEN` と同値（ランダム文字列） |
+
+#### Node スクリプト
+
+`scripts/fetch-donations.mjs` は実装済み。npm 依存追加なし。エンドポイント未設定時は既存JSONを保持してビルドが通るようフォールバック実装済み。
+
+#### ワークフロー
+
+`.github/workflows/deploy.yml` に Fetch donations ステップを追加済み。`public/data/donations.json` をコミット対象に含める。
+
+### 2-5. HP（Nuxt）改修
+
+#### 完了済み（2026-04-26）
+- `pages/index.vue` 寄付セクションを1カードUIに改修済み
+- `donations.json` の動的バインド（累計額 / 支援者数 / 寄付者一覧）実装済み
+- 空ひな型 `public/data/donations.json` コミット済み
+- フォールバック表示（`fetchedAt` が null のとき「準備中」）実装済み
+
+#### 残タスク
+1. **`donationFormUrl` 差し替え**（`pages/index.vue:806`）
+   - 現状: `https://forms.gle/PLACEHOLDER-DONATION-FORM`
+   - 変更先: `https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform`
+2. **「開邦雄飛会基金」→「開邦雄飛応援金」** へのリネーム
+   - `pages/index.vue:400` 見出し
+   - `pages/index.vue:422` カード内バッジ
+   - `pages/index.vue:426` カードタイトル「在校生・同窓生の活動を支える基金」
+   - `pages/index.vue:471` 「基金の使途を透明に報告」
+   - `pages/index.vue:721` フッター「寄付・基金」
+   - `pages/index.vue:810` `donations.value.fund` 初期値
+   - `public/data/donations.json` の `fund` 値
+   - `scripts/gas/donations/Donations.js` の集計ペイロード `fund` 値
+   - `scripts/fetch-donations.mjs` のフォールバック `fund` 値
+
+### 2-6. テスト
+
+1. **GAS 単体**: Apps Script エディタで `doGet({parameter:{token:TOKEN}})` を直接呼び、JSON 構造確認
+2. **エンドポイント**: `curl "${URL}?token=${TOKEN}"` で JSON 取得確認（不正トークンは `forbidden`）
+3. **結合**: 寄付シートに「未確認/確認済/キャンセル」混在テストデータを入れ、確認済のみ集計されることを確認
+4. **GitHub Actions**: ローカルで `DONATIONS_ENDPOINT_URL`・`DONATIONS_ENDPOINT_TOKEN` を設定し `node scripts/fetch-donations.mjs` 実行 → `public/data/donations.json` が期待形であることを確認
+5. **HP**: `npm run dev` で動的バインド表示確認、`npx nuxt generate` で静的ビルドが通ることを確認
+6. **本番リハ**: 関係者2〜3名でフォーム送信 → ステータス更新 → cron手動トリガー → HP反映までの一連を疎通
+
+### 2-7. タスク表（Phase 1）
+
+| # | タスク | 担当 | 成果物 | 状態 |
+|---|---|---|---|---|
+| P1-1 | 同窓会用Googleアカウント確定 | 上間 | `kaihoyuuhikai@gmail.com`（無料個人） | ✅ 2026-04-27 |
+| P1-2 | コード側実装一式 | 神谷 | `scripts/`, `pages/`, `deploy.yml`, 空 `donations.json` | ✅ 2026-04-26 |
+| P1-3 | 既存寄付フォーム（`19Ig...`）「基金」→「開邦雄飛応援金」呼称変更 | 上間 | フォーム更新 | ⏳ 未着手 |
+| P1-4 | 寄付シート（`1Y5S1...`）に振込確認列（I/J/K）追加・データ検証設定 | 上間 | シート更新 | ⏳ 列構成要確認 |
+| P1-5 | 寄付シート列構成を `scripts/gas/donations/Donations.js` のインデックスと突合 | 神谷 | コード修正 PR | ⏳ シート閲覧権限取得後 |
+| P1-6 | `clasp login` を `kaihoyuuhikai@gmail.com` で実行 | 神谷 | `~/.clasprc.json` | ⏳ |
+| P1-7 | `scripts/gas/donations/` を **既存シート `1Y5S1...` に紐付けて push**（`clasp clone` ベース） | 神谷 | `.clasp.json` | ⏳ |
+| P1-8 | Apps Script を Web アプリとしてデプロイ → URL 取得 | 神谷 | `DONATIONS_ENDPOINT_URL` | ⏳ |
+| P1-9 | GitHub Secrets 登録（`DONATIONS_ENDPOINT_URL` / `DONATIONS_ENDPOINT_TOKEN`） | 神谷 | Secrets 登録 | ⏳ |
+| P1-10 | `pages/index.vue` の `donationFormUrl` + 「基金」→「応援金」リネーム → コミット | 神谷 | PR | ⏳ |
+| P1-11 | `donations.json` / `Donations.js` / `fetch-donations.mjs` の `fund` 値リネーム | 神谷 | PR | ⏳ |
+| P1-12 | 振込確認オペ手順書（屋良さん退室により再アサイン要） | **上間 or 新会計担当** | Markdown | ⏳ アサイン要 |
+| P1-13 | 関係者3名でテスト送信〜HP反映の疎通 | 全員 | テスト結果共有 | ⏳ |
+
+### 2-8. セットアップ実行手順（P1-6〜P1-9 詳細）
+
+```bash
+# 0. 前提: clasp が kaihoyuuhikai@gmail.com で認証済み
+clasp logout && clasp login   # ブラウザで kaihoyuuhikai@gmail.com を選択
+
+# 1. 既存の寄付シート（1Y5S1...）に紐付く Apps Script を clone
+#    （上間さんに「拡張機能 → Apps Script」を一度開いてプロジェクトを生成してもらう必要あり）
+cd scripts/gas/donations
+clasp clone <スクリプトID>     # シートのApps Scriptエディタ「プロジェクト設定」で取得
+# または既存シートに紐付け済みのスクリプトIDを .clasp.json に手書き
+
+# 2. Donations.js / appsscript.json をpush
+clasp push
+
+# 3. GAS エディタで定数 TOKEN にランダム文字列を設定（コード内 or PropertiesService）
+#    シート列構成と Donations.js のインデックスが一致しているか必ず確認
+clasp open
+
+# 4. Web アプリとしてデプロイ
+clasp deploy --description "v1: donations endpoint"
+clasp deployments
+# → URL（https://script.google.com/macros/s/.../exec）を控える
+
+# 5. GitHub Secrets 登録
+cd <リポジトリルート>
+gh secret set DONATIONS_ENDPOINT_URL --body "<Web アプリ URL>"
+gh secret set DONATIONS_ENDPOINT_TOKEN --body "<TOKEN 値>"
+
+# 6. pages/index.vue の donationFormUrl 差し替え + 呼称リネーム → コミット
+# 7. push → 自動デプロイ → HP の寄付ボタンが実フォームに繋がる
+```
+
+> **`setupAll()` は実行しない**。既に上間さんが寄付フォーム/シートを作成済みのため、新規作成すると重複する。
+
+---
+
+## 3. Phase 2: 事業計画・報告・精算フロー
+
+### 3-1. 採用方式: 案A「2段階フォーム」 + 複数シート集約
+
+> **無料プラン制約**: 1シートでの自動採番にはGAS有料機能が必要。
+> → **フォーム①回答シート / フォーム②回答シート / 集約スプレッドシート（`1AleHTw9...`）** の3シート構成とし、`事業ID` を **手動採番** または **GAS スクリプトでフォーム①トリガーから採番** する。
+
+| 構成要素 | URL / ID |
+|---|---|
+| フォーム① 事業計画申請（公開） | `https://docs.google.com/forms/d/e/1FAIpQLSdMtPcgIJuu81SlYnnz4dSNuIsOZV1oo-55L0bse2I8Wdq7Hw/viewform` |
+| フォーム② 事業報告・精算（公開） | `https://docs.google.com/forms/d/e/1FAIpQLSdH6dKAwy6nIcnmx71JiYg4gahCS-fxGPiTrFHNDv2hrrfnLA/viewform` |
+| 集約スプレッドシート | `1AleHTw9A6Od1p3XXF9AkM2lElN2B5ocypLB7EApZQVE` |
+
+集約スプレッドシートの実列構成（フォーム②回答そのもの）:
+`Timestamp / Email / 事業ID / 報告者氏名 / 事業名 / 実施日 / 実施場所 / 参加実績人数 / 実施内容サマリ / 成果・所感 / 収入合計実績額 / 領収書・写真 / 支出実績内訳 / 収入実績内訳 / 立替・預かり / 報告会議開催日 / 清算完結フラグ / 支出合計実績額`
+
+### 3-2. 事業ID 採番ロジック
+
+- **採用方式**: フォーム① onSubmit トリガーで `①-001`, `①-002`, … を自動採番し、申請者に自動返信メールで通知
+- 報告フォーム②では「対象事業ID」入力欄に申請者がIDを記入することで紐付け
+- 集約シートで `QUERY` または `VLOOKUP` で計画↔実績を結合
+
+> ⚠️ 現在の集約シートのサンプルデータ `①-001`, `①-002` は手動採番で入力されている。GASによる自動採番は次ステップ。
+
+### 3-3. 支出カテゴリ（既存フォーム②に実装済）
+
+①会場費 / ②印刷・通信費 / ③謝礼・交通費 / ④記念品・寄贈 / ⑤飲食費 / ⑥雑費・その他
+
+### 3-4. 承認基準
+
+「収支差額の補填」ではなく **収入合計と支出合計の絶対値比較**。集約シートに「収入合計」「支出合計」「差引」の計算列を持たせる。
+
+### 3-5. サイト実装の関与
+
+Phase 2 は **Googleフォーム + スプレッドシート完結**。HP側の改修は不要。
+Phase 3（HP公開）は保留中のため、本フェーズから HP連携への接続は当面なし。
+
+### 3-6. タスク表（Phase 2）
+
+| # | タスク | 担当 | 期限 | 状態 |
+|---|---|---|---|---|
+| P2-1 | 事業計画申請フォーム①作成 | 上間 | – | ✅ 2026-04-18 |
+| P2-2 | 事業報告・精算フォーム②作成 | 上間 | – | ✅ 2026-04-18 |
+| P2-3 | フォーム①回答シートの作成（独立シート） | 上間 | 5月上旬 | ⏳ |
+| P2-4 | 集約スプレッドシート（`1AleHTw9...`）でフォーム①②を `事業ID` 結合する集計シート/QUERY追加 | 神谷 + 上間 | 5月中旬 | ⏳ |
+| P2-5 | 事業ID自動採番GAS（フォーム① onSubmit） | 神谷 | 5月中旬 | ⏳ |
+| P2-6 | 運用マニュアル | **要再アサイン**（屋良さん退室） | 5月末 | ⏳ |
+| P2-7 | 過去事業データで試行 | 全員 | 6月 | ⏳ |
+
+---
+
+## 4. Phase 3: 収支報告ページ（HP公開）— **保留**
+
+### 4-1. 保留決定（2026-04-27）
+神谷さん「収支報告をHPにアップする Phase 3 は保留にしておきますね」。
+理由:
+- Phase 1/2 が安定稼働してから、実データを基にUI設計したい
+- 屋良さん退室により会計取りまとめ体制が未確定
+- 「基金」呼称回避 + Route B 提案など、寄付ロジックがまだ流動的
+
+### 4-2. 再開条件
+- Phase 1 の HP 連携が本番稼働し、累計データが3〜6ヶ月蓄積した時点
+- 新会計担当が確定し、年次収支データの取りまとめフローが定常化した時点
+- 総会または役員会で開示範囲（事業別 / 基金別など）が承認された時点
+
+### 4-3. 保留期間中の暫定方針
+- HP の累計寄付額表示（Phase 1）のみ運用
+- 詳細な収支報告は **PDF をフッター「同窓会概要」セクションからダウンロード提供** などの軽量手段で代替可
+
+---
+
+## 5. リポジトリ変更サマリ（Phase 1 完了時点）
+
+| パス | 種別 | 内容 |
+|---|---|---|
+| `scripts/fetch-donations.mjs` | ✅ 実装済 | GAS Web アプリから JSON を取得して保存 |
+| `scripts/gas/donations/Donations.js` | ✅ 実装済 | 集計エンドポイント（既存シートに紐付け予定） |
+| `scripts/gas/donations/Setup.js` | ✅ 実装済 | 新規構築用ヘルパ（**今回は実行しない**） |
+| `scripts/gas/donations/deploy.sh` | ✅ 実装済 | clasp 用デプロイスクリプト |
+| `scripts/gas/donations/README.md` | ✅ 実装済 | セットアップ手順 |
+| `public/data/donations.json` | ✅ 空ひな型コミット済 | 初期コミット |
+| `.github/workflows/deploy.yml` | ✅ 修正済 | Fetch donations ステップ追加 |
+| `pages/index.vue` | ⚠️ 一部要修正 | `donationFormUrl` 差し替え + 「基金」→「応援金」リネーム |
+
+GitHub Secrets:
+- `DONATIONS_ENDPOINT_URL`（Apps Script Web アプリ URL）
+- `DONATIONS_ENDPOINT_TOKEN`（GAS と一致するランダム文字列）
+
+`package.json` の依存追加は **不要**。
+
+---
+
+## 6. 直近のNext Action（優先順位付き）
+
+### P0（今週中 / 5月第1週）
+1. **上間さんへ依頼**:
+   - 寄付シート `1Y5S1...` の閲覧権限を `george@gscale.jp` に付与
+   - 寄付フォーム `19Ig...` 内の「基金」→「開邦雄飛応援金」に文言変更
+   - 寄付シートに振込確認列（I=ステータス / J=確認日 / K=確認者）を追加、データ検証で「未確認/確認済/キャンセル」プルダウン化
+2. **神谷**:
+   - 寄付シート列構成と `Donations.js` のインデックス突合・修正
+   - HP コード側のリネーム（「基金」→「応援金」、`donationFormUrl` 差し替え）を1PRで提出
+
+### P1（5月第2〜3週）
+1. `clasp login` を `kaihoyuuhikai@gmail.com` で実行
+2. 既存寄付シート紐付きの Apps Script に `Donations.js` を `clasp clone` → `clasp push`
+3. Web App デプロイ → `DONATIONS_ENDPOINT_URL` / `DONATIONS_ENDPOINT_TOKEN` を GitHub Secrets 登録
+4. 関係者2〜3名でテスト疎通
+
+### P2（5月末〜6月）
+1. Phase 2 集約シートに `事業ID` 結合 QUERY/VLOOKUP を実装
+2. フォーム① onSubmit GAS で自動採番
+3. 振込確認オペ・運用マニュアルの担当再アサイン（屋良さん退室の穴を埋める）
+
+### 6-2. 体制リスクと対応
+
+- **屋良さん退室の影響**: 会計担当・運用マニュアル作成が空席。新会長/新会計担当決定までは **上間さんが暫定的に振込確認オペを兼務**する想定だが、無理のない頻度（週1回確認等）に調整
+- **役員報酬・通帳管理の議論**は別レイヤとして本実装計画では扱わない（4/19〜4/20 の議論は新体制の運営方針議論として継続）
+
+### 保留
+- Phase 3（HP収支報告ページ）— 4/27決定。再開条件は §4-2
+
+---
+
+## 付録 A: 既存類似実装との対比
+
+| 観点 | note RSS（既存） | 寄付（新規） |
+|---|---|---|
+| 取得元 | note.com RSS（公開） | GAS Web アプリ（トークン認証） |
+| スクリプト | `scripts/fetch-note-rss.mjs` | `scripts/fetch-donations.mjs` |
+| 出力 | `public/data/note-articles.json` | `public/data/donations.json` |
+| 実行 | `deploy.yml` 内ステップ + cron 1日1回 | 同じワークフローに追加 |
+| 認証 | 不要 | URL クエリのトークン文字列のみ |
+| 追加依存 | なし | なし |
+
+両者とも「fetch → JSON コミット → 静的ビルド」の同型パターン。寄付側は集計ロジックを GAS 側に寄せたため、Node 側はほぼ純粋な fetch+保存になる。
+
+## 付録 B: Route B（フォールバック）詳細
+
+Route A（専用フォーム + GAS）が運用上問題となった場合の切替手順:
+
+1. `pages/index.vue` の `donationFormUrl` を `#contact`（お問い合わせセクション）に変更
+2. 累計額カードを「準備中です」表示に切替（`donations.json` を空維持）
+3. お問い合わせフォーム経由で寄付申し出を受領 → 個別メールで振込先案内
+4. 入金確認後、フォーム②（事業報告・精算）に「収入実績」として手動記録
+5. 収支は Phase 3（保留中）で年次公開
+
+切替コストは小さい（コード差分は数行）。**Route A デプロイから3ヶ月程度運用してみて、フォーム送信件数 < 振込確認運用負荷の関係で再評価**する。
+
+## 付録 C: 保留事項（将来検討）
+
+- オンライン決済（Stripe等）導入 — 寄付件数が増えてから検討
+- レシート読み取り自動化（Gemini API）— Phase 2 確立後に再評価
+- 上間さん作成の収支報告アプリ（project-finance-blue.vercel.app）— Phase 3 再開時のUI参考
+- Google Workspace 有料化 — 現時点では不要との判断（4/27）。独自ドメインメールが業務上必要になった段階で再検討
