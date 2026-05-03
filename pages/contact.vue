@@ -185,8 +185,8 @@ const forms = [
   },
   {
     title: '寄付・支援フォーム',
-    description: '寄付協賛金への寄付・支援の申し出はこちら。',
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=header',
+    description: '開邦雄飛応援金への寄付・支援の申し出はこちら。',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform',
     internal: false,
     comingSoon: false,
   },
