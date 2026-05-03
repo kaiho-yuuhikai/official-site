@@ -307,3 +307,135 @@ function bootstrapStandalone(spreadsheetId) {
 function runBootstrap() {
   return bootstrapStandalone('1Y5S1uwFnRILxT19NSh90O0v4qfP-_0ERtORczJcIFik')
 }
+
+/**
+ * Issue #3 対応: 寄付スプレッドシートに振込確認列 (I/J/K) とデータ検証を追加する。
+ * 既存の I/J/K 列に内容があれば上書きせず、空なら設定する。
+ *
+ * 使い方: GAS エディタで関数 runSetupSheetColumns を選んで「▶ 実行」
+ *
+ * 効果:
+ *   - 列ヘッダー: I=振込確認ステータス / J=確認日 / K=確認者
+ *   - I 列にデータ検証 (未確認 / 確認済 / キャンセル) を追加
+ *   - J 列の表示形式を yyyy-mm-dd に
+ *   - ヘッダー行を太字 + 凍結
+ *   - シート名を donations にリネーム (フォーム回答シートが対象)
+ */
+function runSetupSheetColumns() {
+  const props = PropertiesService.getScriptProperties()
+  const ssId = props.getProperty('SPREADSHEET_ID')
+  if (!ssId) {
+    throw new Error('SPREADSHEET_ID が未設定です。先に runBootstrap を実行してください。')
+  }
+  const ss = SpreadsheetApp.openById(ssId)
+
+  // 対象シートを特定（フォーム回答シート優先）
+  let target = ss.getSheetByName(SHEET_NAME)
+  if (!target) {
+    const sheets = ss.getSheets()
+    for (let i = sheets.length - 1; i >= 0; i--) {
+      const name = sheets[i].getName()
+      if (name.indexOf('フォームの回答') === 0 || name.indexOf('Form Responses') === 0) {
+        sheets[i].setName(SHEET_NAME)
+        target = sheets[i]
+        break
+      }
+    }
+  }
+  if (!target) target = ss.getSheets()[0]
+
+  // I/J/K のヘッダーを設定
+  target.getRange(1, 9, 1, 3).setValues([['振込確認ステータス', '確認日', '確認者']])
+
+  // I列にデータ検証
+  const statusRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(STATUS_VALUES, true)
+    .setAllowInvalid(false)
+    .setHelpText('未確認 / 確認済 / キャンセル のいずれかを選択')
+    .build()
+  target.getRange(2, 9, 1000, 1).setDataValidation(statusRule)
+
+  // J列の日付フォーマット
+  target.getRange(2, 10, 1000, 1).setNumberFormat('yyyy-mm-dd')
+
+  // ヘッダー行を太字 + 凍結
+  target.getRange(1, 1, 1, 11).setFontWeight('bold')
+  target.setFrozenRows(1)
+
+  Logger.log('===== Sheet columns setup complete =====')
+  Logger.log('Sheet name: ' + target.getName())
+  Logger.log('Headers (A〜K): ' + target.getRange(1, 1, 1, 11).getValues()[0].join(' | '))
+  Logger.log('Data validation: I 列にプルダウン (' + STATUS_VALUES.join(' / ') + ')')
+  Logger.log('========================================')
+
+  return {
+    sheetName: target.getName(),
+    headers: target.getRange(1, 1, 1, 11).getValues()[0],
+  }
+}
+
+/**
+ * Issue #5 (本番疎通テスト) の自動化補助:
+ * テスト用の寄付申し出行をスプレッドシートに直接挿入する。
+ * 通常はフォーム送信から流すが、関係者集めずにエンドツーエンドを検証したい時用。
+ *
+ * 使い方: GAS エディタで関数 addSmokeTestRow を選んで「▶ 実行」
+ *
+ * 挿入される行:
+ *   B(氏名)=「テスト太郎」 / C(入学期)=「14期」 / D(メール)=「test@example.com」
+ *   E(寄付金額)=「10,000円」 / G(メッセージ)=「疎通テスト」 / H(掲載)=「氏名で掲載OK」
+ *   I(ステータス)=「確認済」 / J(確認日)=今日 / K(確認者)=「自動テスト」
+ *
+ * 戻り値の行番号を控え、後で deleteSmokeTestRow(rowNumber) で削除できる。
+ */
+function addSmokeTestRow() {
+  const props = PropertiesService.getScriptProperties()
+  const ssId = props.getProperty('SPREADSHEET_ID')
+  if (!ssId) throw new Error('SPREADSHEET_ID 未設定。先に runBootstrap を実行してください。')
+  const ss = SpreadsheetApp.openById(ssId)
+  const sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0]
+
+  const today = new Date()
+  const row = [
+    today,                  // A: タイムスタンプ
+    'テスト太郎',           // B: お名前
+    '14期',                 // C: 入学期
+    'test@example.com',     // D: メールアドレス
+    '10,000円',             // E: 寄付金額
+    '',                     // F: その他金額
+    '疎通テスト（後で削除）', // G: メッセージ
+    '氏名で掲載OK',         // H: HP掲載可否
+    '確認済',               // I: 振込確認ステータス
+    today,                  // J: 確認日
+    '自動テスト',           // K: 確認者
+  ]
+  sheet.appendRow(row)
+  const rowNumber = sheet.getLastRow()
+
+  Logger.log('===== Smoke test row inserted =====')
+  Logger.log('Row number: ' + rowNumber + ' — 後で deleteSmokeTestRow(' + rowNumber + ') で削除できます')
+  Logger.log('===================================')
+  return { rowNumber: rowNumber }
+}
+
+/**
+ * addSmokeTestRow で挿入した行を削除する。
+ * 引数なしで呼ぶと最後の行を削除（K列が「自動テスト」のもののみ）。
+ */
+function deleteSmokeTestRow(rowNumber) {
+  const props = PropertiesService.getScriptProperties()
+  const ssId = props.getProperty('SPREADSHEET_ID')
+  if (!ssId) throw new Error('SPREADSHEET_ID 未設定')
+  const ss = SpreadsheetApp.openById(ssId)
+  const sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0]
+
+  const target = rowNumber || sheet.getLastRow()
+  // 安全装置: K 列が「自動テスト」のときだけ削除
+  const kVal = sheet.getRange(target, 11).getValue()
+  if (String(kVal) !== '自動テスト') {
+    throw new Error('行 ' + target + ' は K 列が「自動テスト」ではないため削除しません (K=' + kVal + ')')
+  }
+  sheet.deleteRow(target)
+  Logger.log('Deleted test row: ' + target)
+  return { deleted: target }
+}
