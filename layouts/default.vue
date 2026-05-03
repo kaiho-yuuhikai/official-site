@@ -42,7 +42,7 @@
               </NuxtLink>
               <div class="nav-dropdown absolute top-full left-0 pt-2 w-52">
                 <div class="bg-white rounded-lg shadow-xl py-2 border">
-                  <NuxtLink to="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">寄付協賛金</NuxtLink>
+                  <NuxtLink to="/#fund" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">開邦雄飛応援金</NuxtLink>
                   <NuxtLink to="/#mentor" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">メンター制度</NuxtLink>
                   <NuxtLink to="/#archive" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">同窓生交流活動</NuxtLink>
                   <NuxtLink to="/#koen" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">後援コーナー</NuxtLink>
