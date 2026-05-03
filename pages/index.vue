@@ -42,7 +42,7 @@
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             運営メンバーに参加
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             寄付・支援をする
           </a>
         </div>
@@ -109,7 +109,7 @@
             </div>
             <h3 class="text-xl font-bold mb-3 text-neutral-900">在校生・同窓生支援</h3>
             <p class="text-neutral-600 text-sm leading-relaxed">
-              寄付協賛金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
+              開邦雄飛応援金やメンター制度で在校生の学びを支え、同窓生の活動やキャリア形成も応援します。
             </p>
           </div>
 
@@ -152,7 +152,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <!-- Project 1: 寄付協賛金 -->
+          <!-- Project 1: 開邦雄飛応援金 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-36 relative overflow-hidden">
               <img :src="`${baseURL}images/kaiho-van.jpg`" alt="開邦高校 学校車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -165,16 +165,14 @@
                 </div>
                 <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">寄付協賛金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や部活動に資金面から支援・助成します。</p>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">開邦雄飛応援金</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動・部活動・同窓生の活動を支える応援金。1口10,000円から銀行振込で受付中。</p>
               <div class="mb-4">
                 <div class="flex justify-between text-xs text-neutral-500 mb-1">
-                  <span>達成率（目標¥1,000万）</span>
-                  <span class="font-bold text-kaiho-purple">16.1%</span>
+                  <span>累計</span>
+                  <span class="font-bold text-kaiho-purple">&yen;{{ donationsTotalDisplay }}</span>
                 </div>
-                <div class="w-full bg-neutral-100 rounded-full h-2.5">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-2.5 rounded-full" style="width: 0%" data-width="16.1%"></div>
-                </div>
+                <p class="text-xs text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
               </div>
               <a href="#fund" class="inline-flex items-center gap-2 text-kaiho-purple text-sm font-bold hover:gap-3 transition-all">
                 詳しく見る <span>&rarr;</span>
@@ -281,48 +279,55 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">寄付・協賛</h2>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛応援金</h2>
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
           <div class="section-divider mt-6"></div>
         </div>
 
-        <!-- Total counter -->
+        <!-- Total counter (動的: donations.json) -->
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
           <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
           <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
-            &yen;<span class="count-number" data-target="1613018">0</span>
+            &yen;{{ donationsTotalDisplay }}
           </div>
-          <p class="text-sm text-neutral-400">第3回大同窓会での寄付金を含みます</p>
+          <p class="text-sm text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
+          <p v-if="donations.fetchedAt" class="text-xs text-neutral-300 mt-2">最終更新: {{ formatDateShort(donations.fetchedAt) }}</p>
+          <p v-else class="text-xs text-neutral-300 mt-2">寄付の受付準備中です</p>
         </div>
 
-        <!-- Fund Cards -->
-        <div class="max-w-2xl mx-auto fade-in">
-          <!-- Fund 1 -->
+        <!-- Fund Card (unified) -->
+        <div class="max-w-3xl mx-auto fade-in">
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
             <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
               <div class="text-center">
-                <div class="text-6xl mb-2">&#128300;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">総合支援</span>
+                <div class="text-6xl mb-2">&#128157;</div>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">{{ donations.fund }}</span>
               </div>
             </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-neutral-900 mb-2">寄付協賛金</h3>
+            <div class="p-8 md:p-10">
+              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える応援金</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動や部活動に資金面から支援・助成します。寄付金は、開邦雄飛会が責任を持って各支援事業に適切に配分いたします。
+                在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
-              <div class="mb-4">
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="text-neutral-500">&yen;1,613,018 / &yen;10,000,000</span>
-                  <span class="font-bold text-kaiho-purple">16.1%</span>
-                </div>
-                <div class="w-full bg-neutral-100 rounded-full h-3">
-                  <div class="progress-fill bg-gradient-to-r from-kaiho-purple to-purple-400 h-3 rounded-full" style="width: 0%" data-width="16.1%"></div>
-                </div>
-              </div>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl text-center text-sm hover:bg-kaiho-purple/90 transition-colors">
-                寄付フォームへ →
+              <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer"
+                class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
+                寄付を申し出る
               </a>
+              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をメールでご案内します</p>
             </div>
+          </div>
+        </div>
+
+        <!-- Donor list (掲載OKの方のみ) -->
+        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto fade-in">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
+            <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
+              <li v-for="donor in donations.donors" :key="donor.name + donor.confirmedAt" class="text-neutral-700">
+                <span class="font-medium">{{ donor.name }}</span>
+                <span v-if="donor.period" class="text-neutral-400 text-xs ml-1">({{ donor.period }})</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -335,8 +340,8 @@
                 <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
               </div>
               <div>
-                <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載</h4>
-                <p class="text-xs text-neutral-500 mt-1">ご希望の方のみ</p>
+                <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載（ご希望の方のみ）</h4>
+                <p class="text-xs text-neutral-500 mt-1">フォーム送信時に「氏名で掲載OK」を選択された方のお名前を上記に表示します</p>
               </div>
             </div>
           </div>
@@ -1158,9 +1163,9 @@
           </NuxtLink>
 
           <!-- CTA 2 -->
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
+          <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128157;</div>
-            <h3 class="text-lg font-bold mb-2">寄付・協賛</h3>
+            <h3 class="text-lg font-bold mb-2">開邦雄飛応援金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
               寄付フォームへ →
@@ -1374,6 +1379,44 @@ const threadsLoading = ref(true)
 const threadsPosts = ref<ThreadsPost[]>([])
 const baseURL = useRuntimeConfig().app.baseURL
 
+// ── Donations data ──
+interface Donor {
+  name: string
+  period: string
+  amount: number
+  message: string
+  confirmedAt: string
+}
+
+interface DonationsData {
+  fetchedAt: string | null
+  fund: string
+  totalAmount: number
+  donorCount: number
+  donors: Donor[]
+}
+
+const donations = ref<DonationsData>({
+  fetchedAt: null,
+  fund: '開邦雄飛応援金',
+  totalAmount: 0,
+  donorCount: 0,
+  donors: [],
+})
+
+// 寄付申し出フォーム URL — 同窓会用 Google アカウント (kaihoyuuhikai@gmail.com) 配下のフォーム公開URL
+const donationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform'
+
+const donationsTotalDisplay = computed(() => donations.value.totalAmount.toLocaleString())
+const donationsCountDisplay = computed(() => donations.value.donorCount.toLocaleString())
+
+function formatDateShort(iso: string | null): string {
+  if (!iso) return ''
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return ''
+  return `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
+}
+
 const spotlightCreators = [
   {
     name: '辺土',
@@ -1450,6 +1493,25 @@ async function loadNoteArticles() {
     noteError.value = true
   } finally {
     noteLoading.value = false
+  }
+}
+
+async function loadDonations() {
+  try {
+    const res = await fetch(baseURL + 'data/donations.json')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = await res.json()
+    if (data && typeof data.totalAmount === 'number') {
+      donations.value = {
+        fetchedAt: data.fetchedAt ?? null,
+        fund: data.fund || '開邦雄飛応援金',
+        totalAmount: data.totalAmount || 0,
+        donorCount: data.donorCount || 0,
+        donors: Array.isArray(data.donors) ? data.donors : [],
+      }
+    }
+  } catch (err) {
+    console.warn('Failed to load donations JSON:', err)
   }
 }
 
@@ -1571,6 +1633,7 @@ onMounted(() => {
   // Load note articles from static JSON
   loadNoteArticles()
   loadThreadsPosts()
+  loadDonations()
 
   // Cleanup
   onUnmounted(() => {
