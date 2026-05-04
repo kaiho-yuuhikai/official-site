@@ -334,25 +334,7 @@
         <!-- Donor benefits -->
         <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 fade-in">
           <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">寄付者特典</h3>
-          <div class="grid sm:grid-cols-3 gap-6">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-sm text-neutral-900">活動報告会への招待</h4>
-                <p class="text-xs text-neutral-500 mt-1">電子チケットを配布します</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-sm text-neutral-900">年次報告書の送付</h4>
-                <p class="text-xs text-neutral-500 mt-1">応援金の使途を透明に報告</p>
-              </div>
-            </div>
+          <div class="flex justify-center">
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
@@ -532,21 +514,31 @@
         <!-- 担当 -->
         <div class="mt-10 pt-8 border-t border-kaiho-blue/20 fade-in">
           <p class="text-xs font-bold text-kaiho-blue tracking-widest mb-4">担当</p>
-          <div class="flex flex-wrap gap-6">
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <img :src="`${baseURL}images/members/mineken.png`" alt="みねけん" class="w-full h-full object-cover">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img :src="`${baseURL}images/members/mineken.png`" alt="みねけん" class="w-full h-full object-cover object-top">
               </div>
-              <div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">18期 理数科</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">探究活動事務局</span>
+                </div>
                 <p class="font-bold text-neutral-900 text-sm">みねけん</p>
-                <p class="text-neutral-500 text-xs">18期 理数科 | 元カメラマン | 探究活動事務局</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。</p>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-kaiho-gold to-amber-400 flex items-center justify-center text-white font-bold flex-shrink-0">よ</div>
-              <div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-gold to-amber-400 flex items-center justify-center flex-shrink-0">
+                <span class="text-2xl font-black text-white">よ</span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">18期 理数科</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">教諭・球陽高等学校</span>
+                </div>
                 <p class="font-bold text-neutral-900 text-sm">よしき</p>
-                <p class="text-neutral-500 text-xs">18期 理数科 | 教諭・沖縄県立球陽高等学校</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。</p>
               </div>
             </div>
           </div>
@@ -593,21 +585,31 @@
           <!-- 担当 -->
           <div class="mt-8 pt-6 border-t border-kaiho-green/20">
             <p class="text-xs font-bold text-kaiho-green tracking-widest mb-4">担当</p>
-            <div class="flex flex-wrap gap-6">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-kaiho-purple to-purple-400 flex items-center justify-center text-white font-bold flex-shrink-0">の</div>
-                <div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-purple to-purple-400 flex items-center justify-center flex-shrink-0">
+                  <span class="text-2xl font-black text-white">の</span>
+                </div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">35期 学術探究科</span>
+                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">学生</span>
+                  </div>
                   <p class="font-bold text-neutral-900 text-sm">のあ</p>
-                  <p class="text-neutral-500 text-xs">35期 学術探究科 | 学生</p>
+                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです。</p>
                 </div>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                  <img :src="`${baseURL}images/members/kae.jpg`" alt="かえ" class="w-full h-full object-cover">
+              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+                <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                  <img :src="`${baseURL}images/members/kae.jpg`" alt="かえ" class="w-full h-full object-cover object-top">
                 </div>
-                <div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">20期 英語科</span>
+                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">経営 | バレエ講師</span>
+                  </div>
                   <p class="font-bold text-neutral-900 text-sm">かえ</p>
-                  <p class="text-neutral-500 text-xs">20期 英語科 | 経営 | バレエ講師</p>
+                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">楽しいことが大好きです！同窓会を盛り上げて行きましょう♪</p>
                 </div>
               </div>
             </div>
@@ -790,13 +792,17 @@
           <!-- 担当者 -->
           <div class="mt-8 pt-6 border-t border-kaiho-gold/20">
             <p class="text-xs font-bold text-kaiho-gold tracking-widest mb-4">担当</p>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <img :src="`${baseURL}images/members/miyagi-jun.png`" alt="宮城潤" class="w-full h-full object-cover">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start max-w-sm">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img :src="`${baseURL}images/members/miyagi-jun.png`" alt="宮城潤" class="w-full h-full object-cover object-top">
               </div>
-              <div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">3期 芸術科</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">地域サポートわかさ理事</span>
+                </div>
                 <p class="font-bold text-neutral-900 text-sm">宮城潤</p>
-                <p class="text-neutral-500 text-xs">3期 芸術科 | 地域サポートわかさ理事</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">同窓生の活動を応援したい。まずは気軽にご相談ください。</p>
               </div>
             </div>
           </div>
@@ -1175,23 +1181,31 @@
         <!-- HP作成担当 -->
         <div class="mt-10 pt-8 border-t border-neutral-200 fade-in">
           <p class="text-xs font-bold text-neutral-400 tracking-widest mb-4">💻 HP作成担当</p>
-          <div class="flex flex-wrap gap-6 justify-center">
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <img :src="`${baseURL}images/members/uema.png`" alt="うえま" class="w-full h-full object-cover">
+          <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img :src="`${baseURL}images/members/uema.png`" alt="うえま" class="w-full h-full object-cover object-top">
               </div>
-              <div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">16期 理数科</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">薬剤師</span>
+                </div>
                 <p class="font-bold text-neutral-900 text-sm">うえま</p>
-                <p class="text-neutral-500 text-xs">16期 理数科 | 薬剤師 | 広報コーディネーター</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。</p>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <img :src="`${baseURL}images/members/george.png`" alt="じょーじ" class="w-full h-full object-cover">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img :src="`${baseURL}images/members/george.png`" alt="じょーじ" class="w-full h-full object-cover object-top">
               </div>
-              <div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">13期・14期 理数科</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">GScale 代表</span>
+                </div>
                 <p class="font-bold text-neutral-900 text-sm">じょーじ</p>
-                <p class="text-neutral-500 text-xs">13期・14期 理数科 | GScale 代表取締役 | Google Developer Expert</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">システムやデータ分析を手伝います。</p>
               </div>
             </div>
           </div>
@@ -1308,7 +1322,7 @@ const memberList = [
   { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(0), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。', role: 'mentor' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
   { name: '具志', generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師 | 広報コーディネーター', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
   { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
   { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
