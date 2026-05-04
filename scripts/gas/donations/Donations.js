@@ -43,7 +43,9 @@ const COL_CONFIRMED_AT = 9  // J
 
 function doGet(e) {
   const token = (e && e.parameter && e.parameter.token) || ''
-  const expected = PropertiesService.getScriptProperties().getProperty('DONATIONS_TOKEN')
+  const action = (e && e.parameter && e.parameter.action) || 'fetch'
+  const props = PropertiesService.getScriptProperties()
+  const expected = props.getProperty('DONATIONS_TOKEN')
 
   if (!expected || token !== expected) {
     return ContentService
@@ -52,6 +54,14 @@ function doGet(e) {
   }
 
   try {
+    if (action === 'rotate') {
+      // 既存 token で認証済 = 同じ権限保有者と判定 → 新 token 発行
+      const newToken = Utilities.getUuid().replace(/-/g, '') + Utilities.getUuid().replace(/-/g, '')
+      props.setProperty('DONATIONS_TOKEN', newToken)
+      return ContentService
+        .createTextOutput(JSON.stringify({ rotated: true, newToken: newToken, rotatedAt: new Date().toISOString() }))
+        .setMimeType(ContentService.MimeType.JSON)
+    }
     const payload = buildPayload_()
     return ContentService
       .createTextOutput(JSON.stringify(payload))
