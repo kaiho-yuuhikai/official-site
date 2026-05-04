@@ -318,8 +318,8 @@
           </div>
         </div>
 
-        <!-- Donor list (掲載OKの方のみ) -->
-        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto fade-in">
+        <!-- Donor list (掲載OKの方のみ) — fade-in は使わない (動的バインドで mount 後に DOM 追加されるため、Observer に登録されず opacity:0 のままになる問題を回避) -->
+        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto">
           <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
           <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
