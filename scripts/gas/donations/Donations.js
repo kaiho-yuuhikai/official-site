@@ -4,15 +4,15 @@
  * バインド先スプレッドシートのフォーム回答シートから「確認済」レコードを集計し、
  * GitHub Actions が取得できる JSON を返す。
  *
- * シート列定義（Form 連携で自動生成される A〜H + 会計の I〜K）:
+ * シート列定義 (2026-05-04 のフォーム改修反映):
  *   A(0) タイムスタンプ           Form 自動
- *   B(1) お名前                   Form
- *   C(2) 入学期                   Form
- *   D(3) メールアドレス           Form  ※外部に出さない
- *   E(4) 寄付金額                 Form  ※"10,000円" or "その他（次の質問で金額を記入）"
- *   F(5) その他の場合の金額(円)   Form  ※E が「その他」のときのみ入力
+ *   B(1) Email Address            Form  ※外部に出さない
+ *   C(2) お名前                   Form
+ *   D(3) 入学期                   Form
+ *   E(4) 寄付先基金               Form  ※固定文言（金額算出には使わない）
+ *   F(5) 寄付口数                 Form  ※"1口" / "2口" / "3口" / "その他"。1口 = 10,000円換算
  *   G(6) メッセージ（任意）       Form
- *   H(7) お名前のHP掲載について   Form  ※"氏名で掲載OK" / "匿名希望" / "掲載不要"
+ *   H(7) HP掲載の可否             Form  ※"氏名掲載OK" / "匿名希望"
  *   I(8) 振込確認ステータス       会計   ※"未確認" / "確認済" / "キャンセル"
  *   J(9) 確認日                   会計
  *   K(10) 確認者                  会計
@@ -29,7 +29,17 @@
 const SHEET_NAME = 'donations'
 const FUND_LABEL = '開邦雄飛応援金'
 const STATUS_CONFIRMED = '確認済'
-const PUBLISH_OK = '氏名で掲載OK'
+const PUBLISH_OK_VALUES = ['氏名掲載OK', '氏名で掲載OK'] // 旧表記との互換のため両方許容
+const AMOUNT_PER_UNIT = 10000 // 1口 = 10,000円
+
+// 列インデックス (0-based)
+const COL_NAME = 2          // C
+const COL_PERIOD = 3        // D 入学期
+const COL_UNITS = 5         // F 寄付口数
+const COL_MESSAGE = 6       // G
+const COL_PUBLISH = 7       // H
+const COL_STATUS = 8        // I
+const COL_CONFIRMED_AT = 9  // J
 
 function doGet(e) {
   const token = (e && e.parameter && e.parameter.token) || ''
@@ -64,17 +74,20 @@ function buildPayload_() {
 
   const range = sheet.getRange(2, 1, lastRow - 1, 11) // A2:K
   const rows = range.getValues()
-  const confirmed = rows.filter(function (r) { return String(r[8]).trim() === STATUS_CONFIRMED })
+  const confirmed = rows.filter(function (r) { return String(r[COL_STATUS]).trim() === STATUS_CONFIRMED })
 
   const donors = confirmed
-    .filter(function (r) { return String(r[7]).trim() === PUBLISH_OK })
+    .filter(function (r) {
+      const v = String(r[COL_PUBLISH] || '').trim()
+      return PUBLISH_OK_VALUES.indexOf(v) >= 0
+    })
     .map(function (r) {
       return {
-        name: String(r[1] || '').trim(),
-        period: String(r[2] || '').trim(),
+        name: String(r[COL_NAME] || '').trim(),
+        period: String(r[COL_PERIOD] || '').trim(),
         amount: rowAmount_(r),
-        message: String(r[6] || '').trim(),
-        confirmedAt: formatDate_(r[9]),
+        message: String(r[COL_MESSAGE] || '').trim(),
+        confirmedAt: formatDate_(r[COL_CONFIRMED_AT]),
       }
     })
     .filter(function (d) { return d.name.length > 0 })
@@ -117,14 +130,20 @@ function emptyPayload_() {
 
 /**
  * 1 行から金額を取り出す。
- * 列 E（寄付金額）が「その他...」の場合は列 F の数値を、それ以外は列 E から数値を抽出。
+ * F 列「寄付口数」が "1口" / "2口" / "3口" の場合: 口数 × 10,000円
+ * "その他" の場合: 任意金額が入る（運用で別の列に金額が来る場合は要拡張）
+ * 互換性のため "10,000円" など金額直書きの旧形式も許容。
  */
 function rowAmount_(r) {
-  const choice = String(r[4] || '')
-  if (choice.indexOf('その他') >= 0) {
-    return toNumber_(r[5])
-  }
-  return toNumber_(choice) // "10,000円" → 10000
+  const v = String(r[COL_UNITS] || '').trim()
+  if (!v) return 0
+  // 口数フォーマット: "1口", "2口" ...
+  const unitMatch = v.match(/^(\d+)\s*口/)
+  if (unitMatch) return Number(unitMatch[1]) * AMOUNT_PER_UNIT
+  // "その他" のみ書かれた場合は 1口換算で 10,000円
+  if (v === 'その他') return AMOUNT_PER_UNIT
+  // 旧形式 "10,000円" 等の数値直書き
+  return toNumber_(v)
 }
 
 function toNumber_(v) {
