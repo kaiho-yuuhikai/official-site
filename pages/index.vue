@@ -1104,9 +1104,9 @@
             </div>
 
             <div class="text-center">
-              <NuxtLink to="/activities/road-cleaning" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
-                詳細・活動実績を見る <span>&rarr;</span>
-              </NuxtLink>
+              <a href="https://note.com/kaihoyuuhikai/m/m20c04499fc49" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+                活動報告を読む（noteマガジン） <span>&rarr;</span>
+              </a>
             </div>
           </div>
         </div>
