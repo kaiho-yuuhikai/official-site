@@ -105,7 +105,7 @@
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                  <span>今後は土曜模試に合わせた定期実施を計画</span>
+                  <span>毎月第二日曜日に鳥堀自治会と合同実施（学校と地域のつながりを深める取り組み）</span>
                 </li>
               </ul>
             </div>
