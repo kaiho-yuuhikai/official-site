@@ -152,31 +152,27 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <!-- Project 1: 開邦雄飛応援金 -->
+          <!-- Project: 道路清掃ボランティア -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-36 relative overflow-hidden">
-              <img :src="`${baseURL}images/kaiho-van.jpg`" alt="開邦高校 学校車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-black/20"></div>
-            </div>
+            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-purple/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
                 </div>
-                <span class="bg-kaiho-purple/10 text-kaiho-purple text-xs font-bold px-3 py-1 rounded-full badge-pulse">募集中</span>
+                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full badge-pulse">毎月第二日曜</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">開邦雄飛応援金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動・部活動・同窓生の活動を支える応援金。1口10,000円から銀行振込で受付中。</p>
-              <div class="mb-4">
-                <div class="flex justify-between text-xs text-neutral-500 mb-1">
-                  <span>累計</span>
-                  <span class="font-bold text-kaiho-purple">&yen;{{ donationsTotalDisplay }}</span>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">道路清掃ボランティア</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">鳥堀自治会と合同で、開邦周辺の道路清掃を毎月第二日曜日に実施。学校と地域のつながりをつくる活動。</p>
+              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-neutral-500">第1回（2026/3/8）— 約10名参加</span>
                 </div>
-                <p class="text-xs text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
+                <p class="text-xs text-neutral-500 mt-1">PTA・在校生・同窓生・地域住民が合同で実施</p>
               </div>
-              <a href="#fund" class="inline-flex items-center gap-2 text-kaiho-purple text-sm font-bold hover:gap-3 transition-all">
-                詳しく見る <span>&rarr;</span>
-              </a>
+              <NuxtLink to="/activities/road-cleaning" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
+                活動実績を見る <span>&rarr;</span>
+              </NuxtLink>
             </div>
           </div>
 
@@ -264,128 +260,35 @@
             </div>
           </div>
 
-        </div>
-
-
-
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- FUND / DONATION SECTION                                       -->
-    <!-- ============================================================ -->
-    <section id="fund" class="py-24 md:py-32 bg-gradient-to-br from-kaiho-purple/5 via-white to-purple-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛応援金</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- Total counter (動的: donations.json) -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
-          <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
-          <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
-            &yen;{{ donationsTotalDisplay }}
-          </div>
-          <p class="text-sm text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
-          <p v-if="donations.fetchedAt" class="text-xs text-neutral-300 mt-2">最終更新: {{ formatDateShort(donations.fetchedAt) }}</p>
-          <p v-else class="text-xs text-neutral-300 mt-2">寄付の受付準備中です</p>
-        </div>
-
-        <!-- Fund Card (unified) -->
-        <div class="max-w-3xl mx-auto fade-in">
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-            <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
-              <div class="text-center">
-                <div class="text-6xl mb-2">&#128157;</div>
-                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">{{ donations.fund }}</span>
+          <!-- Project: 後援事業 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-gold to-yellow-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-gold/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+                </div>
+                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">審査予定1件</span>
               </div>
-            </div>
-            <div class="p-8 md:p-10">
-              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える応援金</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
-                在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
-              </p>
-              <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer"
-                class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
-                寄付を申し出る
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">後援事業</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">同窓生の活動を雄飛会が後援。申請〜審査を経て、HPやSNSで告知します。気軽にご相談ください。</p>
+              <div class="bg-kaiho-gold/5 rounded-lg p-3 mb-4">
+                <div class="flex flex-col gap-1 text-xs text-neutral-500">
+                  <span>1. 開邦雄飛会へメール</span>
+                  <span>2. ミーティングで企画書を提案</span>
+                  <span>3. 後援決定 → HP・SNSで告知</span>
+                </div>
+              </div>
+              <a href="#koen" class="inline-flex items-center gap-2 text-kaiho-gold text-sm font-bold hover:gap-3 transition-all">
+                後援を申請する <span>&rarr;</span>
               </a>
-              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をメールでご案内します</p>
             </div>
           </div>
+
         </div>
 
-        <!-- Donor list (掲載OKの方のみ) — fade-in は使わない (動的バインドで mount 後に DOM 追加されるため、Observer に登録されず opacity:0 のままになる問題を回避) -->
-        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
-          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
-            <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
-              <li v-for="donor in donations.donors" :key="donor.name + donor.confirmedAt" class="text-neutral-700">
-                <span class="font-medium">{{ donor.name }}</span>
-                <span v-if="donor.period" class="text-neutral-400 text-xs ml-1">({{ donor.period }})</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Donor benefits -->
-        <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 fade-in">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">寄付者特典</h3>
-          <div class="flex justify-center">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載</h4>
-                <p class="text-xs text-neutral-500 mt-1">「氏名で掲載OK」をご選択の方のみ</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-    <!-- ============================================================ -->
-    <!-- FINANCE SECTION                                               -->
-    <!-- ============================================================ -->
-    <section id="finance" class="py-24 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Finance</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">財務状況</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">雄飛会の活動を支える資産概況を公開しています</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto fade-in">
-          <div class="bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
-            <h3 class="text-xl font-bold text-neutral-900 mb-8 flex items-center gap-2">
-              <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-              資産概況サマリー（2026年3月時点）
-            </h3>
-
-            <div class="py-12 text-center">
-              <div class="w-16 h-16 bg-kaiho-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-              </div>
-              <h4 class="text-lg font-bold text-neutral-900 mb-2">閲覧制限中</h4>
-              <p class="text-sm text-neutral-500 max-w-sm mx-auto leading-relaxed">
-                財務状況の詳細は、雄飛会会員（卒業生・教職員）のみに公開しております。適正な組織運営のため、ご理解のほどよろしくお願いいたします。
-              </p>
-            </div>
-
-            <div class="mt-8 pt-8 border-t border-neutral-200 text-center">
-              <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
-                財務適正化方針を見る
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -949,6 +852,124 @@
 
 
     <!-- ============================================================ -->
+    <!-- FUND / DONATION SECTION                                       -->
+    <!-- ============================================================ -->
+    <section id="fund" class="py-24 md:py-32 bg-gradient-to-br from-kaiho-purple/5 via-white to-purple-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-purple mb-4">Fund</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛応援金</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">あなたの支援が、在校生と同窓生の活動を支える</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <!-- Total counter (動的: donations.json) -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
+          <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
+          <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
+            &yen;{{ donationsTotalDisplay }}
+          </div>
+          <p class="text-sm text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
+          <p v-if="donations.fetchedAt" class="text-xs text-neutral-300 mt-2">最終更新: {{ formatDateShort(donations.fetchedAt) }}</p>
+          <p v-else class="text-xs text-neutral-300 mt-2">寄付の受付準備中です</p>
+        </div>
+
+        <!-- Fund Card (unified) -->
+        <div class="max-w-3xl mx-auto fade-in">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
+            <div class="h-48 bg-gradient-to-br from-kaiho-purple/20 via-purple-100 to-indigo-100 flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-6xl mb-2">&#128157;</div>
+                <span class="bg-kaiho-purple text-white text-xs font-bold px-3 py-1 rounded-full">{{ donations.fund }}</span>
+              </div>
+            </div>
+            <div class="p-8 md:p-10">
+              <h3 class="text-xl font-bold text-neutral-900 mb-3">在校生・同窓生の活動を支える応援金</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
+                在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
+              </p>
+              <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer"
+                class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
+                寄付を申し出る
+              </a>
+              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をメールでご案内します</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donor list (掲載OKの方のみ) — fade-in は使わない (動的バインドで mount 後に DOM 追加されるため、Observer に登録されず opacity:0 のままになる問題を回避) -->
+        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
+            <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
+              <li v-for="donor in donations.donors" :key="donor.name + donor.confirmedAt" class="text-neutral-700">
+                <span class="font-medium">{{ donor.name }}</span>
+                <span v-if="donor.period" class="text-neutral-400 text-xs ml-1">({{ donor.period }})</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Donor benefits -->
+        <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 fade-in">
+          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">寄付者特典</h3>
+          <div class="flex justify-center">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載</h4>
+                <p class="text-xs text-neutral-500 mt-1">「氏名で掲載OK」をご選択の方のみ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- FINANCE SECTION                                               -->
+    <!-- ============================================================ -->
+    <section id="finance" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Finance</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">財務状況</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">雄飛会の活動を支える資産概況を公開しています</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto fade-in">
+          <div class="bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+            <h3 class="text-xl font-bold text-neutral-900 mb-8 flex items-center gap-2">
+              <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              資産概況サマリー（2026年3月時点）
+            </h3>
+
+            <div class="py-12 text-center">
+              <div class="w-16 h-16 bg-kaiho-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <h4 class="text-lg font-bold text-neutral-900 mb-2">閲覧制限中</h4>
+              <p class="text-sm text-neutral-500 max-w-sm mx-auto leading-relaxed">
+                財務状況の詳細は、雄飛会会員（卒業生・教職員）のみに公開しております。適正な組織運営のため、ご理解のほどよろしくお願いいたします。
+              </p>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-neutral-200 text-center">
+              <NuxtLink to="/about" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 transition-colors text-sm">
+                財務適正化方針を見る
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- ARCHIVE SECTION                                               -->
     <!-- ============================================================ -->
     <section id="archive" class="py-24 md:py-32 bg-neutral-50">
@@ -998,69 +1019,37 @@
             </div>
           </div>
 
-          <!-- 第2回 大同窓会 Archive -->
-          <a href="https://yuhikai.amebaownd.com/" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-56 relative overflow-hidden">
-              <img :src="`${baseURL}images/daidosoukai-2nd.jpg`" alt="第2回大同窓会" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
-                <div>
-                  <h3 class="text-2xl font-black text-white mb-1">第2回 大同窓会<span class="block text-sm font-medium mt-0.5 text-white/80">2018・10・20 開催</span></h3>
-                  <p class="text-white/80 text-sm font-medium">開邦高校同窓会</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between">
-                <p class="text-neutral-500 text-sm">開催報告・アーカイブ</p>
-                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-teal transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- 第1回 大同窓会 Archive -->
-          <a :href="`${baseURL}files/daidosoukai-1st-2nd-materials.pdf`" target="_blank" rel="noopener noreferrer" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-56 relative overflow-hidden">
-              <img :src="`${baseURL}images/daidosoukai-1st.jpg`" alt="第1回大同窓会" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
-                <div>
-                  <p class="text-white/70 text-xs mb-1">2015・10・3 開催</p>
-                  <h3 class="text-2xl font-black text-white mb-1">第1回 大同窓会</h3>
-                  <p class="text-kaiho-gold font-medium text-sm">開邦高校同窓会</p>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between">
-                <p class="text-neutral-500 text-sm">第1回・第2回 開催資料（PDF）</p>
-                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-green transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              </div>
-            </div>
-          </a>
-
           <!-- Career Crossroads Manual -->
-          <NuxtLink to="/blog/career-crossroads-manual" class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
             <div class="h-56 relative overflow-hidden">
               <img :src="`${baseURL}images/career-crossroads.jpeg`" alt="キャリア・クロスロード" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
                 <div>
+                  <p class="text-white/70 text-xs mb-1">2025・12・28 大同窓会の事前イベントで開催</p>
                   <h3 class="text-2xl font-black text-white mb-1">キャリア・クロスロード</h3>
-                  <p class="text-white/80 text-sm font-medium">運営マニュアル</p>
                 </div>
               </div>
             </div>
-            <div class="p-6">
-              <p class="text-xs text-kaiho-orange font-bold mb-1">2025・12・28 大同窓会の事前イベントで開催</p>
-              <div class="flex items-center justify-between">
-                <p class="text-neutral-500 text-sm">準備から当日進行まで、誰でも主催できるガイド</p>
-                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-orange transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </div>
+            <div class="p-6 space-y-3">
+              <NuxtLink to="/blog/career-crossroads-manual" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">運営マニュアル（誰でも主催できるガイド）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-orange transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </NuxtLink>
+              <a :href="`${baseURL}files/career-crossroads-questionnaire.pdf`" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">参加者アンケート報告（PDF）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-orange transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              </a>
             </div>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center fade-in">
+          <NuxtLink to="/archive/daidosoukai" class="inline-flex items-center gap-2 text-neutral-500 text-sm font-bold hover:text-neutral-900 transition-colors">
+            第1回・第2回 大同窓会の記録を見る <span>&rarr;</span>
           </NuxtLink>
         </div>
       </div>
     </section>
-
-
 
 
     <!-- ============================================================ -->
