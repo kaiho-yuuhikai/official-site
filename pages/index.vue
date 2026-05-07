@@ -1080,6 +1080,7 @@
             <p class="text-neutral-600 text-sm leading-relaxed mb-6">
               開邦中高校生・PTA・同窓生が合同で、開邦周辺の道路清掃を行うボランティア活動です。
               寮〜ローソン〜裏門エリアを対象に、地域の環境整備に取り組んでいます。
+              鳥堀自治会との合同実施により、学校と地域のつながりを深めています。
               PTA評議員会で承認を受け、道路管理課との協定書も提出済みです。
             </p>
 
@@ -1100,7 +1101,7 @@
               <ul class="space-y-2 text-sm text-neutral-600">
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                  <span><strong>実施タイミング</strong> — 土曜模試に合わせて定期実施</span>
+                  <span><strong>実施日</strong> — 毎月第二日曜日（鳥堀自治会との合同実施）</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
