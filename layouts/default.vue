@@ -48,6 +48,7 @@
                   <NuxtLink to="/#koen" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">後援コーナー</NuxtLink>
                   <NuxtLink to="/blog/career-crossroads-manual" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">キャリア・クロスロード</NuxtLink>
                   <NuxtLink to="/activities/special-lecture" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">創立記念特設授業</NuxtLink>
+                  <NuxtLink to="/activities/road-cleaning" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-kaiho-green/10 hover:text-kaiho-green">道路清掃ボランティア</NuxtLink>
                 </div>
               </div>
             </div>
@@ -107,6 +108,7 @@
             <a href="https://kaiho-yuuhikai.github.io/" target="_blank" rel="noopener noreferrer" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">第3回大同窓会サイト ↗</a>
             <NuxtLink to="/blog/career-crossroads-manual" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">キャリクロ運営マニュアル</NuxtLink>
             <NuxtLink to="/activities/special-lecture" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">創立記念特設授業</NuxtLink>
+            <NuxtLink to="/activities/road-cleaning" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">道路清掃ボランティア</NuxtLink>
             <NuxtLink to="/officers" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">役員名簿</NuxtLink>
             <NuxtLink to="/contact" class="block text-sm text-neutral-700 hover:text-kaiho-green py-2" @click="mobileMenuOpen = false">お問い合わせ</NuxtLink>
           </div>
