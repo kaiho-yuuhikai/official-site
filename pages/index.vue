@@ -1115,9 +1115,9 @@
             </div>
 
             <div class="text-center">
-              <a href="https://note.com/kaihoyuuhikai/n/n2dcb08afcc8d" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+              <NuxtLink to="/activities/road-cleaning" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
                 詳細・活動実績を見る <span>&rarr;</span>
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
