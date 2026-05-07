@@ -170,9 +170,9 @@
                 </div>
                 <p class="text-xs text-neutral-500 mt-1">PTA・在校生・同窓生・地域住民が合同で実施</p>
               </div>
-              <NuxtLink to="/activities/road-cleaning" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
-                活動実績を見る <span>&rarr;</span>
-              </NuxtLink>
+              <a href="#volunteer" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
+                詳しく見る <span>&rarr;</span>
+              </a>
             </div>
           </div>
 
@@ -1055,7 +1055,7 @@
     <!-- ============================================================ -->
     <!-- ROAD CLEANING VOLUNTEER SECTION                               -->
     <!-- ============================================================ -->
-    <section class="py-24 md:py-32 bg-neutral-50">
+    <section id="volunteer" class="py-24 md:py-32 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-12 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Volunteer</p>
@@ -1069,7 +1069,7 @@
             <p class="text-neutral-600 text-sm leading-relaxed mb-6">
               開邦中高校生・PTA・同窓生が合同で、開邦周辺の道路清掃を行うボランティア活動です。
               寮〜ローソン〜裏門エリアを対象に、地域の環境整備に取り組んでいます。
-              鳥堀自治会との合同実施により、学校と地域のつながりを深めています。
+              鳥堀自治会と日程をあわせて交流を図りながら、学校と地域のつながりを深めています。
               PTA評議員会で承認を受け、道路管理課との協定書も提出済みです。
             </p>
 
