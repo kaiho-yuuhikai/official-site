@@ -1103,10 +1103,17 @@
               </ul>
             </div>
 
-            <div class="text-center">
-              <a href="https://note.com/kaihoyuuhikai/m/m20c04499fc49" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
-                活動報告を読む（noteマガジン） <span>&rarr;</span>
-              </a>
+            <div class="mt-2 space-y-2">
+              <div>
+                <a href="https://note.com/kaihoyuuhikai/n/n2dcb08afcc8d" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+                  第2回 活動報告を読む（note） <span>&rarr;</span>
+                </a>
+              </div>
+              <div>
+                <a href="https://note.com/kaihoyuuhikai/n/n8e9ffec3a3ff" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm hover:underline">
+                  第1回 活動報告を読む（note） <span>&rarr;</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
