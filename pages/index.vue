@@ -274,7 +274,7 @@
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">同窓生の活動を雄飛会が後援。申請〜審査を経て、HPやSNSで告知します。気軽にご相談ください。</p>
               <div class="bg-kaiho-gold/5 rounded-lg p-3 mb-4">
                 <div class="flex flex-col gap-1 text-xs text-neutral-500">
-                  <span>1. 開邦雄飛会へメール</span>
+                  <span>1. フォームでお問い合わせ</span>
                   <span>2. ミーティングで企画書を提案</span>
                   <span>3. 後援決定 → HP・SNSで告知</span>
                 </div>
@@ -674,7 +674,7 @@
               <h2 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">後援コーナー</h2>
               <p class="text-neutral-600 leading-relaxed max-w-xl">同窓生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
               <div class="mt-4 flex flex-col md:flex-row md:flex-wrap md:justify-start gap-y-1 md:gap-x-4 text-sm text-neutral-500">
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>開邦雄飛会へメール</span>
+                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>フォームでお問い合わせ</span>
                 <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
                 <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>ミーティングにて主催者の同窓生が企画書を提案</span>
                 <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
@@ -686,8 +686,8 @@
               </div>
             </div>
             <div class="flex-shrink-0">
-              <a href="mailto:kaihoyuuhikai@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors shadow-md shadow-kaiho-gold/20 whitespace-nowrap">
-                開邦雄飛会へメール
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors shadow-md shadow-kaiho-gold/20 whitespace-nowrap">
+                お問い合わせフォームへ
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
             </div>
