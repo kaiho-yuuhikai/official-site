@@ -324,6 +324,139 @@
 
 
     <!-- ============================================================ -->
+    <!-- NOTE MAGAZINE SECTION                                         -->
+    <!-- ============================================================ -->
+    <section id="magazine" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-neutral-400 mb-4">Magazine</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛会マガジン</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">note.com で活動の最新情報を発信中</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <!-- Loading state -->
+        <div v-if="noteLoading" class="text-center py-12">
+          <div class="inline-flex items-center gap-3 text-neutral-400">
+            <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+            <span class="text-sm">note.com から最新記事を取得中...</span>
+          </div>
+        </div>
+
+        <!-- Articles container -->
+        <div v-if="noteArticles.length > 0 && !noteLoading" class="grid md:grid-cols-3 gap-8">
+          <a v-for="article in noteArticles" :key="article.link"
+             :href="article.link" target="_blank" rel="noopener noreferrer"
+             class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
+            <div class="h-48 bg-neutral-100 overflow-hidden">
+              <img v-if="article.image" :src="article.image" :alt="article.title"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+                   @error="($event.target as HTMLImageElement).parentElement!.innerHTML = noteFallbackImageHtml">
+              <div v-else class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center">
+                <svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs text-neutral-400">{{ formatNoteDate(article.pubDate) }}</span>
+                <span v-if="isNewArticle(article.pubDate)" class="text-[10px] bg-red-100 text-red-600 px-2 py-0.5 rounded-full font-bold">NEW</span>
+                <span class="text-[10px] bg-kaiho-green/10 text-kaiho-green px-2 py-0.5 rounded-full font-medium">note</span>
+              </div>
+              <h3 class="font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors mb-2 line-clamp-2">{{ article.title }}</h3>
+              <p v-if="article.description" class="text-neutral-500 text-sm line-clamp-2">{{ truncateText(stripHtmlTags(article.description), 80) }}</p>
+              <div class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-kaiho-green">
+                noteで読む <span>&rarr;</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Error / fallback state -->
+        <div v-if="noteError && !noteLoading" class="text-center py-12">
+          <div class="inline-flex flex-col items-center gap-4">
+            <div class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+            </div>
+            <p class="text-neutral-500 text-sm">記事の取得に失敗しました。直接 note をご覧ください。</p>
+            <a href="https://note.com/kaihoyuuhikai" target="_blank" class="inline-flex items-center gap-2 px-6 py-2 bg-kaiho-green text-white font-bold rounded-full text-sm hover:bg-kaiho-green-dark transition-colors">
+              note.com で読む &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="https://note.com/kaihoyuuhikai/m/m20c04499fc49" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-neutral-900 text-white font-bold rounded-full hover:bg-neutral-700 transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.3c0-.5-.5-1-1.3-.8l-6.4 2.2L8 3.3C7.5 3 7 3 6.5 3.2L1.8 5c-.5.2-.8.5-.8 1v14.7c0 .5.5 1 1.3.8l6.4-2.2 6.3 2.2c.5.3 1 .3 1.5.1l4.7-1.8c.5-.2.8-.5.8-1V4.3z"/></svg>
+            note マガジンをすべて読む
+          </a>
+        </div>
+
+        <!-- Creators Showcase -->
+        <div class="mt-16">
+          <div class="mb-8">
+            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
+            <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div v-for="creator in spotlightCreators" :key="creator.name"
+                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+                <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
+                <div v-else class="w-full h-full flex items-center justify-center">
+                  <span class="text-2xl font-black text-neutral-200">{{ creator.initial }}</span>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap gap-1 mb-1">
+                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
+                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
+                </div>
+                <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
+                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Creator Recruitment Banner -->
+        <div class="mt-10 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-shrink-0 w-20 h-20 bg-kaiho-green/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+              </svg>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+              <div class="inline-flex items-center gap-2 bg-kaiho-green text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                <span>RECRUIT</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">
+                クリエイター募集中
+              </h3>
+              <p class="text-neutral-600 leading-relaxed max-w-xl">
+                同窓生・在校生のためになる記事を書いてみませんか？<br class="hidden md:inline">
+                キャリア・進路・留学・研究・地域活動など、あなたの経験や知識を発信しましょう。
+              </p>
+              <ul class="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">大学・進学体験</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">留学・海外経験</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">研究・専門知識</li>
+                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">地域・社会活動</li>
+              </ul>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-colors shadow-md shadow-kaiho-green/20 whitespace-nowrap">
+                執筆を申し込む
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- MENTOR SECTION                                                -->
     <!-- ============================================================ -->
     <section id="mentor" class="py-24 md:py-32 bg-white">
@@ -515,139 +648,6 @@
                   <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">楽しいことが大好きです！同窓会を盛り上げて行きましょう♪</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NOTE MAGAZINE SECTION                                         -->
-    <!-- ============================================================ -->
-    <section id="magazine" class="py-24 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-neutral-400 mb-4">Magazine</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">開邦雄飛会マガジン</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">note.com で活動の最新情報を発信中</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- Loading state -->
-        <div v-if="noteLoading" class="text-center py-12">
-          <div class="inline-flex items-center gap-3 text-neutral-400">
-            <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-            <span class="text-sm">note.com から最新記事を取得中...</span>
-          </div>
-        </div>
-
-        <!-- Articles container -->
-        <div v-if="noteArticles.length > 0 && !noteLoading" class="grid md:grid-cols-3 gap-8">
-          <a v-for="article in noteArticles" :key="article.link"
-             :href="article.link" target="_blank" rel="noopener noreferrer"
-             class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
-            <div class="h-48 bg-neutral-100 overflow-hidden">
-              <img v-if="article.image" :src="article.image" :alt="article.title"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
-                   @error="($event.target as HTMLImageElement).parentElement!.innerHTML = noteFallbackImageHtml">
-              <div v-else class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center">
-                <svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-xs text-neutral-400">{{ formatNoteDate(article.pubDate) }}</span>
-                <span v-if="isNewArticle(article.pubDate)" class="text-[10px] bg-red-100 text-red-600 px-2 py-0.5 rounded-full font-bold">NEW</span>
-                <span class="text-[10px] bg-kaiho-green/10 text-kaiho-green px-2 py-0.5 rounded-full font-medium">note</span>
-              </div>
-              <h3 class="font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors mb-2 line-clamp-2">{{ article.title }}</h3>
-              <p v-if="article.description" class="text-neutral-500 text-sm line-clamp-2">{{ truncateText(stripHtmlTags(article.description), 80) }}</p>
-              <div class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-kaiho-green">
-                noteで読む <span>&rarr;</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Error / fallback state -->
-        <div v-if="noteError && !noteLoading" class="text-center py-12">
-          <div class="inline-flex flex-col items-center gap-4">
-            <div class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
-            </div>
-            <p class="text-neutral-500 text-sm">記事の取得に失敗しました。直接 note をご覧ください。</p>
-            <a href="https://note.com/kaihoyuuhikai" target="_blank" class="inline-flex items-center gap-2 px-6 py-2 bg-kaiho-green text-white font-bold rounded-full text-sm hover:bg-kaiho-green-dark transition-colors">
-              note.com で読む &rarr;
-            </a>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <a href="https://note.com/kaihoyuuhikai/m/m20c04499fc49" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-neutral-900 text-white font-bold rounded-full hover:bg-neutral-700 transition-colors">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.3c0-.5-.5-1-1.3-.8l-6.4 2.2L8 3.3C7.5 3 7 3 6.5 3.2L1.8 5c-.5.2-.8.5-.8 1v14.7c0 .5.5 1 1.3.8l6.4-2.2 6.3 2.2c.5.3 1 .3 1.5.1l4.7-1.8c.5-.2.8-.5.8-1V4.3z"/></svg>
-            note マガジンをすべて読む
-          </a>
-        </div>
-
-        <!-- Creators Showcase -->
-        <div class="mt-16">
-          <div class="mb-8">
-            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
-            <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div v-for="creator in spotlightCreators" :key="creator.name"
-                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
-                <div v-else class="w-full h-full flex items-center justify-center">
-                  <span class="text-2xl font-black text-neutral-200">{{ creator.initial }}</span>
-                </div>
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Creator Recruitment Banner -->
-        <div class="mt-10 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
-          <div class="flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-shrink-0 w-20 h-20 bg-kaiho-green/10 rounded-2xl flex items-center justify-center">
-              <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
-              </svg>
-            </div>
-            <div class="flex-1 text-center md:text-left">
-              <div class="inline-flex items-center gap-2 bg-kaiho-green text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-                <span>RECRUIT</span>
-              </div>
-              <h3 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">
-                クリエイター募集中
-              </h3>
-              <p class="text-neutral-600 leading-relaxed max-w-xl">
-                同窓生・在校生のためになる記事を書いてみませんか？<br class="hidden md:inline">
-                キャリア・進路・留学・研究・地域活動など、あなたの経験や知識を発信しましょう。
-              </p>
-              <ul class="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
-                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">大学・進学体験</li>
-                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">留学・海外経験</li>
-                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">研究・専門知識</li>
-                <li class="text-xs bg-white border border-kaiho-green/20 text-kaiho-green font-medium px-3 py-1 rounded-full">地域・社会活動</li>
-              </ul>
-            </div>
-            <div class="flex-shrink-0">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-colors shadow-md shadow-kaiho-green/20 whitespace-nowrap">
-                執筆を申し込む
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-              </a>
             </div>
           </div>
         </div>
@@ -1334,9 +1334,10 @@ const memberCorners = [
 
 // ── News items ──
 const newsItems = [
+  { date: '2026.07.18', category: '総会', title: '令和8年度 定期総会（7月18日（土）午前中　開邦高校視聴覚室（仮））— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
+  { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング予定（5月24日（日）　若狭公民館）', link: null, isNew: true },
   { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（新体制に向けて）（10:00〜）　若狭公民館（Web併用）', link: null, isNew: true },
   { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
-  { date: '2026.07', category: '総会', title: '令和8年度 定期総会 開催予定（準備中）— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
   { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
   { date: '2026.03.08', category: '活動', title: 'PTA連携 道路ボランティア清掃を初実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: true },
   { date: '2026.03.01', category: '活動', title: '開邦高校卒業式にて同窓会入会式を実施', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
