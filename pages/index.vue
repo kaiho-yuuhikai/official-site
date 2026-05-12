@@ -527,8 +527,8 @@
             </div>
           </div>
 
-          <!-- メンター登録 -->
-          <div class="mt-10 flex justify-center">
+          <!-- メンター登録 / メンティー申し込み -->
+          <div class="mt-10 flex flex-wrap justify-center gap-4">
             <NuxtLink to="/mentor/registration"
               class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -539,6 +539,17 @@
                 <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
               </div>
             </NuxtLink>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
+              target="_blank" rel="noopener noreferrer"
+              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-blue to-blue-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-black text-lg leading-tight">メンティーに申し込む</p>
+                <p class="text-white/80 text-xs mt-1">メンターのサポートを受けてみませんか？</p>
+              </div>
+            </a>
           </div>
         </div>
 
