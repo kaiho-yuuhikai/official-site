@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 /**
- * .git/hooks/pre-commit に scripts/git-hooks/pre-commit を symlink で導入する。
+ * .git/hooks/pre-commit に scripts/git-hooks/pre-commit を導入する。
  * npm run hooks:install から呼ばれる前提。
+ *
+ * - macOS / Linux: symlink (常に最新を反映)
+ * - Windows: symlink を試行し、権限エラーなら copy にフォールバック
+ *           (Windows は symlink に Developer Mode or 管理者権限が必要)
  *
  * 既存のフックがある場合は上書きせず、メッセージを表示して終了。
  */
 
-import { existsSync, lstatSync, readlinkSync, symlinkSync, mkdirSync, chmodSync } from 'node:fs'
+import { existsSync, lstatSync, readlinkSync, symlinkSync, mkdirSync, chmodSync, copyFileSync } from 'node:fs'
 import { resolve, relative, dirname } from 'node:path'
 import { execSync } from 'node:child_process'
+import { platform } from 'node:os'
 
 function detectGitDir() {
   try {
@@ -53,6 +58,20 @@ if (existsSync(hookPath)) {
 }
 
 const relTarget = relative(hooksDir, sourcePath)
-symlinkSync(relTarget, hookPath)
-chmodSync(sourcePath, 0o755)
-console.log(`[hooks:install] インストール完了: ${hookPath} -> ${relTarget}`)
+const isWindows = platform() === 'win32'
+
+try {
+  symlinkSync(relTarget, hookPath)
+  try { chmodSync(sourcePath, 0o755) } catch {}
+  console.log(`[hooks:install] インストール完了 (symlink): ${hookPath} -> ${relTarget}`)
+} catch (err) {
+  if (isWindows && (err.code === 'EPERM' || err.code === 'EACCES')) {
+    // Windows で symlink 権限なし → copy にフォールバック
+    copyFileSync(sourcePath, hookPath)
+    try { chmodSync(hookPath, 0o755) } catch {}
+    console.log(`[hooks:install] インストール完了 (copy): ${hookPath}`)
+    console.log('  注意: copy 経由のため、scripts/git-hooks/pre-commit を更新したときは npm run hooks:install を再実行してください')
+  } else {
+    throw err
+  }
+}
