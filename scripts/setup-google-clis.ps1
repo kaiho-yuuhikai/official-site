@@ -95,8 +95,8 @@ if (-not $SkipGog) {
     }
     Write-Host ""
     Write-Host "  次の手順:"
-    Write-Host "    gog auth credentials .\client_secret_xxx.json"
-    Write-Host "    gog auth add you@gmail.com --services drive,sheets,gmail"
+    Write-Host "    gog auth credentials .\client_secret_<your-id>.json"
+    Write-Host "    gog auth add <your-email> --services drive,sheets,gmail"
     Write-Host "    gog drive tree --parent <folderId> --depth 2  # 動作確認"
 }
 

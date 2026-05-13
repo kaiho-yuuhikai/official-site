@@ -86,7 +86,7 @@ gws drive files list --params '{"pageSize": 5}'
 ```bash
 # Step 3 で作った client_secret.json を流用可能
 gog auth credentials ~/.config/gws/client_secret.json
-gog auth add you@gmail.com --services drive,sheets,gmail
+gog auth add <your-email> --services drive,sheets,gmail
 ```
 
 動作確認:
@@ -99,9 +99,9 @@ gog drive tree --parent <folderId> --depth 2
 ```
 🎉 Google CLI 三種セットアップ完了
 
-  ✅ clasp <version>   — 開発者アカウント (xxx@dev-domain.com) でログイン済
-  ✅ gws <version>     — yyy@gmail.com で OAuth 認証済
-  ✅ gog <version>     — (任意) yyy@gmail.com で OAuth 認証済
+  ✅ clasp <version>   — 開発者アカウント (<dev-account>) でログイン済
+  ✅ gws <version>     — <user-email> で OAuth 認証済
+  ✅ gog <version>     — (任意) <user-email> で OAuth 認証済
 
 次にやれること:
   - /feature-implement <番号>            機能実装 (clasp 自動利用)
