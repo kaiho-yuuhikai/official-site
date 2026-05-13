@@ -1490,6 +1490,12 @@ const spotlightCreators = [
     bgClass: getMemberBgClass(3),
     bio: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
     noteCreatorKey: '開邦雄飛会',
+    pinnedArticle: {
+      title: '【ご案内】那覇ハーリー出場に向けた練習開始のお知らせ',
+      link: 'https://note.com/kaihoyuuhikai/n/n34fed7d70b14',
+      pubDate: 'Fri, 17 Apr 2026 21:14:57 +0900',
+      image: 'https://assets.st-note.com/production/uploads/images/268163006/rectangle_large_type_2_e2ebcda6de814ea846977a594d4f60a6.png',
+    },
   },
   {
     name: 'はぐ',
@@ -1505,6 +1511,9 @@ const spotlightCreators = [
 
 const creatorArticleGroups = computed(() =>
   spotlightCreators.map(creator => {
+    if ('pinnedArticle' in creator && creator.pinnedArticle) {
+      return { ...creator, articles: [creator.pinnedArticle] }
+    }
     const keys = Array.isArray(creator.noteCreatorKey)
       ? creator.noteCreatorKey
       : creator.noteCreatorKey ? [creator.noteCreatorKey] : []
