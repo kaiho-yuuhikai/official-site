@@ -15,6 +15,7 @@ push されたコード・コミット履歴は誰でも閲覧でき、削除し
 | JWT | アクセストークン全体 (`eyJ…`) |
 | URL に埋め込まれた認証 | `https://user:pass@…` <!-- allow-secret:url-credentials --> |
 | 個人情報 | 同窓生の個人メールアドレス・電話番号・住所 |
+| 内部資料 PDF / Office | 会計決算・収支報告・内部議事資料など。配信用 PDF は `public/files/` に、参考資料は `docs/` に置く（リポ root は禁止） |
 
 `.gitignore` で代表的なファイル名は除外していますが、最終的な責任は commit する人にあります。
 
@@ -65,6 +66,7 @@ npm run hooks:install
 | `url-credentials` | URL 埋め込み認証 | high |
 | `jp-mobile-phone` | 日本の携帯電話番号 | medium |
 | `personal-email` | 個人メアド（運営ドメイン以外） | medium |
+| `binary-doc-misplaced` | PDF / Office 文書 (.pdf .docx .xlsx .pptx .doc .xls .ppt) が `public/files/` または `docs/` 以外に置かれている | high |
 
 ## 4. 検出時の対処フロー
 

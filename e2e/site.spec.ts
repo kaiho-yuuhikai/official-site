@@ -195,3 +195,31 @@ test('静的ビルドが成功する', async () => {
     execSync('npm run generate', { timeout: 120_000, stdio: 'pipe' })
   }).not.toThrow()
 })
+
+// ---------------------------------------------------------------------------
+// Google Analytics 4 (GA4) 埋め込み
+// ---------------------------------------------------------------------------
+
+test('開発モードでは GA4 タグが注入されない (NUXT_PUBLIC_GA4_ID 未設定)', async ({ page }) => {
+  await page.goto('/')
+  const gtagCount = await page.locator('script[src*="googletagmanager.com/gtag/js"]').count()
+  expect(gtagCount).toBe(0)
+})
+
+test('NUXT_PUBLIC_GA4_ID を設定して generate すると gtag タグが出力される', async () => {
+  const { execSync } = await import('child_process')
+  const fs = await import('node:fs')
+  const path = await import('node:path')
+
+  const testId = 'G-TEST123ABC'
+  execSync('npm run generate', {
+    timeout: 180_000,
+    stdio: 'pipe',
+    env: { ...process.env, NUXT_PUBLIC_GA4_ID: testId },
+  })
+
+  const htmlPath = path.join('.output', 'public', 'index.html')
+  const html = fs.readFileSync(htmlPath, 'utf-8')
+  expect(html).toMatch(/googletagmanager\.com\/gtag\/js/)
+  expect(html).toContain(testId)
+})

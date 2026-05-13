@@ -71,3 +71,13 @@ config/local.*
 
 # シークレットスキャナの一時/レポート出力
 .secret-scan-report.json
+
+# 内部資料の誤コミット防止 (PDF / Office 文書はリポ root に置かない)
+# 配信用は public/files/、参考資料は docs/ に置くこと
+/*.pdf
+/*.docx
+/*.xlsx
+/*.pptx
+/*.doc
+/*.xls
+/*.ppt
