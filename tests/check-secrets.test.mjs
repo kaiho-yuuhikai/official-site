@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { mkdtempSync, writeFileSync, rmSync, mkdirSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { scanFiles, DETECTORS } from '../scripts/check-secrets.mjs'
+import { scanFiles, scanFilePlacements, DETECTORS } from '../scripts/check-secrets.mjs'
 
 // GitHub Push Protection 回避: ソースに「実トークン形式の連続文字列」を含めないよう
 // 必ず文字列結合でテスト fixture を組み立てる。
@@ -199,6 +199,62 @@ describe('scanFiles - 出力フォーマット', () => {
     const findings = scanFiles([f], { rootDir: dir })
     expect(findings[0].snippet).not.toContain(F.awsAccessKey)
     expect(findings[0].snippet).toMatch(/AKIA.*\*\*\*/)
+  })
+})
+
+describe('scanFilePlacements - PDF/Office 配置検査', () => {
+  let dir
+  beforeEach(() => { dir = makeTmpRepo() })
+  afterEach(() => { rmSync(dir, { recursive: true, force: true }) })
+
+  it('リポ root の PDF を検出する (誤コミット典型)', () => {
+    const f = writeFile(dir, 'soukai-shiryo.pdf', '%PDF-1.4 dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(1)
+    expect(findings[0].detectorId).toBe('binary-doc-misplaced')
+    expect(findings[0].severity).toBe('high')
+  })
+
+  it('public/files/ 配下の PDF は許容する', () => {
+    const f = writeFile(dir, 'public/files/handbook.pdf', '%PDF-1.4 dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(0)
+  })
+
+  it('docs/ 配下の PDF は許容する (参考資料)', () => {
+    const f = writeFile(dir, 'docs/activity.pdf', '%PDF-1.4 dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(0)
+  })
+
+  it('Office 文書 (xlsx) もリポ root では検出する', () => {
+    const f = writeFile(dir, 'budget.xlsx', 'PK dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(1)
+    expect(findings[0].detectorId).toBe('binary-doc-misplaced')
+  })
+
+  it('テキスト/コード/画像は対象外', () => {
+    const files = [
+      writeFile(dir, 'README.md', '# hi'),
+      writeFile(dir, 'index.ts', 'export const x = 1'),
+      writeFile(dir, 'logo.png', 'binary'),
+    ]
+    const findings = scanFilePlacements(files, { rootDir: dir })
+    expect(findings.length).toBe(0)
+  })
+
+  it('node_modules / .nuxt 配下の PDF は無視する', () => {
+    const f = writeFile(dir, 'node_modules/foo/sample.pdf', '%PDF-1.4 dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(0)
+  })
+
+  it('.secretscanignore で明示的に許可された PDF は除外する', () => {
+    writeFile(dir, '.secretscanignore', 'legacy-archives/*.pdf\n')
+    const f = writeFile(dir, 'legacy-archives/old.pdf', '%PDF-1.4 dummy')
+    const findings = scanFilePlacements([f], { rootDir: dir })
+    expect(findings.length).toBe(0)
   })
 })
 

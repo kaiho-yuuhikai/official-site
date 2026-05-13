@@ -62,7 +62,10 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: 自動取得データ（note RSS・Threads・寄付）を更新"
           git push || true
 
-      - run: npx nuxt generate
+      - name: Build static site
+        env:
+          NUXT_PUBLIC_GA4_ID: ${{ secrets.NUXT_PUBLIC_GA4_ID }}
+        run: npx nuxt generate
 
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3

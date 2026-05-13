@@ -4,8 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-gtag'
   ],
+
+  gtag: {
+    id: process.env.NUXT_PUBLIC_GA4_ID,
+    enabled: !!process.env.NUXT_PUBLIC_GA4_ID
+  },
 
   app: {
     baseURL: '/',
