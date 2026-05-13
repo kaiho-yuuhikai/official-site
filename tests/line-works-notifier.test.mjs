@@ -317,7 +317,7 @@ describe('Setup.js — LINE WORKS Properties セットアップ', () => {
     callGas(ctx, 'setupLineWorksProperties', [{
       LW_CLIENT_ID: 'cid',
       LW_CLIENT_SECRET: 'csec',
-      LW_SERVICE_ACCOUNT: 'svc@e.com',
+      LW_SERVICE_ACCOUNT: 'svc@example.com',
       LW_PRIVATE_KEY: '-----BEGIN ' + 'PRIVATE KEY-----\nx\n-----END PRIVATE KEY-----',
       LW_BOT_ID: 'bot1',
       LW_CHANNEL_ID: 'ch1',
@@ -325,7 +325,7 @@ describe('Setup.js — LINE WORKS Properties セットアップ', () => {
     const store = evalGas(ctx, 'PropertiesService.getScriptProperties().getProperties()')
     expect(store.LW_CLIENT_ID).toBe('cid')
     expect(store.LW_CLIENT_SECRET).toBe('csec')
-    expect(store.LW_SERVICE_ACCOUNT).toBe('svc@e.com')
+    expect(store.LW_SERVICE_ACCOUNT).toBe('svc@example.com')
     expect(store.LW_PRIVATE_KEY).toContain('BEGIN')
     expect(store.LW_BOT_ID).toBe('bot1')
     expect(store.LW_CHANNEL_ID).toBe('ch1')
