@@ -391,6 +391,44 @@
           </a>
         </div>
 
+        <!-- Creator-grouped magazine articles -->
+        <div v-if="noteCreatorGroups.length > 0 && !noteLoading" class="mt-20">
+          <div class="mb-10">
+            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creator Articles</p>
+            <h3 class="text-2xl md:text-3xl font-black tracking-tight">クリエイター別記事</h3>
+          </div>
+          <div class="space-y-12">
+            <div v-for="creator in noteCreatorGroups" :key="creator.creatorName">
+              <!-- Creator header -->
+              <div class="flex items-center gap-3 mb-5">
+                <img v-if="creator.creatorImage" :src="creator.creatorImage" :alt="creator.creatorName"
+                     class="w-10 h-10 rounded-full object-cover border border-neutral-100 flex-shrink-0" loading="lazy" />
+                <div v-else class="w-10 h-10 rounded-full bg-kaiho-green/20 flex items-center justify-center flex-shrink-0">
+                  <span class="text-sm font-black text-kaiho-green">{{ creator.creatorName.charAt(0) }}</span>
+                </div>
+                <span class="font-bold text-neutral-900">{{ creator.creatorName }}</span>
+                <span class="text-xs text-neutral-400">{{ creator.articles.length }}件</span>
+              </div>
+              <!-- Creator articles -->
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a v-for="article in creator.articles" :key="article.link"
+                   :href="article.link" target="_blank" rel="noopener noreferrer"
+                   class="card-hover bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-100 block group flex gap-3 p-3 items-start">
+                  <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
+                    <img v-if="article.image" :src="article.image" :alt="article.title"
+                         class="w-full h-full object-cover" loading="lazy" />
+                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100"></div>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs text-neutral-400 mb-1">{{ formatNoteDate(article.pubDate) }}</p>
+                    <p class="text-sm font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors line-clamp-2 leading-snug">{{ article.title }}</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Creators Showcase -->
         <div class="mt-16">
           <div class="mb-8">
@@ -400,10 +438,10 @@
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div v-for="creator in spotlightCreators" :key="creator.name"
                  class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
+              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
                 <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
-                <div v-else class="w-full h-full flex items-center justify-center">
-                  <span class="text-2xl font-black text-neutral-200">{{ creator.initial }}</span>
+                <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
+                  <span class="text-2xl font-black text-white drop-shadow">{{ creator.initial }}</span>
                 </div>
               </div>
               <div class="min-w-0">
@@ -1365,9 +1403,21 @@ interface NoteArticle {
   image: string
 }
 
+interface NoteCreatorGroup {
+  creatorName: string
+  creatorImage: string
+  articles: {
+    title: string
+    link: string
+    pubDate: string
+    image: string
+  }[]
+}
+
 const noteLoading = ref(true)
 const noteError = ref(false)
 const noteArticles = ref<NoteArticle[]>([])
+const noteCreatorGroups = ref<NoteCreatorGroup[]>([])
 
 // ── Threads posts ──
 interface ThreadsPost {
@@ -1425,6 +1475,7 @@ const spotlightCreators = [
     department: '芸術科',
     initial: '辺',
     photo: 'images/creators/hento-momoka.jpg',
+    bgClass: getMemberBgClass(0),
     bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
   },
   {
@@ -1433,6 +1484,7 @@ const spotlightCreators = [
     department: '学術探究科',
     initial: '我',
     photo: 'images/mentors/gakiya-kanato.jpg',
+    bgClass: getMemberBgClass(1),
     bio: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
   },
   {
@@ -1441,6 +1493,7 @@ const spotlightCreators = [
     department: '理数科',
     initial: '上',
     photo: 'images/members/uema.png',
+    bgClass: getMemberBgClass(2),
     bio: '子育てや仕事の話、同窓会活動について執筆しています。',
   },
   {
@@ -1449,6 +1502,7 @@ const spotlightCreators = [
     department: '理数科',
     initial: '具',
     photo: '',
+    bgClass: getMemberBgClass(3),
     bio: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
   },
   {
@@ -1457,6 +1511,7 @@ const spotlightCreators = [
     department: '芸術科',
     initial: 'は',
     photo: 'images/creators/hagu-38.jpg',
+    bgClass: getMemberBgClass(4),
     bio: '東京藝術大学音楽学部声楽科ソプラノ専攻1年。芸術系のイベント開催（音楽・美術どちらも）に興味があります！',
   },
 ]
@@ -1496,6 +1551,9 @@ async function loadNoteArticles() {
     if (data.articles && data.articles.length > 0) {
       // 最新記事を3件のみ表示
       noteArticles.value = data.articles.slice(0, 3)
+    }
+    if (data.magazineCreators && data.magazineCreators.length > 0) {
+      noteCreatorGroups.value = data.magazineCreators
     }
   } catch (err) {
     console.warn('Failed to load note articles JSON:', err)
