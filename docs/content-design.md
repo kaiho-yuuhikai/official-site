@@ -20,9 +20,9 @@
 - **2026/3/15**: 運営打合せ（若狭公民館 15:00〜17:00、Zoom併用: 宮城潤氏設定）
 
 ### 主要ドキュメント（Google Docs）
-- **会則（案）**: https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit
-- **新事業提案書**: https://docs.google.com/document/d/1jGWcsOg03JF6C2ay1IEe7Gsw7rXcsKgNii6rdkXEyqY/edit
-- **探究活動メンター伴走支援事業 提案書（案）**: https://docs.google.com/document/d/16aPt89LpxO6fgC-fsy58dAhLpfDlfeXzxnGzCxJ_efE/edit
+- **会則（案）**: 運営チャットで別途共有
+- **新事業提案書**: 運営チャットで別途共有
+- **探究活動メンター伴走支援事業 提案書（案）**: 運営チャットで別途共有
 
 ---
 
@@ -279,7 +279,7 @@
 #### 新事業「探究活動メンター伴走支援事業」
 
 共同提案者: 嶺井健治・泉川良基・上間祥子・神谷乗治
-提案書: https://docs.google.com/document/d/16aPt89LpxO6fgC-fsy58dAhLpfDlfeXzxnGzCxJ_efE/edit
+提案書: 運営チャットで別途共有
 
 ```
 事業背景:
@@ -343,7 +343,7 @@
 
 ### 新事業提案書での位置づけ
 
-提案書: https://docs.google.com/document/d/1jGWcsOg03JF6C2ay1IEe7Gsw7rXcsKgNii6rdkXEyqY/edit
+提案書: 運営チャットで別途共有
 
 ```
 新事業の優先順位（アンケート結果ベース）:
@@ -437,10 +437,10 @@
 | 公式サイト | https://kaiho-yuuhikai.jp/official-site/ |
 | 大同窓会サイト | https://kaiho-yuuhikai.jp/ |
 | GitHub リポジトリ | https://github.com/kaiho-yuuhikai/official-site |
-| 会則（案）| https://docs.google.com/document/d/1LerLzJ6cDvyfGX6xOLf4N0BXx3LNIQKmrYi8nkHidpM/edit |
-| 新事業提案書 | https://docs.google.com/document/d/1jGWcsOg03JF6C2ay1IEe7Gsw7rXcsKgNii6rdkXEyqY/edit |
-| 探究活動メンター伴走提案書 | https://docs.google.com/document/d/16aPt89LpxO6fgC-fsy58dAhLpfDlfeXzxnGzCxJ_efE/edit |
-| 運営メンバー募集フォーム | https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog |
+| 会則（案）| 運営チャットで別途共有 |
+| 新事業提案書 | 運営チャットで別途共有 |
+| 探究活動メンター伴走提案書 | 運営チャットで別途共有 |
+| 運営メンバー募集フォーム | （公開フォーム — フッターからアクセス） |
 | note マガジン | https://note.com/kaihoyuuhikai/m/m20c04499fc49 |
 | Facebook | https://www.facebook.com/kaihoyuhi/ |
 | Instagram | https://www.instagram.com/kaihoyuuhikai/ |
