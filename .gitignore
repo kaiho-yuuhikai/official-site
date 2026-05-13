@@ -40,3 +40,34 @@ analysis/data/*.json
 # clasp (Apps Script CLI) のローカル設定 — リポジトリには含めない
 .clasp.json
 .clasprc.json
+
+# 秘密鍵・証明書 (LINE WORKS Service Account / GCP / SSH 等)
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# サービスアカウント / 認証情報 JSON
+*service-account*.json
+*service_account*.json
+*credentials*.json
+client_secret*.json
+*.firebase-adminsdk*.json
+
+# LINE WORKS / 外部 API 認証情報を含むローカルファイル
+lineworks*.json
+lineworks*.env
+*.lineworks
+secrets/
+.secrets/
+.local-secrets/
+config/local.*
+
+# シークレットスキャナの一時/レポート出力
+.secret-scan-report.json
