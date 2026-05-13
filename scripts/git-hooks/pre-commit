@@ -1,0 +1,32 @@
+#!/bin/sh
+# 雄飛会公式サイト — pre-commit hook
+#
+# staged ファイルにシークレットが混入していないか scripts/check-secrets.mjs で検査する。
+# 違反があれば commit を中断する。
+#
+# 一時的に skip したい場合は SKIP_SECRET_SCAN=1 git commit ...
+# (実トークンを含む合法的なケース以外では使わないこと)
+
+if [ "${SKIP_SECRET_SCAN:-0}" = "1" ]; then
+  echo "[pre-commit] SKIP_SECRET_SCAN=1 のため秘匿情報スキャンを skip"
+  exit 0
+fi
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "[pre-commit] node が見つからないため秘匿情報スキャンを skip"
+  exit 0
+fi
+
+node scripts/check-secrets.mjs --staged
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "[pre-commit] 秘匿情報スキャンで違反を検出したため commit を中断します"
+  echo "  - 誤検出なら行末に // allow-secret:<detector-id> または <!-- allow-secret:<id> --> を追加"
+  echo "  - 実トークンならファイルから削除して staging しなおしてください"
+  echo "  - どうしても skip するなら SKIP_SECRET_SCAN=1 git commit ... (履歴に残ります)"
+  exit 1
+fi
+
+exit 0
