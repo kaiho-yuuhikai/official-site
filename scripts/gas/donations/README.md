@@ -5,8 +5,9 @@
 ## 構成ファイル
 
 - `Donations.js` — `doGet()` を提供する Web アプリ本体（HP連携用 JSON エンドポイント）
-- `Setup.js` — `setupAll()` 一発で Sheet + Form を作成・連携・整形（**新規構築用ヘルパ。既存リソース利用時は実行不要**）
-- `appsscript.json` — マニフェスト（Web アプリ設定 + タイムゾーン JST）
+- `LineWorksNotifier.js` — フォーム送信時に LINE WORKS Bot で運営トークルームへ通知（Issue #20）
+- `Setup.js` — `setupAll()` 一発で Sheet + Form を作成・連携・整形、`setupLineWorksProperties()` / `installFormSubmitTrigger()` 等のヘルパも提供
+- `appsscript.json` — マニフェスト（Web アプリ設定 + タイムゾーン JST + 必要 OAuth スコープ）
 
 ## セットアップ手順
 
@@ -121,3 +122,38 @@ clasp deploy --deploymentId <ID> --description "v2: ..."
 | `forbidden` が返る | GitHub Secrets の `DONATIONS_ENDPOINT_TOKEN` と Script Properties `DONATIONS_TOKEN` が一致しているか確認 |
 | `Donations sheet not found` | スプレッドシートに「フォームの回答」が含まれるシートがあるか確認、無ければ Form 連携が切れている |
 | 金額が 0 になる | E列が「10,000円」or「その他...」、F列が数値かを確認 |
+| LINE WORKS 通知が来ない | (1) `showProperties()` で `LW_*` 6 点が全て入っているか / (2) GAS エディタで `testNotify()` を実行して 200 が返るか / (3) `installFormSubmitTrigger()` を実行済か / (4) Bot がチャンネルに招待されているか |
+| `Required Script Property missing` | `setupLineWorksProperties({...})` を再実行して 6 点を投入 |
+| `LINE WORKS auth failed: 401` | Service Account / Client ID/Secret の組み合わせを確認、再発行が必要なら Developer Console から rotate |
+| `LINE WORKS post failed: 403` | Bot に対象 channelId への送信権限があるか確認 (Bot を再招待) |
+
+## LINE WORKS Bot 通知 (Issue #20)
+
+詳細手順は `docs/operations/line-works-notification-setup.md` を参照。
+
+### サマリ
+
+1. LINE WORKS Developer Console で App + Bot を作成し、認証情報 6 点を取得
+2. `clasp push` でコードを反映
+3. GAS エディタから `setupLineWorksProperties({...})` を 1 回実行して Properties を投入
+4. `testNotify()` でトークルームへの疎通確認
+5. `installFormSubmitTrigger()` でフォーム送信トリガーを登録
+
+### Script Properties (LINE WORKS 関連)
+
+| Key | 説明 | 必須 |
+|---|---|---|
+| `LW_CLIENT_ID` | Developer Console App の Client ID | ✓ |
+| `LW_CLIENT_SECRET` | Developer Console App の Client Secret | ✓ |
+| `LW_SERVICE_ACCOUNT` | `xxxx.serviceaccount@<domain>` | ✓ |
+| `LW_PRIVATE_KEY` | PEM形式の Private Key (改行込み) | ✓ |
+| `LW_BOT_ID` | Bot の番号 | ✓ |
+| `LW_CHANNEL_ID` | 送信先トークルームの channelId | ✓ |
+| `ADMIN_EMAIL` | 通知失敗時の管理者メール宛先 | (推奨) |
+
+### 緊急停止
+
+```javascript
+// GAS エディタで実行
+uninstallAllTriggers()
+```
