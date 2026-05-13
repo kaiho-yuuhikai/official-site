@@ -391,52 +391,6 @@
           </a>
         </div>
 
-        <!-- Creator-grouped magazine articles -->
-        <div v-if="!noteLoading" class="mt-20">
-          <div class="mb-10">
-            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creator Articles</p>
-            <h3 class="text-2xl md:text-3xl font-black tracking-tight">クリエイター別記事</h3>
-          </div>
-          <div class="space-y-12">
-            <div v-for="creator in creatorArticleGroups" :key="creator.name">
-              <!-- Creator header -->
-              <div class="flex items-center gap-3 mb-5">
-                <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                  <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name"
-                       class="w-full h-full object-cover object-top" loading="lazy" />
-                  <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
-                    <span class="text-sm font-black text-white">{{ creator.initial }}</span>
-                  </div>
-                </div>
-                <div>
-                  <span class="font-bold text-neutral-900">{{ creator.name }}</span>
-                  <span class="text-xs text-neutral-400 ml-2">{{ creator.generation }} {{ creator.department }}</span>
-                </div>
-              </div>
-              <!-- 準備中 -->
-              <div v-if="creator.noteCreatorKey === null" class="py-6 px-4 bg-neutral-50 rounded-xl text-center">
-                <span class="text-sm text-neutral-400 font-medium">準備中</span>
-              </div>
-              <!-- Creator articles -->
-              <div v-else class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a v-for="article in creator.articles" :key="article.link"
-                   :href="article.link" target="_blank" rel="noopener noreferrer"
-                   class="card-hover bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-100 block group flex gap-3 p-3 items-start">
-                  <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
-                    <img v-if="article.image" :src="article.image" :alt="article.title"
-                         class="w-full h-full object-cover" loading="lazy" />
-                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100"></div>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs text-neutral-400 mb-1">{{ formatNoteDate(article.pubDate) }}</p>
-                    <p class="text-sm font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors line-clamp-2 leading-snug">{{ article.title }}</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Creators Showcase -->
         <div class="mt-16">
           <div class="mb-8">
@@ -444,22 +398,42 @@
             <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
           </div>
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div v-for="creator in spotlightCreators" :key="creator.name"
-                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
-                <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
-                  <span class="text-2xl font-black text-white drop-shadow">{{ creator.initial }}</span>
+            <div v-for="creator in creatorArticleGroups" :key="creator.name"
+                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex flex-col p-4 gap-3">
+              <!-- Profile row -->
+              <div class="flex gap-4 items-start">
+                <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                  <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
+                  <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
+                    <span class="text-2xl font-black text-white drop-shadow">{{ creator.initial }}</span>
+                  </div>
+                </div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
+                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
+                  </div>
+                  <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
+                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
                 </div>
               </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
+              <!-- Latest article -->
+              <div v-if="!creator.noteCreatorKey || (Array.isArray(creator.noteCreatorKey) ? creator.noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
+                <span class="text-xs text-neutral-400 font-medium">準備中</span>
               </div>
+              <a v-else-if="creator.articles.length > 0" :href="creator.articles[0].link"
+                 target="_blank" rel="noopener noreferrer"
+                 class="flex gap-3 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-green/30 hover:bg-kaiho-green/5 transition-colors group">
+                <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
+                  <img v-if="creator.articles[0].image" :src="creator.articles[0].image" :alt="creator.articles[0].title"
+                       class="w-full h-full object-cover" loading="lazy" />
+                  <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100"></div>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[10px] text-neutral-400 mb-0.5">{{ formatNoteDate(creator.articles[0].pubDate) }}</p>
+                  <p class="text-xs font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors line-clamp-2 leading-snug">{{ creator.articles[0].title }}</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -1505,7 +1479,7 @@ const spotlightCreators = [
     photo: 'images/members/uema.png',
     bgClass: getMemberBgClass(2),
     bio: '子育てや仕事の話、同窓会活動について執筆しています。',
-    noteCreatorKey: 'uema1125',
+    noteCreatorKey: ['開邦雄飛会', 'uema1125'],
   },
   {
     name: '具志',
@@ -1531,10 +1505,16 @@ const spotlightCreators = [
 
 const creatorArticleGroups = computed(() =>
   spotlightCreators.map(creator => {
-    const group = noteCreatorGroups.value.find(g => g.creatorName === creator.noteCreatorKey)
+    const keys = Array.isArray(creator.noteCreatorKey)
+      ? creator.noteCreatorKey
+      : creator.noteCreatorKey ? [creator.noteCreatorKey] : []
+    const merged = keys.flatMap(key => {
+      const group = noteCreatorGroups.value.find(g => g.creatorName === key)
+      return group ? group.articles : []
+    }).sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
     return {
       ...creator,
-      articles: group ? group.articles.slice(0, 3) : [],
+      articles: merged.slice(0, 1),
     }
   })
 )
