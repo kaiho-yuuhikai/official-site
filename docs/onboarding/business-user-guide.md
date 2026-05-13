@@ -321,6 +321,57 @@ npm run hooks:install  # pre-commit フックを導入
 - `gh auth status` で未認証 → `gh auth login` で対話的にログイン
 - `claude` コマンドがない → Claude Code 再インストール
 
+## 7.6 Google 三種 CLI のセットアップ
+
+雄飛会プロジェクトでは Google サービスを操作するために 3 つの CLI を使います。
+セットアップは自動化済み、`/setup-google-clis` skill で一発実行可能。
+
+| CLI | 何のため | 推奨度 |
+|---|---|---|
+| **clasp** | GAS スクリプトの push / deploy (公式) | **必須** |
+| **gws** | Drive / Sheets / Gmail / Forms / Calendar 等の API 操作 (公式 Rust) | **推奨** |
+| **gog** | Drive 監査・読み取り業務 (コミュニティ Go) | 任意 |
+
+### ワンライナーインストール
+
+**macOS / Linux**:
+```bash
+bash scripts/setup-google-clis.sh
+```
+
+**Windows (PowerShell)**:
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\scripts\setup-google-clis.ps1
+```
+
+### Claude Code 経由 (推奨)
+
+```
+/setup-google-clis
+```
+
+Claude が「現在の状態確認 → インストール → OAuth 認証ガイド」まで対話的に進めます。
+
+### よく使うコマンド例
+
+```bash
+# GAS コードを反映
+cd scripts/gas/donations && clasp push
+
+# 寄付スプレッドシートの列ヘッダーを取得 (drift 検知用)
+gws sheets spreadsheets values get \
+  --params '{"spreadsheetId":"1Y5S1uw...","range":"donations!A1:K1"}'
+
+# フォーム回答を確認
+gws forms responses list --params '{"formId":"<id>"}'
+
+# Drive の共有設定監査
+gog drive audit sharing --parent <folderId> --internal-domain kaiho-yuhikai.com
+```
+
+詳しくは `.claude/commands/setup-google-clis.md` 参照。
+
 ## 8. スキトラデモのチェックリスト (今日の会で確認)
 
 ### 共通
