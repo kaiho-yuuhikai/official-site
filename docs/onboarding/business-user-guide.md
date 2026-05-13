@@ -164,44 +164,53 @@ GitHub Actions タブで `Deploy to GitHub Pages` ワークフローを「Run wo
 
 ---
 
-## 4. 開発フロー — Claude Code を使った新機能追加
+## 4. 機能開発フロー — Claude Code 専用 skill を使う
 
-### 4.1 Issue を立てる
+サイト更新 (`/site-update` `/site-publish`) はテキスト・画像差し替えなど **既存ページの編集**用。
+**新機能追加 / 既存機能の拡張** には以下 4 つの専用 skill を使います。
 
-1. <https://github.com/kaiho-yuuhikai/official-site/issues/new> を開く
-2. 困りごと / やりたいことを書く
-   - 例: 「フォームに『紹介者』項目を追加して、HP の寄付者一覧にも表示したい」
-3. 「Submit」
+### 4.1 4 つの専用 skill
 
-### 4.2 Claude Code に依頼する
+| skill コマンド | 用途 | 引数 |
+|---|---|---|
+| `/issue-list` | 「いまどんな課題があるか」一覧 | なし |
+| `/feature-add` | 要望を聞き取って Issue に起票 | (任意) 要件の最初の一言 |
+| `/feature-implement <番号>` | Issue 番号を指定して実装 → PR 作成 | Issue 番号 |
+| `/feature-review-merge <番号>` | PR をビジネス向けにまとめて確認 → マージ | PR 番号 |
 
-ターミナルで:
-```bash
-cd ~/kaiho-yuuhikai-official-site
-claude
+### 4.2 推奨フロー (典型例)
 
-# 例:
-> Issue #25 を実装してください
+```
+1. /issue-list                        ← 今ある課題を確認
+2. /feature-add "寄付者一覧を期別に分けたい"
+   → Claude が質問しながら Issue #25 を作成
+3. /feature-implement 25
+   → Claude が TDD で実装 → PR #26 を作成
+4. /feature-review-merge 26
+   → 変更内容を日本語で説明
+   → 「OK」と答えればマージ → 自動デプロイ
+5. 数分後にブラウザで確認 (Ctrl+Shift+R で再読み込み)
 ```
 
-Claude Code が:
-- 仕様を理解
-- TDD で実装 (テストを先に書く → 実装)
-- PR を作成
-- CI を確認
+### 4.3 シンプルな修正なら直接でも OK
 
-### 4.3 PR レビューしてマージ
+「文言を少し直したい」「画像を差し替えたい」程度なら、Issue を作らず `/site-update` で十分です。
 
-1. Claude Code が PR を作成すると GitHub からメール通知
-2. PR を開いて変更内容を確認 (Files changed タブ)
-3. 問題なければ「Merge pull request」ボタン
-4. 自動でデプロイされる
+| やりたいこと | 推奨 skill |
+|---|---|
+| 文言・画像・色の小修正 | `/site-update` |
+| 役員 / メンバー情報の更新 | `/site-update` |
+| 新しいページを追加 | `/feature-add` → `/feature-implement` |
+| フォームに項目追加 | `/feature-add` → `/feature-implement` |
+| HP の集計ロジック変更 | `/feature-add` → `/feature-implement` |
+| 新しい通知を追加 | `/feature-add` → `/feature-implement` |
 
 ### 4.4 困ったとき
 
-- Claude Code に「ここで詰まった、どうすれば?」と聞く
+- Claude Code に「ここで詰まった、どうすれば?」と聞く (日本語 OK)
 - Issue にコメントを残す (神谷も後から見られる)
 - 神谷に Slack / LINE WORKS で連絡
+- `/setup-check` で環境が正しく入っているか確認
 
 ---
 
@@ -276,7 +285,45 @@ Claude Code が:
 
 ---
 
+## 7.5 Windows ユーザー向け前提条件
+
+上間さんの環境 (Windows + Claude Code) でこのプロジェクトを動かすための前提:
+
+| 必要なもの | インストール方法 |
+|---|---|
+| **Git for Windows** | <https://git-scm.com/download/win> から DL (Git Bash も同梱) |
+| **Node.js (v20 以上)** | <https://nodejs.org/> から LTS 版 |
+| **GitHub CLI (`gh`)** | <https://cli.github.com/> から DL or `winget install GitHub.cli` |
+| **Claude Code** | <https://docs.claude.com/claude-code> の手順通り |
+
+**初回セットアップ手順 (Windows / PowerShell)**:
+
+```powershell
+# PowerShell を「管理者として実行」ではなく、通常で開く
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+cd kaiho-yuuhikai-official-site
+.\scripts\setup.ps1    # 必要ツールを自動インストール
+npm install
+npm run hooks:install  # pre-commit フックを導入
+```
+
+**注意点**:
+
+- pre-commit フックは Windows でも動作 (Git Bash が sh を提供)
+- 上記 `hooks:install` で symlink が失敗した場合は自動で copy にフォールバック
+- 改行コードは Git の `core.autocrlf=true` で自動処理されるため意識不要
+- `npm run scan:secrets` も Windows でそのまま動く
+- ターミナルは「Windows Terminal」+「Git Bash」または PowerShell を推奨
+
+**トラブル時**:
+
+- `node --version` が動かない → Node.js 未インストール / PATH 未設定
+- `gh auth status` で未認証 → `gh auth login` で対話的にログイン
+- `claude` コマンドがない → Claude Code 再インストール
+
 ## 8. スキトラデモのチェックリスト (今日の会で確認)
+
+### 共通
 
 - [ ] Google フォームを開いて項目を見る
 - [ ] スプレッドシートを開いて承認列のプルダウンを操作してみる
@@ -284,9 +331,21 @@ Claude Code が:
 - [ ] GitHub Pages の HP を開いて「寄付者一覧」セクションを確認
 - [ ] LINE WORKS の運営トークルームで Bot 通知を確認
 - [ ] Apps Script エディタを開いて Script Properties の場所を見る
-- [ ] (Pro プランで) Claude Code を起動して "Issue #20 を見て" と話しかける
-- [ ] Issue を新規作成してみる (テスト用)
-- [ ] 質疑応答
+
+### Claude Code (上間さんの Windows で実機)
+
+- [ ] `/setup-check` で環境 OK を確認
+- [ ] `/site-preview` でローカルプレビュー
+- [ ] `/issue-list` で現在の課題一覧
+- [ ] `/feature-add "テスト用の小さな機能要望"` で Issue 起票デモ
+- [ ] `/feature-implement <番号>` で Claude が実装する流れを観察
+- [ ] `/feature-review-merge <番号>` でマージ前確認の流れを観察
+- [ ] `/site-publish` で軽微な変更を本番反映
+
+### 質疑応答
+
+- [ ] わからない用語の質問
+- [ ] 「こうしたい」を 1〜2 件挙げて Issue 化テスト
 
 ---
 
