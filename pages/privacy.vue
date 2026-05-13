@@ -8,7 +8,7 @@
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">Privacy Policy</p>
         <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">プライバシーポリシー</h1>
-        <p class="text-white/70 mt-4 text-sm">制定：2025年12月　最終改定：2026年3月</p>
+        <p class="text-white/70 mt-4 text-sm">制定：2025年12月　最終改定：2026年5月</p>
       </div>
     </section>
 
@@ -67,8 +67,15 @@
         </ul>
 
         <h2>6. Cookieおよびアクセス解析について</h2>
-        <p>当サイトは現在、Cookieの設定や外部のアクセス解析ツール（Google Analytics等）は使用していません。将来的に導入する場合は、このプライバシーポリシーを改定の上、お知らせします。</p>
-        <p>なお、当サイトはGitHub Pagesを通じてホスティングされており、GitHubのプライバシーポリシーが適用される場合があります。</p>
+        <p>当サイトでは、サイトの利用状況を把握し、改善に役立てるため、Googleが提供するアクセス解析ツール「<a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener noreferrer" class="text-kaiho-green hover:text-kaiho-green-dark">Google Analytics 4（GA4）</a>」を利用しています。</p>
+        <ul>
+          <li><strong>利用目的</strong>：訪問者数・閲覧ページ・流入経路などの統計情報を取得し、コンテンツや導線の改善に役立てるため</li>
+          <li><strong>データ送信先</strong>：Google LLC（米国）。データは個人を特定しない形で集計・分析されます</li>
+          <li><strong>取得しない情報</strong>：寄付者氏名・期・メールアドレス等の個人を特定し得る情報は GA4 のイベントに含めません</li>
+          <li><strong>無効化（opt-out）の方法</strong>：Google が提供する <a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener noreferrer" class="text-kaiho-green hover:text-kaiho-green-dark">Google アナリティクス オプトアウト アドオン</a> をブラウザにインストールすると、当サイトを含む GA4 利用サイトでの計測を停止できます</li>
+        </ul>
+        <p>Google による Cookie 等の利用と取得データの取り扱いについては、<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener noreferrer" class="text-kaiho-green hover:text-kaiho-green-dark">Google プライバシーポリシー</a> をご確認ください。</p>
+        <p>なお、当サイトは GitHub Pages を通じてホスティングされており、GitHub のプライバシーポリシーが適用される場合があります。</p>
 
         <h2>7. 外部リンクについて</h2>
         <p>当サイトには外部サイト（開邦高校公式サイト、各種SNS、Google フォームなど）へのリンクが含まれています。リンク先のサイトにおける個人情報の取り扱いは、各サイトのプライバシーポリシーに従います。当会はリンク先の個人情報の取り扱いに関して責任を負いません。</p>
@@ -91,7 +98,7 @@
           </p>
         </div>
 
-        <p class="text-sm text-neutral-500 mt-8">制定：2025年12月　最終改定：2026年3月<br>&copy; 2025–{{ new Date().getFullYear() }} 開邦高校同窓会 開邦雄飛会 All Rights Reserved.</p>
+        <p class="text-sm text-neutral-500 mt-8">制定：2025年12月　最終改定：2026年5月<br>&copy; 2025–{{ new Date().getFullYear() }} 開邦高校同窓会 開邦雄飛会 All Rights Reserved.</p>
       </div>
     </section>
   </div>
