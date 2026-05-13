@@ -1,82 +1,191 @@
-# 雄飛会公式サイト 開発・運用ハンドブック (スキトラ用)
+# 雄飛会公式サイト 開発・運用ハンドブック
 
-このドキュメントは、開邦雄飛会公式サイトの **開発・運用を引き継ぐビジネスチームメンバー (上間さん)** に向けた手順書です。
-フォーム改修・データ取得・HP 反映までの全フローを 1 人で回せることを目指します。
-
-**作成**: 2026-05-13 / 神谷 → 上間さんスキトラ会用
+このドキュメントは、**5/13 12:00-14:00 のスキトラ会で上から下に読みながら進める** ことを想定した手順書です。
+**対象**: 開邦雄飛会公式サイトの開発・運用を引き継ぐビジネスチームメンバー (上間さん想定)
+**ゴール**: フォーム改修・データ取得・HP 反映までの全フローを 1 人で回せる
+**所要時間**: 約 2 時間 (デモ会の中で完走可能)
 
 ---
 
-## 0. このシステムでできること
+## 0. これから何をするか (Bird's Eye View)
 
-| やりたいこと | 仕組み |
+このシステムは以下の 4 つの世界をつなげています:
+
+| 世界 | 何の役割 | 誰が触る |
+|---|---|---|
+| 📝 **Google Workspace** | フォーム入力・データ保管・承認 | ビジネスチーム (上間 / 屋良) |
+| ⚙️ **Apps Script (GAS)** | 集計・通知ロジック | 開発者 (神谷) |
+| 🚀 **GitHub** | コード管理・自動デプロイ | 開発者 + ビジネスチーム |
+| 🌐 **Web サイト** | 公開 HP <https://kaiho-yuuhikai.jp/> | 訪問者 |
+
+### 全体アーキテクチャ
+
+```mermaid
+flowchart TB
+    Donor([👤 寄付者])
+    Biz([👥 ビジネスチーム])
+
+    subgraph GW [Google Workspace]
+        Form[📝 Form]
+        Sheet[📊 Sheet]
+    end
+
+    subgraph GAS [Apps Script]
+        Donations[Donations.js]
+        Notifier[LineWorksNotifier.js]
+    end
+
+    subgraph LW [LINE WORKS]
+        Bot[🤖 Bot]
+        Room[💬 トークルーム]
+    end
+
+    subgraph GH [GitHub]
+        Repo[(リポジトリ)]
+        Actions[⚙️ Actions]
+        Pages[🌐 Pages]
+    end
+
+    Donor -->|フォーム送信| Form
+    Form --> Sheet
+    Form -.->|onFormSubmit| Notifier
+    Notifier --> Bot
+    Bot --> Room
+    Room --> Biz
+    Biz -->|確認済| Sheet
+    Sheet -.-> Donations
+    Actions -->|cron 09:00 JST| Donations
+    Donations --> Actions
+    Actions --> Repo
+    Repo --> Pages
+    Pages --> Donor
+
+    classDef user fill:#fef3c7,stroke:#f59e0b,color:#000
+    classDef storage fill:#dbeafe,stroke:#3b82f6,color:#000
+    classDef compute fill:#dcfce7,stroke:#16a34a,color:#000
+    classDef messaging fill:#fce7f3,stroke:#ec4899,color:#000
+    class Donor,Biz user
+    class Form,Sheet,Repo,Pages storage
+    class Donations,Notifier,Actions compute
+    class Bot,Room messaging
+```
+
+> 💡 **大事な原則**: 全部 **無料枠** で月額 ¥0 で運用しています。
+
+---
+
+# 📚 ステップ別 手順書
+
+> このセクションを順に進めれば、デモ会の終わりには「自分で機能追加 → リリース」までできます。
+
+---
+
+## STEP 1: 環境セットアップ (10 分)
+
+> **目的**: 上間さんの Windows に必要なツールを全部入れる
+> **担当**: 上間さん主担、神谷さんサポート
+
+### 1.1 必要なソフト
+
+| 必要なもの | 役割 |
 |---|---|
-| 寄付の申し出をフォームで受ける | Google フォーム |
-| 入金確認をスプレッドシートで管理 | Google スプレッドシート |
-| HP に「累計寄付額」「寄付者一覧」を表示 | GAS + GitHub Actions + GitHub Pages |
-| フォーム送信時に運営トークルームに通知 | GAS + LINE WORKS Bot (Issue #20, PR #22) |
+| **Git for Windows** | コード管理 (Git Bash 同梱) |
+| **Node.js (v20 以上)** | ビルド・テスト |
+| **GitHub CLI (`gh`)** | リポジトリ操作 |
+| **Claude Code** | AI コーディング支援 |
 
-> 💡 すべて **無料枠** で運用しています。月額コスト ¥0。
+### 1.2 リポジトリを clone
+
+PowerShell or Git Bash で:
+
+```bash
+git clone https://github.com/kaiho-yuuhikai/official-site.git
+cd official-site
+```
+
+### 1.3 開発環境一括インストール
+
+PowerShell で:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\scripts\setup.ps1                  # Node.js / gh / Claude Code 等
+.\scripts\setup-google-clis.ps1      # clasp / gws / gog
+npm install
+npm run hooks:install                # pre-commit secret-scan
+```
+
+### 1.4 動作確認
+
+Claude Code を起動:
+
+```bash
+claude
+```
+
+中で:
+
+```
+/setup-check
+```
+
+→ 全項目 ✅ ならステップ 2 へ。❌ があれば項目に従って修正。
 
 ---
 
-## 1. 全体像 (アーキテクチャ)
+## STEP 2: Google サービスへの認証 (10 分)
+
+> **目的**: clasp / gws の OAuth を済ませて API を叩けるようにする
+> **担当**: 上間さん単独 (神谷の dev アカウントで clasp ログインのみ確認)
+
+### 2.1 ワンコマンドで認証ガイド
+
+Claude Code 内で:
 
 ```
-   👤 寄付者
-     │
-     │ 1. フォーム送信
-     ▼
-┌─────────────────┐
-│  Google フォーム   │  ← 上間さんが項目を編集
-│  (雄飛会アカウント)│
-└────────┬────────┘
-         │ 2. 自動連携
-         ▼
-┌─────────────────┐
-│ スプレッドシート   │  ← 屋良さん/上間さんが「確認済」を入力
-│  (雄飛会アカウント)│
-└────────┬────────┘
-         │ 3. JSON 配信 (毎日朝9時)
-         ▼
-┌─────────────────┐
-│  Apps Script (GAS) │  ← 神谷が clasp で更新
-│  (開発者アカウント)│
-└────────┬────────┘
-         │ 4. JSON 取得 + コミット
-         ▼
-┌─────────────────┐
-│ GitHub Actions     │  ← 毎日 09:00 JST 自動実行
-└────────┬────────┘
-         │ 5. デプロイ
-         ▼
-┌─────────────────┐
-│ GitHub Pages       │  ← https://kaiho-yuuhikai.jp/
-│ (HP 公開)          │
-└─────────────────┘
+/setup-google-clis
 ```
 
-## 2. 各構成要素の説明
+→ 「現在の状態 → インストール → OAuth ガイド」を対話的に進めてくれる。
 
-### 2.1 Google フォーム
+### 2.2 3 つの CLI の使い分け
 
-- **誰の物**: 雄飛会アカウント (`office@kaiho-yuhikai.com`)
-- **誰が触る**: 上間さん (項目編集)
-- **触り方**: ブラウザでフォームを開いて編集
-- **注意**: 列順を変更すると HP の集計がずれる可能性 (神谷に連絡)
+| CLI | 用途 | 必須度 |
+|---|---|---|
+| **clasp** | GAS スクリプトの push / deploy | **必須** (寄付システム GAS 更新) |
+| **gws** | Drive / Sheets / Forms / Gmail 等の API 操作 | **推奨** |
+| **gog** | Drive 監査・読み取り業務 | 任意 |
 
-**やりがちなこと**:
-- 「寄付金額」の選択肢を「10,000 円 / その他」に増やした
-- → 神谷に伝えて GAS の `COL_*` 定数を更新してもらう
+### 2.3 認証確認
 
-### 2.2 Google スプレッドシート (Sheet)
+```bash
+# clasp (開発者アカウント / dev ドメイン)
+clasp login
+clasp status
 
-- **誰の物**: 雄飛会アカウント
-- **誰が触る**: 上間さん / 屋良さん (承認列の入力)
-- **触り方**: ブラウザで Sheet を開く
-- **構造**:
+# gws (gcloud があれば最短)
+gws auth setup
+gws drive files list --params '{"pageSize": 5}'
+```
 
-| 列 | 内容 | 編集 |
+⚠️ **clasp は雄飛会アカウントではなく開発者ドメインで login** (cross-domain redeploy 問題回避)
+
+---
+
+## STEP 3: 既存システムを見る (15 分)
+
+> **目的**: 実際のフォーム・シート・サイトを画面共有で見て全体像を体感
+> **担当**: 神谷さん画面共有、上間さん観察 + 操作
+
+### 3.1 Google フォーム
+
+- ブラウザで寄付申込フォームを開く
+- 項目を確認 (お名前 / 入学期 / 寄付口数 / メッセージ / HP掲載 等)
+- 実際に 1 件テスト送信してもよい
+
+### 3.2 スプレッドシート
+
+| 列 | 内容 | 編集者 |
 |---|---|---|
 | A | タイムスタンプ | フォーム自動 |
 | B | メールアドレス | フォーム自動 |
@@ -90,186 +199,279 @@
 | **J** | **確認日** | **手動** (yyyy-mm-dd) |
 | **K** | **確認者** | **手動** |
 
-**業務フロー**:
-1. 寄付申込みがフォームから入る → 自動で行追加 + LINE WORKS 通知
-2. 申込者から指定口座に振込がある (会計確認)
-3. 屋良さんが I 列を「確認済」に変更、J/K に確認日・確認者を入力
-4. 翌朝 09:00 の GitHub Actions で HP に反映 (約 5 分後にサイト表示更新)
+→ I 列のプルダウンを操作してみる (テスト行は後で削除)
 
-### 2.3 Apps Script (GAS)
+### 3.3 GitHub Actions
 
-- **誰の物**: **開発者アカウント** (神谷の dev ドメイン) ← 重要
-- **誰が触る**: 神谷 (将来は上間さんも触れる)
-- **触り方**: ブラウザで Apps Script エディタを開く
-- **役割**:
-  - スプレッドシートのデータを集計して JSON で返す (`doGet`)
-  - フォーム送信時に LINE WORKS Bot で通知 (`onFormSubmit`)
-  - 認証情報は **Script Properties** に保管 (コードには書かない)
+- <https://github.com/kaiho-yuuhikai/official-site/actions> を開く
+- 直近の `Deploy to GitHub Pages` run を確認
+- 「毎朝 09:00 JST に自動」「main 更新時にも自動」の両方が動いていることを示す
 
-**なぜ別アカウント?**
-- 雄飛会アカウントで作ると、開発者から「再デプロイ」できなくなる (Workspace ポリシー)
-- Sheet は雄飛会、GAS は開発者 — の役割分担が正解
+### 3.4 GitHub Pages
 
-### 2.4 GitHub Actions
-
-- **役割**: 毎日 09:00 JST に自動実行 (cron)
-  1. note.com の RSS を取得
-  2. Threads の最新投稿を取得
-  3. Apps Script から寄付集計 JSON を取得
-  4. データ更新があれば commit + push
-  5. サイトをビルドして GitHub Pages にデプロイ
-- **手動実行**: GitHub の Actions タブから「Run workflow」で即時起動可能
-- **失敗時**: 神谷宛にメール通知 (今後セットアップ予定)
-
-### 2.5 GitHub Pages
-
-- **公開URL**: <https://kaiho-yuuhikai.jp/>
-- **ソース**: `kaiho-yuuhikai/official-site` リポジトリの main ブランチ
-- **更新タイミング**: main にコミットが入ると数分で反映
+- <https://kaiho-yuuhikai.jp/> を開く
+- 「寄付者一覧」セクションを確認
+- ブラウザを Ctrl+Shift+R で再読み込みすると最新が出る
 
 ---
 
-## 3. 日常運用フロー
+## STEP 4: サイトの簡単な変更を試す (15 分)
 
-### A. 寄付申込みが来たとき (自動)
+> **目的**: 文言や画像の差し替えを Claude Code で行う体験
+> **担当**: 上間さん主担
+
+### 4.1 ローカルプレビューを起動
+
+```
+/site-preview
+```
+
+→ ブラウザで <http://localhost:3000/official-site/> を開く
+
+### 4.2 変更を依頼
+
+```
+/site-update "トップページのキャッチコピーを「次の50年へ」に変更したい"
+```
+
+Claude が:
+- 該当ファイルを特定 (`pages/index.vue`)
+- 修正
+- 自動テスト実行
+- 「OK」と答えればプレビュー確認
+
+### 4.3 本番反映
+
+```
+/site-publish
+```
+
+→ コミット + push + デプロイ → 数分後に本番サイトで確認
+
+---
+
+## STEP 5: 機能追加を試す (30 分)
+
+> **目的**: Claude Code で「新機能 Issue 起票 → 実装 → マージ」を体験
+> **担当**: 上間さん主担
+
+### 5.1 現在の課題を見る
+
+```
+/issue-list
+```
+
+→ open Issue が一覧で表示される
+
+### 5.2 新規 Issue を起票
+
+```
+/feature-add "<やりたいこと>"
+```
+
+例: `/feature-add "GA4 を雄飛会サイトに埋め込んで訪問者数を計測したい"`
+
+Claude が背景・AC・緊急度をヒアリング → Issue を作成。
+
+> 💡 デモ会では既に起票済みの **Issue #26 (GA4 埋め込み)** を使うと早い
+
+### 5.3 実装
+
+```
+/feature-implement 26
+```
+
+Claude が:
+- 仕様を読む
+- 失敗テストを書く (RED)
+- 最小実装 (GREEN)
+- リファクタ + 全テスト (REFACTOR)
+- secret-scan
+- PR を作成
+
+### 5.4 PR レビュー → マージ
+
+```
+/feature-review-merge <PR番号>
+```
+
+Claude が変更内容を日本語で説明 → 「OK」と答えればマージ → 自動デプロイ。
+
+### 5.5 本番反映確認
+
+数分後にブラウザで Ctrl+Shift+R → 動作確認 (GA4 ならリアルタイムレポート)
+
+---
+
+## STEP 6: LINE WORKS Bot を本番稼働 (30 分)
+
+> **目的**: 寄付申込が来たら運営トークルームに自動通知する仕組みを実機稼働
+> **担当**: 上間さん主担、神谷さん同席 (初回のみ)
+> **前提**: Phase 1 (LINE WORKS Developer Console での 6 点取得) が完了済み
+
+### 6.1 GAS コードを push
+
+```bash
+cd scripts/gas/donations
+clasp login    # まだなら
+clasp push
+```
+
+### 6.2 Script Properties に認証情報を投入
+
+GAS エディタで `setupLineWorksProperties` 関数を選び、「⚙ 引数を指定して実行」:
+
+```javascript
+{
+  LW_CLIENT_ID: '<Phase 1 で取得>',
+  LW_CLIENT_SECRET: '<Phase 1 で取得>',
+  LW_SERVICE_ACCOUNT: 'xxxx.serviceaccount@<domain>',
+  LW_PRIVATE_KEY: '<<PEM形式の秘密鍵テキスト (改行込み)>>',
+  LW_BOT_ID: '<Phase 1 で取得>',
+  LW_CHANNEL_ID: '<Phase 1 で取得>',
+  ADMIN_EMAIL: 'office@kaiho-yuhikai.com'
+}
+```
+
+初回は権限承認ダイアログ → すべて「承認」
+
+### 6.3 疎通テスト
+
+GAS エディタで `testNotify` 実行 → 運営トークルームにテスト通知が届くか確認。
+
+NG の場合:
+- `401` → Service Account / Client Secret を再確認
+- `403` → Bot をチャンネルに招待
+
+### 6.4 トリガー登録
+
+GAS エディタで `installFormSubmitTrigger` 実行 → 「トリガー」欄に `onFormSubmit` が 1 件あれば OK。
+
+### 6.5 E2E テスト
+
+本番フォームにテスト 1 件送信 → 運営トークルームで通知受信を確認。
+テスト行はスプレッドシートで「キャンセル」or 削除。
+
+詳しくは `docs/operations/line-works-notification-setup.md` 参照。
+
+---
+
+# 📋 日常運用フロー (デモ後の継続業務)
+
+---
+
+## 運用 A: 寄付申込みが来たとき (自動)
 
 ```
 寄付者がフォーム送信
    ↓
-Sheet に行追加 (自動)
+スプレッドシートに行追加 (自動)
    ↓
 運営トークルームに LINE WORKS 通知 (自動)
    ↓
-[受信] 屋良さん / 上間さんが内容確認
+[受信] 屋良 / 上間さんが内容確認
 ```
 
-### B. 入金確認したとき (手動)
+## 運用 B: 入金確認したとき (手動)
 
 ```
-振込確認後、Sheet を開く
+振込確認後、スプレッドシートを開く
    ↓
-該当行の I 列「振込確認ステータス」プルダウンから「確認済」を選択
+該当行の I 列「振込確認ステータス」を「確認済」にする
    ↓
-J 列「確認日」に日付を入力 (yyyy-mm-dd)
+J 列に確認日 (yyyy-mm-dd)
    ↓
-K 列「確認者」に名前を入力
+K 列に確認者
    ↓
-翌朝 09:00 に HP 反映
+翌朝 09:00 に HP に自動反映 (急ぐなら Actions タブで手動実行)
 ```
 
-### C. 急いで HP に反映したいとき
+## 運用 C: コンテンツ更新
 
-GitHub Actions タブで `Deploy to GitHub Pages` ワークフローを「Run workflow」で手動実行。
-神谷に連絡してもらう (上間さんの GitHub アカウントに権限が付与されてからは自分で実行可)。
+| やりたいこと | コマンド |
+|---|---|
+| 文言の修正 | `/site-update` |
+| 画像の差し替え | `/site-update` |
+| 役員情報の更新 | `/site-update` |
+| 新ページ追加 | `/feature-add` → `/feature-implement` |
+| フォーム改修 | フォーム編集後 → `/feature-add` → `/feature-implement` |
+
+## 運用 D: フォームを改修したとき
+
+⚠️ **重要**: Form の項目を追加・削除すると Sheet の列順がずれて HP の集計が壊れる可能性あり。
+
+```
+1. Form を変更
+2. /feature-add "フォームに○○を E 列に追加した、GAS と HP の集計も対応してほしい"
+3. /feature-implement <Issue番号>
+4. /feature-review-merge <PR番号>
+```
 
 ---
 
-## 4. 機能開発フロー — Claude Code 専用 skill を使う
+# 🛟 困ったとき
 
-サイト更新 (`/site-update` `/site-publish`) はテキスト・画像差し替えなど **既存ページの編集**用。
-**新機能追加 / 既存機能の拡張** には以下 4 つの専用 skill を使います。
+## トラブルシューティング
 
-### 4.1 4 つの専用 skill
+| 症状 | 対処 |
+|---|---|
+| HP に反映されない | (1) Sheet の I 列が「確認済」か / (2) Actions が動いたか / (3) Ctrl+Shift+R で再読込 |
+| LINE WORKS 通知が来ない | (1) Bot が招待されているか / (2) GAS で `testNotify()` でエラー確認 / (3) `showProperties()` で 6 点投入確認 |
+| Claude Code でエラー | 日本語で「○○で詰まった」と聞く / `/setup-check` で再診断 |
+| `clasp push` が拒否される | 開発者ドメインで login しているか確認 (`clasp logout && clasp login`) |
+| Push protection エラー | コミットファイルに API トークン等が紛れていないか確認 (`npm run scan:secrets`) |
 
-| skill コマンド | 用途 | 引数 |
+## 連絡先
+
+- 急ぎ HP 修正: 神谷さんに Slack DM
+- LINE WORKS 関連: `/feature-add` で Issue 起票
+- 認証情報を失った: `docs/security/secret-handling.md` のローテーション手順
+
+---
+
+# 📖 リファレンス
+
+## skill / コマンド一覧
+
+| 種類 | コマンド | 用途 |
 |---|---|---|
-| `/issue-list` | 「いまどんな課題があるか」一覧 | なし |
-| `/feature-add` | 要望を聞き取って Issue に起票 | (任意) 要件の最初の一言 |
-| `/feature-implement <番号>` | Issue 番号を指定して実装 → PR 作成 | Issue 番号 |
-| `/feature-review-merge <番号>` | PR をビジネス向けにまとめて確認 → マージ | PR 番号 |
+| 環境 | `/setup` | 開発環境一括インストール |
+| 環境 | `/setup-check` | 環境チェック |
+| 環境 | `/setup-google-clis` | Google CLI 三種セットアップ |
+| サイト更新 | `/site-update` | テキスト・画像の小修正 |
+| サイト更新 | `/site-preview` | ローカルプレビュー |
+| サイト更新 | `/site-publish` | 本番反映 |
+| 機能開発 | `/issue-list` | 課題一覧 |
+| 機能開発 | `/feature-add` | 要望を Issue 化 |
+| 機能開発 | `/feature-implement <N>` | Issue → 実装 → PR |
+| 機能開発 | `/feature-review-merge <N>` | PR → 確認 → マージ |
 
-### 4.2 推奨フロー (典型例)
+## ファイル構成 (主要なもの)
 
-```
-1. /issue-list                        ← 今ある課題を確認
-2. /feature-add "寄付者一覧を期別に分けたい"
-   → Claude が質問しながら Issue #25 を作成
-3. /feature-implement 25
-   → Claude が TDD で実装 → PR #26 を作成
-4. /feature-review-merge 26
-   → 変更内容を日本語で説明
-   → 「OK」と答えればマージ → 自動デプロイ
-5. 数分後にブラウザで確認 (Ctrl+Shift+R で再読み込み)
-```
-
-### 4.3 シンプルな修正なら直接でも OK
-
-「文言を少し直したい」「画像を差し替えたい」程度なら、Issue を作らず `/site-update` で十分です。
-
-| やりたいこと | 推奨 skill |
+| ファイル | 内容 |
 |---|---|
-| 文言・画像・色の小修正 | `/site-update` |
-| 役員 / メンバー情報の更新 | `/site-update` |
-| 新しいページを追加 | `/feature-add` → `/feature-implement` |
-| フォームに項目追加 | `/feature-add` → `/feature-implement` |
-| HP の集計ロジック変更 | `/feature-add` → `/feature-implement` |
-| 新しい通知を追加 | `/feature-add` → `/feature-implement` |
+| `pages/index.vue` | トップページ |
+| `layouts/default.vue` | 共通レイアウト (ヘッダー・フッター) |
+| `pages/about.vue` | 理念・沿革・会則 |
+| `public/data/cms-data.json` | 動的データ (メンバー等) |
+| `scripts/gas/donations/` | 寄付システム GAS |
+| `docs/operations/line-works-notification-setup.md` | LINE WORKS 運用手順 |
+| `docs/security/secret-handling.md` | 秘匿情報取扱い |
 
-### 4.4 困ったとき
-
-- Claude Code に「ここで詰まった、どうすれば?」と聞く (日本語 OK)
-- Issue にコメントを残す (神谷も後から見られる)
-- 神谷に Slack / LINE WORKS で連絡
-- `/setup-check` で環境が正しく入っているか確認
-
----
-
-## 5. よくあるトラブルと対処
-
-### 5.1 HP に反映されない
-
-| 確認すること | やり方 |
-|---|---|
-| Sheet の I 列が「確認済」になっているか | Sheet を開く |
-| GitHub Actions が動いたか | Actions タブ > 直近の run を確認 |
-| ブラウザキャッシュを更新 | Ctrl+Shift+R (Mac は Cmd+Shift+R) |
-| データ JSON が更新されたか | `public/data/donations.json` の `fetchedAt` を見る |
-
-### 5.2 LINE WORKS 通知が来ない
-
-| 確認すること | やり方 |
-|---|---|
-| Bot がトークルームに招待されているか | LINE WORKS 上で確認 |
-| Apps Script の `testNotify()` を実行 | エラー内容で原因切り分け |
-| Script Properties が全て入っているか | `showProperties()` を実行 |
-
-### 5.3 フォームを直したい
-
-1. ブラウザで Google フォームを開いて編集
-2. 列が増減した場合は **必ず神谷に連絡** (GAS の集計コードがずれる可能性)
-3. 列増減なし (項目テキスト変更のみ) なら影響なし
-
-### 5.4 秘密情報を誤って GitHub にコミットしてしまった
-
-⚠️ 緊急対応 (`docs/security/secret-handling.md` 参照):
-
-1. **即座に該当トークン / 鍵を発行元で無効化** (これが最優先)
-2. 神谷に連絡
-3. ファイルから値を削除して新規 commit
-
-スキャナ (PR #21) が pre-commit で検査しているため、通常は防げます。
-
----
-
-## 6. 用語集
+## 用語集
 
 | 用語 | 意味 |
 |---|---|
-| **GAS** | Google Apps Script の略。Google のサービス間連携を書ける JavaScript 環境 |
-| **doGet** | GAS の関数。HTTP GET リクエストを受けて JSON 等を返すエンドポイント |
-| **トリガー** | GAS の自動実行設定。フォーム送信時 / 時間指定 等 |
-| **clasp** | GAS をローカルから push できる CLI ツール |
-| **Script Properties** | GAS のキー・バリュー保管庫。トークン等の機密情報を入れる |
-| **GitHub Actions** | GitHub のリポジトリで定時実行 / CI/CD を行う仕組み |
-| **GitHub Pages** | GitHub の無料静的サイトホスティング |
-| **PR** | Pull Request の略。コード変更の提案 |
-| **CI** | Continuous Integration の略。自動テスト・チェック |
-| **Issue** | GitHub の課題管理。バグ・機能要望を書く |
-| **secret scan** | 秘密情報の誤コミットを検出する仕組み |
+| GAS | Google Apps Script の略 |
+| トリガー | GAS の自動実行設定 (フォーム送信時 / 時間指定 等) |
+| clasp | GAS をローカルから push する CLI |
+| Script Properties | GAS のキー・バリュー保管庫 (秘匿情報はここに入れる) |
+| Issue | GitHub の課題管理 |
+| PR | Pull Request の略 (変更案) |
+| CI | 自動テスト・チェック |
+| secret-scan | 秘密情報の誤コミット検出 |
 
----
-
-## 7. 参考リンク
+## 参考リンク
 
 | カテゴリ | リンク |
 |---|---|
@@ -281,124 +483,20 @@ GitHub Actions タブで `Deploy to GitHub Pages` ワークフローを「Run wo
 | セキュリティ | `docs/security/secret-handling.md` |
 | LINE WORKS Developers | <https://developers.worksmobile.com/jp/docs/> |
 | GAS リファレンス | <https://developers.google.com/apps-script/reference> |
-| GitHub Pages | <https://pages.github.com/> |
 
 ---
 
-## 7.5 Windows ユーザー向け前提条件
+# ✅ デモ会で踏むチェックリスト
 
-上間さんの環境 (Windows + Claude Code) でこのプロジェクトを動かすための前提:
+このハンドブックを上から順に進めれば全部触れます。チェックを入れながら進めてください。
 
-| 必要なもの | インストール方法 |
-|---|---|
-| **Git for Windows** | <https://git-scm.com/download/win> から DL (Git Bash も同梱) |
-| **Node.js (v20 以上)** | <https://nodejs.org/> から LTS 版 |
-| **GitHub CLI (`gh`)** | <https://cli.github.com/> から DL or `winget install GitHub.cli` |
-| **Claude Code** | <https://docs.claude.com/claude-code> の手順通り |
+- [ ] STEP 1 環境セットアップ
+- [ ] STEP 2 Google サービス認証
+- [ ] STEP 3 既存システムを見る
+- [ ] STEP 4 サイトの簡単な変更を試す
+- [ ] STEP 5 機能追加を試す
+- [ ] STEP 6 LINE WORKS Bot を本番稼働
+- [ ] 質疑応答 + 次回までの宿題確認
 
-**初回セットアップ手順 (Windows / PowerShell)**:
-
-```powershell
-# PowerShell を「管理者として実行」ではなく、通常で開く
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-cd kaiho-yuuhikai-official-site
-.\scripts\setup.ps1    # 必要ツールを自動インストール
-npm install
-npm run hooks:install  # pre-commit フックを導入
-```
-
-**注意点**:
-
-- pre-commit フックは Windows でも動作 (Git Bash が sh を提供)
-- 上記 `hooks:install` で symlink が失敗した場合は自動で copy にフォールバック
-- 改行コードは Git の `core.autocrlf=true` で自動処理されるため意識不要
-- `npm run scan:secrets` も Windows でそのまま動く
-- ターミナルは「Windows Terminal」+「Git Bash」または PowerShell を推奨
-
-**トラブル時**:
-
-- `node --version` が動かない → Node.js 未インストール / PATH 未設定
-- `gh auth status` で未認証 → `gh auth login` で対話的にログイン
-- `claude` コマンドがない → Claude Code 再インストール
-
-## 7.6 Google 三種 CLI のセットアップ
-
-雄飛会プロジェクトでは Google サービスを操作するために 3 つの CLI を使います。
-セットアップは自動化済み、`/setup-google-clis` skill で一発実行可能。
-
-| CLI | 何のため | 推奨度 |
-|---|---|---|
-| **clasp** | GAS スクリプトの push / deploy (公式) | **必須** |
-| **gws** | Drive / Sheets / Gmail / Forms / Calendar 等の API 操作 (公式 Rust) | **推奨** |
-| **gog** | Drive 監査・読み取り業務 (コミュニティ Go) | 任意 |
-
-### ワンライナーインストール
-
-**macOS / Linux**:
-```bash
-bash scripts/setup-google-clis.sh
-```
-
-**Windows (PowerShell)**:
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\scripts\setup-google-clis.ps1
-```
-
-### Claude Code 経由 (推奨)
-
-```
-/setup-google-clis
-```
-
-Claude が「現在の状態確認 → インストール → OAuth 認証ガイド」まで対話的に進めます。
-
-### よく使うコマンド例
-
-```bash
-# GAS コードを反映
-cd scripts/gas/donations && clasp push
-
-# 寄付スプレッドシートの列ヘッダーを取得 (drift 検知用)
-gws sheets spreadsheets values get \
-  --params '{"spreadsheetId":"1Y5S1uw...","range":"donations!A1:K1"}'
-
-# フォーム回答を確認
-gws forms responses list --params '{"formId":"<id>"}'
-
-# Drive の共有設定監査
-gog drive audit sharing --parent <folderId> --internal-domain kaiho-yuhikai.com
-```
-
-詳しくは `.claude/commands/setup-google-clis.md` 参照。
-
-## 8. スキトラデモのチェックリスト (今日の会で確認)
-
-### 共通
-
-- [ ] Google フォームを開いて項目を見る
-- [ ] スプレッドシートを開いて承認列のプルダウンを操作してみる
-- [ ] GitHub の Actions タブで日次 run の履歴を見る
-- [ ] GitHub Pages の HP を開いて「寄付者一覧」セクションを確認
-- [ ] LINE WORKS の運営トークルームで Bot 通知を確認
-- [ ] Apps Script エディタを開いて Script Properties の場所を見る
-
-### Claude Code (上間さんの Windows で実機)
-
-- [ ] `/setup-check` で環境 OK を確認
-- [ ] `/site-preview` でローカルプレビュー
-- [ ] `/issue-list` で現在の課題一覧
-- [ ] `/feature-add "テスト用の小さな機能要望"` で Issue 起票デモ
-- [ ] `/feature-implement <番号>` で Claude が実装する流れを観察
-- [ ] `/feature-review-merge <番号>` でマージ前確認の流れを観察
-- [ ] `/site-publish` で軽微な変更を本番反映
-
-### 質疑応答
-
-- [ ] わからない用語の質問
-- [ ] 「こうしたい」を 1〜2 件挙げて Issue 化テスト
-
----
-
-🎓 **次のステップ**: このドキュメントを見ながら、上間さんが 1 人で操作できる箇所を増やしていきましょう。
+🎓 **次のステップ**: デモ後の宿題は Issue #27 に集約しています。
 わからないことは GitHub Issue or Slack で気軽に質問してください。
