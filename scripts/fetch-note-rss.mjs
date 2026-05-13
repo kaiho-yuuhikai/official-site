@@ -2,17 +2,21 @@
 /**
  * note.com の RSS フィードを取得し、JSON ファイルに保存する
  * GitHub Actions から定期実行される
+ *
+ * - articles: アカウント全体の最新記事（トップグリッド用）
+ * - magazineCreators: マガジン内の記事をクリエイター別にグループ化
  */
 
-const NOTE_RSS_URL = 'https://note.com/kaihoyuuhikai/rss'
+const NOTE_ACCOUNT_RSS = 'https://note.com/kaihoyuuhikai/rss'
+const NOTE_MAGAZINE_RSS = 'https://note.com/kaihoyuuhikai/m/m20c04499fc49/rss'
 const OUTPUT_PATH = 'public/data/note-articles.json'
 
 import { writeFileSync, mkdirSync } from 'fs'
 import { dirname } from 'path'
 
-async function fetchRSS() {
-  console.log(`Fetching RSS from ${NOTE_RSS_URL}...`)
-  const res = await fetch(NOTE_RSS_URL)
+async function fetchRSS(url) {
+  console.log(`Fetching RSS from ${url}...`)
+  const res = await fetch(url)
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   return await res.text()
 }
@@ -50,7 +54,13 @@ function parseRSS(xml) {
       if (imgMatch) image = imgMatch[1]
     }
 
-    items.push({ title, link, pubDate, description: stripHtml(description), image })
+    // Extract note:creatorName and note:creatorImage
+    const creatorNameMatch = itemXml.match(/<note:creatorName>([\s\S]*?)<\/note:creatorName>/)
+    const creatorName = creatorNameMatch ? creatorNameMatch[1].trim() : ''
+    const creatorImageMatch = itemXml.match(/<note:creatorImage>([\s\S]*?)<\/note:creatorImage>/)
+    const creatorImage = creatorImageMatch ? creatorImageMatch[1].trim() : ''
+
+    items.push({ title, link, pubDate, description: stripHtml(description), image, creatorName, creatorImage })
   }
 
   return items
@@ -80,24 +90,44 @@ function stripHtml(str) {
 
 async function main() {
   try {
-    const xml = await fetchRSS()
-    const articles = parseRSS(xml)
-
-    if (articles.length === 0) {
-      console.error('No articles found in RSS feed')
+    // アカウント全体の最新記事
+    const accountXml = await fetchRSS(NOTE_ACCOUNT_RSS)
+    const accountArticles = parseRSS(accountXml)
+    if (accountArticles.length === 0) {
+      console.error('No articles found in account RSS feed')
       process.exit(1)
     }
 
+    // マガジン内の記事（クリエイター別グループ化）
+    const magazineXml = await fetchRSS(NOTE_MAGAZINE_RSS)
+    const magazineArticles = parseRSS(magazineXml)
+
+    const creatorsMap = new Map()
+    for (const article of magazineArticles) {
+      const key = article.creatorName || '開邦雄飛会'
+      if (!creatorsMap.has(key)) {
+        creatorsMap.set(key, { creatorName: key, creatorImage: article.creatorImage, articles: [] })
+      }
+      creatorsMap.get(key).articles.push({
+        title: article.title,
+        link: article.link,
+        pubDate: article.pubDate,
+        image: article.image,
+      })
+    }
+    const magazineCreators = Array.from(creatorsMap.values())
+
     const output = {
       fetchedAt: new Date().toISOString(),
-      articles: articles.slice(0, 6), // 最新6件
+      articles: accountArticles.slice(0, 6), // 最新6件
+      magazineCreators,
     }
 
     mkdirSync(dirname(OUTPUT_PATH), { recursive: true })
     writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf-8')
-    console.log(`Saved ${output.articles.length} articles to ${OUTPUT_PATH}`)
-    console.log('Titles:')
-    output.articles.forEach(a => console.log(`  - ${a.title}`))
+    console.log(`Saved ${output.articles.length} account articles to ${OUTPUT_PATH}`)
+    console.log(`Saved ${magazineCreators.length} creator groups (${magazineArticles.length} magazine articles)`)
+    magazineCreators.forEach(c => console.log(`  ${c.creatorName}: ${c.articles.length}件`))
   } catch (err) {
     console.error('Failed to fetch RSS:', err.message)
     process.exit(1)
