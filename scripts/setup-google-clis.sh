@@ -98,8 +98,8 @@ if [ "$SKIP_GOG" -eq 0 ]; then
   fi
   echo
   echo "  次の手順:"
-  echo "    gog auth credentials ~/Downloads/client_secret_xxx.json"
-  echo "    gog auth add you@gmail.com --services drive,sheets,gmail"
+  echo "    gog auth credentials ~/Downloads/client_secret_<your-id>.json"
+  echo "    gog auth add <your-email> --services drive,sheets,gmail"
   echo "    gog drive tree --parent <folderId> --depth 2  # 動作確認"
 fi
 
