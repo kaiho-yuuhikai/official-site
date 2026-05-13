@@ -229,10 +229,106 @@ function ensureSheetStructure_(ss, form) {
 
 /**
  * デバッグ用: 現在保存されている Properties を表示
+ * 注意: 秘匿値 (LW_PRIVATE_KEY / TOKEN 等) は redact してログ出力する。
  */
 function showProperties() {
   const props = PropertiesService.getScriptProperties().getProperties()
-  Logger.log(JSON.stringify(props, null, 2))
+  const SENSITIVE_KEYS = ['LW_PRIVATE_KEY', 'LW_CLIENT_SECRET', 'DONATIONS_TOKEN']
+  const redacted = {}
+  for (const k of Object.keys(props)) {
+    if (SENSITIVE_KEYS.indexOf(k) >= 0) {
+      const v = String(props[k] || '')
+      redacted[k] = v ? '***(length=' + v.length + ')' : '(empty)'
+    } else {
+      redacted[k] = props[k]
+    }
+  }
+  Logger.log(JSON.stringify(redacted, null, 2))
+}
+
+/**
+ * LINE WORKS Bot 通知用の Script Properties を一括投入する (Issue #20)。
+ *
+ * Phase 1 (LINE WORKS Developer Console) で取得した 6 点 + ADMIN_EMAIL を引数で渡す。
+ * GAS エディタから呼ぶ場合は params を直接書く / clasp run-function でも可。
+ *
+ * 例:
+ *   setupLineWorksProperties({
+ *     LW_CLIENT_ID:       '...',
+ *     LW_CLIENT_SECRET:   '...',
+ *     LW_SERVICE_ACCOUNT: 'xxx.serviceaccount@<domain>',
+ *     LW_PRIVATE_KEY:     '<<PEM形式の秘密鍵テキスト (改行込み)>>',
+ *     LW_BOT_ID:          '12345678',
+ *     LW_CHANNEL_ID:      '...',
+ *     ADMIN_EMAIL:        'admin@example.com',
+ *   })
+ *
+ * 注意: コードにハードコードして clasp push しないこと。
+ *       GAS エディタの「実行」入力欄に引数を貼り付けるか、
+ *       「プロジェクト設定 → スクリプトプロパティ」から手入力する。
+ */
+function setupLineWorksProperties(params) {
+  if (!params || typeof params !== 'object') {
+    throw new Error('setupLineWorksProperties: params (object) is required')
+  }
+  const REQUIRED = ['LW_CLIENT_ID', 'LW_CLIENT_SECRET', 'LW_SERVICE_ACCOUNT', 'LW_PRIVATE_KEY', 'LW_BOT_ID', 'LW_CHANNEL_ID']
+  const missing = []
+  for (const k of REQUIRED) {
+    if (!params[k]) missing.push(k)
+  }
+  if (missing.length > 0) {
+    throw new Error('setupLineWorksProperties: 必須キーが不足 (missing: ' + missing.join(', ') + ')')
+  }
+  const props = PropertiesService.getScriptProperties()
+  for (const k of REQUIRED) {
+    props.setProperty(k, String(params[k]))
+  }
+  if (params.ADMIN_EMAIL) {
+    props.setProperty('ADMIN_EMAIL', String(params.ADMIN_EMAIL))
+  }
+  Logger.log('LINE WORKS Properties を設定しました: ' + REQUIRED.join(', ') +
+    (params.ADMIN_EMAIL ? ', ADMIN_EMAIL' : ''))
+  return { saved: REQUIRED.concat(params.ADMIN_EMAIL ? ['ADMIN_EMAIL'] : []) }
+}
+
+/**
+ * フォーム送信トリガーを 1 個だけ登録する (Issue #20)。
+ *
+ * 既に同名トリガーがある場合は削除してから再登録する (重複登録を回避)。
+ *
+ * 実行は GAS エディタで関数 installFormSubmitTrigger を選んで「▶ 実行」。
+ * 初回は権限承認が走る (UrlFetchApp / MailApp / Spreadsheet)。
+ */
+function installFormSubmitTrigger() {
+  const props = PropertiesService.getScriptProperties()
+  const ssId = props.getProperty('SPREADSHEET_ID')
+  if (!ssId) throw new Error('SPREADSHEET_ID 未設定。runBootstrap を先に実行してください。')
+  const ss = SpreadsheetApp.openById(ssId)
+
+  // 既存の onFormSubmit トリガーを削除
+  const existing = ScriptApp.getProjectTriggers()
+  let removed = 0
+  for (const t of existing) {
+    if (t.getHandlerFunction() === 'onFormSubmit') {
+      ScriptApp.deleteTrigger(t)
+      removed++
+    }
+  }
+
+  // 新規登録 (Sheet ベースの onFormSubmit)
+  ScriptApp.newTrigger('onFormSubmit').forSpreadsheet(ss).onFormSubmit().create()
+  Logger.log('installFormSubmitTrigger: removed=' + removed + ' / installed=1')
+  return { removed: removed, installed: 1 }
+}
+
+/**
+ * 登録済みトリガーを全て削除する (緊急停止用)。
+ */
+function uninstallAllTriggers() {
+  const triggers = ScriptApp.getProjectTriggers()
+  for (const t of triggers) ScriptApp.deleteTrigger(t)
+  Logger.log('uninstallAllTriggers: removed=' + triggers.length)
+  return { removed: triggers.length }
 }
 
 /**
