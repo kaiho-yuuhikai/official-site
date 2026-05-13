@@ -392,25 +392,33 @@
         </div>
 
         <!-- Creator-grouped magazine articles -->
-        <div v-if="noteCreatorGroups.length > 0 && !noteLoading" class="mt-20">
+        <div v-if="!noteLoading" class="mt-20">
           <div class="mb-10">
             <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creator Articles</p>
             <h3 class="text-2xl md:text-3xl font-black tracking-tight">クリエイター別記事</h3>
           </div>
           <div class="space-y-12">
-            <div v-for="creator in noteCreatorGroups" :key="creator.creatorName">
+            <div v-for="creator in creatorArticleGroups" :key="creator.name">
               <!-- Creator header -->
               <div class="flex items-center gap-3 mb-5">
-                <img v-if="creator.creatorImage" :src="creator.creatorImage" :alt="creator.creatorName"
-                     class="w-10 h-10 rounded-full object-cover border border-neutral-100 flex-shrink-0" loading="lazy" />
-                <div v-else class="w-10 h-10 rounded-full bg-kaiho-green/20 flex items-center justify-center flex-shrink-0">
-                  <span class="text-sm font-black text-kaiho-green">{{ creator.creatorName.charAt(0) }}</span>
+                <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                  <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name"
+                       class="w-full h-full object-cover object-top" loading="lazy" />
+                  <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
+                    <span class="text-sm font-black text-white">{{ creator.initial }}</span>
+                  </div>
                 </div>
-                <span class="font-bold text-neutral-900">{{ creator.creatorName }}</span>
-                <span class="text-xs text-neutral-400">{{ creator.articles.length }}件</span>
+                <div>
+                  <span class="font-bold text-neutral-900">{{ creator.name }}</span>
+                  <span class="text-xs text-neutral-400 ml-2">{{ creator.generation }} {{ creator.department }}</span>
+                </div>
+              </div>
+              <!-- 準備中 -->
+              <div v-if="creator.noteCreatorKey === null" class="py-6 px-4 bg-neutral-50 rounded-xl text-center">
+                <span class="text-sm text-neutral-400 font-medium">準備中</span>
               </div>
               <!-- Creator articles -->
-              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div v-else class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <a v-for="article in creator.articles" :key="article.link"
                    :href="article.link" target="_blank" rel="noopener noreferrer"
                    class="card-hover bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-100 block group flex gap-3 p-3 items-start">
@@ -1477,6 +1485,7 @@ const spotlightCreators = [
     photo: 'images/creators/hento-momoka.jpg',
     bgClass: getMemberBgClass(0),
     bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
+    noteCreatorKey: 'くるみ',
   },
   {
     name: '我喜屋',
@@ -1486,6 +1495,7 @@ const spotlightCreators = [
     photo: 'images/mentors/gakiya-kanato.jpg',
     bgClass: getMemberBgClass(1),
     bio: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
+    noteCreatorKey: 'がっきー',
   },
   {
     name: '上間',
@@ -1495,6 +1505,7 @@ const spotlightCreators = [
     photo: 'images/members/uema.png',
     bgClass: getMemberBgClass(2),
     bio: '子育てや仕事の話、同窓会活動について執筆しています。',
+    noteCreatorKey: 'uema1125',
   },
   {
     name: '具志',
@@ -1504,6 +1515,7 @@ const spotlightCreators = [
     photo: '',
     bgClass: getMemberBgClass(3),
     bio: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
+    noteCreatorKey: '開邦雄飛会',
   },
   {
     name: 'はぐ',
@@ -1513,8 +1525,19 @@ const spotlightCreators = [
     photo: 'images/creators/hagu-38.jpg',
     bgClass: getMemberBgClass(4),
     bio: '東京藝術大学音楽学部声楽科ソプラノ専攻1年。芸術系のイベント開催（音楽・美術どちらも）に興味があります！',
+    noteCreatorKey: null,
   },
 ]
+
+const creatorArticleGroups = computed(() =>
+  spotlightCreators.map(creator => {
+    const group = noteCreatorGroups.value.find(g => g.creatorName === creator.noteCreatorKey)
+    return {
+      ...creator,
+      articles: group ? group.articles.slice(0, 3) : [],
+    }
+  })
+)
 
 const noteFallbackImageHtml = '<div class="h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100 flex items-center justify-center"><svg class="w-12 h-12 text-kaiho-green/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>'
 
