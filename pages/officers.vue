@@ -11,8 +11,43 @@
       </div>
     </section>
 
-    <!-- 運営メンバー一覧 -->
+    <!-- 役員名簿 -->
     <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Officers</p>
+          <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-3xl md:text-5xl font-black tracking-tight">役員名簿</h2>
+            <span class="bg-kaiho-gold/20 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">新体制案</span>
+          </div>
+          <div class="section-divider" style="margin:0"></div>
+          <p class="text-xs text-neutral-400 mt-4">※ 令和8年7月18日 定期総会での承認を経て正式に発効予定</p>
+        </div>
+
+        <div class="space-y-3 fade-in">
+          <div v-for="role in officerRoles" :key="role.role"
+               class="flex items-start gap-4 bg-neutral-50 rounded-xl px-5 py-4 border border-neutral-100">
+            <div class="w-32 flex-shrink-0">
+              <span class="text-xs font-bold text-neutral-700">{{ role.role }}</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span v-for="m in role.members" :key="m.name"
+                    class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 rounded-lg px-3 py-1 text-sm font-bold text-neutral-900 shadow-sm">
+                {{ m.name }}
+                <span class="text-xs text-neutral-500 font-normal">{{ m.generation }}</span>
+              </span>
+              <span v-if="role.recruiting"
+                    class="inline-flex items-center gap-1.5 bg-kaiho-green/5 border border-kaiho-green/20 rounded-lg px-3 py-1 text-xs font-bold text-kaiho-green">
+                ＋ 募集中
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 運営メンバー一覧 -->
+    <section class="py-24 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Members</p>
@@ -171,6 +206,23 @@ const colorClasses = [
 function getBgClass(index: number) {
   return colorClasses[index % colorClasses.length]
 }
+
+const officerRoles = [
+  { role: '会長', members: [{ name: '上里', generation: '3期' }] },
+  { role: '副会長', members: [{ name: '宮城', generation: '3期' }, { name: '上間', generation: '16期' }] },
+  { role: '事務局長', members: [{ name: '又吉', generation: '15期' }] },
+  { role: '事務局長補佐', members: [{ name: '泉川', generation: '18期' }] },
+  { role: '会計', members: [{ name: '知念', generation: '20期' }, { name: '瀬長', generation: '24期' }] },
+  { role: '会計監査', members: [{ name: '久貝', generation: '12期' }] },
+  { role: '常任委員', members: [
+    { name: '神谷', generation: '14期' },
+    { name: '崎原', generation: '19期' },
+    { name: '具志', generation: '26期' },
+    { name: '我喜屋', generation: '36期' },
+    { name: '砂川', generation: '20期' },
+    { name: '金城', generation: 'PTA' },
+  ], recruiting: true },
+]
 
 const members = [
   { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', comment: 'システムやデータ分析を手伝います' },
