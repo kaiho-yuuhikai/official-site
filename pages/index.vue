@@ -679,6 +679,19 @@
                   <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">楽しいことが大好きです！同窓会を盛り上げて行きましょう♪</p>
                 </div>
               </div>
+              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-blue to-blue-400 flex items-center justify-center flex-shrink-0">
+                  <span class="text-2xl font-black text-white">ゆ</span>
+                </div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">19期 理数科</span>
+                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">地域価値創造プロデューサー | キャリア協育</span>
+                  </div>
+                  <p class="font-bold text-neutral-900 text-sm">ゆき</p>
+                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1354,6 +1367,7 @@ const memberList = [
   { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
   { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
+  { name: 'ゆき', generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
 ]
 
 const memberCorners = [
