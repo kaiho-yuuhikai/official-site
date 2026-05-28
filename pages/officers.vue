@@ -46,43 +46,6 @@
       </div>
     </section>
 
-    <!-- 運営メンバー一覧 -->
-    <section class="py-24 bg-neutral-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Members</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">運営メンバー</h2>
-          <div class="section-divider" style="margin:0"></div>
-          <p class="text-neutral-500 text-sm mt-6 max-w-2xl">
-            現在、2026年度の新体制構築に向けて準備を進めています。世代を超えた多様なメンバーが雄飛会の運営に参画しています。
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
-          <div v-for="member in members" :key="member.name"
-               class="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 flex items-start gap-4"
-               :class="member.comment ? 'flex-col' : ''">
-            <div class="flex items-center gap-4 w-full">
-              <div class="w-12 h-12 rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
-                   :class="!member.photo ? member.bgClass : ''">
-                <img v-if="member.photo" :src="baseURL + member.photo" :alt="member.name" class="w-full h-full object-cover" />
-                <span v-else>{{ member.initial }}</span>
-              </div>
-              <div class="min-w-0">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <h4 class="font-bold text-neutral-900 text-sm truncate">{{ member.name }}</h4>
-                  <span v-if="member.branch" class="text-[10px] font-bold bg-kaiho-teal/10 text-kaiho-teal px-1.5 py-0.5 rounded-full">{{ member.branch }}</span>
-                </div>
-                <p class="text-xs text-neutral-500">{{ member.generation }}</p>
-                <p v-if="member.note" class="text-[10px] text-neutral-400 truncate">{{ member.note }}</p>
-              </div>
-            </div>
-            <p v-if="member.comment" class="text-[11px] text-neutral-500 leading-relaxed italic border-l-2 border-kaiho-green/30 pl-3">{{ member.comment }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 運営チーム -->
     <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
