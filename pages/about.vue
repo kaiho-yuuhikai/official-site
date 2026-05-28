@@ -88,20 +88,19 @@
           <!-- 組織図案 -->
           <div class="mb-8">
             <div class="flex items-center gap-3 mb-4">
-              <h4 class="font-bold text-neutral-900 text-sm">新会則 組織体制案（2026年3月策定）</h4>
-              <span class="bg-kaiho-gold/20 text-kaiho-gold text-xs font-bold px-2.5 py-1 rounded-full">案</span>
+              <h4 class="font-bold text-neutral-900 text-sm">新会則 組織体制案（改正案・令和8年7月施行予定）</h4>
+              <span class="bg-kaiho-gold/20 text-kaiho-gold text-xs font-bold px-2.5 py-1 rounded-full">改正案</span>
             </div>
-            <p class="text-xs text-neutral-500 mb-4">代表幹事制（役員会議・2年任期）・脱ピラミッド型　約10名規模</p>
             <div class="border border-neutral-200 rounded-xl overflow-hidden">
               <img
-                :src="`${config.app.baseURL}images/org-chart-2026.jpg`"
-                alt="開邦雄飛会 組織図（新会則案）2026年3月策定"
+                :src="`${config.app.baseURL}images/org-chart-2026-r8.png`"
+                alt="開邦雄飛会 組織図（改正案・令和8年7月施行予定）"
                 class="w-full h-auto"
                 loading="lazy"
               />
             </div>
             <p class="text-xs text-neutral-400 mt-3 text-center">
-              ※ この組織図は改定案であり、2026年度総会での承認を経て正式に発効します。
+              ※ この組織図は改定案であり、令和8年7月18日の総会での承認を経て正式に発効します。
             </p>
           </div>
 
