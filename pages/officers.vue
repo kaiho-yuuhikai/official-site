@@ -61,8 +61,32 @@
           <div v-for="team in teams" :key="team.name"
                class="card-hover bg-neutral-50 rounded-2xl p-6 shadow-sm border-t-4"
                :class="team.borderClass">
-            <h3 class="font-bold text-neutral-900 mb-2">{{ team.name }}</h3>
-            <p class="text-sm text-neutral-600">{{ team.description }}</p>
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded-full mb-2 inline-block" :class="team.badgeClass">{{ team.number }}</span>
+                <h3 class="font-bold text-neutral-900 text-base">{{ team.name }}</h3>
+                <p class="text-xs text-neutral-500">{{ team.subtitle }}</p>
+              </div>
+            </div>
+            <p class="text-sm text-neutral-600 mb-4">{{ team.description }}</p>
+            <div class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-neutral-100">
+              <svg class="w-4 h-4 text-neutral-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span class="text-xs text-neutral-500">プロジェクトリーダー</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- プロジェクトリーダーの役割 -->
+        <div class="mt-12 bg-neutral-50 rounded-2xl p-6 border border-neutral-200 fade-in">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-5 h-5 text-neutral-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <p class="font-bold text-neutral-900 text-sm">プロジェクトリーダーの役割</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div v-for="role in projectLeaderRoles" :key="role" class="flex items-center gap-2 text-sm text-neutral-600">
+              <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green flex-shrink-0"></span>
+              {{ role }}
+            </div>
           </div>
         </div>
       </div>
@@ -159,11 +183,18 @@ const members = [
 ]
 
 const teams = [
-  { name: '企画チーム', description: 'イベントやプロジェクトの企画・立案を担当します。', borderClass: 'border-kaiho-blue' },
-  { name: '広報チーム', description: 'note記事の執筆、SNS運用、対外的な情報発信を担います。', borderClass: 'border-kaiho-orange' },
-  { name: '渉外チーム', description: 'メンター確保、学校・PTA・外部団体との連携を推進します。', borderClass: 'border-kaiho-teal' },
-  { name: '財務チーム', description: '会計管理、収支報告を担当します。', borderClass: 'border-kaiho-purple' },
-  { name: 'IT/デジタルチーム', description: '公式サイト運営、データ管理、デジタルツール整備を行います。', borderClass: 'border-kaiho-green' },
+  { number: '①', name: '教育支援事業', subtitle: 'メンター制度・特設授業', description: 'メンター制度の運営および創立記念特設授業を通じて、在校生のキャリア形成を支援します。', borderClass: 'border-kaiho-blue', badgeClass: 'bg-kaiho-blue/10 text-kaiho-blue' },
+  { number: '②', name: '若手芸術家育成事業', subtitle: '後援・活動支援', description: '同窓生の若手芸術家の活動を後援し、発表の場づくりや情報発信を通じて活動を支援します。', borderClass: 'border-kaiho-green', badgeClass: 'bg-kaiho-green/10 text-kaiho-green' },
+  { number: '③', name: '地域連携事業', subtitle: 'ボランティア', description: 'PTA・在校生・地域と連携した道路清掃ボランティアなど、地域に根ざした活動を推進します。', borderClass: 'border-kaiho-orange', badgeClass: 'bg-kaiho-orange/10 text-kaiho-orange' },
+  { number: '④', name: 'デジタル推進事業', subtitle: 'HP・システム化', description: '公式ホームページの運営・改善および会員管理・会計のデジタル化・システム化を推進します。', borderClass: 'border-kaiho-purple', badgeClass: 'bg-kaiho-purple/10 text-kaiho-purple' },
+  { number: '⑤', name: '会員交流促進事業', subtitle: '総会懇親会', description: '定期総会や懇親会の企画・運営を通じて、会員同士の交流と組織の活性化を図ります。', borderClass: 'border-kaiho-teal', badgeClass: 'bg-kaiho-teal/10 text-kaiho-teal' },
+]
+
+const projectLeaderRoles = [
+  '事業計画の立案・実行',
+  'メンバーの連携・調整',
+  '進捗管理・報告',
+  '成果の可視化',
 ]
 
 onMounted(() => {
