@@ -166,11 +166,11 @@
             </div>
             <!-- 画像2枚を横並びで大きく表示 -->
             <div class="grid grid-cols-2 gap-3 px-8 pb-6">
-              <div class="relative overflow-hidden rounded-2xl">
-                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-80 md:h-96 object-cover object-top">
+              <div class="rounded-2xl overflow-hidden">
+                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-auto">
               </div>
-              <div class="relative overflow-hidden rounded-2xl">
-                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-80 md:h-96 object-cover object-top">
+              <div class="rounded-2xl overflow-hidden">
+                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-auto">
               </div>
             </div>
             <!-- コンサート詳細 -->
