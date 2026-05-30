@@ -165,7 +165,7 @@
               <p class="text-neutral-500 text-sm">～サクソフォンとピアノで彩る室内楽～</p>
             </div>
             <!-- 画像2枚を横並びで大きく表示 -->
-            <div class="grid grid-cols-2 gap-3 px-8 pb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 px-8 pb-6">
               <div class="rounded-2xl overflow-hidden">
                 <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-auto">
               </div>
