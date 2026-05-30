@@ -204,53 +204,28 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <!-- Project: 道路清掃ボランティア -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-                </div>
-                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full badge-pulse">毎月第二日曜</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">道路清掃ボランティア</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">鳥堀自治会と合同で、開邦周辺の道路清掃を毎月第二日曜日に実施。学校と地域のつながりをつくる活動。</p>
-              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-2">
-                  <span class="text-xs text-neutral-500">第1回（2026/3/8）— 約10名参加</span>
-                </div>
-                <p class="text-xs text-neutral-500 mt-1">PTA・在校生・同窓生・地域住民が合同で実施</p>
-              </div>
-              <a href="#volunteer" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
-                詳しく見る <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 4: 同窓生交流 -->
+          <!-- Project: 総会懇親会企画 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-40 relative overflow-hidden">
-              <img :src="`${baseURL}images/alumni-exchange.jpeg`" alt="同窓生交流活動" class="w-full h-full object-cover">
+              <img :src="`${baseURL}images/alumni-exchange.jpeg`" alt="総会懇親会" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black/30"></div>
             </div>
             <div class="p-8">
               <div class="flex items-start justify-between mb-4">
                 <div class="w-14 h-14 bg-kaiho-teal/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+                  <svg class="w-7 h-7 text-kaiho-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.75 3.75 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0z"/></svg>
                 </div>
                 <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">企画中</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">同窓生交流活動</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">大同窓会やチャリティイベントなど、同窓生同士が世代を超えてつながる交流の場を企画。</p>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">総会懇親会企画</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">年次総会に合わせた懇親会を企画。同窓生が久しぶりに顔を合わせ、世代を超えて交流できる場を提供します。</p>
               <div class="bg-kaiho-teal/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-3">
-                  <span class="text-2xl font-black text-kaiho-teal">537</span>
-                  <span class="text-xs text-neutral-500">名が前回の<br>大同窓会に参加</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-neutral-500">令和8年度定期総会（2026年7月予定）に合わせて実施</span>
                 </div>
               </div>
-              <a href="#archive" class="inline-flex items-center gap-2 text-kaiho-teal text-sm font-bold hover:gap-3 transition-all">
-                過去の開催を見る <span>&rarr;</span>
+              <a href="/official-site/news/soukai" class="inline-flex items-center gap-2 text-kaiho-teal text-sm font-bold hover:gap-3 transition-all">
+                総会について見る <span>&rarr;</span>
               </a>
             </div>
           </div>
@@ -308,6 +283,30 @@
               </div>
               <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
                 メンター一覧を見る <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project: 道路清掃ボランティア -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+                </div>
+                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full badge-pulse">毎月第二日曜</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">道路清掃ボランティア</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">鳥堀自治会と合同で、開邦周辺の道路清掃を毎月第二日曜日に実施。学校と地域のつながりをつくる活動。</p>
+              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-neutral-500">第1回（2026/3/8）— 約10名参加</span>
+                </div>
+                <p class="text-xs text-neutral-500 mt-1">PTA・在校生・同窓生・地域住民が合同で実施</p>
+              </div>
+              <a href="#volunteer" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
+                詳しく見る <span>&rarr;</span>
               </a>
             </div>
           </div>
