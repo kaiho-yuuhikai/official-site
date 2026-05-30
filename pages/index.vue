@@ -155,45 +155,50 @@
         <div class="mb-10 fade-in">
           <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-gold/30 group">
             <div class="h-2 bg-gradient-to-r from-kaiho-gold via-yellow-400 to-kaiho-gold"></div>
-            <div class="flex flex-col lg:flex-row">
-              <!-- ポスター画像 -->
-              <div class="lg:w-64 xl:w-72 flex-shrink-0 relative overflow-hidden">
-                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-72 lg:h-full object-cover object-top">
-                <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent"></div>
+            <!-- バッジ・タイトル -->
+            <div class="px-8 pt-8 pb-4">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
+                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
               </div>
-              <!-- コンサート詳細 -->
-              <div class="flex-1 p-8 lg:p-10">
-                <div class="flex flex-wrap items-center gap-2 mb-4">
-                  <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
-                  <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
-                </div>
-                <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
-                <p class="text-neutral-500 text-sm mb-5">～サクソフォンとピアノで彩る室内楽～</p>
-                <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                  <div class="bg-neutral-50 rounded-xl p-4">
-                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
-                    <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
-                    <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
-                  </div>
-                  <div class="bg-neutral-50 rounded-xl p-4">
-                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">会場</p>
-                    <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
-                    <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
-                  </div>
-                  <div class="bg-neutral-50 rounded-xl p-4">
-                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">チケット</p>
-                    <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
-                    <p class="text-xs text-neutral-500">当日500円増</p>
-                  </div>
-                  <div class="bg-neutral-50 rounded-xl p-4">
-                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">出演者</p>
-                    <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
-                  </div>
-                </div>
-                <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
-                <p class="text-xs text-neutral-500 mb-5">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
-                <p class="text-xs text-neutral-400">ご予約: 080-1726-1369（大城）</p>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
+              <p class="text-neutral-500 text-sm">～サクソフォンとピアノで彩る室内楽～</p>
+            </div>
+            <!-- 画像2枚を横並びで大きく表示 -->
+            <div class="grid grid-cols-2 gap-3 px-8 pb-6">
+              <div class="relative overflow-hidden rounded-2xl">
+                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-80 md:h-96 object-cover object-top">
               </div>
+              <div class="relative overflow-hidden rounded-2xl">
+                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-80 md:h-96 object-cover object-top">
+              </div>
+            </div>
+            <!-- コンサート詳細 -->
+            <div class="px-8 pb-8">
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
+                  <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
+                  <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">会場</p>
+                  <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
+                  <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">チケット</p>
+                  <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
+                  <p class="text-xs text-neutral-500">当日500円増</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">出演者</p>
+                  <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
+              <p class="text-xs text-neutral-500">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
+              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p>
             </div>
           </div>
         </div>
