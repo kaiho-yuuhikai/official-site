@@ -151,6 +151,53 @@
           <div class="section-divider mt-6"></div>
         </div>
 
+        <!-- 後援事業: Ⅲ concert（フィーチャードカード） -->
+        <div class="mb-10 fade-in">
+          <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-gold/30 group">
+            <div class="h-2 bg-gradient-to-r from-kaiho-gold via-yellow-400 to-kaiho-gold"></div>
+            <div class="flex flex-col lg:flex-row">
+              <!-- ポスター画像 -->
+              <div class="lg:w-64 xl:w-72 flex-shrink-0 relative overflow-hidden">
+                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-72 lg:h-full object-cover object-top">
+                <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent"></div>
+              </div>
+              <!-- コンサート詳細 -->
+              <div class="flex-1 p-8 lg:p-10">
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                  <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
+                  <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
+                <p class="text-neutral-500 text-sm mb-5">～サクソフォンとピアノで彩る室内楽～</p>
+                <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-neutral-50 rounded-xl p-4">
+                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
+                    <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
+                    <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
+                  </div>
+                  <div class="bg-neutral-50 rounded-xl p-4">
+                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">会場</p>
+                    <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
+                    <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
+                  </div>
+                  <div class="bg-neutral-50 rounded-xl p-4">
+                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">チケット</p>
+                    <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
+                    <p class="text-xs text-neutral-500">当日500円増</p>
+                  </div>
+                  <div class="bg-neutral-50 rounded-xl p-4">
+                    <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">出演者</p>
+                    <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
+                  </div>
+                </div>
+                <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
+                <p class="text-xs text-neutral-500 mb-5">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
+                <p class="text-xs text-neutral-400">ご予約: 080-1726-1369（大城）</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
           <!-- Project: 道路清掃ボランティア -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
@@ -268,7 +315,7 @@
                 <div class="w-14 h-14 bg-kaiho-gold/10 rounded-xl flex items-center justify-center">
                   <svg class="w-7 h-7 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
                 </div>
-                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">審査予定1件</span>
+                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">後援実施中</span>
               </div>
               <h3 class="text-xl font-bold mb-2 text-neutral-900">後援事業</h3>
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">同窓生の活動を雄飛会が後援。申請〜審査を経て、HPやSNSで告知します。気軽にご相談ください。</p>
@@ -713,7 +760,7 @@
             </div>
             <div class="flex-1 text-center md:text-left">
               <div class="inline-flex items-center gap-2 bg-kaiho-gold text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-                <span>準備中・審査予定1件</span>
+                <span>後援実施中</span>
               </div>
               <h2 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">後援コーナー</h2>
               <p class="text-neutral-600 leading-relaxed max-w-xl">同窓生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
