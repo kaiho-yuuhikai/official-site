@@ -122,7 +122,7 @@ test('トップページに後援コーナーセクションが表示される',
   const section = page.locator('#koen')
   await expect(section).toBeVisible()
   await expect(section).toContainText('後援コーナー')
-  await expect(section).toContainText('準備中')
+  await expect(section).toContainText('後援実施中')
   await expect(section).toContainText('後援が決定')
 })
 
