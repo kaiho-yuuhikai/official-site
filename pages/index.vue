@@ -534,43 +534,69 @@
           </div>
         </div>
 
-        <!-- Mentor Grid -->
+        <!-- Mentor Slider -->
         <div class="mt-16 mb-6 text-center fade-in">
           <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
+          <p class="text-xs text-neutral-400 mt-1">{{ currentMentorSlide + 1 }} / {{ mentors.length }}</p>
         </div>
         <div class="fade-in">
-          <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div v-for="mentor in mentors" :key="mentor.name + mentor.generation"
-                 class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
-              <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-              <div class="p-5 md:p-6">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                    <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover" :class="mentor.imagePosition ?? 'object-center'">
-                    <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
-                      {{ mentor.name.charAt(0) }}
+          <!-- Slide card -->
+          <div class="relative max-w-xl mx-auto">
+            <div class="overflow-hidden">
+              <Transition name="mentor-fade" mode="out-in">
+              <div :key="currentMentorSlide" class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center gap-4 mb-5">
+                    <div class="w-16 h-16 rounded-full flex-shrink-0 overflow-hidden">
+                      <img v-if="mentors[currentMentorSlide].image" :src="`${baseURL}${mentors[currentMentorSlide].image}`" :alt="mentors[currentMentorSlide].name" class="w-full h-full object-cover" :class="mentors[currentMentorSlide].imagePosition ?? 'object-center'">
+                      <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-2xl font-black">
+                        {{ mentors[currentMentorSlide].name.charAt(0) }}
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentors[currentMentorSlide].furigana }}</p>
+                      <h3 class="text-xl font-black text-neutral-900">{{ mentors[currentMentorSlide].name }}</h3>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                        <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentors[currentMentorSlide].generation }}</span>
+                        <span class="text-xs text-neutral-500">{{ mentors[currentMentorSlide].course }}</span>
+                        <span class="text-xs text-neutral-400">📍 {{ mentors[currentMentorSlide].region }}</span>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
-                    <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
-                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                      <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
-                      <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
-                      <span class="text-xs text-neutral-400">📍 {{ mentor.region }}</span>
-                    </div>
+                  <div class="bg-neutral-50 rounded-xl p-4 mb-4">
+                    <p class="text-neutral-700 leading-relaxed text-sm">{{ mentors[currentMentorSlide].profile }}</p>
                   </div>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4 mb-4">
-                  <p class="text-neutral-700 leading-relaxed text-xs">{{ mentor.profile }}</p>
-                </div>
-                <div class="flex flex-wrap gap-1.5">
-                  <span v-for="tag in mentor.tags" :key="tag"
-                        class="text-xs px-2.5 py-0.5 rounded-full font-medium"
-                        :class="mentor.tagClass">{{ tag }}</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span v-for="tag in mentors[currentMentorSlide].tags" :key="tag"
+                          class="text-xs px-2.5 py-0.5 rounded-full font-medium"
+                          :class="mentors[currentMentorSlide].tagClass">{{ tag }}</span>
+                  </div>
                 </div>
               </div>
+              </Transition>
             </div>
+
+            <!-- Prev / Next buttons -->
+            <button @click="prevMentorSlide"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white hover:border-kaiho-blue transition-all duration-200 focus:outline-none"
+                    aria-label="前のメンター">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button @click="nextMentorSlide"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white hover:border-kaiho-blue transition-all duration-200 focus:outline-none"
+                    aria-label="次のメンター">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Dot indicators with autoplay progress -->
+          <div class="flex justify-center gap-2 mt-6">
+            <button v-for="(_, i) in mentors" :key="i"
+                    @click="goToMentorSlide(i)"
+                    class="h-2 rounded-full transition-all duration-300 focus:outline-none"
+                    :class="i === currentMentorSlide ? 'bg-kaiho-blue w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
+                    :aria-label="`メンター${i + 1}`"></button>
           </div>
 
           <!-- メンター登録 / メンティー申し込み -->
@@ -604,38 +630,6 @@
           開邦雄飛会では対応できないこともありますので、あらかじめご了承ください。
         </p>
 
-        <!-- 担当 -->
-        <div class="mt-10 pt-8 border-t border-kaiho-blue/20 fade-in">
-          <p class="text-xs font-bold text-kaiho-blue tracking-widest mb-4">担当</p>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                <img :src="`${baseURL}images/members/mineken.png`" alt="みねけん" class="w-full h-full object-cover object-top">
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">18期 理数科</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">探究活動事務局</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">みねけん</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-gold to-amber-400 flex items-center justify-center flex-shrink-0">
-                <span class="text-2xl font-black text-white">よ</span>
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">18期 理数科</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">教諭・球陽高等学校</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">よしき</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -675,51 +669,6 @@
             </a>
           </div>
 
-          <!-- 担当 -->
-          <div class="mt-8 pt-6 border-t border-kaiho-green/20">
-            <p class="text-xs font-bold text-kaiho-green tracking-widest mb-4">担当</p>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-purple to-purple-400 flex items-center justify-center flex-shrink-0">
-                  <span class="text-2xl font-black text-white">の</span>
-                </div>
-                <div class="min-w-0">
-                  <div class="flex flex-wrap gap-1 mb-1">
-                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">35期 学術探究科</span>
-                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">学生</span>
-                  </div>
-                  <p class="font-bold text-neutral-900 text-sm">のあ</p>
-                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです。</p>
-                </div>
-              </div>
-              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-                <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                  <img :src="`${baseURL}images/members/kae.jpg`" alt="かえ" class="w-full h-full object-cover object-top">
-                </div>
-                <div class="min-w-0">
-                  <div class="flex flex-wrap gap-1 mb-1">
-                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">20期 英語科</span>
-                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">経営 | バレエ講師</span>
-                  </div>
-                  <p class="font-bold text-neutral-900 text-sm">かえ</p>
-                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">楽しいことが大好きです！同窓会を盛り上げて行きましょう♪</p>
-                </div>
-              </div>
-              <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-kaiho-blue to-blue-400 flex items-center justify-center flex-shrink-0">
-                  <span class="text-2xl font-black text-white">ゆ</span>
-                </div>
-                <div class="min-w-0">
-                  <div class="flex flex-wrap gap-1 mb-1">
-                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">19期 理数科</span>
-                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">地域価値創造プロデューサー | キャリア協育</span>
-                  </div>
-                  <p class="font-bold text-neutral-900 text-sm">ゆき</p>
-                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -760,23 +709,6 @@
                 お問い合わせフォームへ
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
-            </div>
-          </div>
-          <!-- 担当者 -->
-          <div class="mt-8 pt-6 border-t border-kaiho-gold/20">
-            <p class="text-xs font-bold text-kaiho-gold tracking-widest mb-4">担当</p>
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start max-w-sm">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                <img :src="`${baseURL}images/members/miyagi-jun.png`" alt="宮城潤" class="w-full h-full object-cover object-top">
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">3期 芸術科</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">地域サポートわかさ理事</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">宮城潤</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">同窓生の活動を応援したい。まずは気軽にご相談ください。</p>
-              </div>
             </div>
           </div>
         </div>
@@ -1245,36 +1177,59 @@
 
         </div>
 
-        <!-- HP作成担当 -->
+        <!-- 運営担当者カルーセル -->
         <div class="mt-10 pt-8 border-t border-neutral-200 fade-in">
-          <p class="text-xs font-bold text-neutral-400 tracking-widest mb-4">💻 HP作成担当</p>
-          <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                <img :src="`${baseURL}images/members/uema.png`" alt="うえま" class="w-full h-full object-cover object-top">
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">16期 理数科</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">薬剤師</span>
+          <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1 text-center">運営担当メンバー</p>
+          <p class="text-xs text-neutral-400 text-center mb-6">{{ currentStaffSlide + 1 }} / {{ memberList.length }}</p>
+
+          <div class="relative max-w-md mx-auto">
+            <div class="overflow-hidden">
+              <Transition name="staff-fade" mode="out-in">
+                <div :key="currentStaffSlide" class="bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden">
+                  <div class="h-1 bg-gradient-to-r from-kaiho-green to-kaiho-blue"></div>
+                  <div class="p-5">
+                    <p class="text-[10px] font-bold text-kaiho-blue tracking-widest mb-3">{{ staffRoleLabels[memberList[currentStaffSlide].role] }}</p>
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-14 h-14 rounded-xl flex-shrink-0 overflow-hidden">
+                        <img v-if="memberList[currentStaffSlide].photo" :src="`${baseURL}${memberList[currentStaffSlide].photo}`" :alt="memberList[currentStaffSlide].name" class="w-full h-full object-cover object-top">
+                        <div v-else class="w-full h-full flex items-center justify-center text-white text-xl font-black" :class="memberList[currentStaffSlide].bgClass">
+                          {{ memberList[currentStaffSlide].initial }}
+                        </div>
+                      </div>
+                      <div>
+                        <p class="font-bold text-neutral-900 text-sm">{{ memberList[currentStaffSlide].name }}</p>
+                        <p class="text-xs text-neutral-500">{{ memberList[currentStaffSlide].generation }}</p>
+                        <p class="text-xs text-neutral-400">{{ memberList[currentStaffSlide].note }}</p>
+                      </div>
+                    </div>
+                    <div class="bg-neutral-50 rounded-xl p-3">
+                      <p class="text-neutral-700 text-xs leading-relaxed">{{ memberList[currentStaffSlide].comment }}</p>
+                    </div>
+                  </div>
                 </div>
-                <p class="font-bold text-neutral-900 text-sm">うえま</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。</p>
-              </div>
+              </Transition>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex gap-4 p-4 items-start">
-              <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-100">
-                <img :src="`${baseURL}images/members/george.png`" alt="じょーじ" class="w-full h-full object-cover object-top">
-              </div>
-              <div class="min-w-0">
-                <div class="flex flex-wrap gap-1 mb-1">
-                  <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">13期・14期 理数科</span>
-                  <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">GScale 代表</span>
-                </div>
-                <p class="font-bold text-neutral-900 text-sm">じょーじ</p>
-                <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">システムやデータ分析を手伝います。</p>
-              </div>
-            </div>
+
+            <!-- Prev / Next buttons -->
+            <button @click="prevStaffSlide"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-green hover:text-white hover:border-kaiho-green transition-all duration-200 focus:outline-none"
+                    aria-label="前のメンバー">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button @click="nextStaffSlide"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-green hover:text-white hover:border-kaiho-green transition-all duration-200 focus:outline-none"
+                    aria-label="次のメンバー">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Dot indicators -->
+          <div class="flex justify-center gap-1.5 mt-5">
+            <button v-for="(_, i) in memberList" :key="i"
+                    @click="goToStaffSlide(i)"
+                    class="h-2 rounded-full transition-all duration-300 focus:outline-none"
+                    :class="i === currentStaffSlide ? 'bg-kaiho-green w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
+                    :aria-label="`メンバー${i + 1}`"></button>
           </div>
         </div>
       </div>
@@ -1366,11 +1321,28 @@ const mentors: Mentor[] = [
 ]
 
 const currentMentorSlide = ref(0)
+let mentorAutoplayTimer: ReturnType<typeof setInterval> | null = null
+
+function startMentorAutoplay() {
+  mentorAutoplayTimer = setInterval(() => {
+    currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
+  }, 4000)
+}
+function resetMentorAutoplay() {
+  if (mentorAutoplayTimer) clearInterval(mentorAutoplayTimer)
+  startMentorAutoplay()
+}
 function prevMentorSlide() {
   currentMentorSlide.value = (currentMentorSlide.value - 1 + mentors.length) % mentors.length
+  resetMentorAutoplay()
 }
 function nextMentorSlide() {
   currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
+  resetMentorAutoplay()
+}
+function goToMentorSlide(i: number) {
+  currentMentorSlide.value = i
+  resetMentorAutoplay()
 }
 
 // ── Members ──
@@ -1394,6 +1366,7 @@ const memberList = [
   { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
   { name: 'ゆき', generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
+  { name: '宮城潤', generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: 'images/members/miyagi-jun.png', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
 ]
 
 const memberCorners = [
@@ -1401,7 +1374,41 @@ const memberCorners = [
   { name: 'note記事担当', icon: '✍️', members: memberList.filter(m => m.role === 'note') },
   { name: 'HP作成担当', icon: '💻', members: memberList.filter(m => m.role === 'hp') },
   { name: '特設授業担当', icon: '🎓', members: memberList.filter(m => m.role === 'lecture') },
+  { name: '後援コーナー担当', icon: '🏆', members: memberList.filter(m => m.role === 'koen') },
 ]
+
+const staffRoleLabels: Record<string, string> = {
+  mentor: '🤝 メンター制度担当',
+  note: '✍️ note記事担当',
+  hp: '💻 HP作成担当',
+  lecture: '🎓 特設授業担当',
+  koen: '🏆 後援コーナー担当',
+}
+
+const currentStaffSlide = ref(0)
+let staffAutoplayTimer: ReturnType<typeof setInterval> | null = null
+
+function startStaffAutoplay() {
+  staffAutoplayTimer = setInterval(() => {
+    currentStaffSlide.value = (currentStaffSlide.value + 1) % memberList.length
+  }, 4000)
+}
+function resetStaffAutoplay() {
+  if (staffAutoplayTimer) clearInterval(staffAutoplayTimer)
+  startStaffAutoplay()
+}
+function prevStaffSlide() {
+  currentStaffSlide.value = (currentStaffSlide.value - 1 + memberList.length) % memberList.length
+  resetStaffAutoplay()
+}
+function nextStaffSlide() {
+  currentStaffSlide.value = (currentStaffSlide.value + 1) % memberList.length
+  resetStaffAutoplay()
+}
+function goToStaffSlide(i: number) {
+  currentStaffSlide.value = i
+  resetStaffAutoplay()
+}
 
 // ── News items ──
 const newsItems = [
@@ -1755,8 +1762,32 @@ onMounted(() => {
   loadDonations()
 
   // Cleanup
+  startMentorAutoplay()
+  startStaffAutoplay()
+
   onUnmounted(() => {
     clearInterval(particleInterval)
+    if (mentorAutoplayTimer) clearInterval(mentorAutoplayTimer)
+    if (staffAutoplayTimer) clearInterval(staffAutoplayTimer)
   })
 })
 </script>
+
+<style scoped>
+.mentor-fade-enter-active,
+.mentor-fade-leave-active,
+.staff-fade-enter-active,
+.staff-fade-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.mentor-fade-enter-from,
+.staff-fade-enter-from {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.mentor-fade-leave-to,
+.staff-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+</style>
