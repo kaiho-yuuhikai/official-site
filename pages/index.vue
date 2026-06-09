@@ -330,9 +330,9 @@
         </div>
 
         <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <div v-for="(item, i) in newsItems" :key="i"
+          <div v-for="(item, i) in visibleNewsItems" :key="i"
              class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
-             :class="{ 'border-b border-white/20': i < newsItems.length - 1 }">
+             :class="{ 'border-b border-white/20': i < visibleNewsItems.length - 1 }">
             <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
             <div class="flex-1 flex items-center justify-between gap-4">
               <div>
@@ -344,6 +344,15 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- もっと見るボタン -->
+        <div v-if="!showAllNews && newsItems.length > 4" class="text-center mt-8 fade-in">
+          <button @click="showAllNews = true"
+                  class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/40 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all duration-200">
+            もっと見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -419,47 +428,80 @@
 
         <!-- Creators Showcase -->
         <div class="mt-16">
-          <div class="mb-8">
+          <div class="mb-6 text-center fade-in">
             <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
             <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
+            <p class="text-xs text-neutral-400 mt-2">{{ currentCreatorSlide + 1 }} / {{ creatorArticleGroups.length }}</p>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div v-for="creator in creatorArticleGroups" :key="creator.name"
-                 class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 flex flex-col p-4 gap-3">
-              <!-- Profile row -->
-              <div class="flex gap-4 items-start">
-                <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                  <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
-                  <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
-                    <span class="text-2xl font-black text-white drop-shadow">{{ creator.initial }}</span>
+          <div class="fade-in">
+            <!-- Slide card -->
+            <div class="relative max-w-xl mx-auto">
+              <div class="overflow-hidden">
+                <Transition name="creator-fade" mode="out-in">
+                  <div :key="currentCreatorSlide" class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
+                    <div class="h-1.5 bg-gradient-to-r from-kaiho-gold to-amber-400"></div>
+                    <div class="p-6">
+                      <!-- Profile row -->
+                      <div class="flex gap-4 items-start mb-4">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                          <img v-if="creatorArticleGroups[currentCreatorSlide].photo" :src="baseURL + creatorArticleGroups[currentCreatorSlide].photo" :alt="creatorArticleGroups[currentCreatorSlide].name" class="w-full h-full object-cover object-top" />
+                          <div v-else :class="[creatorArticleGroups[currentCreatorSlide].bgClass, 'w-full h-full flex items-center justify-center']">
+                            <span class="text-2xl font-black text-white drop-shadow">{{ creatorArticleGroups[currentCreatorSlide].initial }}</span>
+                          </div>
+                        </div>
+                        <div class="min-w-0">
+                          <div class="flex flex-wrap gap-1 mb-1">
+                            <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creatorArticleGroups[currentCreatorSlide].generation }}</span>
+                            <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creatorArticleGroups[currentCreatorSlide].department }}</span>
+                          </div>
+                          <p class="font-bold text-neutral-900 text-sm">{{ creatorArticleGroups[currentCreatorSlide].name }}</p>
+                        </div>
+                      </div>
+                      <div class="bg-neutral-50 rounded-xl p-4 mb-4">
+                        <p class="text-neutral-700 text-sm leading-relaxed">{{ creatorArticleGroups[currentCreatorSlide].bio }}</p>
+                      </div>
+                      <!-- Latest article -->
+                      <div v-if="!creatorArticleGroups[currentCreatorSlide].noteCreatorKey || (Array.isArray(creatorArticleGroups[currentCreatorSlide].noteCreatorKey) ? creatorArticleGroups[currentCreatorSlide].noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
+                        <span class="text-xs text-neutral-400 font-medium">記事準備中</span>
+                      </div>
+                      <a v-else-if="creatorArticleGroups[currentCreatorSlide].articles.length > 0" :href="creatorArticleGroups[currentCreatorSlide].articles[0].link"
+                         target="_blank" rel="noopener noreferrer"
+                         class="flex gap-3 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-gold/30 hover:bg-kaiho-gold/5 transition-colors group">
+                        <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
+                          <img v-if="creatorArticleGroups[currentCreatorSlide].articles[0].image" :src="creatorArticleGroups[currentCreatorSlide].articles[0].image" :alt="creatorArticleGroups[currentCreatorSlide].articles[0].title"
+                               class="w-full h-full object-cover" loading="lazy" />
+                          <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-gold/20 to-amber-100"></div>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                          <p class="text-[10px] text-neutral-400 mb-0.5">{{ formatNoteDate(creatorArticleGroups[currentCreatorSlide].articles[0].pubDate) }}</p>
+                          <p class="text-xs font-bold text-neutral-900 group-hover:text-kaiho-gold transition-colors line-clamp-2 leading-snug">{{ creatorArticleGroups[currentCreatorSlide].articles[0].title }}</p>
+                        </div>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="min-w-0">
-                  <div class="flex flex-wrap gap-1 mb-1">
-                    <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
-                    <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
-                  </div>
-                  <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
-                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{{ creator.bio }}</p>
-                </div>
+                </Transition>
               </div>
-              <!-- Latest article -->
-              <div v-if="!creator.noteCreatorKey || (Array.isArray(creator.noteCreatorKey) ? creator.noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
-                <span class="text-xs text-neutral-400 font-medium">準備中</span>
-              </div>
-              <a v-else-if="creator.articles.length > 0" :href="creator.articles[0].link"
-                 target="_blank" rel="noopener noreferrer"
-                 class="flex gap-3 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-green/30 hover:bg-kaiho-green/5 transition-colors group">
-                <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
-                  <img v-if="creator.articles[0].image" :src="creator.articles[0].image" :alt="creator.articles[0].title"
-                       class="w-full h-full object-cover" loading="lazy" />
-                  <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-green/20 to-emerald-100"></div>
-                </div>
-                <div class="min-w-0 flex-1">
-                  <p class="text-[10px] text-neutral-400 mb-0.5">{{ formatNoteDate(creator.articles[0].pubDate) }}</p>
-                  <p class="text-xs font-bold text-neutral-900 group-hover:text-kaiho-green transition-colors line-clamp-2 leading-snug">{{ creator.articles[0].title }}</p>
-                </div>
-              </a>
+
+              <!-- Prev / Next buttons -->
+              <button @click="prevCreatorSlide"
+                      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-gold hover:text-white hover:border-kaiho-gold transition-all duration-200 focus:outline-none"
+                      aria-label="前のクリエイター">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button @click="nextCreatorSlide"
+                      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-gold hover:text-white hover:border-kaiho-gold transition-all duration-200 focus:outline-none"
+                      aria-label="次のクリエイター">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
+            <!-- Dot indicators -->
+            <div class="flex justify-center gap-2 mt-6">
+              <button v-for="(_, i) in creatorArticleGroups" :key="i"
+                      @click="goToCreatorSlide(i)"
+                      class="h-2 rounded-full transition-all duration-300 focus:outline-none"
+                      :class="i === currentCreatorSlide ? 'bg-kaiho-gold w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
+                      :aria-label="`クリエイター${i + 1}`"></button>
             </div>
           </div>
         </div>
@@ -1385,6 +1427,31 @@ const staffRoleLabels: Record<string, string> = {
   koen: '🏆 後援コーナー担当',
 }
 
+const currentCreatorSlide = ref(0)
+let creatorAutoplayTimer: ReturnType<typeof setInterval> | null = null
+
+function startCreatorAutoplay() {
+  creatorAutoplayTimer = setInterval(() => {
+    currentCreatorSlide.value = (currentCreatorSlide.value + 1) % creatorArticleGroups.value.length
+  }, 4000)
+}
+function resetCreatorAutoplay() {
+  if (creatorAutoplayTimer) clearInterval(creatorAutoplayTimer)
+  startCreatorAutoplay()
+}
+function prevCreatorSlide() {
+  currentCreatorSlide.value = (currentCreatorSlide.value - 1 + creatorArticleGroups.value.length) % creatorArticleGroups.value.length
+  resetCreatorAutoplay()
+}
+function nextCreatorSlide() {
+  currentCreatorSlide.value = (currentCreatorSlide.value + 1) % creatorArticleGroups.value.length
+  resetCreatorAutoplay()
+}
+function goToCreatorSlide(i: number) {
+  currentCreatorSlide.value = i
+  resetCreatorAutoplay()
+}
+
 const currentStaffSlide = ref(0)
 let staffAutoplayTimer: ReturnType<typeof setInterval> | null = null
 
@@ -1411,8 +1478,9 @@ function goToStaffSlide(i: number) {
 }
 
 // ── News items ──
+const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.07.18', category: '総会', title: '令和8年度 定期総会（7月18日（土）午前中　開邦高校視聴覚室（仮））— 収支報告・予算案・会則変更・新体制・新事業', link: null, isNew: true },
+  { date: '2026.07.18', category: '総会', title: '令和8年度 定期総会「ななさんどー総会」（7月18日（土）17時〜　沖縄県立図書館ビジネスルーム4階（仮予約））', link: null, isNew: true },
   { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング予定（5月24日（日）　若狭公民館）', link: null, isNew: true },
   { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（新体制に向けて）（10:00〜）　若狭公民館（Web併用）', link: null, isNew: true },
   { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
@@ -1422,6 +1490,8 @@ const newsItems = [
   { date: '2026.02.20', category: 'お知らせ', title: '開邦雄飛会 新体制発足・運営メンバー募集開始', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
   { date: '2025.12.28', category: 'イベント', title: '第3回大同窓会 開催（参加者537名）・キャリア・クロスロード初開催', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
 ]
+
+const visibleNewsItems = computed(() => showAllNews.value ? newsItems : newsItems.slice(0, 4))
 
 // ── Note Magazine ──
 interface NoteArticle {
@@ -1764,11 +1834,13 @@ onMounted(() => {
   // Cleanup
   startMentorAutoplay()
   startStaffAutoplay()
+  startCreatorAutoplay()
 
   onUnmounted(() => {
     clearInterval(particleInterval)
     if (mentorAutoplayTimer) clearInterval(mentorAutoplayTimer)
     if (staffAutoplayTimer) clearInterval(staffAutoplayTimer)
+    if (creatorAutoplayTimer) clearInterval(creatorAutoplayTimer)
   })
 })
 </script>
@@ -1777,16 +1849,20 @@ onMounted(() => {
 .mentor-fade-enter-active,
 .mentor-fade-leave-active,
 .staff-fade-enter-active,
-.staff-fade-leave-active {
+.staff-fade-leave-active,
+.creator-fade-enter-active,
+.creator-fade-leave-active {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .mentor-fade-enter-from,
-.staff-fade-enter-from {
+.staff-fade-enter-from,
+.creator-fade-enter-from {
   opacity: 0;
   transform: translateX(20px);
 }
 .mentor-fade-leave-to,
-.staff-fade-leave-to {
+.staff-fade-leave-to,
+.creator-fade-leave-to {
   opacity: 0;
   transform: translateX(-20px);
 }
