@@ -1481,7 +1481,9 @@ function goToStaffSlide(i: number) {
 const showAllNews = ref(false)
 const newsItems = [
   { date: '2026.07.18', category: '総会', title: '令和8年度 定期総会「ななさんどー総会」（7月18日（土）17時〜　沖縄県立図書館ビジネスルーム4階（仮予約））', link: null, isNew: true },
-  { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング予定（5月24日（日）　若狭公民館）', link: null, isNew: true },
+  { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },
+  { date: '2026.06.07', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（オンライン）', link: null, isNew: true },
+  { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング実施（5月24日（日）　若狭公民館）', link: null, isNew: true },
   { date: '2026.04.26', category: 'お知らせ', title: '運営ミーティング（新体制に向けて）（10:00〜）　若狭公民館（Web併用）', link: null, isNew: true },
   { date: '2026.04.01', category: 'お知らせ', title: '開邦雄飛会公式ホームページ稼働開始', link: null, isNew: true },
   { date: '2026.03.15', category: 'お知らせ', title: '雄飛会 運営打合せを開催（若狭公民館）', link: 'https://note.com/kaihoyuuhikai/m/m20c04499fc49', isNew: false },
