@@ -907,15 +907,16 @@
           <div class="section-divider mt-6"></div>
         </div>
 
-        <!-- Total counter (動的: donations.json) -->
+        <!-- Total counter (閲覧制限中) -->
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto mb-16 text-center border border-kaiho-purple/10 fade-in">
           <p class="text-sm text-neutral-500 mb-2">累計寄付額</p>
-          <div class="text-5xl md:text-6xl font-black text-kaiho-purple mb-2">
-            &yen;{{ donationsTotalDisplay }}
+          <div class="text-5xl md:text-6xl font-black text-neutral-300 mb-2 select-none blur-sm">
+            &yen;------
           </div>
-          <p class="text-sm text-neutral-400">{{ donationsCountDisplay }}名の支援者に感謝します</p>
-          <p v-if="donations.fetchedAt" class="text-xs text-neutral-300 mt-2">最終更新: {{ formatDateShort(donations.fetchedAt) }}</p>
-          <p v-else class="text-xs text-neutral-300 mt-2">寄付の受付準備中です</p>
+          <div class="flex items-center justify-center gap-2 mt-3">
+            <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <p class="text-sm text-neutral-400">閲覧制限中</p>
+          </div>
         </div>
 
         <!-- Fund Card (unified) -->
