@@ -178,6 +178,8 @@ const officerRoles = [
   { role: '会計', members: [{ name: '知念', generation: '20期' }, { name: '瀬長', generation: '24期' }] },
   { role: '会計監査', members: [{ name: '久貝', generation: '12期' }] },
   { role: '常任委員', members: [
+    { name: '宮里', generation: '3期' },
+    { name: '我謝', generation: '4期' },
     { name: '神谷', generation: '14期' },
     { name: '崎原', generation: '19期' },
     { name: '具志', generation: '26期' },
