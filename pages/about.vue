@@ -58,6 +58,21 @@
           <div class="section-divider" style="margin:0"></div>
         </div>
 
+        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in mb-8">
+          <div class="flex items-center gap-3 mb-6">
+            <h3 class="font-bold text-neutral-900">現会則</h3>
+            <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-2.5 py-1 rounded-full">現行</span>
+          </div>
+          <div class="border border-neutral-200 rounded-xl overflow-hidden">
+            <img
+              :src="`${config.app.baseURL}images/bylaws-current.png`"
+              alt="開邦雄飛会会則（現行）"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
         <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <p class="text-neutral-600 text-sm leading-relaxed mb-6">
             開邦雄飛会の会則は現在改定案を策定中です。改定の基本方針は以下のとおりです。
