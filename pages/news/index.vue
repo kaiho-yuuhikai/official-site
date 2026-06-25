@@ -149,9 +149,9 @@ const manualItems: NewsItem[] = [
   {
     date: '2026.07.18',
     category: '総会',
-    title: '令和8年度 開邦雄飛会 総会懇親会（案）（7月18日（土）16:00〜　若狭公民館ほか）',
+    title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）',
     summary: '第1部：講演会（16:00〜）、第2部：総会（17:00〜）、第3部：懇親会（18:30〜）を開催します。',
-    link: '/news/soukai',
+    link: 'https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform',
     isNew: true,
     sortKey: new Date('2026-07-18').getTime(),
   },
