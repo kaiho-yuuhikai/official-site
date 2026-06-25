@@ -7,7 +7,7 @@
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">News</p>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4">令和8年度 開邦雄飛会<br>総会懇親会（案）</h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4">令和8年度 開邦雄飛会<br>総会イベント（案）</h1>
         <div class="inline-flex items-center gap-2 bg-kaiho-gold/20 border border-kaiho-gold/40 rounded-full px-5 py-2 text-sm text-kaiho-gold font-bold mt-2">
           <span class="w-2 h-2 bg-kaiho-gold rounded-full animate-pulse"></span>
           2026年7月18日（土）開催
@@ -26,7 +26,7 @@
 
         <div class="prose prose-neutral max-w-none fade-in">
           <p class="text-lg text-neutral-700 leading-relaxed mb-8">
-            開邦雄飛会では、令和8年度の総会懇親会を下記の通り開催いたします。講演会・総会・懇親会の3部構成で実施します。同窓生の皆さまのご参加をお待ちしております。
+            開邦雄飛会では、令和8年度の総会イベント（講演会＋総会＋懇親会）を下記の通り開催いたします。3部構成で実施します。同窓生の皆さまのご参加をお待ちしております。
           </p>
         </div>
 
@@ -268,9 +268,9 @@
 
 <script setup lang="ts">
 useHead({
-  title: '令和8年度 総会懇親会 | 開邦雄飛会',
+  title: '令和8年度 総会イベント | 開邦雄飛会',
   meta: [
-    { name: 'description', content: '開邦雄飛会 令和8年度総会懇親会（案）。2026年7月18日（土）開催。講演会・総会・懇親会の3部構成。若狭公民館およびバイキング居酒屋リオにて。' }
+    { name: 'description', content: '開邦雄飛会 令和8年度総会イベント（講演会＋総会＋懇親会）（案）。2026年7月18日（土）16:00〜開催。若狭公民館およびバイキング居酒屋リオにて。' }
   ]
 })
 </script>

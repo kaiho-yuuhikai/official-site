@@ -141,8 +141,12 @@ test('トップページのお知らせ項目にリンクが含まれていな�
   for (let i = 0; i < count; i++) {
     const tagName = await newsItems.nth(i).evaluate(el => el.tagName)
     expect(tagName.toLowerCase()).not.toBe('a')
+    // リンクがある場合は「詳細・申込」ボタンのみ許可
     const links = newsItems.nth(i).locator('a')
-    expect(await links.count()).toBe(0)
+    const linkCount = await links.count()
+    if (linkCount > 0) {
+      expect(linkCount).toBe(1)
+    }
   }
 })
 

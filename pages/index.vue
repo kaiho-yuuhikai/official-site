@@ -341,6 +341,10 @@
                   <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
                 </div>
                 <h3 class="text-white font-medium">{{ item.title }}</h3>
+                <a v-if="item.link" :href="item.link" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1 mt-2 text-kaiho-gold text-xs font-bold hover:underline">
+                  詳細・申込 <span>&rarr;</span>
+                </a>
               </div>
             </div>
           </div>
@@ -1481,7 +1485,7 @@ function goToStaffSlide(i: number) {
 // ── News items ──
 const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会懇親会（案）（7月18日（土）16:00〜　若狭公民館ほか）', link: '/news/soukai', isNew: true },
+  { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）', link: 'https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform', isNew: true },
   { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },
   { date: '2026.06.07', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（オンライン）', link: null, isNew: true },
   { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング実施（新体制に向けて）（5月24日（日）　若狭公民館）', link: null, isNew: true },
