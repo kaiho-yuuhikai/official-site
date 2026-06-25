@@ -7,10 +7,10 @@
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">News</p>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4">令和8年度 定期総会</h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4">令和8年度 開邦雄飛会<br>総会懇親会（案）</h1>
         <div class="inline-flex items-center gap-2 bg-kaiho-gold/20 border border-kaiho-gold/40 rounded-full px-5 py-2 text-sm text-kaiho-gold font-bold mt-2">
           <span class="w-2 h-2 bg-kaiho-gold rounded-full animate-pulse"></span>
-          準備中
+          2026年7月18日（土）開催
         </div>
       </div>
     </section>
@@ -20,17 +20,106 @@
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Overview</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">総会について</h2>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">開催概要</h2>
           <div class="section-divider" style="margin:0"></div>
         </div>
 
         <div class="prose prose-neutral max-w-none fade-in">
-          <p class="text-lg text-neutral-700 leading-relaxed mb-6">
-            開邦雄飛会では、令和8年度の定期総会を開催予定です。今総会では、同窓会の運営に関わる重要事項を会員の皆さまと共有・審議します。
+          <p class="text-lg text-neutral-700 leading-relaxed mb-8">
+            開邦雄飛会では、令和8年度の総会懇親会を下記の通り開催いたします。講演会・総会・懇親会の3部構成で実施します。同窓生の皆さまのご参加をお待ちしております。
           </p>
-          <p class="text-neutral-600 leading-relaxed">
-            日程・会場等の詳細は決まり次第、本ページおよびお知らせにて公表します。
-          </p>
+        </div>
+
+        <!-- Schedule details -->
+        <div class="space-y-6 fade-in">
+
+          <!-- 第1部：講演会 -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100">
+            <div class="flex gap-5 items-start">
+              <div class="flex-shrink-0 w-12 h-12 bg-kaiho-green/10 rounded-xl flex items-center justify-center text-kaiho-green font-black text-lg">
+                1
+              </div>
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-xs font-bold bg-kaiho-green/10 text-kaiho-green px-3 py-0.5 rounded-full">第1部</span>
+                  <h3 class="text-xl font-bold text-neutral-900">講演会</h3>
+                </div>
+                <dl class="mt-3 space-y-1 text-neutral-600">
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">時間</dt>
+                    <dd class="text-sm">16:00 ～ 16:45（開場 15:30）</dd>
+                  </div>
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">場所</dt>
+                    <dd class="text-sm">若狭公民館 2階 第一研修室</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <!-- 第2部：総会 -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100">
+            <div class="flex gap-5 items-start">
+              <div class="flex-shrink-0 w-12 h-12 bg-kaiho-gold/10 rounded-xl flex items-center justify-center text-kaiho-gold font-black text-lg">
+                2
+              </div>
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-xs font-bold bg-kaiho-gold/10 text-kaiho-gold px-3 py-0.5 rounded-full">第2部</span>
+                  <h3 class="text-xl font-bold text-neutral-900">総会</h3>
+                </div>
+                <dl class="mt-3 space-y-1 text-neutral-600">
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">時間</dt>
+                    <dd class="text-sm">17:00 ～ 17:30</dd>
+                  </div>
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">場所</dt>
+                    <dd class="text-sm">若狭公民館 2階 第一研修室</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <!-- 第3部：懇親会 -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100">
+            <div class="flex gap-5 items-start">
+              <div class="flex-shrink-0 w-12 h-12 bg-kaiho-teal/10 rounded-xl flex items-center justify-center text-kaiho-teal font-black text-lg">
+                3
+              </div>
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-xs font-bold bg-kaiho-teal/10 text-kaiho-teal px-3 py-0.5 rounded-full">第3部</span>
+                  <h3 class="text-xl font-bold text-neutral-900">懇親会</h3>
+                </div>
+                <dl class="mt-3 space-y-1 text-neutral-600">
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">時間</dt>
+                    <dd class="text-sm">18:30 〜</dd>
+                  </div>
+                  <div class="flex gap-3">
+                    <dt class="text-sm font-bold text-neutral-500 w-14 shrink-0">場所</dt>
+                    <dd class="text-sm">バイキング居酒屋　リオ</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 参加申込 -->
+        <div class="mt-10 fade-in">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-all duration-300 shadow-lg text-lg">
+            参加申込フォームはこちら
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -153,15 +242,25 @@
     <!-- Contact CTA -->
     <section class="py-24 bg-kaiho-green text-white">
       <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-black mb-6">詳細が決まり次第お知らせします</h2>
+        <h2 class="text-3xl md:text-4xl font-black mb-6">ご参加お待ちしております</h2>
         <p class="text-white/70 mb-10 leading-relaxed">
-          開催日時・会場・参加方法等の詳細は、公式サイトおよびnoteにて順次公開します。<br>
+          参加ご希望の方は、下記の参加申込フォームよりお申し込みください。<br>
           ご不明な点はお問い合わせフォームよりご連絡ください。
         </p>
-        <NuxtLink to="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg">
-          お問い合わせ
-        </NuxtLink>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg">
+            参加申込フォーム
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+          <NuxtLink to="/contact"
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+            お問い合わせ
+          </NuxtLink>
+        </div>
       </div>
     </section>
   </div>
@@ -169,9 +268,9 @@
 
 <script setup lang="ts">
 useHead({
-  title: '令和8年度 定期総会 | 開邦雄飛会',
+  title: '令和8年度 総会懇親会 | 開邦雄飛会',
   meta: [
-    { name: 'description', content: '開邦雄飛会 令和8年度定期総会の開催案内です。収支報告・予算案・会則変更・新体制・新事業についてご説明します。' }
+    { name: 'description', content: '開邦雄飛会 令和8年度総会懇親会（案）。2026年7月18日（土）開催。講演会・総会・懇親会の3部構成。若狭公民館およびバイキング居酒屋リオにて。' }
   ]
 })
 </script>
