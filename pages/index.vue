@@ -1481,7 +1481,7 @@ function goToStaffSlide(i: number) {
 // ── News items ──
 const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.07.18', category: '総会', title: '令和8年度 定期総会「ななさんどー総会」（7月18日（土）17時〜　沖縄県立図書館ビジネスルーム4階（仮予約））', link: null, isNew: true },
+  { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会懇親会（案）（7月18日（土）16:00〜　若狭公民館ほか）', link: '/news/soukai', isNew: true },
   { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },
   { date: '2026.06.07', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（オンライン）', link: null, isNew: true },
   { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング実施（新体制に向けて）（5月24日（日）　若狭公民館）', link: null, isNew: true },
