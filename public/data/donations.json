@@ -1,15 +1,7 @@
 {
   "fetchedAt": "2026-05-04T04:39:55.668Z",
   "fund": "開邦雄飛応援金",
-  "totalAmount": 10000,
-  "donorCount": 1,
-  "donors": [
-    {
-      "name": "神谷乗治",
-      "period": "13期",
-      "amount": 10000,
-      "message": "ハードな日程の中、勉強や課外活動、お疲れ様です。",
-      "confirmedAt": ""
-    }
-  ]
+  "totalAmount": 0,
+  "donorCount": 0,
+  "donors": []
 }
