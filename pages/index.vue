@@ -147,88 +147,8 @@
           </a>
         </div>
 
-        <!-- Creators Showcase -->
-        <div class="mt-16">
-          <div class="mb-6 text-center fade-in">
-            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
-            <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
-            <p class="text-xs text-neutral-400 mt-2">{{ currentCreatorSlide + 1 }} / {{ creatorArticleGroups.length }}</p>
-          </div>
-          <div class="fade-in">
-            <!-- Slide card -->
-            <div class="relative max-w-xl mx-auto">
-              <div class="overflow-hidden">
-                <Transition name="creator-fade" mode="out-in">
-                  <div :key="currentCreatorSlide" class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-                    <div class="h-1.5 bg-gradient-to-r from-kaiho-gold to-amber-400"></div>
-                    <div class="p-6">
-                      <!-- Profile row -->
-                      <div class="flex gap-4 items-start mb-4">
-                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                          <img v-if="creatorArticleGroups[currentCreatorSlide].photo" :src="baseURL + creatorArticleGroups[currentCreatorSlide].photo" :alt="creatorArticleGroups[currentCreatorSlide].name" class="w-full h-full object-cover object-top" />
-                          <div v-else :class="[creatorArticleGroups[currentCreatorSlide].bgClass, 'w-full h-full flex items-center justify-center']">
-                            <span class="text-2xl font-black text-white drop-shadow">{{ creatorArticleGroups[currentCreatorSlide].initial }}</span>
-                          </div>
-                        </div>
-                        <div class="min-w-0">
-                          <div class="flex flex-wrap gap-1 mb-1">
-                            <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creatorArticleGroups[currentCreatorSlide].generation }}</span>
-                            <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creatorArticleGroups[currentCreatorSlide].department }}</span>
-                          </div>
-                          <p class="font-bold text-neutral-900 text-sm">{{ creatorArticleGroups[currentCreatorSlide].name }}</p>
-                        </div>
-                      </div>
-                      <div class="bg-neutral-50 rounded-xl p-4 mb-4">
-                        <p class="text-neutral-700 text-sm leading-relaxed">{{ creatorArticleGroups[currentCreatorSlide].bio }}</p>
-                      </div>
-                      <!-- Latest article -->
-                      <div v-if="!creatorArticleGroups[currentCreatorSlide].noteCreatorKey || (Array.isArray(creatorArticleGroups[currentCreatorSlide].noteCreatorKey) ? creatorArticleGroups[currentCreatorSlide].noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
-                        <span class="text-xs text-neutral-400 font-medium">記事準備中</span>
-                      </div>
-                      <a v-else-if="creatorArticleGroups[currentCreatorSlide].articles.length > 0" :href="creatorArticleGroups[currentCreatorSlide].articles[0].link"
-                         target="_blank" rel="noopener noreferrer"
-                         class="flex gap-3 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-gold/30 hover:bg-kaiho-gold/5 transition-colors group">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
-                          <img v-if="creatorArticleGroups[currentCreatorSlide].articles[0].image" :src="creatorArticleGroups[currentCreatorSlide].articles[0].image" :alt="creatorArticleGroups[currentCreatorSlide].articles[0].title"
-                               class="w-full h-full object-cover" loading="lazy" />
-                          <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-gold/20 to-amber-100"></div>
-                        </div>
-                        <div class="min-w-0 flex-1">
-                          <p class="text-[10px] text-neutral-400 mb-0.5">{{ formatNoteDate(creatorArticleGroups[currentCreatorSlide].articles[0].pubDate) }}</p>
-                          <p class="text-xs font-bold text-neutral-900 group-hover:text-kaiho-gold transition-colors line-clamp-2 leading-snug">{{ creatorArticleGroups[currentCreatorSlide].articles[0].title }}</p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </Transition>
-              </div>
-
-              <!-- Prev / Next buttons -->
-              <button @click="prevCreatorSlide"
-                      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-gold hover:text-white hover:border-kaiho-gold transition-all duration-200 focus:outline-none"
-                      aria-label="前のクリエイター">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              </button>
-              <button @click="nextCreatorSlide"
-                      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-gold hover:text-white hover:border-kaiho-gold transition-all duration-200 focus:outline-none"
-                      aria-label="次のクリエイター">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-
-            <!-- Dot indicators -->
-            <div class="flex justify-center gap-2 mt-6">
-              <button v-for="(_, i) in creatorArticleGroups" :key="i"
-                      @click="goToCreatorSlide(i)"
-                      class="h-2 rounded-full transition-all duration-300 focus:outline-none"
-                      :class="i === currentCreatorSlide ? 'bg-kaiho-gold w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
-                      :aria-label="`クリエイター${i + 1}`"></button>
-            </div>
-          </div>
-        </div>
-
         <!-- Creator Recruitment Banner -->
-        <div class="mt-10 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
+        <div class="mt-16 bg-gradient-to-br from-kaiho-green/5 to-emerald-50 border border-kaiho-green/20 rounded-3xl p-8 md:p-12">
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-shrink-0 w-20 h-20 bg-kaiho-green/10 rounded-2xl flex items-center justify-center">
               <svg class="w-10 h-10 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,6 +181,60 @@
             </div>
           </div>
         </div>
+
+        <!-- Creators Showcase - Marquee -->
+        <div class="mt-10">
+          <div class="mb-6 text-center fade-in">
+            <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-2">Creators</p>
+            <h3 class="text-2xl md:text-3xl font-black tracking-tight">マガジンクリエイター</h3>
+          </div>
+          <div class="marquee-container fade-in">
+            <div class="marquee-track marquee-track--creators">
+              <template v-for="pass in 2" :key="pass">
+                <div v-for="creator in creatorArticleGroups" :key="`c${pass}-${creator.name}`" class="flex-shrink-0 w-72 mx-3">
+                  <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
+                    <div class="h-1.5 bg-gradient-to-r from-kaiho-gold to-amber-400"></div>
+                    <div class="p-5">
+                      <div class="flex gap-3 items-start mb-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
+                          <img v-if="creator.photo" :src="baseURL + creator.photo" :alt="creator.name" class="w-full h-full object-cover object-top" />
+                          <div v-else :class="[creator.bgClass, 'w-full h-full flex items-center justify-center']">
+                            <span class="text-xl font-black text-white drop-shadow">{{ creator.initial }}</span>
+                          </div>
+                        </div>
+                        <div class="min-w-0">
+                          <div class="flex flex-wrap gap-1 mb-1">
+                            <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
+                            <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
+                          </div>
+                          <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
+                        </div>
+                      </div>
+                      <div class="bg-neutral-50 rounded-xl p-3 mb-3">
+                        <p class="text-neutral-700 text-xs leading-relaxed line-clamp-3">{{ creator.bio }}</p>
+                      </div>
+                      <div v-if="!creator.noteCreatorKey || (Array.isArray(creator.noteCreatorKey) ? creator.noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
+                        <span class="text-xs text-neutral-400 font-medium">記事準備中</span>
+                      </div>
+                      <a v-else-if="creator.articles.length > 0" :href="creator.articles[0].link" target="_blank" rel="noopener noreferrer"
+                         class="flex gap-2 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-gold/30 hover:bg-kaiho-gold/5 transition-colors group">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
+                          <img v-if="creator.articles[0].image" :src="creator.articles[0].image" :alt="creator.articles[0].title" class="w-full h-full object-cover" loading="lazy" />
+                          <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-gold/20 to-amber-100"></div>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                          <p class="text-[10px] text-neutral-400 mb-0.5">{{ formatNoteDate(creator.articles[0].pubDate) }}</p>
+                          <p class="text-xs font-bold text-neutral-900 group-hover:text-kaiho-gold transition-colors line-clamp-2 leading-snug">{{ creator.articles[0].title }}</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -652,95 +626,71 @@
           </div>
         </div>
 
-        <!-- Mentor Slider -->
-        <div class="mt-16 mb-6 text-center fade-in">
-          <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
-          <p class="text-xs text-neutral-400 mt-1">{{ currentMentorSlide + 1 }} / {{ mentors.length }}</p>
-        </div>
-        <div class="fade-in">
-          <!-- Slide card -->
-          <div class="relative max-w-xl mx-auto">
-            <div class="overflow-hidden">
-              <Transition name="mentor-fade" mode="out-in">
-              <div :key="currentMentorSlide" class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
+      <!-- Mentor Slider - Marquee -->
+      <div class="mt-16 mb-6 text-center fade-in">
+        <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
+      </div>
+      <div class="marquee-container fade-in">
+        <div class="marquee-track marquee-track--mentors">
+          <template v-for="pass in 2" :key="pass">
+            <div v-for="mentor in mentors" :key="`m${pass}-${mentor.name}`" class="flex-shrink-0 w-80 mx-3">
+              <div class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
                 <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-                <div class="p-6 md:p-8">
-                  <div class="flex items-center gap-4 mb-5">
-                    <div class="w-16 h-16 rounded-full flex-shrink-0 overflow-hidden">
-                      <img v-if="mentors[currentMentorSlide].image" :src="`${baseURL}${mentors[currentMentorSlide].image}`" :alt="mentors[currentMentorSlide].name" class="w-full h-full object-cover" :class="mentors[currentMentorSlide].imagePosition ?? 'object-center'">
-                      <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-2xl font-black">
-                        {{ mentors[currentMentorSlide].name.charAt(0) }}
+                <div class="p-6">
+                  <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                      <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover" :class="mentor.imagePosition ?? 'object-center'">
+                      <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
+                        {{ mentor.name.charAt(0) }}
                       </div>
                     </div>
                     <div>
-                      <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentors[currentMentorSlide].furigana }}</p>
-                      <h3 class="text-xl font-black text-neutral-900">{{ mentors[currentMentorSlide].name }}</h3>
+                      <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
+                      <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
                       <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                        <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentors[currentMentorSlide].generation }}</span>
-                        <span class="text-xs text-neutral-500">{{ mentors[currentMentorSlide].course }}</span>
-                        <span class="text-xs text-neutral-400">📍 {{ mentors[currentMentorSlide].region }}</span>
+                        <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
+                        <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
                       </div>
                     </div>
                   </div>
-                  <div class="bg-neutral-50 rounded-xl p-4 mb-4">
-                    <p class="text-neutral-700 leading-relaxed text-sm">{{ mentors[currentMentorSlide].profile }}</p>
+                  <div class="bg-neutral-50 rounded-xl p-3 mb-3">
+                    <p class="text-neutral-700 leading-relaxed text-xs line-clamp-3">{{ mentor.profile }}</p>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span v-for="tag in mentors[currentMentorSlide].tags" :key="tag"
+                    <span v-for="tag in mentor.tags" :key="tag"
                           class="text-xs px-2.5 py-0.5 rounded-full font-medium"
-                          :class="mentors[currentMentorSlide].tagClass">{{ tag }}</span>
+                          :class="mentor.tagClass">{{ tag }}</span>
                   </div>
                 </div>
               </div>
-              </Transition>
             </div>
+          </template>
+        </div>
+      </div>
 
-            <!-- Prev / Next buttons -->
-            <button @click="prevMentorSlide"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white hover:border-kaiho-blue transition-all duration-200 focus:outline-none"
-                    aria-label="前のメンター">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button @click="nextMentorSlide"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-blue hover:text-white hover:border-kaiho-blue transition-all duration-200 focus:outline-none"
-                    aria-label="次のメンター">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <!-- Dot indicators with autoplay progress -->
-          <div class="flex justify-center gap-2 mt-6">
-            <button v-for="(_, i) in mentors" :key="i"
-                    @click="goToMentorSlide(i)"
-                    class="h-2 rounded-full transition-all duration-300 focus:outline-none"
-                    :class="i === currentMentorSlide ? 'bg-kaiho-blue w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
-                    :aria-label="`メンター${i + 1}`"></button>
-          </div>
-
-          <!-- メンター登録 / メンティー申し込み -->
-          <div class="mt-10 flex flex-wrap justify-center gap-4">
-            <NuxtLink to="/mentor/registration"
-              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-              </div>
-              <div class="text-center">
-                <p class="text-white font-black text-lg leading-tight">メンターになる</p>
-                <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
-              </div>
-            </NuxtLink>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
-              target="_blank" rel="noopener noreferrer"
-              class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-blue to-blue-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-              </div>
-              <div class="text-center">
-                <p class="text-white font-black text-lg leading-tight">メンティーに申し込む</p>
-                <p class="text-white/80 text-xs mt-1">メンターのサポートを受けてみませんか？</p>
-              </div>
-            </a>
-          </div>
+        <!-- メンター登録 / メンティー申し込み -->
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <NuxtLink to="/mentor/registration"
+            class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            </div>
+            <div class="text-center">
+              <p class="text-white font-black text-lg leading-tight">メンターになる</p>
+              <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
+            </div>
+          </NuxtLink>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
+            target="_blank" rel="noopener noreferrer"
+            class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-blue to-blue-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+            </div>
+            <div class="text-center">
+              <p class="text-white font-black text-lg leading-tight">メンティーに申し込む</p>
+              <p class="text-white/80 text-xs mt-1">メンターのサポートを受けてみませんか？</p>
+            </div>
+          </a>
         </div>
 
         <!-- 注意書き -->
@@ -1174,15 +1124,22 @@
 
 
     <!-- ============================================================ -->
-    <!-- ROAD CLEANING VOLUNTEER SECTION                               -->
+    <!-- 地域連携事業 SECTION                                           -->
     <!-- ============================================================ -->
     <section id="volunteer" class="py-24 md:py-32 bg-neutral-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-12 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Volunteer</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">道路清掃ボランティア</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">地域とともに、開邦の環境を守る</p>
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Community</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">地域連携事業</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">学校・地域・同窓生をつなぐ活動</p>
           <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="mb-4 fade-in">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-xs font-black tracking-widest uppercase text-kaiho-green bg-kaiho-green/10 px-3 py-1 rounded-full">道路清掃ボランティア</span>
+            <div class="flex-1 h-px bg-neutral-200"></div>
+          </div>
         </div>
 
         <div class="max-w-3xl mx-auto fade-in">
@@ -1296,59 +1253,38 @@
 
         </div>
 
-        <!-- 運営担当者カルーセル -->
+        <!-- 運営担当者カルーセル - Marquee -->
         <div class="mt-10 pt-8 border-t border-neutral-200 fade-in">
-          <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1 text-center">運営担当メンバー</p>
-          <p class="text-xs text-neutral-400 text-center mb-6">{{ currentStaffSlide + 1 }} / {{ memberList.length }}</p>
-
-          <div class="relative max-w-md mx-auto">
-            <div class="overflow-hidden">
-              <Transition name="staff-fade" mode="out-in">
-                <div :key="currentStaffSlide" class="bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden">
-                  <div class="h-1 bg-gradient-to-r from-kaiho-green to-kaiho-blue"></div>
-                  <div class="p-5">
-                    <p class="text-[10px] font-bold text-kaiho-blue tracking-widest mb-3">{{ staffRoleLabels[memberList[currentStaffSlide].role] }}</p>
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-14 h-14 rounded-xl flex-shrink-0 overflow-hidden">
-                        <img v-if="memberList[currentStaffSlide].photo" :src="`${baseURL}${memberList[currentStaffSlide].photo}`" :alt="memberList[currentStaffSlide].name" class="w-full h-full object-cover object-top">
-                        <div v-else class="w-full h-full flex items-center justify-center text-white text-xl font-black" :class="memberList[currentStaffSlide].bgClass">
-                          {{ memberList[currentStaffSlide].initial }}
+          <p class="text-xs font-bold text-neutral-400 tracking-widest mb-6 text-center">運営担当メンバー</p>
+          <div class="marquee-container">
+            <div class="marquee-track marquee-track--staff">
+              <template v-for="pass in 2" :key="pass">
+                <div v-for="member in memberList" :key="`s${pass}-${member.name}`" class="flex-shrink-0 w-64 mx-3">
+                  <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden">
+                    <div class="h-1 bg-gradient-to-r from-kaiho-green to-kaiho-blue"></div>
+                    <div class="p-5">
+                      <p class="text-[10px] font-bold text-kaiho-blue tracking-widest mb-3">{{ staffRoleLabels[member.role] }}</p>
+                      <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-xl flex-shrink-0 overflow-hidden">
+                          <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover object-top">
+                          <div v-else class="w-full h-full flex items-center justify-center text-white text-lg font-black" :class="member.bgClass">
+                            {{ member.initial }}
+                          </div>
+                        </div>
+                        <div>
+                          <p class="font-bold text-neutral-900 text-sm">{{ member.name }}</p>
+                          <p class="text-xs text-neutral-500">{{ member.generation }}</p>
+                          <p class="text-xs text-neutral-400">{{ member.note }}</p>
                         </div>
                       </div>
-                      <div>
-                        <p class="font-bold text-neutral-900 text-sm">{{ memberList[currentStaffSlide].name }}</p>
-                        <p class="text-xs text-neutral-500">{{ memberList[currentStaffSlide].generation }}</p>
-                        <p class="text-xs text-neutral-400">{{ memberList[currentStaffSlide].note }}</p>
+                      <div class="bg-neutral-50 rounded-xl p-3">
+                        <p class="text-neutral-700 text-xs leading-relaxed line-clamp-3">{{ member.comment }}</p>
                       </div>
-                    </div>
-                    <div class="bg-neutral-50 rounded-xl p-3">
-                      <p class="text-neutral-700 text-xs leading-relaxed">{{ memberList[currentStaffSlide].comment }}</p>
                     </div>
                   </div>
                 </div>
-              </Transition>
+              </template>
             </div>
-
-            <!-- Prev / Next buttons -->
-            <button @click="prevStaffSlide"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-green hover:text-white hover:border-kaiho-green transition-all duration-200 focus:outline-none"
-                    aria-label="前のメンバー">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button @click="nextStaffSlide"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-kaiho-green hover:text-white hover:border-kaiho-green transition-all duration-200 focus:outline-none"
-                    aria-label="次のメンバー">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <!-- Dot indicators -->
-          <div class="flex justify-center gap-1.5 mt-5">
-            <button v-for="(_, i) in memberList" :key="i"
-                    @click="goToStaffSlide(i)"
-                    class="h-2 rounded-full transition-all duration-300 focus:outline-none"
-                    :class="i === currentStaffSlide ? 'bg-kaiho-green w-6' : 'bg-neutral-300 hover:bg-neutral-400 w-2'"
-                    :aria-label="`メンバー${i + 1}`"></button>
           </div>
         </div>
       </div>
@@ -1439,30 +1375,6 @@ const mentors: Mentor[] = [
   },
 ]
 
-const currentMentorSlide = ref(0)
-let mentorAutoplayTimer: ReturnType<typeof setInterval> | null = null
-
-function startMentorAutoplay() {
-  mentorAutoplayTimer = setInterval(() => {
-    currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
-  }, 4000)
-}
-function resetMentorAutoplay() {
-  if (mentorAutoplayTimer) clearInterval(mentorAutoplayTimer)
-  startMentorAutoplay()
-}
-function prevMentorSlide() {
-  currentMentorSlide.value = (currentMentorSlide.value - 1 + mentors.length) % mentors.length
-  resetMentorAutoplay()
-}
-function nextMentorSlide() {
-  currentMentorSlide.value = (currentMentorSlide.value + 1) % mentors.length
-  resetMentorAutoplay()
-}
-function goToMentorSlide(i: number) {
-  currentMentorSlide.value = i
-  resetMentorAutoplay()
-}
 
 // ── Members ──
 const memberColorClasses = [
@@ -1504,55 +1416,6 @@ const staffRoleLabels: Record<string, string> = {
   koen: '🏆 後援コーナー担当',
 }
 
-const currentCreatorSlide = ref(0)
-let creatorAutoplayTimer: ReturnType<typeof setInterval> | null = null
-
-function startCreatorAutoplay() {
-  creatorAutoplayTimer = setInterval(() => {
-    currentCreatorSlide.value = (currentCreatorSlide.value + 1) % creatorArticleGroups.value.length
-  }, 4000)
-}
-function resetCreatorAutoplay() {
-  if (creatorAutoplayTimer) clearInterval(creatorAutoplayTimer)
-  startCreatorAutoplay()
-}
-function prevCreatorSlide() {
-  currentCreatorSlide.value = (currentCreatorSlide.value - 1 + creatorArticleGroups.value.length) % creatorArticleGroups.value.length
-  resetCreatorAutoplay()
-}
-function nextCreatorSlide() {
-  currentCreatorSlide.value = (currentCreatorSlide.value + 1) % creatorArticleGroups.value.length
-  resetCreatorAutoplay()
-}
-function goToCreatorSlide(i: number) {
-  currentCreatorSlide.value = i
-  resetCreatorAutoplay()
-}
-
-const currentStaffSlide = ref(0)
-let staffAutoplayTimer: ReturnType<typeof setInterval> | null = null
-
-function startStaffAutoplay() {
-  staffAutoplayTimer = setInterval(() => {
-    currentStaffSlide.value = (currentStaffSlide.value + 1) % memberList.length
-  }, 4000)
-}
-function resetStaffAutoplay() {
-  if (staffAutoplayTimer) clearInterval(staffAutoplayTimer)
-  startStaffAutoplay()
-}
-function prevStaffSlide() {
-  currentStaffSlide.value = (currentStaffSlide.value - 1 + memberList.length) % memberList.length
-  resetStaffAutoplay()
-}
-function nextStaffSlide() {
-  currentStaffSlide.value = (currentStaffSlide.value + 1) % memberList.length
-  resetStaffAutoplay()
-}
-function goToStaffSlide(i: number) {
-  currentStaffSlide.value = i
-  resetStaffAutoplay()
-}
 
 // ── News items ──
 const showAllNews = ref(false)
@@ -1911,38 +1774,9 @@ onMounted(() => {
   loadDonations()
 
   // Cleanup
-  startMentorAutoplay()
-  startStaffAutoplay()
-  startCreatorAutoplay()
-
   onUnmounted(() => {
     clearInterval(particleInterval)
-    if (mentorAutoplayTimer) clearInterval(mentorAutoplayTimer)
-    if (staffAutoplayTimer) clearInterval(staffAutoplayTimer)
-    if (creatorAutoplayTimer) clearInterval(creatorAutoplayTimer)
   })
 })
 </script>
 
-<style scoped>
-.mentor-fade-enter-active,
-.mentor-fade-leave-active,
-.staff-fade-enter-active,
-.staff-fade-leave-active,
-.creator-fade-enter-active,
-.creator-fade-leave-active {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.mentor-fade-enter-from,
-.staff-fade-enter-from,
-.creator-fade-enter-from {
-  opacity: 0;
-  transform: translateX(20px);
-}
-.mentor-fade-leave-to,
-.staff-fade-leave-to,
-.creator-fade-leave-to {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-</style>

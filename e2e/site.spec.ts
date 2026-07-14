@@ -166,7 +166,7 @@ test('トップページにnoteマガジンのクリエイター募集バナー�
 // トップページ: 道路清掃ボランティアセクション
 test('トップページに道路清掃ボランティアセクションが表示される', async ({ page }) => {
   await page.goto('/')
-  const section = page.locator('h2').filter({ hasText: '道路清掃ボランティア' })
+  const section = page.locator('h2').filter({ hasText: '地域連携事業' })
   await expect(section).toBeVisible()
   const desc = page.getByText('開邦中高校生・PTA・同窓生が合同で')
   await expect(desc).toBeVisible()
