@@ -80,291 +80,6 @@
 
 
     <!-- ============================================================ -->
-    <!-- MISSION SECTION                                               -->
-    <!-- ============================================================ -->
-    <section id="about" class="py-24 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Mission</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">
-            <span class="gradient-text">開邦雄飛</span>の理念
-          </h2>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <div class="max-w-3xl mx-auto text-center mb-20 fade-in">
-          <p class="text-lg text-neutral-600 leading-relaxed">
-            「開邦雄飛」&#8212; 邦を開き、世界に羽ばたく人材の育成。<br>
-            開邦高校の校訓を受け継ぎ、同窓会「開邦雄飛会」は<br class="hidden md:inline">
-            卒業生と在校生をつなぎ、同窓生同士の交流を深める架け橋として活動しています。
-          </p>
-        </div>
-
-        <!-- 3 Pillars -->
-        <div class="grid md:grid-cols-3 gap-5 fade-in">
-          <!-- Pillar 1 -->
-          <div class="card-hover relative overflow-hidden bg-gradient-to-br from-kaiho-green to-kaiho-green-dark rounded-2xl p-5 text-white shadow-lg shadow-kaiho-green/20 min-h-[120px] flex items-center">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div class="relative flex items-center gap-4">
-              <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
-              </div>
-              <h3 class="text-xl font-bold text-white">在校生・同窓生支援</h3>
-            </div>
-          </div>
-
-          <!-- Pillar 2 -->
-          <div class="card-hover relative overflow-hidden bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl p-5 text-white shadow-lg shadow-amber-500/20 min-h-[120px] flex items-center">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div class="relative flex items-center gap-4">
-              <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
-              </div>
-              <h3 class="text-xl font-bold text-white">同窓生ネットワーク</h3>
-            </div>
-          </div>
-
-          <!-- Pillar 3 -->
-          <div class="card-hover relative overflow-hidden bg-gradient-to-br from-kaiho-blue to-blue-700 rounded-2xl p-5 text-white shadow-lg shadow-kaiho-blue/20 min-h-[120px] flex items-center">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div class="relative flex items-center gap-4">
-              <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
-              </div>
-              <h3 class="text-xl font-bold text-white">社会貢献</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- FEATURED PROJECTS                                             -->
-    <!-- ============================================================ -->
-    <section id="projects" class="py-24 md:py-32 bg-neutral-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Projects</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">注力事業</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">同窓生の専門性を活かし、在校生と同窓生の未来を拓くプロジェクト</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- 総会懇親会企画（フィーチャードカード） -->
-        <div class="mb-10 fade-in">
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-40 relative overflow-hidden">
-              <img :src="`${baseURL}images/alumni-exchange.jpeg`" alt="総会懇親会" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/30"></div>
-            </div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-teal/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
-                </div>
-                <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">企画中</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">総会懇親会企画</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">年次総会に合わせた懇親会を企画。同窓生が久しぶりに顔を合わせ、世代を超えて交流できる場を提供します。</p>
-              <div class="bg-kaiho-teal/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-2">
-                  <span class="text-xs text-neutral-500">令和8年度定期総会（2026年7月予定）に合わせて実施</span>
-                </div>
-              </div>
-              <a href="#news" class="inline-flex items-center gap-2 text-kaiho-teal text-sm font-bold hover:gap-3 transition-all">
-                総会について見る <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 後援事業: Ⅲ concert（フィーチャードカード） -->
-        <div class="mb-10 fade-in">
-          <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-gold/30 group">
-            <div class="h-2 bg-gradient-to-r from-kaiho-gold via-yellow-400 to-kaiho-gold"></div>
-            <!-- バッジ・タイトル -->
-            <div class="px-8 pt-8 pb-4">
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
-                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
-              </div>
-              <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
-              <p class="text-neutral-500 text-sm">～サクソフォンとピアノで彩る室内楽～</p>
-            </div>
-            <!-- 画像2枚を横並びで大きく表示 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 px-8 pb-6">
-              <div class="rounded-2xl overflow-hidden">
-                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-auto">
-              </div>
-              <div class="rounded-2xl overflow-hidden">
-                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-auto">
-              </div>
-            </div>
-            <!-- コンサート詳細 -->
-            <div class="px-8 pb-8">
-              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
-                  <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
-                  <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">会場</p>
-                  <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
-                  <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">チケット</p>
-                  <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
-                  <p class="text-xs text-neutral-500">当日500円増</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">出演者</p>
-                  <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
-                </div>
-              </div>
-              <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
-              <p class="text-xs text-neutral-500">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
-              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-          <!-- Project 5: 創立記念特設授業 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-40 relative overflow-hidden">
-              <img :src="`${baseURL}images/special-lecture-classroom.jpeg`" alt="創立記念特設授業" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/30"></div>
-            </div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                </div>
-                <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">準備中</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">創立記念特設授業</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">卒業生講師が母校を訪れ、キャリアの歩みを在校生に届ける授業。2011年から続くメイン活動。</p>
-              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-2 flex-wrap gap-y-1">
-                  <span class="text-xs text-neutral-500">令和8年度（2026年10月30日（金））開催予定</span>
-                </div>
-                <p class="text-xs font-bold text-kaiho-green mt-1">講師募集中</p>
-              </div>
-              <NuxtLink to="/activities/special-lecture" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
-                詳しく見る <span>&rarr;</span>
-              </NuxtLink>
-            </div>
-          </div>
-
-          <!-- Project 2: メンター制度 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
-                </div>
-                <div class="flex flex-col items-end gap-1">
-                  <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">NEW</span>
-                  <span class="bg-kaiho-blue/10 text-kaiho-blue text-[10px] font-bold px-2 py-0.5 rounded-full">2026年度 開始予定</span>
-                </div>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">メンター制度</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択を支援する。</p>
-              <div class="flex items-center gap-3 mb-4">
-                <div class="flex -space-x-2">
-                  <div class="w-8 h-8 bg-kaiho-green rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">K</div>
-                  <div class="w-8 h-8 bg-kaiho-blue rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">U</div>
-                  <div class="w-8 h-8 bg-kaiho-gold rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
-                  <div class="w-8 h-8 bg-kaiho-purple rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">I</div>
-                </div>
-                <span class="text-xs text-neutral-500"><strong>{{ mentors.length }}名</strong> が登録中</span>
-              </div>
-              <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
-                メンター一覧を見る <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Project: 道路清掃ボランティア -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-3 bg-gradient-to-r from-kaiho-green to-emerald-400"></div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-                </div>
-                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full badge-pulse">毎月第二日曜</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">道路清掃ボランティア</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">鳥堀自治会と合同で、開邦周辺の道路清掃を毎月第二日曜日に実施。学校と地域のつながりをつくる活動。</p>
-              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-2">
-                  <span class="text-xs text-neutral-500">第1回（2026/3/8）— 約10名参加</span>
-                </div>
-                <p class="text-xs text-neutral-500 mt-1">PTA・在校生・同窓生・地域住民が合同で実施</p>
-              </div>
-              <a href="#volunteer" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
-                詳しく見る <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-
-
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NEWS SECTION                                                  -->
-    <!-- ============================================================ -->
-    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
-        </div>
-
-        <div class="max-w-2xl mx-auto space-y-0 fade-in">
-          <div v-for="(item, i) in visibleNewsItems" :key="i"
-             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
-             :class="{ 'border-b border-white/20': i < visibleNewsItems.length - 1 }">
-            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
-            <div class="flex-1 flex items-center justify-between gap-4">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
-                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
-                </div>
-                <h3 class="text-white font-medium">{{ item.title }}</h3>
-                <a v-if="item.link" :href="item.link" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-1 mt-2 text-kaiho-gold text-xs font-bold hover:underline">
-                  詳細・申込 <span>&rarr;</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- もっと見るボタン -->
-        <div v-if="!showAllNews && newsItems.length > 4" class="text-center mt-8 fade-in">
-          <button @click="showAllNews = true"
-                  class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/40 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all duration-200">
-            もっと見る
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
     <!-- NOTE MAGAZINE SECTION                                         -->
     <!-- ============================================================ -->
     <section id="magazine" class="py-24 md:py-32 bg-white">
@@ -545,6 +260,361 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ============================================================ -->
+    <!-- MISSION SECTION                                               -->
+    <!-- ============================================================ -->
+    <section id="about" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Mission</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">
+            <span class="gradient-text">開邦雄飛</span>の理念
+          </h2>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center mb-20 fade-in">
+          <p class="text-lg text-neutral-600 leading-relaxed">
+            「開邦雄飛」&#8212; 邦を開き、世界に羽ばたく人材の育成。<br>
+            開邦高校の校訓を受け継ぎ、同窓会「開邦雄飛会」は<br class="hidden md:inline">
+            卒業生と在校生をつなぎ、同窓生同士の交流を深める架け橋として活動しています。
+          </p>
+        </div>
+
+        <!-- 3 Pillars -->
+        <div class="grid md:grid-cols-3 gap-5 fade-in">
+          <!-- Pillar 1 -->
+          <div class="bg-white rounded-2xl border border-neutral-100 shadow-sm p-6 flex items-center gap-4">
+            <div class="w-10 h-10 bg-kaiho-green/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">在校生・同窓生支援</h3>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white rounded-2xl border border-neutral-100 shadow-sm p-6 flex items-center gap-4">
+            <div class="w-10 h-10 bg-kaiho-gold/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">同窓生ネットワーク</h3>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white rounded-2xl border border-neutral-100 shadow-sm p-6 flex items-center gap-4">
+            <div class="w-10 h-10 bg-kaiho-blue/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">社会貢献</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- FEATURED PROJECTS                                             -->
+    <!-- ============================================================ -->
+    <section id="projects" class="py-24 md:py-32 bg-neutral-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Projects</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">注力事業</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">令和8年度事業計画の注力2本柱：教育支援事業・デジタル推進事業</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <!-- 総会イベント（フィーチャードカード） -->
+        <div class="mb-10 fade-in">
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="flex flex-col sm:flex-row">
+              <div class="sm:w-64 flex-shrink-0 bg-white flex items-center justify-center p-4">
+                <img :src="`${baseURL}images/soukai-event-flyer-r8.png`" alt="令和8年度総会イベント案内" class="w-full h-auto object-contain max-h-72">
+              </div>
+              <div class="p-8 flex-1">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="w-14 h-14 bg-kaiho-teal/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-7 h-7 text-kaiho-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                  </div>
+                  <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">会員交流促進</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-neutral-900">令和8年度 総会イベント</h3>
+                <p class="text-neutral-500 text-sm mb-4 leading-relaxed">特別講演会・通常総会・懇親会の3部構成で開催。開邦中学・高等学校 校長 上江洲寿先生（2期生）をお招きし、母校の「今」と卒業生の歩みをつなぐ特別講演会を実施します。</p>
+                <div class="grid sm:grid-cols-2 gap-2 mb-4">
+                  <div class="bg-kaiho-teal/5 rounded-lg p-3">
+                    <p class="text-xs font-bold text-neutral-400 mb-0.5">日時</p>
+                    <p class="text-sm font-bold text-neutral-900">2026年7月18日（土）</p>
+                    <p class="text-xs text-neutral-500">第1部 16:00〜 / 懇親会 18:30〜</p>
+                  </div>
+                  <div class="bg-kaiho-teal/5 rounded-lg p-3">
+                    <p class="text-xs font-bold text-neutral-400 mb-0.5">会場</p>
+                    <p class="text-sm font-bold text-neutral-900">若狭公民館 2階</p>
+                    <p class="text-xs text-neutral-500">那覇市若狭2丁目12-1</p>
+                  </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-kaiho-teal text-white text-sm font-bold rounded-full hover:bg-teal-700 transition-all shadow-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  特別講演会・総会・懇親会の申込はこちら
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 教育支援事業 ヘッダー -->
+        <div class="mb-6 fade-in">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-black tracking-widest uppercase text-kaiho-green bg-kaiho-green/10 px-3 py-1 rounded-full">教育支援事業</span>
+            <div class="flex-1 h-px bg-neutral-200"></div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 fade-in">
+          <!-- 創立記念特設授業 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-40 relative overflow-hidden">
+              <img :src="`${baseURL}images/special-lecture-classroom.jpeg`" alt="創立記念特設授業" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/30"></div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">準備中</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">創立記念特設授業</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">卒業生講師が母校を訪れ、キャリアの歩みを在校生に届ける授業。全校生徒対象。2011年から続くメイン活動。</p>
+              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
+                <div class="flex items-center gap-2 flex-wrap gap-y-1">
+                  <span class="text-xs text-neutral-500">令和8年度（2026年10月30日（金））開催予定</span>
+                </div>
+                <p class="text-xs font-bold text-kaiho-green mt-1">講師募集中</p>
+              </div>
+              <NuxtLink to="/activities/special-lecture" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
+                詳しく見る <span>&rarr;</span>
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- 職業人講話 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-green to-teal-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+                </div>
+                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full badge-pulse">講師調整中</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">職業人講話</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">卒業生が中学3年生の「総合的な学習の時間」に訪問し、多様なキャリアの実体験を届ける講話活動。</p>
+              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
+                <span class="text-xs text-neutral-500">令和9年6月実施予定 ／ 中学3年生対象</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- メンター制度 -->
+          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
+            <div class="h-3 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
+            <div class="p-8">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                </div>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">NEW</span>
+                  <span class="bg-kaiho-blue/10 text-kaiho-blue text-[10px] font-bold px-2 py-0.5 rounded-full">2026年度 開始予定</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-neutral-900">卒業生メンター制度</h3>
+              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">在校生の探究活動や進路選択を支援する。メンターデータベースを整備し、通年でマッチングを実施。</p>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex -space-x-2">
+                  <div class="w-8 h-8 bg-kaiho-green rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">K</div>
+                  <div class="w-8 h-8 bg-kaiho-blue rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">U</div>
+                  <div class="w-8 h-8 bg-kaiho-gold rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
+                  <div class="w-8 h-8 bg-kaiho-purple rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">I</div>
+                </div>
+                <span class="text-xs text-neutral-500"><strong>{{ mentors.length }}名</strong> が登録中</span>
+              </div>
+              <a href="#mentor" class="inline-flex items-center gap-2 text-kaiho-blue text-sm font-bold hover:gap-3 transition-all">
+                メンター一覧を見る <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- デジタル推進事業 ヘッダー -->
+        <div class="mb-6 fade-in">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-black tracking-widest uppercase text-kaiho-blue bg-kaiho-blue/10 px-3 py-1 rounded-full">デジタル推進事業</span>
+            <div class="flex-1 h-px bg-neutral-200"></div>
+          </div>
+        </div>
+
+        <!-- デジタル推進事業カード -->
+        <div class="mb-10 fade-in">
+          <div class="card-hover bg-white rounded-2xl shadow-md border border-neutral-200 p-8">
+            <div class="flex items-start justify-between mb-6">
+              <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
+                <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>
+              </div>
+              <span class="bg-kaiho-blue/10 text-kaiho-blue text-xs font-bold px-3 py-1 rounded-full">通年実施</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-neutral-900">デジタル推進事業</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-neutral-50 rounded-xl p-4">
+                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
+                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                </div>
+                <p class="text-xs font-bold text-neutral-700 mb-1">HP運用・更新</p>
+                <p class="text-xs text-neutral-500">活動記録を随時公開し、透明性ある情報発信を継続</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-4">
+                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
+                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <p class="text-xs font-bold text-neutral-700 mb-1">会員名簿 &amp; LINE WORKS</p>
+                <p class="text-xs text-neutral-500">名簿整備とLINE WORKS環境を最適化し、連絡体制を強化</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-4">
+                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
+                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <p class="text-xs font-bold text-neutral-700 mb-1">手続き・会議のオンライン化</p>
+                <p class="text-xs text-neutral-500">各種申請・議事録作成を含む会議運営をオンライン化</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-4">
+                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
+                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                </div>
+                <p class="text-xs font-bold text-neutral-700 mb-1">情報発信・連絡体制</p>
+                <p class="text-xs text-neutral-500">会員への情報発信と連絡体制を整備し、コミュニティを活性化</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ============================================================ -->
+    <!-- 後援事業 SECTION                                               -->
+    <!-- ============================================================ -->
+    <section id="sponsorship" class="py-16 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-10 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-gold mb-4">Support</p>
+          <h2 class="text-2xl md:text-4xl font-black tracking-tight mb-4">後援事業</h2>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">開邦卒業生の芸術活動を支援しています</p>
+          <div class="section-divider mt-6"></div>
+        </div>
+        <!-- Ⅲ concert（フィーチャードカード） -->
+        <div class="max-w-4xl mx-auto fade-in">
+          <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-gold/30 group">
+            <div class="h-2 bg-gradient-to-r from-kaiho-gold via-yellow-400 to-kaiho-gold"></div>
+            <!-- バッジ・タイトル -->
+            <div class="px-8 pt-8 pb-4">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
+                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
+              <p class="text-neutral-500 text-sm">～サクソフォンとピアノで彩る室内楽～</p>
+            </div>
+            <!-- 画像2枚を横並びで大きく表示 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 px-8 pb-6">
+              <div class="rounded-2xl overflow-hidden">
+                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-auto">
+              </div>
+              <div class="rounded-2xl overflow-hidden">
+                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-auto">
+              </div>
+            </div>
+            <!-- コンサート詳細 -->
+            <div class="px-8 pb-8">
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
+                  <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
+                  <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">会場</p>
+                  <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
+                  <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">チケット</p>
+                  <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
+                  <p class="text-xs text-neutral-500">当日500円増</p>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-4">
+                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">出演者</p>
+                  <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
+              <p class="text-xs text-neutral-500">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
+              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- NEWS SECTION                                                  -->
+    <!-- ============================================================ -->
+    <section id="news" class="py-24 md:py-32 bg-kaiho-green text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">News</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">お知らせ</h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto space-y-0 fade-in">
+          <div v-for="(item, i) in visibleNewsItems" :key="i"
+             class="group flex gap-6 items-start py-6 px-4 -mx-4 rounded-lg transition-colors"
+             :class="{ 'border-b border-white/20': i < visibleNewsItems.length - 1 }">
+            <time class="text-sm text-white/50 flex-shrink-0 w-28">{{ item.date }}</time>
+            <div class="flex-1 flex items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">{{ item.category }}</span>
+                  <span v-if="item.isNew" class="text-[10px] bg-kaiho-gold text-white px-2 py-0.5 rounded-full font-bold">NEW</span>
+                </div>
+                <h3 class="text-white font-medium">{{ item.title }}</h3>
+                <a v-if="item.link" :href="item.link" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1 mt-2 text-kaiho-gold text-xs font-bold hover:underline">
+                  詳細・申込 <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- もっと見るボタン -->
+        <div v-if="!showAllNews && newsItems.length > 4" class="text-center mt-8 fade-in">
+          <button @click="showAllNews = true"
+                  class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/40 text-white font-bold rounded-full hover:border-white hover:bg-white/10 transition-all duration-200">
+            もっと見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
         </div>
       </div>
     </section>
