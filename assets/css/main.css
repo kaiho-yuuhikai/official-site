@@ -114,6 +114,33 @@
   50% { opacity: 0.7; }
 }
 
+/* Marquee (auto-scroll) animation for profile cards */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-container {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+.marquee-track--creators {
+  animation: marquee 40s linear infinite;
+}
+.marquee-track--mentors {
+  animation: marquee 50s linear infinite;
+}
+.marquee-track--staff {
+  animation: marquee 35s linear infinite;
+}
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #2d8c3c, #d4a017);
