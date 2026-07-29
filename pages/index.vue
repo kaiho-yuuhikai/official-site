@@ -1400,7 +1400,6 @@ function getMemberBgClass(index: number) {
   return memberColorClasses[index % memberColorClasses.length]
 }
 const memberList = [
-  { name: 'みねけん', generation: '18期 理数科', initial: 'み', bgClass: getMemberBgClass(0), note: '元カメラマン | 探究活動事務局', photo: 'images/members/mineken.png', branch: '', comment: '総合型選抜専門塾GALに在籍しています。主に探究学習の設計や支援を仕事にしていて、『マイプロジェクト』の沖縄事務局も兼任しています。', role: 'mentor' },
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
   { name: '具志', generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
   { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
