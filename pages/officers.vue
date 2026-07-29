@@ -197,6 +197,12 @@ const members = [
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
   { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
   { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getBgClass(2), note: '会社員 | PTA', photo: 'images/members/yasuichi.jpg', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
+  { name: '久高せいや', generation: '19期 英語科', initial: '久', bgClass: getBgClass(6), note: 'キャリア相談', photo: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！' },
+  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getBgClass(7), note: '事務局長', photo: 'images/members/matayoshi.png', comment: '' },
+  { name: '知念', generation: '20期 理数科', initial: '知', bgClass: getBgClass(8), note: '会計', photo: '', comment: '' },
+  { name: '瀬長', generation: '24期 理数科', initial: '瀬', bgClass: getBgClass(9), note: '会計', photo: '', comment: '' },
+  { name: '久貝', generation: '12期 英語科', initial: '久', bgClass: getBgClass(10), note: '会計監査', photo: '', comment: '' },
+  { name: '浦崎', generation: '23期 理数科', initial: '浦', bgClass: getBgClass(11), note: '常任委員', photo: '', comment: '' },
 ]
 
 const teams = [
