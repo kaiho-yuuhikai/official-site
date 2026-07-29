@@ -331,9 +331,9 @@
                     <p class="text-xs text-neutral-500">那覇市若狭2丁目12-1</p>
                   </div>
                 </div>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-kaiho-teal text-white text-sm font-bold rounded-full hover:bg-teal-700 transition-all shadow-sm">
+                <a href="https://note.com/kaihoyuuhikai/n/nc83976dffecc?sub_rt=share_sb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-kaiho-teal text-white text-sm font-bold rounded-full hover:bg-teal-700 transition-all shadow-sm">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  特別講演会・総会・懇親会の申込はこちら
+                  活動報告を見る
                 </a>
               </div>
             </div>
@@ -1373,6 +1373,17 @@ const mentors: Mentor[] = [
     image: 'images/mentors/miyazato-osamu.jpg',
     imagePosition: 'object-top',
   },
+  {
+    name: '久高せいや',
+    furigana: 'クダカ セイヤ',
+    generation: '19期',
+    course: '英語科',
+    region: '',
+    category: 'career',
+    tagClass: 'bg-kaiho-green/10 text-kaiho-green',
+    tags: ['キャリア相談', '英語科'],
+    profile: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！',
+  },
 ]
 
 
@@ -1398,6 +1409,12 @@ const memberList = [
   { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
   { name: 'ゆき', generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
   { name: '宮城潤', generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: 'images/members/miyagi-jun.png', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
+  { name: '久高せいや', generation: '19期 英語科', initial: '久', bgClass: getMemberBgClass(9), note: 'キャリア相談', photo: '', branch: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！', role: 'car' },
+  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getMemberBgClass(10), note: '事務局長', photo: 'images/members/matayoshi.png', branch: '', comment: '', role: 'officer' },
+  { name: '知念', generation: '20期 理数科', initial: '知', bgClass: getMemberBgClass(11), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
+  { name: '瀬長', generation: '24期 理数科', initial: '瀬', bgClass: getMemberBgClass(12), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
+  { name: '久貝', generation: '12期 英語科', initial: '久', bgClass: getMemberBgClass(13), note: '会計監査', photo: '', branch: '', comment: '', role: 'officer' },
+  { name: '浦崎', generation: '23期 理数科', initial: '浦', bgClass: getMemberBgClass(14), note: '常任委員', photo: '', branch: '', comment: '', role: 'officer' },
 ]
 
 const memberCorners = [
@@ -1406,6 +1423,8 @@ const memberCorners = [
   { name: 'HP作成担当', icon: '💻', members: memberList.filter(m => m.role === 'hp') },
   { name: '特設授業担当', icon: '🎓', members: memberList.filter(m => m.role === 'lecture') },
   { name: '後援コーナー担当', icon: '🏆', members: memberList.filter(m => m.role === 'koen') },
+  { name: '学校車寄贈担当', icon: '🚗', members: memberList.filter(m => m.role === 'car') },
+  { name: '役員', icon: '🏛️', members: memberList.filter(m => m.role === 'officer') },
 ]
 
 const staffRoleLabels: Record<string, string> = {
@@ -1414,13 +1433,15 @@ const staffRoleLabels: Record<string, string> = {
   hp: '💻 HP作成担当',
   lecture: '🎓 特設授業担当',
   koen: '🏆 後援コーナー担当',
+  car: '🚗 学校車寄贈担当',
+  officer: '🏛️ 役員',
 }
 
 
 // ── News items ──
 const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）', link: 'https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform', isNew: true },
+  { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）', link: 'https://note.com/kaihoyuuhikai/n/nc83976dffecc?sub_rt=share_sb', isNew: true },
   { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },
   { date: '2026.06.07', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（オンライン）', link: null, isNew: true },
   { date: '2026.05.24', category: 'お知らせ', title: '運営ミーティング実施（新体制に向けて）（5月24日（日）　若狭公民館）', link: null, isNew: true },
