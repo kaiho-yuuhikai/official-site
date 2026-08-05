@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' }
+        { property: 'twitter:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' },
         { name: 'msvalidate.01', content: 'BE0EF51F7D5AC731FBC5DE91526D7B22' },
       ],
       link: [
