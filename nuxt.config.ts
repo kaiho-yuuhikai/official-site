@@ -34,6 +34,7 @@ export default defineNuxtConfig({
         { property: 'og:image:height', content: '630' },
         { property: 'twitter:card', content: 'summary_large_image' },
         { property: 'twitter:image', content: 'https://kaiho-yuuhikai.jp/images/og-image.jpg' }
+        { name: 'msvalidate.01', content: 'BE0EF51F7D5AC731FBC5DE91526D7B22' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/favicon.png' },
