@@ -1153,8 +1153,8 @@
 
             <!-- リーダー紹介 -->
             <div class="flex items-start gap-4 bg-neutral-50 rounded-xl px-5 py-4 mb-6">
-              <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <img :src="`${baseURL}images/members/yasuichi.jpg`" alt="金城安一" class="w-full h-full object-cover">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-kaiho-green to-emerald-400 flex items-center justify-center flex-shrink-0">
+                <span class="text-white text-sm font-black">ヤ</span>
               </div>
               <div class="flex-1">
                 <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
@@ -1323,7 +1323,7 @@ const mentors: Mentor[] = [
     tagClass: 'bg-kaiho-blue/10 text-kaiho-blue',
     tags: ['IT', 'ネットワーク'],
     profile: '三井情報株式会社でネットワークエンジニアとして沖縄営業所に在籍。在地方初のスペシャリスト職として、県外のプロジェクトにも参画してます。',
-    image: 'images/mentors/kishimoto-katsumi.jpg',
+    image: '',
   },
   {
     name: '宮城',
@@ -1335,7 +1335,7 @@ const mentors: Mentor[] = [
     tagClass: 'bg-kaiho-gold/20 text-amber-700',
     tags: ['芸術', 'シーサー', '陶芸'],
     profile: '沖縄 那覇市の壺屋の工房・ギャラリーと、恩納村のアトリエにて、シーサーを中心に制作活動してる藝術家です。2019年に火災により消失した平成首里城の瓦礫を使いシーサーとして復活させています。夢・目標はこの世界遺産・平成首里城の瓦礫を素材に、世界一の巨大シーサーを沖縄に作ることです。',
-    image: 'images/mentors/miyagi-mitsuo.jpg',
+    image: '',
   },
   {
     name: '具志',
@@ -1358,7 +1358,7 @@ const mentors: Mentor[] = [
     tagClass: 'bg-kaiho-green/10 text-kaiho-green',
     tags: ['東京大学', '工学部', 'ALOHA'],
     profile: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
-    image: 'images/mentors/gakiya-kanato.jpg',
+    image: '',
   },
   {
     name: '宮里',
@@ -1370,8 +1370,7 @@ const mentors: Mentor[] = [
     tagClass: 'bg-kaiho-gold/20 text-amber-700',
     tags: ['投資家', '金融', 'ファイナンス', 'ライフプラン'],
     profile: '『お金が全てではないが、全てのことにお金がかかる』人生を幸せに豊かに過ごすために、金融リテラシーを高めましょう。',
-    image: 'images/mentors/miyazato-osamu.jpg',
-    imagePosition: 'object-top',
+    image: '',
   },
   {
     name: '久高せいや',
@@ -1402,14 +1401,14 @@ function getMemberBgClass(index: number) {
 const memberList = [
   { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
   { name: '具志', generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: 'images/members/uema.png', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: 'images/members/george.png', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
+  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: '', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
+  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: '', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
   { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: 'images/members/kae.jpg', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
+  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: '', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
   { name: 'ゆき', generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
-  { name: '宮城潤', generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: 'images/members/miyagi-jun.png', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
+  { name: '宮城潤', generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: '', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
   { name: '久高せいや', generation: '19期 英語科', initial: '久', bgClass: getMemberBgClass(9), note: 'キャリア相談', photo: '', branch: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！', role: 'car' },
-  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getMemberBgClass(10), note: '事務局長', photo: 'images/members/matayoshi.png', branch: '', comment: '', role: 'officer' },
+  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getMemberBgClass(10), note: '事務局長', photo: '', branch: '', comment: '', role: 'officer' },
   { name: '知念', generation: '20期 理数科', initial: '知', bgClass: getMemberBgClass(11), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
   { name: '瀬長', generation: '24期 理数科', initial: '瀬', bgClass: getMemberBgClass(12), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
   { name: '久貝', generation: '12期 英語科', initial: '久', bgClass: getMemberBgClass(13), note: '会計監査', photo: '', branch: '', comment: '', role: 'officer' },
@@ -1535,7 +1534,7 @@ const spotlightCreators = [
     generation: '33期',
     department: '芸術科',
     initial: '辺',
-    photo: 'images/creators/hento-momoka.jpg',
+    photo: '',
     bgClass: getMemberBgClass(0),
     bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
     noteCreatorKey: 'くるみ',
@@ -1545,7 +1544,7 @@ const spotlightCreators = [
     generation: '36期',
     department: '学術探究科',
     initial: '我',
-    photo: 'images/mentors/gakiya-kanato.jpg',
+    photo: '',
     bgClass: getMemberBgClass(1),
     bio: '現役の東大工学部生です。東大進学を中心に多様な進路を応援するALOHAという団体の副代表もしています。',
     noteCreatorKey: 'がっきー',
@@ -1555,7 +1554,7 @@ const spotlightCreators = [
     generation: '16期',
     department: '理数科',
     initial: '上',
-    photo: 'images/members/uema.png',
+    photo: '',
     bgClass: getMemberBgClass(2),
     bio: '子育てや仕事の話、同窓会活動について執筆しています。',
     noteCreatorKey: ['開邦雄飛会', 'uema1125'],
@@ -1581,7 +1580,7 @@ const spotlightCreators = [
     generation: '38期',
     department: '芸術科',
     initial: 'は',
-    photo: 'images/creators/hagu-38.jpg',
+    photo: '',
     bgClass: getMemberBgClass(4),
     bio: '東京藝術大学音楽学部声楽科ソプラノ専攻1年。芸術系のイベント開催（音楽・美術どちらも）に興味があります！',
     noteCreatorKey: null,
