@@ -22,7 +22,7 @@ param(
 $ErrorActionPreference = "Continue"
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@e340ab3) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@8e9b3ac) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 $PROFILE_ID = if ($env:PROFILE_ID) { $env:PROFILE_ID } else { "kaiho-yuuhikai" }
@@ -103,11 +103,12 @@ if (-not (Test-Path $installer)) {
 } elseif ($Check) {
   & powershell -NoProfile -ExecutionPolicy Bypass -File $installer -CheckOnly
 } else {
-  $args = @()
-  if ($TOOLSET -eq "lite") { $args += "-Minimal"; $env:WITH_VSCODE = "1" }
-  if ($SkipVSCode)         { $args += "-SkipVSCode"; $env:WITH_VSCODE = "0" }
-  if ($PROJECT_DIR)        { $args += @("-TrustDir", $PROJECT_DIR) }
-  & powershell -NoProfile -ExecutionPolicy Bypass -File $installer @args
+  # $args は PowerShell の自動変数なので使わない（上書きすると splat が壊れる）
+  $instArgs = @()
+  if ($TOOLSET -eq "lite") { $instArgs += "-Minimal"; $env:WITH_VSCODE = "1" }
+  if ($SkipVSCode)         { $instArgs += "-SkipVSCode"; $env:WITH_VSCODE = "0" }
+  if ($PROJECT_DIR)        { $instArgs += @("-TrustDir", $PROJECT_DIR) }
+  & powershell -NoProfile -ExecutionPolicy Bypass -File $installer @instArgs
   Refresh-Path
 }
 
