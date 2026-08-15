@@ -22,7 +22,7 @@ param(
 $ErrorActionPreference = "Continue"
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@7c3d578) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@e340ab3) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 $PROFILE_ID = if ($env:PROFILE_ID) { $env:PROFILE_ID } else { "kaiho-yuuhikai" }
@@ -135,8 +135,24 @@ if (-not (Have "gh")) {
   if ($LASTEXITCODE -eq 0) { $ghAuthed = $true; OK ("ログイン済み（" + (gh api user --jq .login 2>$null) + "）") }
   elseif ($Check) { NG "未ログイン" }
   else {
-    Log "  ブラウザが開きます。画面に出る8文字のコードを貼り付けてください。"
-    Log "  アカウントが無い方は、ブラウザで先に「Sign up」から作成できます。"
+    # アカウントの有無をここで確認する（無い人を「作成」まで連れて行く）
+    Log "  GitHub のアカウントはお持ちですか？"
+    $hasGh = Read-Host "  お持ちなら y、これから作るなら n を入れて Enter [y/n]"
+    if ($hasGh -match '^(n|no)$') {
+      Log ""
+      Log "  作成ページをブラウザで開きます。"
+      Log "  招待メール（GitHub からの Invitation）が届いている方は、"
+      Log "  そのメールのリンクから作成してください。参加の手続きが自動で終わります。"
+      Log ""
+      Log "  入力するのは メールアドレス／パスワード／ユーザー名 の3つだけです。"
+      Log "  ユーザー名は半角英数字で、他の人と同じものは使えません（例: uema-shoko）。"
+      Start-Process "https://github.com/signup"
+      Log ""
+      Read-Host "  作成が終わったら Enter を押してください" | Out-Null
+    }
+    Log ""
+    Log "  続けて、このパソコンと GitHub をつなぎます。"
+    Log "  ブラウザが開いたら、画面に出る8文字のコードを貼り付けてください。"
     gh auth login --hostname github.com --git-protocol https --web
     gh auth status 2>$null | Out-Null
     if ($LASTEXITCODE -eq 0) { $ghAuthed = $true; OK "ログインできました" }
