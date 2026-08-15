@@ -22,7 +22,7 @@
 set -uo pipefail
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@7c3d578) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@e340ab3) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 : "${PROFILE_ID:=kaiho-yuuhikai}"
@@ -69,6 +69,11 @@ ok()   { log "  ${C_G}OK${C_N}  $1"; }
 ng()   { log "  ${C_R}--${C_N}  $1"; }
 warn() { log "  ${C_Y}!${C_N}   $1"; }
 has()  { command -v "$1" >/dev/null 2>&1; }
+open_url() {
+  if has open; then open "$1" >/dev/null 2>&1
+  elif has xdg-open; then xdg-open "$1" >/dev/null 2>&1
+  else log "  ブラウザで開いてください: $1"; fi
+}
 
 TOTAL_STEPS=7
 FAILED=""
@@ -158,8 +163,28 @@ elif gh auth status >/dev/null 2>&1; then
 elif [ "$CHECK_ONLY" = "1" ]; then
   ng "未ログイン"
 else
-  log "  ブラウザが開きます。画面に出る8文字のコードを貼り付けてください。"
-  log "  ${C_Y}アカウントが無い方は、ブラウザで先に「Sign up」から作成できます。${C_N}"
+  # アカウントの有無をここで確認する（無い人を「作成」まで連れて行く）
+  log "  GitHub のアカウントはお持ちですか？"
+  printf '  お持ちなら y、これから作るなら n を入れて Enter [y/n]: '
+  read -r HAS_GH || HAS_GH=y
+  case "${HAS_GH:-y}" in
+    n|N|no|NO|No)
+      log ""
+      log "  ${C_B}作成ページをブラウザで開きます。${C_N}"
+      log "  ${C_Y}招待メール（GitHub からの Invitation）が届いている方は、${C_N}"
+      log "  ${C_Y}そのメールのリンクから作成してください。参加の手続きが自動で終わります。${C_N}"
+      log ""
+      log "  入力するのは メールアドレス／パスワード／ユーザー名 の3つだけです。"
+      log "  ユーザー名は半角英数字で、他の人と同じものは使えません（例: uema-shoko）。"
+      open_url "https://github.com/signup"
+      log ""
+      printf '  作成が終わったら Enter を押してください… '
+      read -r _ || true
+      ;;
+  esac
+  log ""
+  log "  続けて、このパソコンと GitHub をつなぎます。"
+  log "  ブラウザが開いたら、画面に出る8文字のコードを貼り付けてください。"
   gh auth login --hostname github.com --git-protocol https --web || true
   gh auth status >/dev/null 2>&1 && ok "ログインできました" || fail gh-auth "GitHub ログイン未完了"
 fi
