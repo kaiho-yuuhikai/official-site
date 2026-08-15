@@ -543,7 +543,7 @@
               </div>
               <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
               <p class="text-xs text-neutral-500">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
-              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p>
+              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p><!-- allow-secret:jp-mobile-phone 公演の予約窓口として意図的に公開している番号 -->
             </div>
           </div>
         </div>
