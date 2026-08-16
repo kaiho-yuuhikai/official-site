@@ -1479,15 +1479,6 @@ const noteError = ref(false)
 const noteArticles = ref<NoteArticle[]>([])
 const noteCreatorGroups = ref<NoteCreatorGroup[]>([])
 
-// ── Threads posts ──
-interface ThreadsPost {
-  text: string
-  date: string
-  url: string
-}
-
-const threadsLoading = ref(true)
-const threadsPosts = ref<ThreadsPost[]>([])
 const baseURL = useRuntimeConfig().app.baseURL
 
 // ── Donations data ──
@@ -1672,28 +1663,6 @@ async function loadDonations() {
   }
 }
 
-async function loadThreadsPosts() {
-  try {
-    const res = await fetch(baseURL + 'data/threads-posts.json')
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = await res.json()
-    if (data.posts && data.posts.length > 0) {
-      threadsPosts.value = data.posts.slice(0, 3)
-    }
-  } catch (err) {
-    console.warn('Failed to load threads posts JSON:', err)
-  } finally {
-    threadsLoading.value = false
-  }
-}
-
-function formatThreadsDate(dateStr: string): string {
-  const d = new Date(dateStr)
-  const m = d.getMonth() + 1
-  const day = d.getDate()
-  return `${m}月${day}日`
-}
-
 // ── Count-up animation ──
 function animateCount(el: HTMLElement) {
   const target = parseInt(el.dataset.target || '0')
@@ -1789,7 +1758,6 @@ onMounted(() => {
 
   // Load note articles from static JSON
   loadNoteArticles()
-  loadThreadsPosts()
   loadDonations()
 
   // Cleanup
