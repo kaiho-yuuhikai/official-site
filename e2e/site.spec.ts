@@ -15,6 +15,8 @@ const pages = [
   { path: '/blog/career-crossroads-manual', name: 'キャリクロ運営マニュアル' },
   { path: '/news/soukai', name: '令和8年度定期総会' },
   { path: '/archive/daidosoukai', name: '大同窓会 過去の記録' },
+  { path: '/activities/special-lecture', name: '創立記念特設授業' },
+  { path: '/activities/special-lecture-2026', name: '令和8年度 創立記念特設授業 講師募集' },
 ]
 
 for (const page of pages) {

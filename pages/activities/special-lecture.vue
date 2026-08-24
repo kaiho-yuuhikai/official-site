@@ -12,6 +12,19 @@
       </div>
     </section>
 
+    <!-- 令和8年度 講師募集への導線 -->
+    <section class="bg-kaiho-gold/10 border-b border-kaiho-gold/20">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <p class="text-sm text-neutral-700">
+          <span class="font-bold text-neutral-900">令和8年度の講師を募集しています。</span>
+          今年度から、生徒が講師を選ぶ形になりました。
+        </p>
+        <NuxtLink to="/activities/special-lecture-2026" class="flex-shrink-0 inline-flex items-center gap-2 bg-kaiho-green text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-kaiho-green-dark transition-colors">
+          募集要項を見る <span>&rarr;</span>
+        </NuxtLink>
+      </div>
+    </section>
+
     <!-- Overview -->
     <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
