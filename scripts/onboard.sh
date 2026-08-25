@@ -27,12 +27,12 @@ set -uo pipefail
 # 配布済みのワンライナーは PDF や告知に載っていて回収できないため、
 # スクリプト側で吸収する: 対話だけは端末から直接読む。
 if [ -t 0 ]; then                       TTY_IN=/dev/stdin
-elif { : < /dev/tty; } 2>/dev/null; then TTY_IN=/dev/tty
+elif ( : < /dev/tty ) 2>/dev/null; then TTY_IN=/dev/tty
 else                                    TTY_IN=/dev/null
 fi
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@cd29d88) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@e098047) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 : "${PROFILE_ID:=kaiho-yuuhikai}"
@@ -366,10 +366,23 @@ if [ "${NEED_CLAUDE_LOGIN:-0}" = "1" ]; then
   log "  ブラウザが開いたら、ご自身の Claude アカウントで許可してください。"
   log "  （終わったら、そのまま Claude Code を使えます）"
   log ""
-  printf '  Enter キーを押すと始まります… '
-  read -r _ < "$TTY_IN" || true
-  [ -n "${PROJECT_DIR:-}" ] && [ -d "$PROJECT_DIR" ] && cd "$PROJECT_DIR"
-  exec claude < "$TTY_IN"
+  if [ "$TTY_IN" = "/dev/null" ]; then
+    # 端末が無い（パイプ実行・CI など）。claude は対話TUIなのでここで起動すると
+    # 「Input must be provided ... when using --print」で必ず失敗する。
+    # 起動せず、人がやる手順だけを案内する。
+    log ""
+    log "  ${C_Y}この画面からは Claude のログインを始められません（端末が無いため）。${C_N}"
+    log "  ターミナルで次の2行を実行してください:"
+    log ""
+    [ -n "${PROJECT_DIR:-}" ] && log "    cd $PROJECT_DIR"
+    log "    claude"
+    log ""
+  else
+    printf '  Enter キーを押すと始まります… '
+    read -r _ < "$TTY_IN" || true
+    [ -n "${PROJECT_DIR:-}" ] && [ -d "$PROJECT_DIR" ] && cd "$PROJECT_DIR"
+    exec claude < "$TTY_IN"
+  fi
 fi
 
 log "  ${C_B}次にやること${C_N}"
