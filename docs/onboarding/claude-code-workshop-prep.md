@@ -87,6 +87,13 @@ curl -fsSL https://raw.githubusercontent.com/kaiho-yuuhikai/official-site/main/s
 
 3. 途中で**パソコンのパスワード**を聞かれたら入力してください（画面に文字は出ませんが、入力できています）
 
+> **質問が出たまま何も進まなくなったら**: 一度 `Control + C` で止めて、代わりに下の1行を貼ってください。
+> どちらも中身は同じです（実行のしかたが違うだけで、何度やっても壊れません）。
+>
+> ```bash
+> bash <(curl -fsSL https://raw.githubusercontent.com/kaiho-yuuhikai/official-site/main/scripts/onboard.sh)
+> ```
+
 ### Windows の場合
 
 1. スタートメニューで「PowerShell」と検索して開く
@@ -193,6 +200,7 @@ bash ~/official-site/scripts/onboard.sh --check
 | Windows で「スクリプトの実行が無効」と出る | PowerShell に `Set-ExecutionPolicy -Scope Process RemoteSigned` を貼って Enter → もう一度1行を実行 |
 | パスワードを入れても画面に文字が出ない | 仕様です。そのまま入力して Enter で進みます |
 | 途中で止まったように見える | インストールに10分ほどかかることがあります。5分は待ってみてください |
+| Mac で「アカウントはお持ちですか？ [y/n]」から先に進まない・キーを打っても反応しない | `Control + C` で止めて、STEP 2 の Mac 節にある `bash <(curl ...)` の1行で実行し直してください |
 | 何をやっているか分からなくなった | STEP 3 の1行をもう一度貼り付けてください。**何度実行しても壊れません** |
 
 ---
