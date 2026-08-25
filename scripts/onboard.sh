@@ -79,6 +79,15 @@ ok()   { log "  ${C_G}OK${C_N}  $1"; }
 ng()   { log "  ${C_R}--${C_N}  $1"; }
 warn() { log "  ${C_Y}!${C_N}   $1"; }
 has()  { command -v "$1" >/dev/null 2>&1; }
+# macOS は Command Line Tools 未導入でも /usr/bin/git が「スタブ」として存在する。
+# command -v だけだと在ることになり、実行して初めて失敗する。動くかまで見る。
+works() {
+  has "$1" || return 1
+  case "$1" in
+    git) git --version >/dev/null 2>&1 ;;
+    *)   return 0 ;;
+  esac
+}
 open_url() {
   if has open; then open "$1" >/dev/null 2>&1
   elif has xdg-open; then xdg-open "$1" >/dev/null 2>&1
@@ -151,7 +160,13 @@ else
 fi
 
 for t in git node gh claude; do
-  has "$t" && ok "$t" || fail "$t" "$t が見つかりません"
+  if works "$t"; then ok "$t"
+  elif [ "$t" = "git" ] && has git; then
+    fail git "git が動きません（Xcode Command Line Tools が未導入です）"
+    log "  ${C_Y}ターミナルで xcode-select --install を実行し、画面の指示でインストールしてください。${C_N}"
+  else
+    fail "$t" "$t が見つかりません"
+  fi
 done
 
 # プロファイル指定の追加CLI（例: Gemini CLI / Codex CLI）
@@ -280,14 +295,18 @@ if [ -z "$PROJECT_REPO" ] || [ "$SKIP_PROJECT" = "1" ]; then
   ng "対象なし（スキップ）"
 elif [ "$CHECK_ONLY" = "1" ]; then
   [ -d "$PROJECT_DIR/.git" ] && ok "$PROJECT_DIR" || ng "$PROJECT_DIR が未取得"
-elif ! has git; then
-  fail project "git が無いため取り込めません"
+elif ! works git; then
+  fail project "git が動かないため取り込めません（Xcode Command Line Tools 未導入の可能性）"
+  log "  ${C_Y}ターミナルで xcode-select --install を実行してから、もう一度お試しください。${C_N}"
 else
   if [ -d "$PROJECT_DIR/.git" ]; then
     (cd "$PROJECT_DIR" && git pull --quiet --ff-only 2>/dev/null) && ok "最新に更新しました" || warn "更新をスキップ（ローカルに変更あり）"
   else
-    if git clone --quiet "$PROJECT_REPO" "$PROJECT_DIR" 2>/dev/null; then ok "取り込みました → $PROJECT_DIR"
-    else fail project "取り込みに失敗しました（${PROJECT_REPO}）"; fi
+    CLONE_ERR="$(git clone --quiet "$PROJECT_REPO" "$PROJECT_DIR" 2>&1)" && ok "取り込みました → $PROJECT_DIR" || {
+      fail project "取り込みに失敗しました（${PROJECT_REPO}）"
+      # 理由を捨てない。捨てると現地で原因が分からず手が止まる。
+      [ -n "$CLONE_ERR" ] && log "  理由: $(printf '%s' "$CLONE_ERR" | head -3)"
+    }
   fi
   if [ -d "$PROJECT_DIR" ] && [ -n "$PROJECT_SETUP_CMD" ]; then
     log "  + 依存パッケージを準備しています（数分かかります）..."

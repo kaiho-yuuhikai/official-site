@@ -80,7 +80,10 @@ ensure_local_path() { # ユーザー領域導入時の PATH（現行シェル＋
   mkdir -p "$LOCAL_BIN"
   export PATH="$LOCAL_BIN:$LOCAL_NODE/bin:$PATH"
   local marker='# >>> FDE PATH >>>' rc
-  for rc in "$HOME/.zprofile" "$HOME/.bashrc"; do
+  # macOS の Terminal は bash を「ログインシェル」で起動するため ~/.bashrc は
+  # 読まれない（読まれるのは ~/.bash_profile / ~/.profile）。ここを外すと
+  # 導入は成功しているのに次のシェルで command not found になる。
+  for rc in "$HOME/.zprofile" "$HOME/.zshrc" "$HOME/.bash_profile" "$HOME/.profile" "$HOME/.bashrc"; do
     if ! grep -qs "$marker" "$rc" 2>/dev/null; then
       {
         echo ''
