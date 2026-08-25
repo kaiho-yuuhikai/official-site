@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "dev:clean": "rm -rf .nuxt .output node_modules/.vite && nuxt dev",
+    "dev": "node scripts/dev.mjs",
+    "dev:clean": "node scripts/dev-clean.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
