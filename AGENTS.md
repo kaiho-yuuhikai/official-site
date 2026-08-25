@@ -39,8 +39,9 @@ npm test          # E2Eテスト実行（Playwright）
 ```
 
 > **プレビューが 404 になったら**（第1回で複数名に発生）
-> ビルドキャッシュを引きずっているだけなので、`Control + C` で止めて `npm run dev:clean` を実行する。
-> `.nuxt` / `.output` / `node_modules/.vite` を捨てて立て直す。何度実行しても壊れない。
+> `npm run dev` が古い `.nuxt` を検知して自動で作り直すようになった（`scripts/dev.mjs`）。
+> 参加者に Ctrl+C やコマンド入力を求めないこと。直らなければ `npm run dev:clean`（強制）。
+> ブラウザ側は `plugins/dev-auto-reload.client.ts` が読み込み失敗時に1回だけ自動再読込する。
 >
 > **プレビューURLにリポジトリ名を付けないこと。**
 > `app.baseURL` は `/` なので、正しいURLは `http://localhost:3000/activities/special-lecture`。
