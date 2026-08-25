@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # GScale Onboard — 「1コマンドで、AIと一緒に働けるPCにする」共通エンジン（Windows）
 # =============================================================================
 #
@@ -22,7 +22,7 @@ param(
 $ErrorActionPreference = "Continue"
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@8e9b3ac) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@c28410d) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 $PROFILE_ID = if ($env:PROFILE_ID) { $env:PROFILE_ID } else { "kaiho-yuuhikai" }
