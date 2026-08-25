@@ -1,4 +1,4 @@
-# ！このファイルは GScale-jp/fde-setup (@be24f78) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@eb6e2b7) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 #!/usr/bin/env bash
@@ -364,6 +364,19 @@ install_clt_and_wait() {
     sleep 10; waited=$((waited+10))
     [ $((waited % 60)) -eq 0 ] && log "    …待っています（${waited}秒）"
   done
+  # ダイアログが出ない/押されないまま時間切れになることがある
+  # （過去の要求がキャンセルされていると xcode-select --install が無反応になる）。
+  # その場合に人が打てる代替手順を、具体的なラベル付きで出す。
+  log "  !   時間内に導入が完了しませんでした。"
+  log "      ダイアログが見当たらない場合は、次を実行してください（Macのパスワードを聞かれます）:"
+  local prod
+  prod="$(softwareupdate -l 2>/dev/null | sed -n 's/^ *\* Label: *\(Command Line Tools.*\)$/\1/p' | tail -1)"
+  if [ -n "$prod" ]; then
+    log "        sudo softwareupdate -i \"$prod\" --verbose"
+  else
+    log "        sudo softwareupdate -i \"\$(softwareupdate -l | sed -n 's/^ *\* Label: *\(Command Line Tools.*\)\$/\1/p' | tail -1)\" --verbose"
+  fi
+  log "      完了したら、このスクリプトをもう一度実行してください。"
   return 1
 }
 
