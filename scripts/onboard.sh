@@ -21,8 +21,18 @@
 # =============================================================================
 set -uo pipefail
 
+# curl ... | bash では標準入力がスクリプト本体になる。この状態で read や
+# gh auth login を呼ぶと、スクリプトの残りの行を入力として食べてしまい、
+# 画面が止まったように見える（開邦雄飛会 2026-08-25 で実発生）。
+# 配布済みのワンライナーは PDF や告知に載っていて回収できないため、
+# スクリプト側で吸収する: 対話だけは端末から直接読む。
+if [ -t 0 ]; then                       TTY_IN=/dev/stdin
+elif { : < /dev/tty; } 2>/dev/null; then TTY_IN=/dev/tty
+else                                    TTY_IN=/dev/null
+fi
+
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@c28410d) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@cd29d88) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 : "${PROFILE_ID:=kaiho-yuuhikai}"
@@ -166,7 +176,7 @@ else
   # アカウントの有無をここで確認する（無い人を「作成」まで連れて行く）
   log "  GitHub のアカウントはお持ちですか？"
   printf '  お持ちなら y、これから作るなら n を入れて Enter [y/n]: '
-  read -r HAS_GH || HAS_GH=y
+  read -r HAS_GH < "$TTY_IN" || HAS_GH=y
   case "${HAS_GH:-y}" in
     n|N|no|NO|No)
       log ""
@@ -179,13 +189,13 @@ else
       open_url "https://github.com/signup"
       log ""
       printf '  作成が終わったら Enter を押してください… '
-      read -r _ || true
+      read -r _ < "$TTY_IN" || true
       ;;
   esac
   log ""
   log "  続けて、このパソコンと GitHub をつなぎます。"
   log "  ブラウザが開いたら、画面に出る8文字のコードを貼り付けてください。"
-  gh auth login --hostname github.com --git-protocol https --web || true
+  gh auth login --hostname github.com --git-protocol https --web < "$TTY_IN" || true
   gh auth status >/dev/null 2>&1 && ok "ログインできました" || fail gh-auth "GitHub ログイン未完了"
 fi
 
@@ -357,9 +367,9 @@ if [ "${NEED_CLAUDE_LOGIN:-0}" = "1" ]; then
   log "  （終わったら、そのまま Claude Code を使えます）"
   log ""
   printf '  Enter キーを押すと始まります… '
-  read -r _ || true
+  read -r _ < "$TTY_IN" || true
   [ -n "${PROJECT_DIR:-}" ] && [ -d "$PROJECT_DIR" ] && cd "$PROJECT_DIR"
-  exec claude
+  exec claude < "$TTY_IN"
 fi
 
 log "  ${C_B}次にやること${C_N}"
