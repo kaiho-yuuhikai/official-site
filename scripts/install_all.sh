@@ -1,4 +1,4 @@
-# ！このファイルは GScale-jp/fde-setup (@26edd9d) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@be24f78) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 #!/usr/bin/env bash
@@ -345,10 +345,33 @@ else
 fi
 
 # ---- 8. git ----------------------------------------------------
+# 素の Mac には Homebrew も CLT も無い。CLT が入れば git が使えるようになるので、
+# 「入れません」で終わらせず、ダイアログを出して完了まで待つ。
+# 待たずに進むと [5/7] のクローンが必ず失敗する（開邦雄飛会 2026-08-25）。
+install_clt_and_wait() {
+  command -v xcode-select >/dev/null 2>&1 || return 1
+  log "  + Xcode コマンドラインツール（git を含む）を導入します。"
+  log "  画面に出るダイアログで「インストール」を押してください。"
+  log "    （すでに出ている場合はそのまま押してください。5〜10分ほどかかります）"
+  xcode-select --install >/dev/null 2>&1 || true
+  local waited=0
+  while [ "$waited" -lt 1800 ]; do
+    if git --version >/dev/null 2>&1; then
+      CLT_OK=1
+      log "  + 導入が完了しました。"
+      return 0
+    fi
+    sleep 10; waited=$((waited+10))
+    [ $((waited % 60)) -eq 0 ] && log "    …待っています（${waited}秒）"
+  done
+  return 1
+}
+
 log ""; log "[8] git"
 if has_real git; then ok "$(git --version)"
 elif [ "$BREW_OK" = "1" ]; then brewget git git
-else warn "Homebrew なしでは git は導入しません（『xcode-select --install』で CLT を入れると git が使えます）。"
+elif [ "$(uname -s)" = "Darwin" ] && install_clt_and_wait; then ok "$(git --version)"
+else warn "git を導入できませんでした。ターミナルで『xcode-select --install』を実行し、完了後にもう一度お試しください。"
 fi
 
 # ---- 9. GitHub CLI (gh) ----------------------------------------
