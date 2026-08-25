@@ -1,0 +1,51 @@
+name: セットアップスクリプト検証 (macOS)
+
+# 2026-08-25 の勉強会で、Mac の参加者が連続して同じ場所で止まった。
+# いずれも「構文は通るが実際に走らせると壊れる」たぐいで、
+# bash -n だけでは捕まらない。実機の macOS で完走させて確かめる。
+on:
+  push:
+    paths:
+      - 'scripts/onboard.sh'
+      - 'scripts/onboard.ps1'
+      - 'scripts/install_all.sh'
+      - 'scripts/install_all.ps1'
+      - 'tests/onboard/**'
+      - '.github/workflows/onboard-macos.yml'
+  pull_request:
+    paths:
+      - 'scripts/onboard.sh'
+      - 'scripts/onboard.ps1'
+      - 'scripts/install_all.sh'
+      - 'scripts/install_all.ps1'
+      - 'tests/onboard/**'
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    name: 構文チェック
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: bash -n
+        run: |
+          for f in scripts/onboard.sh scripts/install_all.sh scripts/install_all_linux.sh; do
+            [ -f "$f" ] || continue
+            bash -n "$f" && echo "OK $f"
+          done
+
+  macos:
+    name: 実機 macOS で完走させる
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: 受け入れテスト
+        run: bash tests/onboard/smoke.sh
+      - name: 失敗したらログを残す
+        if: failure()
+        run: |
+          echo "--- gscale-onboard.log ---"
+          cat "$HOME/gscale-onboard.log" 2>/dev/null || echo "(なし)"
+          echo "--- fde-setup-install.log ---"
+          cat "$HOME/fde-setup-install.log" 2>/dev/null || echo "(なし)"
