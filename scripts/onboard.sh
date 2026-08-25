@@ -32,7 +32,7 @@ else                                    TTY_IN=/dev/null;  STDIN_WAS_TTY=0
 fi
 
 # >>> PROFILE >>>
-# ！このファイルは GScale-jp/fde-setup (@be24f78) から自動生成されています。
+# ！このファイルは GScale-jp/fde-setup (@eb6e2b7) から自動生成されています。
 # ！ここを直接編集しないでください。編集は fde-setup 側 → vendor_onboard.sh で再生成。
 # ！profile: kaiho-yuuhikai
 : "${PROFILE_ID:=kaiho-yuuhikai}"
