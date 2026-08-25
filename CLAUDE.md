@@ -41,6 +41,11 @@ npm run scan:secrets     # 全 tracked ファイルの秘匿情報検査
 npm run hooks:install    # pre-commit フックを導入（初回のみ）
 ```
 
+> **プレビューURLにリポジトリ名を付けないこと。**
+> `app.baseURL` は `/` なので、正しいURLは `http://localhost:3000/activities/special-lecture` です。
+> `http://localhost:3000/official-site/...` は存在せず「Page not found」になります
+> （ディレクトリ名につられやすい間違いです）。
+
 ## テスト
 
 コード変更後は必ず Playwright テストを実行し、全テスト通過を確認すること。

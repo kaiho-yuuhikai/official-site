@@ -38,6 +38,11 @@ npm run preview   # 静的生成結果のプレビュー
 npm test          # E2Eテスト実行（Playwright）
 ```
 
+> **プレビューURLにリポジトリ名を付けないこと。**
+> `app.baseURL` は `/` なので、正しいURLは `http://localhost:3000/activities/special-lecture` です。
+> `http://localhost:3000/official-site/...` は存在せず「Page not found」になります
+> （ディレクトリ名につられやすい間違いです）。
+
 ## テスト
 
 コード変更後は必ず Playwright テストを実行し、全テスト通過を確認すること。

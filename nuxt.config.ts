@@ -48,6 +48,12 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // ssr:false（SPA）だと起動直後にアプリマニフェスト(_nuxt/builds/meta/dev.json)を
+  // 取りに行き、.nuxt の生成が間に合わないと Vite が #app-manifest を解決できず
+  // 「404 [GET] /_nuxt/builds/meta/dev.json」のエラー画面になる（2026-08-25 実発生）。
+  // このサイトは routeRules を使っておらずマニフェスト自体が不要なため無効化する。
+  experimental: { appManifest: false },
+
   // GitHub Pages用の静的生成設定
   ssr: false,
   nitro: {
