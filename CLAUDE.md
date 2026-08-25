@@ -41,10 +41,16 @@ npm run scan:secrets     # 全 tracked ファイルの秘匿情報検査
 npm run hooks:install    # pre-commit フックを導入（初回のみ）
 ```
 
+> **プレビューが 404 になったら**（第1回で複数名に発生）
+> ビルドキャッシュを引きずっているだけなので、`Control + C` で止めて `npm run dev:clean` を実行する。
+> `.nuxt` / `.output` / `node_modules/.vite` を捨てて立て直す。何度実行しても壊れない。
+>
 > **プレビューURLにリポジトリ名を付けないこと。**
-> `app.baseURL` は `/` なので、正しいURLは `http://localhost:3000/activities/special-lecture` です。
-> `http://localhost:3000/official-site/...` は存在せず「Page not found」になります
-> （ディレクトリ名につられやすい間違いです）。
+> `app.baseURL` は `/` なので、正しいURLは `http://localhost:3000/activities/special-lecture`。
+> `http://localhost:3000/official-site/...` は存在しない（開発時のみ自動で振り替わるが、
+> 案内するURLは必ずリポジトリ名なしにする）。
+>
+> **変更を元に戻す**: `git restore .`（未公開の変更を破棄）。公開済みの取り消しは人に確認する。
 
 ## テスト
 
