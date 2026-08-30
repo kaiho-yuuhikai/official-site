@@ -14,6 +14,7 @@ const pages = [
   { path: '/terms', name: '利用規約' },
   { path: '/blog/career-crossroads-manual', name: 'キャリクロ運営マニュアル' },
   { path: '/news/soukai', name: '令和8年度定期総会' },
+  { path: '/activities/special-lecture', name: '創立記念特設授業' },
   { path: '/archive/daidosoukai', name: '大同窓会 過去の記録' },
 ]
 
@@ -148,6 +149,31 @@ test('トップページのお知らせ項目にリンクが含まれていな�
       expect(linkCount).toBe(1)
     }
   }
+})
+
+// ---------------------------------------------------------------------------
+// 創立記念特設授業: 講師募集への導線
+// ---------------------------------------------------------------------------
+
+test('トップページのヒーローの特設授業ボタンが特設授業ページへ遷移する', async ({ page }) => {
+  await page.goto('/')
+  const link = page.getByRole('link', { name: /特設授業の講師/ })
+  await expect(link).toBeVisible()
+  const href = await link.getAttribute('href')
+  expect(href).toContain('/activities/special-lecture')
+  expect(href).not.toContain('docs.google.com')
+})
+
+test('特設授業ページに講師向けの説明と応募フォームへの導線がある', async ({ page }) => {
+  await page.goto('/activities/special-lecture')
+  await expect(page.locator('body')).toContainText('2026年 開催概要')
+  await expect(page.locator('body')).toContainText('当日の流れ')
+  await expect(page.locator('body')).toContainText('よくある質問')
+  const formLink = page.locator('a[href*="docs.google.com/forms"]')
+  await expect(formLink.first()).toBeVisible()
+  // 「もっと知る」の初回講師向けFAQはメール起動リンク
+  const mailLink = page.locator('a[href^="mailto:tokusetu@kaihoyuhi.com"]')
+  await expect(mailLink).toBeVisible()
 })
 
 // ---------------------------------------------------------------------------
