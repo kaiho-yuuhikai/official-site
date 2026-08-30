@@ -33,9 +33,9 @@
           <a href="#about" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl">
             開邦雄飛会について
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <NuxtLink to="/activities/special-lecture" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             🎓 特設授業の講師に登録する
-          </a>
+          </NuxtLink>
           <NuxtLink to="/mentor/registration" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             メンターに登録
           </NuxtLink>
