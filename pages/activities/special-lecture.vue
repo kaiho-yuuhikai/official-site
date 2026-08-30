@@ -36,8 +36,8 @@
           </div>
           <div class="flex justify-center">
             <img
-              :src="`${config.app.baseURL}images/special-lecture-2025.jpeg`"
-              alt="令和7年度 創立記念特設授業 告知フライヤー"
+              :src="`${config.app.baseURL}images/special-lecture-2026-poster.png`"
+              alt="2026年度 創立記念特設授業 講師募集ポスター"
               class="w-full max-w-sm rounded-2xl shadow-lg"
               loading="lazy"
             />
