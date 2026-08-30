@@ -164,6 +164,15 @@ test('トップページのヒーローの特設授業ボタンが特設授業�
   expect(href).not.toContain('docs.google.com')
 })
 
+test('トップページの注目イベントセクションが特設授業ページへリンクする', async ({ page }) => {
+  await page.goto('/')
+  const section = page.locator('#featured-event')
+  await expect(section).toBeVisible()
+  await expect(section).toContainText('注目イベント')
+  const link = section.locator('a[href*="/activities/special-lecture"]')
+  await expect(link.first()).toBeVisible()
+})
+
 test('特設授業ページに講師向けの説明と応募フォームへの導線がある', async ({ page }) => {
   await page.goto('/activities/special-lecture')
   await expect(page.locator('body')).toContainText('2026年 開催概要')
