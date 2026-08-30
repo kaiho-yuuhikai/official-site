@@ -46,8 +46,65 @@
       </div>
     </section>
 
+    <!-- もっと知る -->
+    <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">More</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">もっと知る</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 fade-in">
+          <!-- 特設授業とは・今年度の開催概要 -->
+          <a href="#kaisai-2026" class="group bg-white rounded-2xl p-6 border border-neutral-200 hover:border-kaiho-green/40 hover:shadow-sm transition-all">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">特設授業とは何か・今年度の開催概要</p>
+                <p class="text-neutral-500 text-xs mt-1 leading-relaxed">授業の趣旨と2026年の開催概要をまとめています。</p>
+              </div>
+              <span class="text-kaiho-green flex-shrink-0 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+            </div>
+          </a>
+
+          <!-- 初めて講師を務める方向けのFAQ → メール -->
+          <a href="mailto:tokusetu@kaiho-yuhikai.com?subject=特設授業の講師について（質問）" class="group bg-white rounded-2xl p-6 border border-neutral-200 hover:border-kaiho-green/40 hover:shadow-sm transition-all">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">初めて講師を務める方向けのFAQ</p>
+                <p class="text-neutral-500 text-xs mt-1 leading-relaxed">疑問点は tokusetu@kaiho-yuhikai.com までメールでお問い合わせください。</p>
+              </div>
+              <svg class="w-4 h-4 text-kaiho-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+          </a>
+
+          <!-- 過去の授業風景・講義例（準備中） -->
+          <div class="bg-white/60 rounded-2xl p-6 border border-dashed border-neutral-300">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-bold text-neutral-500 text-sm">過去の授業風景・講義例</p>
+                <p class="text-neutral-400 text-xs mt-1 leading-relaxed">当日の様子や講義テーマの例を掲載予定です。</p>
+              </div>
+              <span class="text-[10px] font-bold text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-full flex-shrink-0">準備中</span>
+            </div>
+          </div>
+
+          <!-- 生徒の声・アンケート結果（準備中） -->
+          <div class="bg-white/60 rounded-2xl p-6 border border-dashed border-neutral-300">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-bold text-neutral-500 text-sm">生徒の声・アンケート結果</p>
+                <p class="text-neutral-400 text-xs mt-1 leading-relaxed">授業を受けた生徒アンケートの結果を掲載予定です。</p>
+              </div>
+              <span class="text-[10px] font-bold text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-full flex-shrink-0">準備中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 2026年開催概要 -->
-    <section class="py-24 bg-white">
+    <section id="kaisai-2026" class="py-24 bg-white scroll-mt-20">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">2026</p>
@@ -106,8 +163,57 @@
       </div>
     </section>
 
-    <!-- 2025年開催概要 -->
+    <!-- 応募から当日までの流れ -->
     <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Flow</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">応募から当日までの流れ</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="fade-in">
+          <p class="text-neutral-600 text-sm leading-relaxed mb-8">
+            <span class="text-kaiho-green font-bold">★</span> の付いたステップが、応募される方に行っていただくことです。
+          </p>
+          <ol class="relative border-l-2 border-kaiho-green/20 ml-3 space-y-8">
+            <li class="ml-6">
+              <span class="absolute -left-[11px] flex items-center justify-center w-5 h-5 rounded-full bg-kaiho-green text-white text-[10px] font-bold">★</span>
+              <p class="font-bold text-neutral-900 text-sm">特設授業・募集内容を確認</p>
+              <p class="text-neutral-600 text-sm mt-1">このページの趣旨・開催概要・よくある質問をご覧ください。</p>
+            </li>
+            <li class="ml-6">
+              <span class="absolute -left-[11px] flex items-center justify-center w-5 h-5 rounded-full bg-kaiho-green text-white text-[10px] font-bold">★</span>
+              <p class="font-bold text-neutral-900 text-sm">応募フォームからエントリー</p>
+              <p class="text-neutral-600 text-sm mt-1">講師応募フォーム（Google フォーム）から必要事項を送信します。</p>
+            </li>
+            <li class="ml-6">
+              <span class="absolute -left-[9px] w-4 h-4 rounded-full bg-white border-2 border-kaiho-green/30"></span>
+              <p class="font-bold text-neutral-900 text-sm">講師決定</p>
+              <p class="text-neutral-600 text-sm mt-1">事務局で内容を確認し、担当クラス等をご連絡します。</p>
+            </li>
+            <li class="ml-6">
+              <span class="absolute -left-[9px] w-4 h-4 rounded-full bg-white border-2 border-kaiho-green/30"></span>
+              <p class="font-bold text-neutral-900 text-sm">LINE WORKS へ参加</p>
+              <p class="text-neutral-600 text-sm mt-1">講師・事務局の連絡用グループにご参加いただきます。</p>
+            </li>
+            <li class="ml-6">
+              <span class="absolute -left-[9px] w-4 h-4 rounded-full bg-white border-2 border-kaiho-green/30"></span>
+              <p class="font-bold text-neutral-900 text-sm">授業準備</p>
+              <p class="text-neutral-600 text-sm mt-1">お話しする内容を準備します。必要に応じて事務局がサポートします。</p>
+            </li>
+            <li class="ml-6">
+              <span class="absolute -left-[9px] w-4 h-4 rounded-full bg-kaiho-green"></span>
+              <p class="font-bold text-neutral-900 text-sm">10月30日（金）特設授業</p>
+              <p class="text-neutral-600 text-sm mt-1">当日、母校で授業を行っていただきます。（詳細は「当日の流れ」を参照）</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2025年開催概要 -->
+    <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">2025</p>

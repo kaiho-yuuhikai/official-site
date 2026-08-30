@@ -171,6 +171,9 @@ test('特設授業ページに講師向けの説明と応募フォームへの�
   await expect(page.locator('body')).toContainText('よくある質問')
   const formLink = page.locator('a[href*="docs.google.com/forms"]')
   await expect(formLink.first()).toBeVisible()
+  // 「もっと知る」の初回講師向けFAQはメール起動リンク
+  const mailLink = page.locator('a[href^="mailto:tokusetu@kaiho-yuhikai.com"]')
+  await expect(mailLink).toBeVisible()
 })
 
 // ---------------------------------------------------------------------------
