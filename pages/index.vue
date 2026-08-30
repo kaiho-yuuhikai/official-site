@@ -80,6 +80,45 @@
 
 
     <!-- ============================================================ -->
+    <!-- FEATURED EVENT SECTION                                        -->
+    <!-- ============================================================ -->
+    <section id="featured-event" class="py-24 md:py-32 bg-neutral-50">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Featured Event</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">注目イベント</h2>
+          <div class="section-divider mt-6"></div>
+        </div>
+
+        <NuxtLink to="/activities/special-lecture"
+          class="group block card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-green/20 fade-in">
+          <div class="h-2 bg-gradient-to-r from-kaiho-green via-emerald-400 to-kaiho-green"></div>
+          <div class="grid md:grid-cols-2">
+            <div class="relative min-h-[16rem] overflow-hidden bg-neutral-100">
+              <img :src="`${baseURL}images/special-lecture-2026-poster.png`"
+                   alt="令和8年度 創立記念特設授業 講師募集ポスター"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="bg-kaiho-green text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">講師募集中</span>
+                <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-3 py-1 rounded-full">2026年10月30日（金）</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-3 text-neutral-900">創立記念特設授業</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed mb-6">
+                各分野で活躍する卒業生が講師として母校を訪れ、在校生にキャリアの歩みや想いを「授業」として届けます。2026年度の講師を募集しています。
+              </p>
+              <span class="inline-flex items-center gap-2 text-kaiho-green font-bold text-sm group-hover:gap-3 transition-all">
+                特設授業ページを見る <span>&rarr;</span>
+              </span>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
     <!-- NOTE MAGAZINE SECTION                                         -->
     <!-- ============================================================ -->
     <section id="magazine" class="py-24 md:py-32 bg-white">
