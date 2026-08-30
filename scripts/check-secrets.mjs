@@ -73,6 +73,7 @@ const ALLOWED_EMAIL_DOMAINS = new Set([
   'kaiho-yuhikai.com',
   'kaiho-yuuhikai.jp',
   'kaihoyuuhikai.jp',
+  'kaihoyuhi.com',
   'users.noreply.github.com',
   'noreply.github.com',
 ])

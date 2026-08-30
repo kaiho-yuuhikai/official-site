@@ -68,11 +68,11 @@
           </a>
 
           <!-- 初めて講師を務める方向けのFAQ → メール -->
-          <a href="mailto:tokusetu@kaiho-yuhikai.com?subject=特設授業の講師について（質問）" class="group bg-white rounded-2xl p-6 border border-neutral-200 hover:border-kaiho-green/40 hover:shadow-sm transition-all">
+          <a href="mailto:tokusetu@kaihoyuhi.com?subject=特設授業の講師について（質問）" class="group bg-white rounded-2xl p-6 border border-neutral-200 hover:border-kaiho-green/40 hover:shadow-sm transition-all">
             <div class="flex items-start justify-between gap-3">
               <div>
                 <p class="font-bold text-neutral-900 text-sm">初めて講師を務める方向けのFAQ</p>
-                <p class="text-neutral-500 text-xs mt-1 leading-relaxed">疑問点は tokusetu@kaiho-yuhikai.com までメールでお問い合わせください。</p>
+                <p class="text-neutral-500 text-xs mt-1 leading-relaxed">疑問点は tokusetu@kaihoyuhi.com までメールでお問い合わせください。</p>
               </div>
               <svg class="w-4 h-4 text-kaiho-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
@@ -123,7 +123,7 @@
               <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">①</span>
               <div>
                 <p class="font-bold text-neutral-900 text-sm">日時</p>
-                <p class="text-neutral-600 text-sm mt-1">2026年10月30日（金）午後</p>
+                <p class="text-neutral-600 text-sm mt-1">2026年10月30日（金）14:45〜16:35（14:00 学校集合）</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">

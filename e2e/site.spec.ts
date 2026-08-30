@@ -172,7 +172,7 @@ test('特設授業ページに講師向けの説明と応募フォームへの�
   const formLink = page.locator('a[href*="docs.google.com/forms"]')
   await expect(formLink.first()).toBeVisible()
   // 「もっと知る」の初回講師向けFAQはメール起動リンク
-  const mailLink = page.locator('a[href^="mailto:tokusetu@kaiho-yuhikai.com"]')
+  const mailLink = page.locator('a[href^="mailto:tokusetu@kaihoyuhi.com"]')
   await expect(mailLink).toBeVisible()
 })
 
