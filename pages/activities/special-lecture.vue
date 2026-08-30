@@ -45,6 +45,66 @@
       </div>
     </section>
 
+    <!-- 2026年開催概要 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">2026</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">2026年 開催概要</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="bg-kaiho-green/5 rounded-2xl p-8 border border-kaiho-green/20 fade-in">
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="bg-kaiho-green text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">講師募集中</span>
+            <span class="text-sm font-bold text-kaiho-green">応募締切：2026年8月31日（月）</span>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">①</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">日時</p>
+                <p class="text-neutral-600 text-sm mt-1">2026年10月30日（金）午後</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">②</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">場所</p>
+                <p class="text-neutral-600 text-sm mt-1">開邦中学校・高校</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">③</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">内容</p>
+                <p class="text-neutral-600 text-sm mt-1">50分の講話を2回（2クラスへ講演）</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">④</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">対象</p>
+                <p class="text-neutral-600 text-sm mt-1">開邦中学1〜3年生、開邦高校1〜3年生</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-8 border-t border-kaiho-green/10">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-kaiho-green text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+            >
+              講師応募フォームを開く <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 2025年開催概要 -->
     <section class="py-24 bg-neutral-50">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">

@@ -166,6 +166,7 @@ test('トップページのヒーローの特設授業ボタンが特設授業�
 
 test('特設授業ページに講師向けの説明と応募フォームへの導線がある', async ({ page }) => {
   await page.goto('/activities/special-lecture')
+  await expect(page.locator('body')).toContainText('2026年 開催概要')
   await expect(page.locator('body')).toContainText('当日の流れ')
   await expect(page.locator('body')).toContainText('よくある質問')
   const formLink = page.locator('a[href*="docs.google.com/forms"]')
