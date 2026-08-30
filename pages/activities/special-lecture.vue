@@ -29,6 +29,9 @@
             <p class="text-neutral-600 leading-relaxed mb-8">
               開邦高校時代、大学時代、働くようになって今に至るまでの歩み、心の柱としてきた思いを後輩たちに届けます。キャリア選択の参考になるようなリアルな話を、同じ学び舎を歩んだ先輩から直接聞ける貴重な機会です。
             </p>
+            <p class="text-neutral-600 leading-relaxed">
+              この授業は、各分野で活躍する同窓生の皆さまに講師をお願いして成り立っています。特別な準備は必要ありません。ご自身が歩んできた道のりと、いま大切にしている想いを、母校の後輩に語ってください。
+            </p>
           </div>
           <div class="flex justify-center">
             <img
@@ -180,8 +183,53 @@
       </div>
     </section>
 
-    <!-- 活動実績 -->
+    <!-- 当日の流れ -->
     <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Timeline</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">当日の流れ</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="fade-in">
+          <p class="text-neutral-600 text-sm leading-relaxed mb-8">2025年の実施例です。時間は年度により前後します。</p>
+          <div class="space-y-6">
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:00</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">学校集合・打ち合わせ</p>
+                <p class="text-neutral-600 text-sm mt-1">事務局スタッフが受付でご案内します。担当クラスや進行を確認します。</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:45</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">特設授業（50分 × 2クラス）</p>
+                <p class="text-neutral-600 text-sm mt-1">中学または高校の2クラスで、同じ内容の授業を2回行っていただきます。</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">17:00</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">生徒との懇話会（希望制・〜18:00）</p>
+                <p class="text-neutral-600 text-sm mt-1">教室で待機し、もっと話を聞きたい生徒が自由に訪ねてきます。</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">19:00</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">卒業生懇親会（任意参加・〜21:00）</p>
+                <p class="text-neutral-600 text-sm mt-1">講師を含む卒業生同士で交流します。参加は自由です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活動実績 -->
+    <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Archive</p>
@@ -281,17 +329,56 @@
       </div>
     </section>
 
+    <!-- よくある質問 -->
+    <section class="py-24 bg-neutral-50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">FAQ</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">よくある質問</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="space-y-4 fade-in">
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 話す内容は決まっていますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">決まったテーマはありません。高校時代の努力、大学選び、いまの仕事とやりがい、働き方や生き方など、ご自身の経験を自由にお話しください。事務局から話題の例をお示しすることもできます。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 何クラスを担当しますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">中学または高校のいずれかの2クラスで、1コマ50分 × 2コマです。クラスの割り振りは事務局が行います。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 謝金や交通費は出ますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">予算の都合上、謝金・交通費の支給は行っておりません。あらかじめご了承ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 県外に住んでいますが参加できますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">オンラインでの実施実績があります。まずはフォームからご相談ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 応募したあとの流れは？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">フォーム送信後、事務局で内容を確認し、担当クラスや当日の詳細について追ってご連絡します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="py-24 bg-kaiho-green">
       <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-black text-white mb-4">講師として参加しませんか？</h2>
         <p class="text-white/80 mb-8 leading-relaxed">
           後輩たちへ、あなたの歩みと言葉を届けてください。<br>
-          参加希望の方は下記のフォームよりお申し込みください。
+          参加希望・お問い合わせは下記のフォームよりお申し込みください。
         </p>
-        <NuxtLink to="/mentor/registration" class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors">
-          講師応募フォーム <span>&rarr;</span>
-        </NuxtLink>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors"
+        >
+          講師応募フォームを開く <span>&rarr;</span>
+        </a>
       </div>
     </section>
   </div>
@@ -302,7 +389,7 @@ const config = useRuntimeConfig()
 
 useSeoMeta({
   title: '創立記念特設授業 | 開邦雄飛会',
-  description: '開邦高校同窓会「開邦雄飛会」主催の創立記念特設授業。卒業生が講師として在校生にキャリアの歩みを届けます。2011年から続く雄飛会のメイン活動。',
+  description: '開邦高校同窓会「開邦雄飛会」主催の創立記念特設授業。卒業生が講師として在校生にキャリアの歩みを届けます。当日の流れ・よくある質問・講師応募のご案内。2011年から続く雄飛会のメイン活動。',
 })
 
 onMounted(() => {
