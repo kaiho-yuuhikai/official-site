@@ -157,7 +157,7 @@ test('トップページのお知らせ項目にリンクが含まれていな�
 
 test('トップページのヒーローの特設授業ボタンが特設授業ページへ遷移する', async ({ page }) => {
   await page.goto('/')
-  const link = page.getByRole('link', { name: /特設授業の講師/ })
+  const link = page.locator('#hero').getByRole('link', { name: /創立記念特設授業/ })
   await expect(link).toBeVisible()
   const href = await link.getAttribute('href')
   expect(href).toContain('/activities/special-lecture')
@@ -180,6 +180,11 @@ test('特設授業ページに講師向けの説明と応募フォームへの�
   await expect(page.locator('body')).toContainText('よくある質問')
   const formLink = page.locator('a[href*="docs.google.com/forms"]')
   await expect(formLink.first()).toBeVisible()
+  // 講師応募フォームは最新のフォームURLを指す
+  const applyLink = page.getByRole('link', { name: /講師応募フォームを開く/ })
+  for (const href of await applyLink.evaluateAll((els) => els.map((e) => e.getAttribute('href')))) {
+    expect(href).toContain('1FAIpQLSeOZZOYwreYZRWpUFV4_LTUmZCEnxz22ASeOMoF1h1Mo9c0zg')
+  }
   // 「もっと知る」の初回講師向けFAQはメール起動リンク
   const mailLink = page.locator('a[href^="mailto:tokusetu@kaihoyuhi.com"]')
   await expect(mailLink).toBeVisible()

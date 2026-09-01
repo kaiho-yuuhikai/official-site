@@ -34,7 +34,7 @@
             開邦雄飛会について
           </a>
           <NuxtLink to="/activities/special-lecture" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
-            🎓 特設授業の講師に登録する
+            🎓 創立記念特設授業
           </NuxtLink>
           <NuxtLink to="/mentor/registration" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             メンターに登録
