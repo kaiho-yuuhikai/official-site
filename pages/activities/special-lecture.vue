@@ -151,7 +151,7 @@
 
           <div class="mt-8 pt-8 border-t border-kaiho-green/10">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeOZZOYwreYZRWpUFV4_LTUmZCEnxz22ASeOMoF1h1Mo9c0zg/viewform"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 bg-kaiho-green text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
@@ -539,7 +539,7 @@
           参加希望・お問い合わせは下記のフォームよりお申し込みください。
         </p>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeOZZOYwreYZRWpUFV4_LTUmZCEnxz22ASeOMoF1h1Mo9c0zg/viewform"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors"
