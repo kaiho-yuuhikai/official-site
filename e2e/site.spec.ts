@@ -178,6 +178,12 @@ test('特設授業ページに講師向けの説明と応募フォームへの�
   await expect(page.locator('body')).toContainText('2026年 開催概要')
   await expect(page.locator('body')).toContainText('当日の流れ')
   await expect(page.locator('body')).toContainText('よくある質問')
+  // 応募締切は「定員に達し次第」表記に変更（日付固定を廃止）
+  await expect(page.locator('body')).toContainText('定員に達し次第、受付を終了いたします')
+  await expect(page.locator('body')).not.toContainText('2026年8月31日')
+  // 追加されたFAQ
+  await expect(page.locator('body')).toContainText('講師経験がなくても応募できますか？')
+  await expect(page.locator('body')).toContainText('子どもを連れて参加できますか？')
   const formLink = page.locator('a[href*="docs.google.com/forms"]')
   await expect(formLink.first()).toBeVisible()
   // 講師応募フォームは最新のフォームURLを指す
@@ -187,7 +193,23 @@ test('特設授業ページに講師向けの説明と応募フォームへの�
   }
   // 「もっと知る」の初回講師向けFAQはメール起動リンク
   const mailLink = page.locator('a[href^="mailto:tokusetu@kaihoyuhi.com"]')
-  await expect(mailLink).toBeVisible()
+  await expect(mailLink.first()).toBeVisible()
+})
+
+test('特設授業ページに当日運営スタッフ募集セクションがある', async ({ page }) => {
+  await page.goto('/activities/special-lecture')
+  const section = page.locator('#staff-2026')
+  await expect(section).toBeVisible()
+  await expect(section).toContainText('当日運営スタッフ募集')
+  await expect(section).toContainText('10名程度')
+  await expect(section).toContainText('当日の役割（例）')
+  // スタッフ応募フォーム（Google フォーム）へのリンク
+  const apply = section.getByRole('link', { name: /スタッフ応募フォームを開く/ })
+  await expect(apply).toBeVisible()
+  expect(await apply.getAttribute('href')).toContain('docs.google.com/forms')
+  // 「もっと知る」からスタッフセクションへの導線
+  const nav = page.locator('a[href="#staff-2026"]')
+  await expect(nav.first()).toBeVisible()
 })
 
 // ---------------------------------------------------------------------------
