@@ -338,7 +338,7 @@
         <div class="text-center mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Projects</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">注力事業</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">令和8年度事業計画の注力2本柱：教育支援事業・デジタル推進事業</p>
+          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">令和8年度事業計画の注力事業</p>
           <div class="section-divider mt-6"></div>
         </div>
 
@@ -437,59 +437,6 @@
           </div>
 
         </div>
-
-        <!-- デジタル推進事業 ヘッダー -->
-        <div class="mb-6 fade-in">
-          <div class="flex items-center gap-3">
-            <span class="text-xs font-black tracking-widest uppercase text-kaiho-blue bg-kaiho-blue/10 px-3 py-1 rounded-full">デジタル推進事業</span>
-            <div class="flex-1 h-px bg-neutral-200"></div>
-          </div>
-        </div>
-
-        <!-- デジタル推進事業カード -->
-        <div class="mb-10 fade-in">
-          <div class="card-hover bg-white rounded-2xl shadow-md border border-neutral-200 p-8">
-            <div class="flex items-start justify-between mb-6">
-              <div class="w-14 h-14 bg-kaiho-blue/10 rounded-xl flex items-center justify-center">
-                <svg class="w-7 h-7 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>
-              </div>
-              <span class="bg-kaiho-blue/10 text-kaiho-blue text-xs font-bold px-3 py-1 rounded-full">通年実施</span>
-            </div>
-            <h3 class="text-xl font-bold mb-4 text-neutral-900">デジタル推進事業</h3>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div class="bg-neutral-50 rounded-xl p-4">
-                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                </div>
-                <p class="text-xs font-bold text-neutral-700 mb-1">HP運用・更新</p>
-                <p class="text-xs text-neutral-500">活動記録を随時公開し、透明性ある情報発信を継続</p>
-              </div>
-              <div class="bg-neutral-50 rounded-xl p-4">
-                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                </div>
-                <p class="text-xs font-bold text-neutral-700 mb-1">会員名簿 &amp; LINE WORKS</p>
-                <p class="text-xs text-neutral-500">名簿整備とLINE WORKS環境を最適化し、連絡体制を強化</p>
-              </div>
-              <div class="bg-neutral-50 rounded-xl p-4">
-                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                </div>
-                <p class="text-xs font-bold text-neutral-700 mb-1">手続き・会議のオンライン化</p>
-                <p class="text-xs text-neutral-500">各種申請・議事録作成を含む会議運営をオンライン化</p>
-              </div>
-              <div class="bg-neutral-50 rounded-xl p-4">
-                <div class="w-8 h-8 bg-kaiho-blue/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg class="w-4 h-4 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
-                </div>
-                <p class="text-xs font-bold text-neutral-700 mb-1">情報発信・連絡体制</p>
-                <p class="text-xs text-neutral-500">会員への情報発信と連絡体制を整備し、コミュニティを活性化</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
 
       </div>
     </section>
@@ -797,79 +744,6 @@
 
 
     <!-- ============================================================ -->
-    <!-- BRANCHES SECTION                                              -->
-    <!-- ============================================================ -->
-    <section class="py-24 md:py-32 bg-gradient-to-br from-kaiho-teal/5 via-white to-teal-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-teal mb-4">Branches</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">支部情報</h2>
-          <p class="text-neutral-500 mt-4 max-w-xl mx-auto">全国・海外に広がる開邦ネットワーク</p>
-          <div class="section-divider mt-6"></div>
-        </div>
-
-        <!-- 参加方法の流れ -->
-        <div class="max-w-2xl mx-auto mb-10 fade-in">
-          <div class="bg-kaiho-teal/5 rounded-2xl px-6 py-5">
-            <p class="text-xs font-bold text-kaiho-teal text-center mb-4">開邦雄飛会Facebookの各支部グループ参加方法</p>
-            <div class="flex flex-col items-center gap-1">
-              <div class="flex items-center gap-3 w-44">
-                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
-                <span class="text-sm text-neutral-700">リンクをクリック</span>
-              </div>
-              <span class="text-kaiho-teal/40 text-sm leading-none">↓</span>
-              <div class="flex items-center gap-3 w-44">
-                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
-                <span class="text-sm text-neutral-700">参加リクエストを送信</span>
-              </div>
-              <span class="text-kaiho-teal/40 text-sm leading-none">↓</span>
-              <div class="flex items-center gap-3 w-44">
-                <span class="w-6 h-6 rounded-full bg-kaiho-teal text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
-                <span class="text-sm text-neutral-700">管理者が承認</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 fade-in">
-          <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
-            <div class="text-5xl mb-4">🗼</div>
-            <h3 class="text-xl font-bold text-neutral-900 mb-2">東京支部</h3>
-            <p class="text-neutral-500 text-sm mb-4">首都圏在住の同窓生の交流拠点</p>
-            <a href="https://www.facebook.com/groups/2423519921418763/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
-              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebookグループへ
-            </a>
-          </div>
-
-          <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
-            <div class="text-5xl mb-4">⛩️</div>
-            <h3 class="text-xl font-bold text-neutral-900 mb-2">関西支部</h3>
-            <p class="text-neutral-500 text-sm mb-4">関西圏在住の同窓生の交流拠点</p>
-            <a href="https://www.facebook.com/groups/1208559580721409/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
-              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebookグループへ
-            </a>
-          </div>
-
-          <div class="card-hover bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 text-center">
-            <div class="text-5xl mb-4">🌏</div>
-            <h3 class="text-xl font-bold text-neutral-900 mb-2">海外支部</h3>
-            <p class="text-neutral-500 text-sm mb-4">世界各地で活躍する同窓生の拠点</p>
-            <a href="https://www.facebook.com/groups/911574427886649/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1877F2] px-4 py-2 rounded-full hover:bg-[#166FE5] transition-colors">
-              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebookグループへ
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
     <!-- LINE OPENCHAT SECTION                                         -->
     <!-- ============================================================ -->
     <section id="line-openchat" class="py-24 md:py-32 bg-neutral-50">
@@ -910,12 +784,12 @@
         <div class="text-center mb-12 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-white/30 mb-4">Daily Activities</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">日々の活動</h2>
-          <p class="text-white/60 mt-4 max-w-xl mx-auto">Instagramで開邦雄飛会の最新活動・日常の様子を発信しています</p>
+          <p class="text-white/60 mt-4 max-w-xl mx-auto">Instagram と Facebook で開邦雄飛会の最新活動・日常の様子を発信しています</p>
           <div class="w-12 h-0.5 bg-white/20 mx-auto mt-6"></div>
         </div>
 
-        <!-- Instagramアイコン＋リンク -->
-        <div class="flex flex-col items-center gap-6 fade-in">
+        <!-- SNSアイコン＋リンク -->
+        <div class="flex flex-row flex-wrap items-start justify-center gap-10 sm:gap-16 fade-in">
           <a href="https://www.instagram.com/kaihoyuhi/" target="_blank" rel="noopener noreferrer"
              class="group flex flex-col items-center gap-4 transition-transform duration-300 hover:-translate-y-1">
             <div class="w-24 h-24 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
@@ -926,6 +800,19 @@
             <div class="text-center">
               <p class="text-white font-bold text-base">@kaihoyuhi</p>
               <p class="text-white/60 text-xs mt-1">Instagram でフォロー</p>
+            </div>
+          </a>
+
+          <a href="https://www.facebook.com/kaihoyuhi/" target="_blank" rel="noopener noreferrer"
+             class="group flex flex-col items-center gap-4 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-24 h-24 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+              <svg class="w-14 h-14 text-[#1877F2]" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="text-center">
+              <p class="text-white font-bold text-base">開邦雄飛会</p>
+              <p class="text-white/60 text-xs mt-1">Facebook でフォロー</p>
             </div>
           </a>
         </div>
