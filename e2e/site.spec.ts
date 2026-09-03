@@ -135,6 +135,26 @@ test('トップページにInstagramセクションが表示される', async ({
   await expect(instagramLink).toBeVisible()
 })
 
+test('日々の活動セクションにInstagramとFacebookのリンクが横並びで表示される', async ({ page }) => {
+  await page.goto('/')
+  const section = page.locator('#instagram')
+  await expect(section).toContainText('日々の活動')
+  await expect(section.locator('a[href*="instagram.com/kaihoyuhi"]')).toBeVisible()
+  await expect(section.locator('a[href*="facebook.com/kaihoyuhi"]')).toBeVisible()
+})
+
+test('トップページから支部情報セクションが削除されている', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('body')).not.toContainText('支部情報')
+})
+
+test('トップページの注力事業セクションにデジタル推進事業カードがない', async ({ page }) => {
+  await page.goto('/')
+  const projects = page.locator('#projects')
+  await expect(projects).toBeVisible()
+  await expect(projects).not.toContainText('デジタル推進事業')
+})
+
 test('トップページのお知らせ項目にリンクが含まれていない', async ({ page }) => {
   await page.goto('/')
   const newsItems = page.locator('#news .group')
