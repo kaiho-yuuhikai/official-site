@@ -78,6 +78,17 @@
             </div>
           </a>
 
+          <!-- 当日運営スタッフ募集 -->
+          <a href="#staff-2026" class="group bg-white rounded-2xl p-6 border border-neutral-200 hover:border-kaiho-green/40 hover:shadow-sm transition-all">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">当日運営スタッフ募集</p>
+                <p class="text-neutral-500 text-xs mt-1 leading-relaxed">講師募集と並行して、当日の運営スタッフを10名程度募集しています。</p>
+              </div>
+              <span class="text-kaiho-green flex-shrink-0 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+            </div>
+          </a>
+
           <!-- 過去の授業風景・講義例（準備中） -->
           <div class="bg-white/60 rounded-2xl p-6 border border-dashed border-neutral-300">
             <div class="flex items-start justify-between gap-3">
@@ -115,8 +126,12 @@
         <div class="bg-kaiho-green/5 rounded-2xl p-8 border border-kaiho-green/20 fade-in">
           <div class="flex flex-wrap items-center gap-3 mb-6">
             <span class="bg-kaiho-green text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">講師募集中</span>
-            <span class="text-sm font-bold text-kaiho-green">応募締切：2026年8月31日（月）</span>
+            <span class="text-sm font-bold text-kaiho-green">定員に達し次第、受付を終了いたします</span>
           </div>
+
+          <p class="text-xs text-neutral-500 leading-relaxed mb-8">
+            ※応募状況や職種・分野のバランスにより、追加募集を行う場合があります。また、今回の定員に達した場合でも、今後の特設授業などへのご登壇をお願いする可能性があります。
+          </p>
 
           <div class="space-y-6">
             <div class="flex gap-4 items-start">
@@ -163,8 +178,78 @@
       </div>
     </section>
 
+    <!-- 当日運営スタッフ募集 -->
+    <section id="staff-2026" class="py-24 bg-neutral-50 scroll-mt-20">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 fade-in">
+          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Staff</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">当日運営スタッフ募集</h2>
+          <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">スタッフ募集中</span>
+            <span class="text-sm font-bold text-kaiho-green">10名程度</span>
+          </div>
+
+          <div class="space-y-4 text-sm leading-relaxed">
+            <p class="text-neutral-700">
+              特設授業を一緒につくる当日運営スタッフを、10名程度募集します。
+            </p>
+            <p class="text-neutral-600">
+              受付、会場案内、講師対応、各教室の進行補助、記録など、希望や経験を踏まえて役割を分担する予定です。
+            </p>
+            <p class="text-neutral-600">
+              講師や参加者との交流を通して、多様な仕事や生き方に触れ、自身のキャリアを考える機会にもなります。大学生・若手卒業生をはじめ、特設授業の運営に関心のある皆さまのご参加をお待ちしています。
+            </p>
+          </div>
+
+          <div class="mt-6 bg-kaiho-green/5 rounded-xl p-5 border border-kaiho-green/10">
+            <p class="text-xs font-bold text-neutral-900 mb-3">当日の役割（例）</p>
+            <ul class="grid sm:grid-cols-2 gap-y-2 gap-x-4 text-sm text-neutral-600">
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>全体進行・本部補助</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>受付</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>講師の案内・対応</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>会場誘導</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>各教室の進行補助・タイムキーパー</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>写真・動画撮影</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>交流会運営</span></li>
+              <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span><span>設営・撤収</span></li>
+            </ul>
+            <p class="text-xs text-neutral-500 mt-3">役割は「希望する役割」「対応可能な役割」をふまえ、事務局が調整します。</p>
+          </div>
+
+          <div class="mt-8 pt-8 border-t border-neutral-100">
+            <a
+              v-if="staffFormUrl"
+              :href="staffFormUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-kaiho-green text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+            >
+              スタッフ応募フォームを開く <span>&rarr;</span>
+            </a>
+            <template v-else>
+              <span
+                class="inline-flex items-center gap-2 bg-neutral-200 text-neutral-500 font-bold px-6 py-3 rounded-full text-sm cursor-not-allowed"
+              >
+                スタッフ応募フォーム
+                <span class="text-[10px] font-bold bg-white text-neutral-500 px-2 py-0.5 rounded-full">準備中</span>
+              </span>
+              <p class="text-xs text-neutral-500 mt-3">
+                応募フォーム（Google フォーム）は近日公開予定です。お急ぎの場合は
+                <a href="mailto:tokusetu@kaihoyuhi.com?subject=特設授業の当日運営スタッフについて" class="text-kaiho-green font-bold underline">tokusetu@kaihoyuhi.com</a>
+                までご連絡ください。
+              </p>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 応募から当日までの流れ -->
-    <section class="py-24 bg-neutral-50">
+    <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="mb-16 fade-in">
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Flow</p>
@@ -519,8 +604,24 @@
             <p class="text-neutral-600 text-sm leading-relaxed">予算の都合上、謝金・交通費の支給は行っておりません。あらかじめご了承ください。</p>
           </div>
           <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
-            <p class="font-bold text-neutral-900 mb-2">Q. 県外に住んでいますが参加できますか？</p>
-            <p class="text-neutral-600 text-sm leading-relaxed">オンラインでの実施実績があります。まずはフォームからご相談ください。</p>
+            <p class="font-bold text-neutral-900 mb-2">Q. 県外在住でも講師として参加できますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">はい、県外からのご参加も大歓迎です。ただし、交通費・宿泊費等は自己負担となりますので、あらかじめご了承ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 子どもを連れて参加できますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">現在、学校側に確認・調整中です。お子さまの同行を希望される場合は、応募フォームにその旨をご記入ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. すでに同じ職種の講師が応募していても、申し込めますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">はい、お申し込みいただけます。同じ職種でも、これまでの経験や専門分野、働き方、伝えられる内容は一人ひとり異なります。応募状況や分野のバランスによって、個別にご相談させていただく場合があります。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. オンラインでの参加は可能ですか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">原則として現地でのご参加をお願いしていますが、県外在住などの事情がある場合は個別に調整いたします。応募フォームにご希望をご記入ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 講師経験がなくても応募できますか？</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">はい、講師経験は問いません。ご自身の仕事や進路、これまでの経験について、中高生に分かりやすくお話しいただける方を歓迎します。</p>
           </div>
           <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
             <p class="font-bold text-neutral-900 mb-2">Q. 応募したあとの流れは？</p>
@@ -553,6 +654,11 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
+
+// 当日運営スタッフ応募フォーム（Google フォーム）の公開 URL。
+// scripts/gas/staff-form/ の setupStaffForm() で生成。回答は同名スプレッドシートに蓄積。
+// 空文字にすると「準備中」ボタンに戻る。
+const staffFormUrl: string = 'https://docs.google.com/forms/d/e/1FAIpQLSdaUjYZaeKcKtUKAX9k837vI9Cbj4ZIKVTGu43SPuGqoulCTw/viewform'
 
 useSeoMeta({
   title: '創立記念特設授業 | 開邦雄飛会',
