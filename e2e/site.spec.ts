@@ -173,6 +173,14 @@ test('トップページの注目イベントセクションが特設授業ペ�
   await expect(link.first()).toBeVisible()
 })
 
+test('トップページの注力事業セクションに創立記念特設授業のカードがない', async ({ page }) => {
+  await page.goto('/')
+  const projects = page.locator('#projects')
+  await expect(projects).toBeVisible()
+  await expect(projects).toContainText('職業人講話')
+  await expect(projects).not.toContainText('創立記念特設授業')
+})
+
 test('特設授業ページに講師向けの説明と応募フォームへの導線がある', async ({ page }) => {
   await page.goto('/activities/special-lecture')
   await expect(page.locator('body')).toContainText('2026年 開催概要')

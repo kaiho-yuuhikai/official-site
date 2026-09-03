@@ -388,33 +388,6 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 fade-in">
-          <!-- 創立記念特設授業 -->
-          <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
-            <div class="h-40 relative overflow-hidden">
-              <img :src="`${baseURL}images/special-lecture-classroom.jpeg`" alt="創立記念特設授業" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/30"></div>
-            </div>
-            <div class="p-8">
-              <div class="flex items-start justify-between mb-4">
-                <div class="w-14 h-14 bg-kaiho-green/10 rounded-xl flex items-center justify-center">
-                  <svg class="w-7 h-7 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                </div>
-                <span class="bg-kaiho-teal/10 text-kaiho-teal text-xs font-bold px-3 py-1 rounded-full badge-pulse">準備中</span>
-              </div>
-              <h3 class="text-xl font-bold mb-2 text-neutral-900">創立記念特設授業</h3>
-              <p class="text-neutral-500 text-sm mb-6 leading-relaxed">卒業生講師が母校を訪れ、キャリアの歩みを在校生に届ける授業。全校生徒対象。2011年から続くメイン活動。</p>
-              <div class="bg-kaiho-green/5 rounded-lg p-3 mb-4">
-                <div class="flex items-center gap-2 flex-wrap gap-y-1">
-                  <span class="text-xs text-neutral-500">令和8年度（2026年10月30日（金））開催予定</span>
-                </div>
-                <p class="text-xs font-bold text-kaiho-green mt-1">講師募集中</p>
-              </div>
-              <NuxtLink to="/activities/special-lecture" class="inline-flex items-center gap-2 text-kaiho-green text-sm font-bold hover:gap-3 transition-all">
-                詳しく見る <span>&rarr;</span>
-              </NuxtLink>
-            </div>
-          </div>
-
           <!-- 職業人講話 -->
           <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-neutral-200 group">
             <div class="h-3 bg-gradient-to-r from-kaiho-green to-teal-400"></div>
