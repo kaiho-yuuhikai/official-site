@@ -129,6 +129,24 @@ const baseURL = useRuntimeConfig().app.baseURL
 // 手動掲載のニュース項目
 const manualItems: NewsItem[] = [
   {
+    date: '2026.09.12',
+    category: '後援事業',
+    title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について',
+    summary: 'ピアニストの下里豪志さんをお迎えし、一部作品でピアノを務めていただくこととなりました。曲目・日時・会場に変更はございません。（2026年10月24日（土）13:30開場／14:00開演・テンブスホール）',
+    link: null,
+    isNew: true,
+    sortKey: new Date('2026-09-12').getTime(),
+  },
+  {
+    date: '2026.09.12',
+    category: '特設授業',
+    title: '2026年度 創立記念特設授業 開催日時決定（10月30日（金）14:45〜16:35）',
+    summary: '2026年10月30日（金）14:45〜16:35（14:00 学校集合）、開邦中学・高校にて開催します。',
+    link: '/activities/special-lecture',
+    isNew: true,
+    sortKey: new Date('2026-09-12T01:00:00').getTime(),
+  },
+  {
     date: '2026.04.26',
     category: 'お知らせ',
     title: '運営ミーティング（新体制に向けて）（10:00〜）',
