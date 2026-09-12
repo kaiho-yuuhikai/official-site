@@ -1338,7 +1338,7 @@ const staffRoleLabels: Record<string, string> = {
 // ── News items ──
 const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.09.12', category: '後援事業', title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について', link: null, isNew: true },
+  { date: '2026.09.12', category: '後援事業', title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について', link: '/news/iii-concert-notice', isNew: true },
   { date: '2026.09.12', category: '特設授業', title: '2026年度 創立記念特設授業 開催日時決定（10月30日（金）14:45〜16:35）', link: '/activities/special-lecture', isNew: true },
   { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）', link: 'https://note.com/kaihoyuuhikai/n/nc83976dffecc?sub_rt=share_sb', isNew: true },
   { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },

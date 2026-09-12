@@ -133,7 +133,7 @@ const manualItems: NewsItem[] = [
     category: '後援事業',
     title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について',
     summary: 'ピアニストの下里豪志さんをお迎えし、一部作品でピアノを務めていただくこととなりました。曲目・日時・会場に変更はございません。（2026年10月24日（土）13:30開場／14:00開演・テンブスホール）',
-    link: null,
+    link: '/news/iii-concert-notice',
     isNew: true,
     sortKey: new Date('2026-09-12').getTime(),
   },
