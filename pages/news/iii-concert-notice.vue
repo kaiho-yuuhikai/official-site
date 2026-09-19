@@ -69,13 +69,13 @@
             <div class="flex gap-3 items-center">
               <dt class="text-xs font-bold text-neutral-500 w-14 shrink-0">E-mail</dt>
               <dd class="text-sm text-neutral-700">
-                <a href="mailto:iiitrio.info@gmail.com" class="text-kaiho-green hover:underline">iiitrio.info@gmail.com</a>
+                <a href="mailto:iiitrio.info@gmail.com" class="text-kaiho-green hover:underline">iiitrio.info@gmail.com</a> <!-- allow-secret:personal-email III コンサート実行委員会の公開問い合わせ先・2026-09-19 神谷確認 -->
               </dd>
             </div>
             <div class="flex gap-3 items-center">
               <dt class="text-xs font-bold text-neutral-500 w-14 shrink-0">TEL</dt>
               <dd class="text-sm text-neutral-700">
-                <a href="tel:07056900195" class="text-kaiho-green hover:underline">070-5690-0195</a>
+                <a href="tel:07056900195" class="text-kaiho-green hover:underline">070-5690-0195</a> <!-- allow-secret:jp-mobile-phone III コンサート実行委員会の公開問い合わせ先・2026-09-19 神谷確認 -->
               </dd>
             </div>
           </dl>
