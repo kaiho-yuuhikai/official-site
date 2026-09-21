@@ -3,7 +3,7 @@
     <!-- ============================================================ -->
     <!-- HERO SECTION                                                  -->
     <!-- ============================================================ -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden py-32 md:py-40">
       <!-- Background -->
       <div class="absolute inset-0 bg-gradient-to-br from-kaiho-green-dark via-kaiho-green to-emerald-600"></div>
       <!-- Pattern overlay -->
@@ -51,19 +51,19 @@
         <div ref="heroStatsRef" class="flex justify-center items-start gap-4 sm:gap-8 md:gap-12 max-w-lg mx-auto">
           <div class="text-center">
             <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
-              <span class="count-number" data-target="38">0</span><span class="text-kaiho-gold">期</span>
+              <span class="count-number inline-block min-w-[2ch] text-right" data-target="38">0</span><span class="text-kaiho-gold">期</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">History</div>
           </div>
           <div class="text-center">
             <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
-              <span class="count-number" data-target="8000">0</span><span class="text-kaiho-gold">名+</span>
+              <span class="count-number inline-block min-w-[5ch] text-right" data-target="8000">0</span><span class="text-kaiho-gold">名+</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Alumni</div>
           </div>
           <div class="text-center">
             <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
-              <span class="count-number" data-target="3">0</span><span class="text-kaiho-gold">支部</span>
+              <span class="count-number inline-block min-w-[1ch] text-right" data-target="3">0</span><span class="text-kaiho-gold">支部</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Branches</div>
           </div>
