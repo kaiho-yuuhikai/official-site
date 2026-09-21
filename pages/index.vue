@@ -48,21 +48,21 @@
         </div>
 
         <!-- Stats Counter -->
-        <div ref="heroStatsRef" class="grid grid-cols-[0.85fr_1.3fr_0.85fr] gap-3 sm:gap-6 md:gap-8 max-w-lg mx-auto">
+        <div ref="heroStatsRef" class="flex justify-center items-start gap-4 sm:gap-8 md:gap-12 max-w-lg mx-auto">
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-black mb-1">
+            <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
               <span class="count-number" data-target="38">0</span><span class="text-kaiho-gold">期</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">History</div>
           </div>
           <div class="text-center">
-            <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.1rem,6vw,3rem)]">
+            <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
               <span class="count-number" data-target="8000">0</span><span class="text-kaiho-gold">名+</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Alumni</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-black mb-1">
+            <div class="font-black mb-1 whitespace-nowrap text-[clamp(1.25rem,5.5vw,3rem)]">
               <span class="count-number" data-target="3">0</span><span class="text-kaiho-gold">支部</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Branches</div>
