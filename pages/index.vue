@@ -57,7 +57,7 @@
           </div>
           <div class="text-center">
             <div class="text-4xl md:text-5xl font-black mb-1">
-              <span class="count-number" data-target="8000">0</span><span class="text-kaiho-gold">+</span>
+              <span class="count-number" data-target="8000">0</span><span class="text-kaiho-gold">名+</span>
             </div>
             <div class="text-xs text-white/60 tracking-wider uppercase">Alumni</div>
           </div>
