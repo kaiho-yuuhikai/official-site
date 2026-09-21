@@ -487,7 +487,7 @@
                 </div>
                 <div class="bg-neutral-50 rounded-xl p-4">
                   <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">会場</p>
-                  <p class="text-sm font-bold text-neutral-900">テンプスホール</p>
+                  <p class="text-sm font-bold text-neutral-900">テンブスホール</p>
                   <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
                 </div>
                 <div class="bg-neutral-50 rounded-xl p-4">
