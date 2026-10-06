@@ -25,7 +25,7 @@ const FALLBACK = {
 
 async function main() {
   if (!URL || !TOKEN) {
-    console.warn('[fetch-donations] DONATIONS_ENDPOINT_URL / DONATIONS_ENDPOINT_TOKEN が未設定です。既存JSONを保持します。')
+    warn('DONATIONS_ENDPOINT_URL / DONATIONS_ENDPOINT_TOKEN が未設定です。コミット済みのJSONを保持します。')
     ensureFile()
     return
   }
@@ -55,6 +55,12 @@ async function main() {
   console.log(`[fetch-donations] Saved: total ¥${data.totalAmount.toLocaleString()} / ${data.donorCount} donors`)
 }
 
+// GitHub Actions 上では警告アノテーション（実行結果の画面に黄色で出る）としても残す。デプロイは止めない
+function warn(message) {
+  console.warn(`[fetch-donations] ${message}`)
+  if (process.env.GITHUB_ACTIONS) console.log(`::warning title=fetch-donations::${message}`)
+}
+
 function ensureFile() {
   if (existsSync(OUTPUT_PATH)) return
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true })
@@ -66,6 +72,7 @@ try {
   await main()
 } catch (err) {
   console.error('[fetch-donations] Failed:', err.message)
+  warn(`寄付データの取得に失敗しました（${err.message}）。コミット済みのJSONを表示します`)
   ensureFile()
   process.exit(0)
 }
