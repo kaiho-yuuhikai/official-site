@@ -58,67 +58,25 @@
           <div class="section-divider" style="margin:0"></div>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in mb-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <div class="flex items-center gap-3 mb-6">
             <h3 class="font-bold text-neutral-900">現会則</h3>
             <span class="bg-kaiho-green/10 text-kaiho-green text-xs font-bold px-2.5 py-1 rounded-full">現行</span>
           </div>
-          <div class="border border-neutral-200 rounded-xl overflow-hidden">
-            <img
-              :src="`${config.app.baseURL}images/bylaws-current.png`"
-              alt="開邦雄飛会会則（現行）"
-              class="w-full h-auto"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
           <p class="text-neutral-600 text-sm leading-relaxed mb-6">
-            開邦雄飛会の会則は現在改定案を策定中です。改定の基本方針は以下のとおりです。
+            令和8年7月18日の総会にて承認された改正会則です。
           </p>
-
-          <div class="bg-kaiho-green/5 rounded-xl p-6 mb-8">
-            <h4 class="font-bold text-neutral-900 text-sm mb-3">会則改定の方針</h4>
-            <ul class="space-y-2 text-sm text-neutral-600">
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                <span>現在の運営実態に即した組織体制に整理する</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                <span>役員の負担を軽減し、継続可能な運営体制を構築する</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                <span>事務局と事業実行体制を明確化し、事業を進めやすくする</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-kaiho-green mt-2 flex-shrink-0"></span>
-                <span>同窓会に関わる人材の裾野を広げる（ゆるやかな参加の仕組み）</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 組織図案 -->
-          <div class="mb-8">
-            <div class="flex items-center gap-3 mb-4">
-              <h4 class="font-bold text-neutral-900 text-sm">新会則 組織体制案（改正案・令和8年7月施行予定）</h4>
-              <span class="bg-kaiho-gold/20 text-kaiho-gold text-xs font-bold px-2.5 py-1 rounded-full">改正案</span>
-            </div>
-            <div class="border border-neutral-200 rounded-xl overflow-hidden">
-              <img
-                :src="`${config.app.baseURL}images/org-chart-2026-r8.png`"
-                alt="開邦雄飛会 組織図（改正案・令和8年7月施行予定）"
-                class="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-            <p class="text-xs text-neutral-400 mt-3 text-center">
-              ※ この組織図は改定案であり、令和8年7月18日の総会での承認を経て正式に発効します。
-            </p>
-          </div>
-
+          <a
+            :href="`${config.app.baseURL}files/bylaws-revised.pdf`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-6 py-4 bg-kaiho-green text-white font-bold rounded-xl hover:bg-kaiho-green-dark transition-colors shadow-sm"
+          >
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            会則（PDF）を開く
+          </a>
         </div>
       </div>
     </section>

@@ -112,12 +112,11 @@
 
         <!-- 参加申込 -->
         <div class="mt-10 fade-in">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform"
-            target="_blank" rel="noopener noreferrer"
+          <a href="mailto:alumni@kaihoyuhi.com?subject=総会参加申し込みについて"
             class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-all duration-300 shadow-lg text-lg">
-            参加申込フォームはこちら
+            メールで参加申込
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </a>
         </div>
@@ -244,17 +243,13 @@
       <div class="max-w-3xl mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-black mb-6">ご参加お待ちしております</h2>
         <p class="text-white/70 mb-10 leading-relaxed">
-          参加ご希望の方は、下記の参加申込フォームよりお申し込みください。<br>
-          ご不明な点はお問い合わせフォームよりご連絡ください。
+          参加ご希望の方は、下記のメールよりお申し込みください。<br>
+          ご不明な点はお問い合わせページよりご連絡ください。
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSTYoGsTI_qphPQNHhy8l_Wpy3LrPf3HWBg0s1hAujbiRaHw/viewform"
-            target="_blank" rel="noopener noreferrer"
+          <a href="mailto:alumni@kaihoyuhi.com?subject=総会参加申し込みについて"
             class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg">
-            参加申込フォーム
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-            </svg>
+            メールで参加申込
           </a>
           <NuxtLink to="/contact"
             class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">

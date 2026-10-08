@@ -144,10 +144,9 @@
           雄飛会の運営に興味のある方は、ぜひご応募ください。<br>
           卒業年度や居住地は問いません。
         </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog"
-           target="_blank" rel="noopener noreferrer"
+        <a href="mailto:alumni@kaihoyuhi.com?subject=運営メンバー参加について"
            class="inline-flex items-center justify-center px-8 py-4 bg-white text-kaiho-green font-bold rounded-full hover:bg-kaiho-gold hover:text-white transition-all duration-300 shadow-lg">
-          応募フォームを開く
+          メールで応募する
         </a>
       </div>
     </section>
