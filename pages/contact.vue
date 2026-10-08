@@ -88,20 +88,19 @@
               </a>
             </div>
 
-            <!-- 応募フォーム -->
+            <!-- メール（事務局） -->
             <div class="card-hover bg-gradient-to-br from-kaiho-green/5 to-emerald-50 rounded-2xl p-8 border border-kaiho-green/10">
               <div class="w-12 h-12 rounded-2xl bg-kaiho-green/10 flex items-center justify-center mb-4">
                 <svg class="w-6 h-6 text-kaiho-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 class="font-bold text-neutral-900 mb-2">参加・支援フォーム</h3>
-              <p class="text-sm text-neutral-600 mb-4">運営メンバー参加・寄付・支援の申し出はこちらから。</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog"
-                 target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center gap-2 text-sm text-kaiho-green font-bold hover:text-kaiho-green-dark transition-colors">
-                フォームを開く ↗
+              <h3 class="font-bold text-neutral-900 mb-2">メール（事務局）</h3>
+              <p class="text-sm text-neutral-600 mb-4">メンター登録・運営参加・寄付・支援などのお申し出はこちらへ。</p>
+              <a href="mailto:alumni@kaihoyuhi.com"
+                 class="inline-flex items-center gap-2 text-sm text-kaiho-green font-bold hover:text-kaiho-green-dark transition-colors break-all">
+                alumni@kaihoyuhi.com
               </a>
             </div>
           </div>
@@ -170,23 +169,9 @@ const forms = [
     comingSoon: false,
   },
   {
-    title: 'メンター登録フォーム',
-    description: 'あなたの経験を後輩に伝えるメンターとして登録いただけます（サイト内フォーム）',
-    url: '/mentor/registration',
-    internal: true,
-    comingSoon: false,
-  },
-  {
-    title: '運営メンバー参加フォーム',
-    description: '開邦雄飛会の運営・活動に参加したい方はこちらから',
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog',
-    internal: false,
-    comingSoon: false,
-  },
-  {
-    title: '寄付・支援フォーム',
-    description: '開邦雄飛応援金への寄付・支援の申し出はこちら。',
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform',
+    title: 'メンター登録・メンティー申し込み・運営参加・寄付',
+    description: 'alumni@kaihoyuhi.com へメールにてお問い合わせください',
+    url: 'mailto:alumni@kaihoyuhi.com',
     internal: false,
     comingSoon: false,
   },

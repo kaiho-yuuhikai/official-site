@@ -118,13 +118,10 @@ test.skip('メンター登録ページが表示され、登録リンクが存在
 // 後演コーナーセクション
 // ---------------------------------------------------------------------------
 
-test('トップページに後援コーナーセクションが表示される', async ({ page }) => {
+test('トップページから後援コーナーセクションが削除されている', async ({ page }) => {
   await page.goto('/')
   const section = page.locator('#koen')
-  await expect(section).toBeVisible()
-  await expect(section).toContainText('後援コーナー')
-  await expect(section).toContainText('後援実施中')
-  await expect(section).toContainText('後援が決定')
+  await expect(section).not.toBeVisible()
 })
 
 test('トップページにInstagramセクションが表示される', async ({ page }) => {
@@ -248,7 +245,7 @@ test('トップページにnoteマガジンのクリエイター募集バナー�
   await page.goto('/')
   const banner = page.locator('#magazine').getByText('クリエイター募集中')
   await expect(banner).toBeVisible()
-  const cta = page.locator('#magazine a[href*="docs.google.com/forms"]')
+  const cta = page.locator('#magazine a[href*="alumni@kaihoyuhi.com"]')
   await expect(cta).toBeVisible()
   await expect(cta).toContainText('執筆を申し込む')
 })

@@ -20,21 +20,20 @@
             <div class="w-20 h-20 bg-kaiho-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-10 h-10 text-kaiho-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
-            <h2 class="text-2xl font-black text-neutral-900 mb-4">Googleフォームで登録する</h2>
+            <h2 class="text-2xl font-black text-neutral-900 mb-4">メールで登録する</h2>
             <p class="text-neutral-500 mb-8 leading-relaxed">
-              講師登録（入学期の入力等）は、以下の外部Googleフォームより受け付けております。<br>
-              お手数ですが、フォームに必要事項をご記入の上、送信をお願いいたします。
+              講師登録のお申し込みは、メールにて受け付けております。<br>
+              件名に「メンター登録について」とご記入の上、お気軽にご連絡ください。
             </p>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
-               target="_blank" rel="noopener noreferrer"
+
+            <a href="mailto:alumni@kaihoyuhi.com?subject=メンター登録について"
                class="inline-flex items-center justify-center px-8 py-4 bg-kaiho-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl gap-3 w-full sm:w-auto">
-              <span>登録フォームを開く</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              <span>alumni@kaihoyuhi.com へメールする</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             </a>
 
             <p class="text-xs text-neutral-400 mt-8 leading-relaxed">
-              ※ 送信された内容は開邦雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
+              ※ いただいたメールは開邦雄飛会事務局にて確認し、追ってご連絡差し上げます。<br>
               個人情報は講師活動の目的以外には使用いたしません。
             </p>
           </div>
