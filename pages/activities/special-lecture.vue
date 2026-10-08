@@ -166,12 +166,10 @@
 
           <div class="mt-8 pt-8 border-t border-kaiho-green/10">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeOZZOYwreYZRWpUFV4_LTUmZCEnxz22ASeOMoF1h1Mo9c0zg/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:alumni@kaihoyuhi.com?subject=特設授業講師申し込みについて"
               class="inline-flex items-center gap-2 bg-kaiho-green text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
             >
-              講師応募フォームを開く <span>&rarr;</span>
+              メールで申し込む <span>&rarr;</span>
             </a>
           </div>
         </div>
@@ -239,7 +237,7 @@
               </span>
               <p class="text-xs text-neutral-500 mt-3">
                 応募フォーム（Google フォーム）は近日公開予定です。お急ぎの場合は
-                <a href="mailto:tokusetu@kaihoyuhi.com?subject=特設授業の当日運営スタッフについて" class="text-kaiho-green font-bold underline">tokusetu@kaihoyuhi.com</a>
+                <a href="mailto:alumni@kaihoyuhi.com?subject=特設授業の当日運営スタッフについて" class="text-kaiho-green font-bold underline">alumni@kaihoyuhi.com</a>
                 までご連絡ください。
               </p>
             </template>
@@ -637,15 +635,13 @@
         <h2 class="text-3xl font-black text-white mb-4">講師として参加しませんか？</h2>
         <p class="text-white/80 mb-8 leading-relaxed">
           後輩たちへ、あなたの歩みと言葉を届けてください。<br>
-          参加希望・お問い合わせは下記のフォームよりお申し込みください。
+          参加希望・お問い合わせは下記のメールアドレスよりお申し込みください。
         </p>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeOZZOYwreYZRWpUFV4_LTUmZCEnxz22ASeOMoF1h1Mo9c0zg/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto:alumni@kaihoyuhi.com?subject=特設授業講師申し込みについて"
           class="inline-flex items-center gap-2 bg-white text-kaiho-green font-bold px-8 py-4 rounded-full hover:bg-kaiho-cream transition-colors"
         >
-          講師応募フォームを開く <span>&rarr;</span>
+          メールで申し込む <span>&rarr;</span>
         </a>
       </div>
     </section>
@@ -659,6 +655,7 @@ const config = useRuntimeConfig()
 // scripts/gas/staff-form/ の setupStaffForm() で生成。回答は同名スプレッドシートに蓄積。
 // 空文字にすると「準備中」ボタンに戻る。
 const staffFormUrl: string = 'https://docs.google.com/forms/d/e/1FAIpQLSdaUjYZaeKcKtUKAX9k837vI9Cbj4ZIKVTGu43SPuGqoulCTw/viewform'
+
 
 useSeoMeta({
   title: '創立記念特設授業 | 開邦雄飛会',

@@ -36,13 +36,13 @@
           <NuxtLink to="/activities/special-lecture" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             🎓 創立記念特設授業
           </NuxtLink>
-          <NuxtLink to="/mentor/registration" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=メンター登録について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             メンターに登録
-          </NuxtLink>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          </a>
+          <a href="mailto:alumni@kaihoyuhi.com?subject=運営メンバー参加について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             運営メンバーに参加
           </a>
-          <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             寄付・支援をする
           </a>
         </div>
@@ -213,7 +213,7 @@
               </ul>
             </div>
             <div class="flex-shrink-0">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-colors shadow-md shadow-kaiho-green/20 whitespace-nowrap">
+              <a href="mailto:alumni@kaihoyuhi.com?subject=マガジン執筆について" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-green text-white font-bold rounded-full hover:bg-kaiho-green-dark transition-colors shadow-md shadow-kaiho-green/20 whitespace-nowrap">
                 執筆を申し込む
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
@@ -585,69 +585,26 @@
           </div>
         </div>
 
-      <!-- Mentor Slider - Marquee -->
-      <div class="mt-16 mb-6 text-center fade-in">
-        <h3 class="text-xl font-black text-neutral-900">メンター登録者</h3>
-      </div>
-      <div class="marquee-container fade-in">
-        <div class="marquee-track marquee-track--mentors">
-          <template v-for="pass in 2" :key="pass">
-            <div v-for="mentor in mentors" :key="`m${pass}-${mentor.name}`" class="flex-shrink-0 w-80 mx-3">
-              <div class="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
-                <div class="h-1.5 bg-gradient-to-r from-kaiho-blue to-blue-400"></div>
-                <div class="p-6">
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                      <img v-if="mentor.image" :src="`${baseURL}${mentor.image}`" :alt="mentor.name" class="w-full h-full object-cover" :class="mentor.imagePosition ?? 'object-center'">
-                      <div v-else class="w-full h-full bg-gradient-to-br from-kaiho-blue to-blue-500 flex items-center justify-center text-white text-xl font-black">
-                        {{ mentor.name.charAt(0) }}
-                      </div>
-                    </div>
-                    <div>
-                      <p class="text-xs text-neutral-400 tracking-widest mb-0.5">{{ mentor.furigana }}</p>
-                      <h3 class="text-lg font-black text-neutral-900">{{ mentor.name }}</h3>
-                      <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                        <span class="text-xs font-bold bg-kaiho-blue/10 text-kaiho-blue px-2 py-0.5 rounded-full">{{ mentor.generation }}</span>
-                        <span class="text-xs text-neutral-500">{{ mentor.course }}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-neutral-50 rounded-xl p-3 mb-3">
-                    <p class="text-neutral-700 leading-relaxed text-xs line-clamp-3">{{ mentor.profile }}</p>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5">
-                    <span v-for="tag in mentor.tags" :key="tag"
-                          class="text-xs px-2.5 py-0.5 rounded-full font-medium"
-                          :class="mentor.tagClass">{{ tag }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </div>
-      </div>
-
         <!-- メンター登録 / メンティー申し込み -->
         <div class="mt-10 flex flex-wrap justify-center gap-4">
-          <NuxtLink to="/mentor/registration"
+          <a href="mailto:alumni@kaihoyuhi.com?subject=メンター登録について"
             class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-green to-emerald-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
             </div>
             <div class="text-center">
               <p class="text-white font-black text-lg leading-tight">メンターになる</p>
-              <p class="text-white/80 text-xs mt-1">あなたの経験を後輩に共有しませんか？</p>
+              <p class="text-white/80 text-xs mt-1">alumni@kaihoyuhi.com へご連絡ください</p>
             </div>
-          </NuxtLink>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog"
-            target="_blank" rel="noopener noreferrer"
+          </a>
+          <a href="mailto:alumni@kaihoyuhi.com?subject=メンティー申し込みについて"
             class="group inline-flex flex-col items-center gap-3 bg-gradient-to-br from-kaiho-blue to-blue-500 rounded-2xl px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
             </div>
             <div class="text-center">
               <p class="text-white font-black text-lg leading-tight">メンティーに申し込む</p>
-              <p class="text-white/80 text-xs mt-1">メンターのサポートを受けてみませんか？</p>
+              <p class="text-white/80 text-xs mt-1">alumni@kaihoyuhi.com へご連絡ください</p>
             </div>
           </a>
         </div>
@@ -688,56 +645,13 @@
               class="inline-flex items-center justify-center gap-2 border-2 border-kaiho-green text-kaiho-green font-bold px-8 py-4 rounded-xl hover:bg-kaiho-green/5 transition-colors">
               特設授業について詳しく見る <span>&rarr;</span>
             </NuxtLink>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog"
-               target="_blank" rel="noopener noreferrer"
+            <a href="mailto:alumni@kaihoyuhi.com?subject=特設授業講師申し込みについて"
                class="inline-flex items-center justify-center gap-2 bg-kaiho-green text-white font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">
-              申し込みフォームを開く
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              メールで申し込む
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </a>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- KOEN CORNER SECTION (COMPACT)                                 -->
-    <!-- ============================================================ -->
-    <section id="koen" class="py-16 bg-neutral-50">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="bg-gradient-to-br from-kaiho-gold/5 to-yellow-50 border border-kaiho-gold/20 rounded-3xl p-8 md:p-12">
-          <div class="flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-shrink-0 w-20 h-20 bg-kaiho-gold/10 rounded-2xl flex items-center justify-center">
-              <svg class="w-10 h-10 text-kaiho-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/>
-              </svg>
-            </div>
-            <div class="flex-1 text-center md:text-left">
-              <div class="inline-flex items-center gap-2 bg-kaiho-gold text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-                <span>後援実施中</span>
-              </div>
-              <h2 class="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-3">後援コーナー</h2>
-              <p class="text-neutral-600 leading-relaxed max-w-xl">同窓生の活動を雄飛会が後援します。申請〜審査を経て、HPやSNSで告知します。</p>
-              <div class="mt-4 flex flex-col md:flex-row md:flex-wrap md:justify-start gap-y-1 md:gap-x-4 text-sm text-neutral-500">
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">1</span>フォームでお問い合わせ</span>
-                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/70 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">2</span>ミーティングにて主催者の同窓生が企画書を提案</span>
-                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/50 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">3</span>後援が決定</span>
-                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/30 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">4</span>HPやSNSで告知</span>
-                <span class="text-kaiho-gold/40 hidden md:inline">&rarr;</span>
-                <span class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-kaiho-gold/20 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0">5</span>報告書を提出</span>
-              </div>
-            </div>
-            <div class="flex-shrink-0">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2JB1aFBpvBEyMy8TCoN9LBoTn9BB3B9udw4gOLuJo8YQWiQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/90 transition-colors shadow-md shadow-kaiho-gold/20 whitespace-nowrap">
-                お問い合わせフォームへ
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -858,11 +772,11 @@
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
-              <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer"
+              <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について"
                 class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
-                寄付を申し出る
+                メールで申し出る
               </a>
-              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をメールでご案内します</p>
+              <p class="text-xs text-neutral-400 mt-3 text-center">alumni@kaihoyuhi.com へご連絡後、振込先口座をご案内します</p>
             </div>
           </div>
         </div>
@@ -1111,42 +1025,42 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto fade-in">
           <!-- CTA 1 -->
-          <NuxtLink to="/mentor/registration" class="card-hover block bg-gradient-to-br from-kaiho-blue to-blue-600 rounded-2xl p-8 text-white text-center">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=メンター登録について" class="card-hover block bg-gradient-to-br from-kaiho-blue to-blue-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#129309;</div>
             <h3 class="text-lg font-bold mb-2">メンター登録</h3>
             <p class="text-white/80 text-sm mb-4">あなたの経験を後輩に</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              登録フォーム &rarr;
+              メールで問い合わせ &rarr;
             </span>
-          </NuxtLink>
+          </a>
 
           <!-- CTA 2 -->
-          <a :href="donationFormUrl" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128157;</div>
             <h3 class="text-lg font-bold mb-2">開邦雄飛応援金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              寄付フォームへ →
+              メールで問い合わせ &rarr;
             </span>
           </a>
 
           <!-- CTA 3 -->
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmpqzISxWHhyDvHzmWPMEZpfx8YUpUdfAW_4JjebFlnvWoYA/viewform?usp=dialog" target="_blank" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=運営メンバー参加について" class="card-hover block bg-gradient-to-br from-kaiho-green to-emerald-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128587;</div>
             <h3 class="text-lg font-bold mb-2">運営メンバー募集</h3>
             <p class="text-white/80 text-sm mb-4">一緒に組織を創ろう</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              応募する &rarr;
+              メールで問い合わせ &rarr;
             </span>
           </a>
 
           <!-- CTA 4 -->
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUmhEM6GTgDTlnk6WziMux-weo4MBanIHm5SL1XqwAYlb5QQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-gold to-amber-500 rounded-2xl p-8 text-white text-center">
+          <a href="mailto:alumni@kaihoyuhi.com?subject=特設授業講師申し込みについて" class="card-hover block bg-gradient-to-br from-kaiho-gold to-amber-500 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#127891;</div>
             <h3 class="text-lg font-bold mb-2">特設授業講師</h3>
             <p class="text-white/80 text-sm mb-4">後輩に経験と言葉を届ける</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              申し込む &rarr;
+              メールで問い合わせ &rarr;
             </span>
           </a>
 
@@ -1408,7 +1322,7 @@ const donations = ref<DonationsData>({
 })
 
 // 寄付申し出フォーム URL — 同窓会用 Google アカウント (kaihoyuuhikai@gmail.com) 配下のフォーム公開URL
-const donationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform'
+
 
 const donationsTotalDisplay = computed(() => donations.value.totalAmount.toLocaleString())
 const donationsCountDisplay = computed(() => donations.value.donorCount.toLocaleString())
