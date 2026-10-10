@@ -10,6 +10,7 @@
 
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs'
 import { dirname } from 'path'
+import { toPublicDonations } from './donations-public.mjs'
 
 const URL = process.env.DONATIONS_ENDPOINT_URL
 const TOKEN = process.env.DONATIONS_ENDPOINT_TOKEN
@@ -18,8 +19,6 @@ const OUTPUT_PATH = 'public/data/donations.json'
 const FALLBACK = {
   fetchedAt: null,
   fund: '開邦雄飛応援金',
-  totalAmount: 0,
-  donorCount: 0,
   donors: [],
 }
 
@@ -51,8 +50,10 @@ async function main() {
   }
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true })
-  writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8')
-  console.log(`[fetch-donations] Saved: total ¥${data.totalAmount.toLocaleString()} / ${data.donorCount} donors`)
+  // 金額・件数・メッセージは公開しない（公開JSONには画面で使う項目だけを書く）
+  const publicData = toPublicDonations(data)
+  writeFileSync(OUTPUT_PATH, JSON.stringify(publicData, null, 2) + '\n', 'utf-8')
+  console.log(`[fetch-donations] Saved: ${publicData.donors.length} donors`)
 }
 
 function ensureFile() {
