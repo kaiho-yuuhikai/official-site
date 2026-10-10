@@ -58,7 +58,12 @@ async function main() {
 // GitHub Actions 上では警告アノテーション（実行結果の画面に黄色で出る）としても残す。デプロイは止めない
 function warn(message) {
   console.warn(`[fetch-donations] ${message}`)
-  if (process.env.GITHUB_ACTIONS) console.log(`::warning title=fetch-donations::${message}`)
+  if (process.env.GITHUB_ACTIONS) console.log(`::warning title=fetch-donations::${escapeAnnotation(message)}`)
+}
+
+// ワークフローコマンドの値は %・改行をエスケープしないと注釈が途中で切れる
+function escapeAnnotation(value) {
+  return String(value).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A')
 }
 
 function ensureFile() {
