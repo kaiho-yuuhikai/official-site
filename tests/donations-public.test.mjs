@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest'
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { readFileSync, mkdtempSync } from 'node:fs'
+import { resolve, join } from 'node:path'
+import { tmpdir } from 'node:os'
+import { spawnSync } from 'node:child_process'
 import { toPublicDonations } from '../scripts/donations-public.mjs'
 
 const gasResponse = {
@@ -56,6 +58,19 @@ describe('公開用の寄付データ', () => {
   it('fetch-donations.mjs はエラーメッセージに GAS の生応答を埋め込まない', () => {
     const src = readFileSync(resolve(process.cwd(), 'scripts/fetch-donations.mjs'), 'utf-8')
     expect(src).not.toMatch(/JSON\.stringify\(data\)/)
-    expect(src).toMatch(/looksLikeJson \? ''/)
+    expect(src).not.toMatch(/text\.slice\(/)
+  })
+
+  it('fetch-donations.mjs は要求失敗のログにトークンを出さない', () => {
+    const token = 'secret/token+value'
+    const out = spawnSync(process.execPath, [resolve(process.cwd(), 'scripts/fetch-donations.mjs')], {
+      cwd: mkdtempSync(join(tmpdir(), 'fetch-donations-')),
+      env: { ...process.env, GITHUB_ACTIONS: 'true', DONATIONS_ENDPOINT_URL: 'http://[invalid', DONATIONS_ENDPOINT_TOKEN: token },
+      encoding: 'utf-8',
+    })
+    const log = out.stdout + out.stderr
+    expect(log).toContain('Request failed')
+    expect(log).not.toContain(token)
+    expect(log).not.toContain(encodeURIComponent(token))
   })
 })
