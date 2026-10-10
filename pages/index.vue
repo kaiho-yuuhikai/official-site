@@ -1485,7 +1485,7 @@ async function loadDonations() {
     const res = await fetch(baseURL + 'data/donations.json')
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const data = await res.json()
-    if (data && typeof data.totalAmount === 'number') {
+    if (data && Array.isArray(data.donors)) {
       donations.value = {
         fetchedAt: data.fetchedAt ?? null,
         fund: data.fund || '開邦雄飛応援金',
