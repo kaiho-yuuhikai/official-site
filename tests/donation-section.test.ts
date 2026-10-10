@@ -46,6 +46,9 @@ describe('Issue #2: 寄付セクションの呼称統一とフォームURL差し
       expect(donationSection).toContain('閲覧制限中')
       expect(donationSection).not.toContain('donationsTotalDisplay')
       expect(donationSection).not.toContain('donationsCountDisplay')
+      // 算出プロパティを経由せず生データを直接バインドした場合も検出する
+      expect(donationSection).not.toMatch(/\btotalAmount\b/)
+      expect(donationSection).not.toMatch(/\bdonorCount\b/)
     })
 
     it('掲載OKの支援者名は donations.donors の動的バインドで表示する', () => {
