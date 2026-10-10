@@ -42,11 +42,16 @@ async function main() {
   try {
     data = JSON.parse(text)
   } catch (err) {
-    throw new Error(`Invalid JSON response: ${text.slice(0, 200)}`)
+    // 応答本文はログに出さない。途中で切れた JSON だと先頭に金額が載るため（ログは公開リポで誰でも見られる）。
+    // HTML（ログイン画面・エラーページ）のときだけ原因調査用に先頭を出す
+    const looksLikeJson = /^\s*[\[{]/.test(text)
+    throw new Error(`Invalid JSON response (${text.length} bytes)${looksLikeJson ? '' : `: ${text.slice(0, 200)}`}`)
   }
 
   if (typeof data.totalAmount !== 'number' || !Array.isArray(data.donors)) {
-    throw new Error(`Unexpected payload shape: ${JSON.stringify(data).slice(0, 200)}`)
+    // 生の応答は金額・メッセージを含むのでログに出さない。キーの一覧だけを出す
+    const keys = data && typeof data === 'object' ? Object.keys(data).join(',') : typeof data
+    throw new Error(`Unexpected payload shape (keys: ${keys})`)
   }
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true })

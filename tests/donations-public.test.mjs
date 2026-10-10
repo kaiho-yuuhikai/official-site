@@ -52,4 +52,10 @@ describe('公開用の寄付データ', () => {
     expect(src).not.toMatch(/writeFileSync\(OUTPUT_PATH, JSON\.stringify\(data\b/)
     expect(src).not.toMatch(/totalAmount\s*:/)
   })
+
+  it('fetch-donations.mjs はエラーメッセージに GAS の生応答を埋め込まない', () => {
+    const src = readFileSync(resolve(process.cwd(), 'scripts/fetch-donations.mjs'), 'utf-8')
+    expect(src).not.toMatch(/JSON\.stringify\(data\)/)
+    expect(src).toMatch(/looksLikeJson \? ''/)
+  })
 })
