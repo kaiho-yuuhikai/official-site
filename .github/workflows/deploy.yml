@@ -21,8 +21,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      # step の if では step 自身の env を参照できないため、job レベルで渡す
-      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      # step の if では secrets も step 自身の env も参照できないため、設定有無の真偽値だけを job レベルで渡す
+      # （トークン本体は Threads 取得 step にだけ渡し、npm ci やビルドの step には渡さない）
+      HAS_THREADS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN != '' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -42,18 +43,19 @@ jobs:
 
       # Threads 最新投稿を取得して JSON に保存
       - name: Fetch Threads posts
-        if: env.THREADS_ACCESS_TOKEN != ''
+        if: env.HAS_THREADS_TOKEN == 'true'
         # 取得失敗でもデプロイは止めない（コミット済みの JSON にフォールバック）。失敗は警告として残す
         continue-on-error: true
         env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         run: node scripts/fetch-threads-posts.mjs
 
-      # 寄付集計データを Apps Script Web アプリから取得
       - name: Warn when Threads fetch is skipped
-        if: env.THREADS_ACCESS_TOKEN == ''
+        if: env.HAS_THREADS_TOKEN != 'true'
         run: echo "::warning title=Threads::THREADS_ACCESS_TOKEN が未設定のため取得をスキップしました。コミット済みの threads-posts.json を表示します"
 
+      # 寄付集計データを Apps Script Web アプリから取得
       - name: Fetch donations
         env:
           DONATIONS_ENDPOINT_URL: ${{ secrets.DONATIONS_ENDPOINT_URL }}
