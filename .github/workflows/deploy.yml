@@ -9,7 +9,7 @@ on:
   workflow_dispatch: # 手動実行も可能
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -20,6 +20,10 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # step の if では secrets も step 自身の env も参照できないため、設定有無の真偽値だけを job レベルで渡す
+      # （トークン本体は Threads 取得 step にだけ渡し、npm ci やビルドの step には渡さない）
+      HAS_THREADS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN != '' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -39,11 +43,17 @@ jobs:
 
       # Threads 最新投稿を取得して JSON に保存
       - name: Fetch Threads posts
-        if: env.THREADS_ACCESS_TOKEN != ''
+        if: env.HAS_THREADS_TOKEN == 'true'
+        # 取得失敗でもデプロイは止めない（コミット済みの JSON にフォールバック）。失敗は警告として残す
+        continue-on-error: true
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         run: node scripts/fetch-threads-posts.mjs
+
+      - name: Warn when Threads fetch is skipped
+        if: env.HAS_THREADS_TOKEN != 'true'
+        run: echo "::warning title=Threads::THREADS_ACCESS_TOKEN が未設定のため取得をスキップしました。コミット済みの threads-posts.json を表示します"
 
       # 寄付集計データを Apps Script Web アプリから取得
       - name: Fetch donations
@@ -52,15 +62,8 @@ jobs:
           DONATIONS_ENDPOINT_TOKEN: ${{ secrets.DONATIONS_ENDPOINT_TOKEN }}
         run: node scripts/fetch-donations.mjs
 
-      # データが更新されていたらコミット（botによるpushは除く）
-      - name: Commit data if changed
-        if: github.actor != 'github-actions[bot]'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/note-articles.json public/data/threads-posts.json public/data/donations.json
-          git diff --cached --quiet || git commit -m "chore: 自動取得データ（note RSS・Threads・寄付）を更新"
-          git push || true
+      # 取得データはリポジトリにコミットしない（main のブランチ保護で push が拒否されるため）。
+      # 当日のビルドに載せるだけで、取得に失敗した日は main にコミット済みの JSON がそのまま表示される。
 
       - name: Build static site
         env:
