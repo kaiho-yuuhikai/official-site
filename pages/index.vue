@@ -1342,12 +1342,6 @@ const donations = ref<DonationsData>({
   donors: [],
 })
 
-// 寄付申し出フォーム URL — 同窓会用 Google アカウント (kaihoyuuhikai@gmail.com) 配下のフォーム公開URL
-
-
-const donationsTotalDisplay = computed(() => donations.value.totalAmount.toLocaleString())
-const donationsCountDisplay = computed(() => donations.value.donorCount.toLocaleString())
-
 function formatDateShort(iso: string | null): string {
   if (!iso) return ''
   const d = new Date(iso)
