@@ -459,9 +459,19 @@
         <!-- 2025年 -->
         <div class="fade-in mb-16">
           <h3 class="text-xl font-bold text-neutral-900 mb-6">2025年（令和7年）</h3>
-          <div class="space-y-3 text-sm text-neutral-600">
-            <p>2025年10月31日（金）14:45〜16:35（14:00 学校集合）開催。</p>
-            <p>開邦高校・中学 新校舎（2025年7月移転）で初めて実施。講師1人当たり 50分 × 2コマ（2クラスへ講演）。放課後に生徒との懇話会、夜に卒業生懇親会も行いました。県外の方向けにオンライン授業も実施しました。</p>
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="flex justify-center">
+              <img
+                :src="`${config.app.baseURL}images/special-lecture-2025.png`"
+                alt="令和7年度 創立記念特設授業 告知フライヤー"
+                class="w-full max-w-sm rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-3 text-sm text-neutral-600">
+              <p>2025年10月31日（金）14:45〜16:35（14:00 学校集合）開催。</p>
+              <p>開邦高校・中学 新校舎（2025年7月移転）で初めて実施。講師1人当たり 50分 × 2コマ（2クラスへ講演）。放課後に生徒との懇話会、夜に卒業生懇親会も行いました。県外の方向けにオンライン授業も実施しました。</p>
+            </div>
           </div>
         </div>
 
