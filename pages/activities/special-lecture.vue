@@ -614,8 +614,13 @@
             <p class="text-neutral-600 text-sm leading-relaxed">はい、お申し込みいただけます。同じ職種でも、これまでの経験や専門分野、働き方、伝えられる内容は一人ひとり異なります。応募状況や分野のバランスによって、個別にご相談させていただく場合があります。</p>
           </div>
           <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            <p class="font-bold text-neutral-900 mb-2">Q. 会場の機材・設備について教えてください</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">各教室に電子黒板があり、スライドを表示することができます。HDMIケーブルはご用意しておりますが、RGB/VGAケーブルはございません。PC・iPadなど、スライド表示に必要な端末はご持参ください。HDMIの変換端子など、その他必要なものもご自身でご用意をお願いします。</p>
+            <p class="text-neutral-600 text-sm leading-relaxed mt-2">芸術科卒の方で楽器や機材が必要な場合は、学校と調整いたしますので、LINEグループにてご連絡ください。</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
             <p class="font-bold text-neutral-900 mb-2">Q. オンラインでの参加は可能ですか？</p>
-            <p class="text-neutral-600 text-sm leading-relaxed">原則として現地でのご参加をお願いしていますが、県外在住などの事情がある場合は個別に調整いたします。応募フォームにご希望をご記入ください。</p>
+            <p class="text-neutral-600 text-sm leading-relaxed">2026年度は現地参加のみとなります。県外在住の方もご了承ください。</p>
           </div>
           <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
             <p class="font-bold text-neutral-900 mb-2">Q. 講師経験がなくても応募できますか？</p>
