@@ -317,6 +317,9 @@
               中学または高校のいずれかの2クラス（50分 × 2コマ）を担当していただきます。クラスの割り振りは事務局が行います。
             </p>
             <p class="text-neutral-600 leading-relaxed text-sm mt-2">
+              講演① 14:45〜15:35　／　講演② 15:45〜16:35
+            </p>
+            <p class="text-neutral-600 leading-relaxed text-sm mt-1">
               1コマの目安：講話 25分・質疑応答 20分・生徒のお礼と感想記入 5分
             </p>
             <div class="mt-4 bg-white rounded-xl p-5 border border-kaiho-green/10">
