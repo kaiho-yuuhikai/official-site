@@ -379,7 +379,10 @@
               <h3 class="text-xl font-bold text-neutral-900">講義</h3>
             </div>
             <p class="text-neutral-600 leading-relaxed text-sm">
-              中学または高校のいずれかの2クラス（50分 × 2クラス）を担当していただきます。クラスの割り振りは事務局が行います。
+              中学または高校のいずれかの2クラス（50分 × 2コマ）を担当していただきます。クラスの割り振りは事務局が行います。
+            </p>
+            <p class="text-neutral-600 leading-relaxed text-sm mt-2">
+              1コマの目安：講話 25分・質疑応答 20分・生徒のお礼と感想記入 5分
             </p>
             <div class="mt-4 bg-white rounded-xl p-5 border border-kaiho-green/10">
               <p class="text-xs font-bold text-neutral-900 mb-3">話していただく内容（例）</p>
@@ -443,33 +446,64 @@
         </div>
 
         <div class="fade-in">
-          <p class="text-neutral-600 text-sm leading-relaxed mb-8">2025年の実施例です。時間は年度により前後します。</p>
+          <p class="text-neutral-600 text-sm leading-relaxed mb-8">2026年の予定です。</p>
           <div class="space-y-6">
             <div class="flex gap-4 items-start">
               <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:00</span>
               <div>
-                <p class="font-bold text-neutral-900 text-sm">学校集合・打ち合わせ</p>
-                <p class="text-neutral-600 text-sm mt-1">事務局スタッフが受付でご案内します。担当クラスや進行を確認します。</p>
+                <p class="font-bold text-neutral-900 text-sm">学校集合（本館1階会議室）</p>
+                <p class="text-neutral-600 text-sm mt-1">事務局スタッフが受付でご案内します。<br><span class="text-neutral-400">＊運営スタッフは14:00集合</span></p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:20</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">学校長あいさつ</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:25</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">趣旨説明</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:40</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">各教室へ案内</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">14:45</span>
               <div>
-                <p class="font-bold text-neutral-900 text-sm">特設授業（50分 × 2クラス）</p>
-                <p class="text-neutral-600 text-sm mt-1">中学または高校の2クラスで、同じ内容の授業を2回行っていただきます。</p>
+                <p class="font-bold text-neutral-900 text-sm">講演①（〜15:35）</p>
+                <p class="text-neutral-600 text-sm mt-1">目安：講話 25分・質疑応答 20分・生徒のお礼と感想記入 5分</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">15:45</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">講演②（〜16:35）</p>
+                <p class="text-neutral-600 text-sm mt-1">目安：講話 25分・質疑応答 20分・生徒のお礼と感想記入 5分</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">16:40</span>
+              <div>
+                <p class="font-bold text-neutral-900 text-sm">講師控え室へ</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">17:00</span>
               <div>
-                <p class="font-bold text-neutral-900 text-sm">生徒との懇話会（希望制・〜18:00）</p>
-                <p class="text-neutral-600 text-sm mt-1">教室で待機し、もっと話を聞きたい生徒が自由に訪ねてきます。</p>
+                <p class="font-bold text-neutral-900 text-sm">放課後の交流会（任意参加・〜18:00）</p>
+                <p class="text-neutral-600 text-sm mt-1">話を聞きたい生徒が自由に訪れます。場所：視聴覚室または多目的Ａ教室を予定。</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">19:00</span>
+              <span class="flex-shrink-0 text-xs font-bold text-kaiho-green bg-kaiho-green/10 rounded-full px-3 py-1.5">18:30</span>
               <div>
-                <p class="font-bold text-neutral-900 text-sm">卒業生懇親会（任意参加・〜21:00）</p>
+                <p class="font-bold text-neutral-900 text-sm">懇親会（任意参加）</p>
                 <p class="text-neutral-600 text-sm mt-1">講師を含む卒業生同士で交流します。参加は自由です。</p>
               </div>
             </div>
