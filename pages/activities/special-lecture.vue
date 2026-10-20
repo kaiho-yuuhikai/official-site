@@ -295,71 +295,6 @@
       </div>
     </section>
 
-    <!-- 2025年開催概要 -->
-    <section class="py-24 bg-white">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8">
-        <div class="mb-16 fade-in">
-          <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">2025</p>
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">2025年 開催概要</h2>
-          <div class="section-divider" style="margin:0"></div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in">
-          <div class="space-y-6">
-            <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">①</span>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">日時</p>
-                <p class="text-neutral-600 text-sm mt-1">2025年10月31日（金）14:45〜16:35（14:00 学校集合）</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">②</span>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">場所</p>
-                <p class="text-neutral-600 text-sm mt-1">開邦高校＆中学 新校舎（2025年7月に移転済み）</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">③</span>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">内容</p>
-                <p class="text-neutral-600 text-sm mt-1">講師１人当たり 50分 × 2コマ（2クラスへ講演）</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">④</span>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">対象</p>
-                <p class="text-neutral-600 text-sm mt-1">開邦中学1〜3年生、開邦高校1〜3年生</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-kaiho-green/10 text-kaiho-green flex items-center justify-center text-xs font-bold">⑤</span>
-              <div>
-                <p class="font-bold text-neutral-900 text-sm">その他</p>
-                <div class="text-neutral-600 text-sm mt-1 space-y-1">
-                  <p>17:00〜18:00　生徒との懇話会</p>
-                  <p>19:00〜21:00　卒業生懇親会（任意参加）</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8 pt-8 border-t border-neutral-100 space-y-3">
-            <p class="text-xs text-neutral-500 flex items-start gap-2">
-              <span class="flex-shrink-0 mt-0.5">＊</span>
-              <span>予算の関係上、謝金や交通費の支給は困難となっております。</span>
-            </p>
-            <p class="text-xs text-neutral-500 flex items-start gap-2">
-              <span class="flex-shrink-0 mt-0.5">＊</span>
-              <span>県外の方用にオンライン授業も実施しました。</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 詳細内容 -->
     <section class="py-24 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
@@ -519,6 +454,15 @@
           <p class="text-xs font-bold tracking-[0.3em] uppercase text-kaiho-green mb-4">Archive</p>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">活動実績</h2>
           <div class="section-divider" style="margin:0"></div>
+        </div>
+
+        <!-- 2025年 -->
+        <div class="fade-in mb-16">
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">2025年（令和7年）</h3>
+          <div class="space-y-3 text-sm text-neutral-600">
+            <p>2025年10月31日（金）14:45〜16:35（14:00 学校集合）開催。</p>
+            <p>開邦高校・中学 新校舎（2025年7月移転）で初めて実施。講師1人当たり 50分 × 2コマ（2クラスへ講演）。放課後に生徒との懇話会、夜に卒業生懇親会も行いました。県外の方向けにオンライン授業も実施しました。</p>
+          </div>
         </div>
 
         <!-- 2024年 -->
