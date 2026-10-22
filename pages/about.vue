@@ -186,9 +186,9 @@ const policies = [
 
 const timeline = [
   { year: '1986年', title: '沖縄県立開邦高等学校 開校' },
-  { year: '1989年', title: '開邦雄飛会 設立', description: '第1期生 卒業。初代 赤嶺太一会長 就任。' },
+  { year: '1989年', title: '開邦雄飛会 設立', description: '第1期生 卒業。初代会長 就任。' },
   { year: '2006年', title: '開邦雄飛会 再始動', description: '「弁が岳の集い」（ななさんどー）に合わせて活動を本格再開。' },
-  { year: '2010年', title: '第2代 上里直司会長 就任' },
+  { year: '2010年', title: '第2代会長 就任' },
   { year: '2011年', title: '創立記念日 特別授業 開始', description: '同窓生講師による授業。現在も続くメイン活動。' },
   { year: '2014年', title: '開邦雄飛会 設立25周年記念パーティ 開催' },
   { year: '2015年', title: '第1回 大同窓会 開催', description: '開邦高校創立３０周年記念' },
