@@ -801,34 +801,6 @@
           </div>
         </div>
 
-        <!-- Donor list (掲載OKの方のみ) — fade-in は使わない (動的バインドで mount 後に DOM 追加されるため、Observer に登録されず opacity:0 のままになる問題を回避) -->
-        <div v-if="donations.donors.length > 0" class="mt-12 max-w-3xl mx-auto">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">ご支援くださった方々</h3>
-          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-100">
-            <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 text-sm">
-              <li v-for="donor in donations.donors" :key="donor.name + donor.confirmedAt" class="text-neutral-700">
-                <span class="font-medium">{{ donor.name }}</span>
-                <span v-if="donor.period" class="text-neutral-400 text-xs ml-1">({{ donor.period }})</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Donor benefits -->
-        <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 fade-in">
-          <h3 class="text-lg font-bold text-neutral-900 mb-6 text-center">寄付者特典</h3>
-          <div class="flex justify-center">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-kaiho-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-kaiho-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-sm text-neutral-900">サイトへの掲載</h4>
-                <p class="text-xs text-neutral-500 mt-1">「氏名で掲載OK」をご選択の方のみ</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
