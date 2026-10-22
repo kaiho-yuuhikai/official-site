@@ -8,7 +8,8 @@
  *   1. このスクリプトを clasp push 後、GAS エディタで開く
  *   2. 関数 setupAll を選んで「実行」（初回は権限承認が走る）
  *   3. 実行ログに出力される SPREADSHEET_URL / FORM_PUBLIC_URL を控える
- *   4. ログに表示される DONATIONS_TOKEN を GitHub Secrets に登録
+ *   4. DONATIONS_TOKEN（ログには末尾4桁のみ）を GAS エディタの「プロジェクト設定 → スクリプトプロパティ」で確認し、
+ *      GitHub Secrets に登録
  *
  * 連動して保存される Script Properties:
  *   SPREADSHEET_ID    作成 or 紐付け済みのスプレッドシート ID
@@ -59,7 +60,7 @@ function setupAll() {
   Logger.log('SPREADSHEET_ID:     ' + ss.getId())
   Logger.log('FORM_PUBLIC_URL:    ' + formPublicUrl)
   Logger.log('FORM_ID:            ' + form.getId())
-  Logger.log('DONATIONS_TOKEN:    ' + token)
+  Logger.log('DONATIONS_TOKEN:    ' + maskToken_(token) + '（全体はスクリプトプロパティで確認）')
   Logger.log('')
   Logger.log('次のステップ:')
   Logger.log('1. このスクリプトを Web アプリとしてデプロイ（実行: 自分 / アクセス: 全員）')
@@ -160,6 +161,29 @@ function ensureForm_(props, ss) {
   props.setProperty('FORM_ID', form.getId())
   Logger.log('Created form: ' + form.getPublishedUrl())
   return form
+}
+
+/**
+ * トークンをログに出すときは末尾4桁だけにする。
+ */
+function maskToken_(token) {
+  if (!token) return '(未設定)'
+  const s = String(token)
+  return '****' + s.slice(-4)
+}
+
+/**
+ * DONATIONS_TOKEN を新しい値に入れ替える。
+ * Web からは呼べない（doGet に rotate は無い）。GAS エディタで関数 rotateDonationsToken を選んで「▶ 実行」する。
+ * 新トークンはログに末尾4桁だけ出す。全体はスクリプトプロパティで確認し、
+ * GitHub Secrets DONATIONS_ENDPOINT_TOKEN を同じ値に更新すること。
+ */
+function rotateDonationsToken() {
+  const props = PropertiesService.getScriptProperties()
+  const newToken = Utilities.getUuid().replace(/-/g, '') + Utilities.getUuid().replace(/-/g, '')
+  props.setProperty('DONATIONS_TOKEN', newToken)
+  Logger.log('DONATIONS_TOKEN を回転しました: ' + maskToken_(newToken) + ' (' + new Date().toISOString() + ')')
+  Logger.log('スクリプトプロパティで全体を確認し、GitHub Secrets DONATIONS_ENDPOINT_TOKEN を更新してください。')
 }
 
 function ensureToken_(props) {
@@ -336,7 +360,7 @@ function uninstallAllTriggers() {
  * setupAll() は新規作成も含むため、既存リソースを使う場合はこちらを実行する。
  *
  * 動作:
- *   - DONATIONS_TOKEN を生成（既にあれば再利用）してログに出力
+ *   - DONATIONS_TOKEN を生成（既にあれば再利用）し、ログには末尾4桁だけ出力
  *   - スプレッドシート構造（I/J/K列、データ検証）は触らない
  *
  * 用途:
@@ -347,9 +371,9 @@ function bootstrapToken() {
   const props = PropertiesService.getScriptProperties()
   const token = ensureToken_(props)
   Logger.log('===== DONATIONS_TOKEN =====')
-  Logger.log(token)
+  Logger.log(maskToken_(token))
   Logger.log('===========================')
-  Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN にこの値を登録してください。')
+  Logger.log('スクリプトプロパティで全体を確認し、GitHub Secrets DONATIONS_ENDPOINT_TOKEN に登録してください。')
   return token
 }
 
@@ -364,14 +388,14 @@ function bootstrapToken() {
  * 動作:
  *   - SPREADSHEET_ID を Script Properties に保存
  *   - DONATIONS_TOKEN を生成（既にあれば再利用）
- *   - ログに両方を出力
+ *   - ログに SPREADSHEET_ID と DONATIONS_TOKEN の末尾4桁を出力
  *
  * 注意: Donations.js の findDonationsSheet_() は SPREADSHEET_ID があれば openById を、
  *       なければ getActive() を使う。スタンドアロン運用では必ずこの関数を1回実行すること。
  */
 function bootstrapStandalone(spreadsheetId) {
   if (!spreadsheetId || typeof spreadsheetId !== 'string') {
-    throw new Error('spreadsheetId (string) is required. Example: bootstrapStandalone("1Y5S1uw...")')
+    throw new Error('spreadsheetId (string) is required. Example: bootstrapStandalone("<SPREADSHEET_ID>")')
   }
   const props = PropertiesService.getScriptProperties()
   // 事前にアクセスチェック
@@ -383,9 +407,9 @@ function bootstrapStandalone(spreadsheetId) {
 
   Logger.log('===== Standalone bootstrap complete =====')
   Logger.log('SPREADSHEET_ID:  ' + spreadsheetId)
-  Logger.log('DONATIONS_TOKEN: ' + token)
+  Logger.log('DONATIONS_TOKEN: ' + maskToken_(token) + '（全体はスクリプトプロパティで確認）')
   Logger.log('=========================================')
-  Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN に上記 TOKEN を、')
+  Logger.log('GitHub Secrets DONATIONS_ENDPOINT_TOKEN に TOKEN を、')
   Logger.log('Web アプリ URL を DONATIONS_ENDPOINT_URL に登録してください。')
 
   return {
@@ -397,11 +421,18 @@ function bootstrapStandalone(spreadsheetId) {
 
 /**
  * GAS エディタの「▶ 実行」ボタンから引数なしで動かすための入口。
- * 寄付スプレッドシート (1Y5S1...) を Script Properties に登録し、TOKEN を生成する。
+ * Script Properties の DONATIONS_SPREADSHEET_ID（寄付スプレッドシートの ID）を
+ * SPREADSHEET_ID として登録し、TOKEN を生成する。
+ * DONATIONS_SPREADSHEET_ID は事前に GAS エディタの「プロジェクト設定 → スクリプトプロパティ」で設定しておくこと。
  * 実行は kaihoyuuhikai@gmail.com（スプレッドシート所有者）で行うこと。
  */
 function runBootstrap() {
-  return bootstrapStandalone('<SPREADSHEET_ID>')
+  const id = PropertiesService.getScriptProperties().getProperty('DONATIONS_SPREADSHEET_ID')
+  if (!id) {
+    throw new Error('Script Properties に DONATIONS_SPREADSHEET_ID が未設定です。' +
+      'GAS エディタの「プロジェクト設定 → スクリプトプロパティ」で寄付スプレッドシートの ID を設定してから再実行してください。')
+  }
+  return bootstrapStandalone(id)
 }
 
 /**

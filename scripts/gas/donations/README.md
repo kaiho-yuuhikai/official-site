@@ -40,7 +40,9 @@ clasp push
 clasp open                # GAS エディタを開いて setupAll() を実行
 ```
 
-`setupAll()` の実行ログから `SPREADSHEET_URL` / `FORM_PUBLIC_URL` / `DONATIONS_TOKEN` を控える。
+`setupAll()` の実行ログから `SPREADSHEET_URL` / `FORM_PUBLIC_URL` を控える。`DONATIONS_TOKEN` はログに末尾4桁しか出ないので、GAS エディタの「プロジェクト設定 → スクリプトプロパティ」で全体を確認する。
+
+トークンを入れ替えるときは GAS エディタで `rotateDonationsToken()` を実行する（Web からの回転は廃止）。
 
 `clasp create` が `.clasp.json` を生成する（gitignore 済み）。
 

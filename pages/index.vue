@@ -141,7 +141,7 @@
         <!-- Articles container -->
         <div v-if="noteArticles.length > 0 && !noteLoading" class="grid md:grid-cols-3 gap-8">
           <a v-for="article in noteArticles" :key="article.link"
-             :href="article.link" target="_blank" rel="noopener noreferrer"
+             :href="safeHttpsUrl(article.link)" target="_blank" rel="noopener noreferrer"
              class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 block group">
             <div class="h-48 bg-neutral-100 overflow-hidden">
               <img v-if="article.image" :src="article.image" :alt="article.title"
@@ -254,7 +254,7 @@
                       <div v-if="!creator.noteCreatorKey || (Array.isArray(creator.noteCreatorKey) ? creator.noteCreatorKey.length === 0 : false)" class="py-2 px-3 bg-neutral-50 rounded-lg text-center">
                         <span class="text-xs text-neutral-400 font-medium">記事準備中</span>
                       </div>
-                      <a v-else-if="creator.articles.length > 0" :href="creator.articles[0].link" target="_blank" rel="noopener noreferrer"
+                      <a v-else-if="creator.articles.length > 0" :href="safeHttpsUrl(creator.articles[0].link)" target="_blank" rel="noopener noreferrer"
                          class="flex gap-2 p-2 rounded-lg border border-neutral-100 hover:border-kaiho-gold/30 hover:bg-kaiho-gold/5 transition-colors group">
                         <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-100">
                           <img v-if="creator.articles[0].image" :src="creator.articles[0].image" :alt="creator.articles[0].title" class="w-full h-full object-cover" loading="lazy" />
@@ -1411,6 +1411,11 @@ function isNewArticle(dateStr: string): boolean {
   const now = new Date()
   const diffDays = (now.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)
   return diffDays <= 7
+}
+
+// RSS などの外部データ由来の URL は https:// で始まるものだけリンクにする（javascript: などを通さない）
+function safeHttpsUrl(url: unknown): string {
+  return typeof url === 'string' && /^https:\/\//i.test(url.trim()) ? url.trim() : '#'
 }
 
 function stripHtmlTags(str: string): string {

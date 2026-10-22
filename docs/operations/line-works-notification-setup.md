@@ -130,7 +130,7 @@ HP掲載: 氏名で掲載OK
 
 受付: 2026-MM-DD HH:MM
 ※会計確認後にサイトへ反映されます。
-スプレッドシート: https://docs.google.com/spreadsheets/d/.../edit
+スプレッドシート: https://docs.google.com/spreadsheets/d/<SPREADSHEET_ID>/edit
 ```
 
 テスト行はスプレッドシートから「キャンセル」ステータスに変更するか、行ごと削除する。
@@ -187,6 +187,5 @@ HP掲載: 氏名で掲載OK
 - 関連 Issue: #20, #18 (Skill 化提案)
 - 関連スクリプト: `scripts/gas/donations/LineWorksNotifier.js`, `Donations.js`, `Setup.js`
 - セキュリティガイド: `docs/security/secret-handling.md`
-- 設計記録: `docs/donation-system-implementation-plan.md`
 - LINE WORKS Developers: <https://developers.worksmobile.com/jp/docs/>
 - Bot メッセージ送信 API: <https://developers.worksmobile.com/jp/docs/bot-message-send>

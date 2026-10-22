@@ -98,7 +98,7 @@ gog drive ls --max 3
 ```bash
 # 寄付スプレッドシートの列ヘッダー取得 → schema drift 検知
 gws sheets spreadsheets values get \
-  --params '{"spreadsheetId":"1Y5S1uw...","range":"donations!A1:K1"}'
+  --params '{"spreadsheetId":"<SPREADSHEET_ID>","range":"donations!A1:K1"}'
 
 # フォーム回答を直接取得
 gws forms responses list --params '{"formId":"<id>"}'
