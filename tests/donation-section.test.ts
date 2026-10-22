@@ -51,8 +51,9 @@ describe('Issue #2: 寄付セクションの呼称統一とフォームURL差し
       expect(donationSection).not.toMatch(/\bdonorCount\b/)
     })
 
-    it('掲載OKの支援者名は donations.donors の動的バインドで表示する', () => {
-      expect(donationSection).toContain('donations.donors')
+    // 2026-10-22: HP から氏名を外す方針で「ご支援くださった方々」セクションを削除済み
+    it('支援者名は表示せず、基金名だけ動的バインドで表示する', () => {
+      expect(donationSection).not.toContain('donations.donors')
       expect(donationSection).toContain('{{ donations.fund }}')
     })
   })

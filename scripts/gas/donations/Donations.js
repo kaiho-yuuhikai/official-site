@@ -22,7 +22,7 @@
  *   2. setupAll() を1回実行（Sheet/Form 作成 + Token 生成）
  *   3. clasp deploy（Web アプリ: 実行=自分 / アクセス=全員）
  *   4. URL を GitHub Secrets DONATIONS_ENDPOINT_URL に登録
- *   5. setupAll の実行ログから DONATIONS_TOKEN を控えて
+ *   5. スクリプトプロパティから DONATIONS_TOKEN を控えて（ログには末尾4桁のみ）
  *      GitHub Secrets DONATIONS_ENDPOINT_TOKEN に登録
  */
 
@@ -43,7 +43,6 @@ const COL_CONFIRMED_AT = 9  // J
 
 function doGet(e) {
   const token = (e && e.parameter && e.parameter.token) || ''
-  const action = (e && e.parameter && e.parameter.action) || 'fetch'
   const props = PropertiesService.getScriptProperties()
   const expected = props.getProperty('DONATIONS_TOKEN')
 
@@ -54,14 +53,7 @@ function doGet(e) {
   }
 
   try {
-    if (action === 'rotate') {
-      // 既存 token で認証済 = 同じ権限保有者と判定 → 新 token 発行
-      const newToken = Utilities.getUuid().replace(/-/g, '') + Utilities.getUuid().replace(/-/g, '')
-      props.setProperty('DONATIONS_TOKEN', newToken)
-      return ContentService
-        .createTextOutput(JSON.stringify({ rotated: true, newToken: newToken, rotatedAt: new Date().toISOString() }))
-        .setMimeType(ContentService.MimeType.JSON)
-    }
+    // トークンの回転は Web から呼べない。GAS エディタで rotateDonationsToken()（Setup.js）を実行する。
     const payload = buildPayload_()
     return ContentService
       .createTextOutput(JSON.stringify(payload))

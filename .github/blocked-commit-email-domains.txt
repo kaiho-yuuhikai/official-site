@@ -1,0 +1,3 @@
+# コミットの作者・コミッターのメールで使ってはいけないドメイン（取引先など）。1行に1つ。
+# secret-scan.yml の commit-email ジョブが参照する。
+h2o-retailing.co.jp
