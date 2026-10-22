@@ -31,9 +31,8 @@
               <span class="text-xs font-bold text-neutral-700">{{ role.role }}</span>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span v-for="m in role.members" :key="m.name"
+              <span v-for="(m, mi) in role.members" :key="mi"
                     class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 rounded-lg px-3 py-1 text-sm font-bold text-neutral-900 shadow-sm">
-                {{ m.name }}
                 <span class="text-xs text-neutral-500 font-normal">{{ m.generation }}</span>
               </span>
               <span v-if="role.recruiting"
@@ -110,7 +109,6 @@
                 <span class="text-kaiho-green text-xs font-bold">金</span>
               </div>
               <div>
-                <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
                 <p class="text-neutral-500 text-xs">PTA連携・道路ボランティア主導</p>
               </div>
             </div>
@@ -170,37 +168,37 @@ function getBgClass(index: number) {
 }
 
 const officerRoles = [
-  { role: '会長', members: [{ name: '上里', generation: '3期' }] },
-  { role: '副会長', members: [{ name: '宮城', generation: '3期' }, { name: '上間', generation: '16期' }] },
-  { role: '事務局長', members: [{ name: '又吉', generation: '15期' }] },
-  { role: '事務局長補佐', members: [{ name: '泉川', generation: '18期' }] },
-  { role: '会計', members: [{ name: '知念', generation: '20期' }, { name: '瀬長', generation: '24期' }] },
-  { role: '会計監査', members: [{ name: '久貝', generation: '12期' }] },
+  { role: '会長', members: [{ generation: '3期' }] },
+  { role: '副会長', members: [{ generation: '3期' }, { generation: '16期' }] },
+  { role: '事務局長', members: [{ generation: '15期' }] },
+  { role: '事務局長補佐', members: [{ generation: '18期' }] },
+  { role: '会計', members: [{ generation: '20期' }, { generation: '24期' }] },
+  { role: '会計監査', members: [{ generation: '12期' }] },
   { role: '常任委員', members: [
-    { name: '宮里', generation: '3期' },
-    { name: '我謝', generation: '4期' },
-    { name: '神谷', generation: '14期' },
-    { name: '崎原', generation: '19期' },
-    { name: '具志', generation: '26期' },
-    { name: '我喜屋', generation: '36期' },
-    { name: '砂川', generation: '20期' },
-    { name: '金城', generation: 'PTA' },
+    { generation: '3期' },
+    { generation: '4期' },
+    { generation: '14期' },
+    { generation: '19期' },
+    { generation: '26期' },
+    { generation: '36期' },
+    { generation: '20期' },
+    { generation: 'PTA' },
   ], recruiting: true },
 ]
 
 const members = [
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: '', comment: 'システムやデータ分析を手伝います' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪' },
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
-  { name: 'ひなこ', generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
-  { name: 'ヤスイチ', generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getBgClass(2), note: '会社員 | PTA', photo: '', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
-  { name: '久高せいや', generation: '19期 英語科', initial: '久', bgClass: getBgClass(6), note: 'キャリア相談', photo: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！' },
-  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getBgClass(7), note: '事務局長', photo: '', comment: '' },
-  { name: '知念', generation: '20期 理数科', initial: '知', bgClass: getBgClass(8), note: '会計', photo: '', comment: '' },
-  { name: '瀬長', generation: '24期 理数科', initial: '瀬', bgClass: getBgClass(9), note: '会計', photo: '', comment: '' },
-  { name: '久貝', generation: '12期 英語科', initial: '久', bgClass: getBgClass(10), note: '会計監査', photo: '', comment: '' },
-  { name: '浦崎', generation: '23期 理数科', initial: '浦', bgClass: getBgClass(11), note: '常任委員', photo: '', comment: '' },
+  { generation: '13期・14期 理数科', initial: 'じ', bgClass: getBgClass(0), note: 'GScale 代表取締役 | Google Developer Expert', photo: '', comment: 'システムやデータ分析を手伝います' },
+  { generation: '16期 理数科', initial: 'う', bgClass: getBgClass(1), note: '薬剤師 | 広報コーディネーター', photo: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。' },
+  { generation: '20期 英語科', initial: 'か', bgClass: getBgClass(2), note: '経営 | バレエ講師', photo: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪' },
+  { generation: '18期 理数科', initial: 'よ', bgClass: getBgClass(4), note: '教諭・沖縄県立球陽高等学校', photo: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。' },
+  { generation: '26期 理数科', initial: 'ひ', bgClass: getBgClass(5), note: '会社員（ゲームアプリ開発・運営）', photo: '', comment: '在校生のキャリア選択のお手伝いや、同窓生に対する発信を行っていきたいです。', branch: '東京支部' },
+  { generation: '33期・38期 保護者', initial: 'ヤ', bgClass: getBgClass(2), note: '会社員 | PTA', photo: '', comment: '地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。' },
+  { generation: '19期 英語科', initial: '久', bgClass: getBgClass(6), note: 'キャリア相談', photo: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！' },
+  { generation: '15期 理数科', initial: '又', bgClass: getBgClass(7), note: '事務局長', photo: '', comment: '' },
+  { generation: '20期 理数科', initial: '知', bgClass: getBgClass(8), note: '会計', photo: '', comment: '' },
+  { generation: '24期 理数科', initial: '瀬', bgClass: getBgClass(9), note: '会計', photo: '', comment: '' },
+  { generation: '12期 英語科', initial: '久', bgClass: getBgClass(10), note: '会計監査', photo: '', comment: '' },
+  { generation: '23期 理数科', initial: '浦', bgClass: getBgClass(11), note: '常任委員', photo: '', comment: '' },
 ]
 
 const teams = [

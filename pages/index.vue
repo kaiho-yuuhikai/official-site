@@ -246,7 +246,6 @@
                             <span class="text-[10px] font-bold bg-kaiho-green/10 text-kaiho-green px-1.5 py-0.5 rounded-full">{{ creator.generation }}</span>
                             <span class="text-[10px] font-bold bg-kaiho-gold/10 text-kaiho-gold px-1.5 py-0.5 rounded-full">{{ creator.department }}</span>
                           </div>
-                          <p class="font-bold text-neutral-900 text-sm">{{ creator.name }}</p>
                         </div>
                       </div>
                       <div class="bg-neutral-50 rounded-xl p-3 mb-3">
@@ -991,7 +990,6 @@
                 <span class="text-white text-sm font-black">ヤ</span>
               </div>
               <div class="flex-1">
-                <p class="font-bold text-neutral-900 text-sm">金城 安一</p>
                 <p class="text-neutral-500 text-xs mb-2">33期・38期 保護者 | 会社員 | PTA連携・道路ボランティア主導</p>
                 <p class="text-neutral-600 text-xs leading-relaxed">地域と学校のつながりづくりに挑戦中。孤高のPTAです、よろしくお願いいたします。</p>
               </div>
@@ -1093,20 +1091,19 @@
           <div class="marquee-container">
             <div class="marquee-track marquee-track--staff">
               <template v-for="pass in 2" :key="pass">
-                <div v-for="member in memberList" :key="`s${pass}-${member.name}`" class="flex-shrink-0 w-64 mx-3">
+                <div v-for="(member, mi) in memberList" :key="`s${pass}-${mi}`" class="flex-shrink-0 w-64 mx-3">
                   <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden">
                     <div class="h-1 bg-gradient-to-r from-kaiho-green to-kaiho-blue"></div>
                     <div class="p-5">
                       <p class="text-[10px] font-bold text-kaiho-blue tracking-widest mb-3">{{ staffRoleLabels[member.role] }}</p>
                       <div class="flex items-center gap-3 mb-3">
                         <div class="w-12 h-12 rounded-xl flex-shrink-0 overflow-hidden">
-                          <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.name" class="w-full h-full object-cover object-top">
+                          <img v-if="member.photo" :src="`${baseURL}${member.photo}`" :alt="member.generation" class="w-full h-full object-cover object-top">
                           <div v-else class="w-full h-full flex items-center justify-center text-white text-lg font-black" :class="member.bgClass">
                             {{ member.initial }}
                           </div>
                         </div>
                         <div>
-                          <p class="font-bold text-neutral-900 text-sm">{{ member.name }}</p>
                           <p class="text-xs text-neutral-500">{{ member.generation }}</p>
                           <p class="text-xs text-neutral-400">{{ member.note }}</p>
                         </div>
@@ -1148,8 +1145,8 @@ interface Mentor {
 
 const mentors: Mentor[] = [
   {
-    name: '岸本',
-    furigana: 'キシモト',
+    name: '',
+    furigana: '',
     generation: '7期',
     course: '理数科',
     region: '沖縄県',
@@ -1160,8 +1157,8 @@ const mentors: Mentor[] = [
     image: '',
   },
   {
-    name: '宮城',
-    furigana: 'ミヤギ',
+    name: '',
+    furigana: '',
     generation: '7期',
     course: '芸術科',
     region: '沖縄県',
@@ -1172,8 +1169,8 @@ const mentors: Mentor[] = [
     image: '',
   },
   {
-    name: '具志',
-    furigana: 'グシ',
+    name: '',
+    furigana: '',
     generation: '26期',
     course: '理数科',
     region: '沖縄県（7月末から埼玉）',
@@ -1183,8 +1180,8 @@ const mentors: Mentor[] = [
     profile: 'ゲームアプリの開発・運営を行っています。珍しい話を提供できるのではないかと思います。色んな業界があることを知っていただけたら幸いです。',
   },
   {
-    name: '我喜屋',
-    furigana: 'ガキヤ',
+    name: '',
+    furigana: '',
     generation: '36期',
     course: '学術探究科',
     region: '東京都',
@@ -1195,8 +1192,8 @@ const mentors: Mentor[] = [
     image: '',
   },
   {
-    name: '宮里',
-    furigana: 'ミヤザト',
+    name: '',
+    furigana: '',
     generation: '3期',
     course: '理数科',
     region: '沖縄県',
@@ -1207,8 +1204,8 @@ const mentors: Mentor[] = [
     image: '',
   },
   {
-    name: '久高せいや',
-    furigana: 'クダカ セイヤ',
+    name: '',
+    furigana: '',
     generation: '19期',
     course: '英語科',
     region: '',
@@ -1233,20 +1230,20 @@ function getMemberBgClass(index: number) {
   return memberColorClasses[index % memberColorClasses.length]
 }
 const memberList = [
-  { name: 'よしき', generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
-  { name: '具志', generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
-  { name: 'うえま', generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: '', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
-  { name: 'じょーじ', generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: '', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
-  { name: 'のあ', generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
-  { name: 'かえ', generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: '', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
-  { name: 'ゆき', generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
-  { name: '宮城潤', generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: '', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
-  { name: '久高せいや', generation: '19期 英語科', initial: '久', bgClass: getMemberBgClass(9), note: 'キャリア相談', photo: '', branch: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！', role: 'car' },
-  { name: '又吉', generation: '15期 理数科', initial: '又', bgClass: getMemberBgClass(10), note: '事務局長', photo: '', branch: '', comment: '', role: 'officer' },
-  { name: '知念', generation: '20期 理数科', initial: '知', bgClass: getMemberBgClass(11), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
-  { name: '瀬長', generation: '24期 理数科', initial: '瀬', bgClass: getMemberBgClass(12), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
-  { name: '久貝', generation: '12期 英語科', initial: '久', bgClass: getMemberBgClass(13), note: '会計監査', photo: '', branch: '', comment: '', role: 'officer' },
-  { name: '浦崎', generation: '23期 理数科', initial: '浦', bgClass: getMemberBgClass(14), note: '常任委員', photo: '', branch: '', comment: '', role: 'officer' },
+  { generation: '18期 理数科', initial: 'よ', bgClass: getMemberBgClass(1), note: '教諭・沖縄県立球陽高等学校', photo: '', branch: '', comment: '開邦高校と開邦生の可能性を広げたい。海外連携部署に異動しましたが、できる限り関わっていきます。', role: 'mentor' },
+  { generation: '26期 理数科', initial: '具', bgClass: getMemberBgClass(2), note: '会社員（ゲームアプリ開発・運営）', photo: '', branch: '', comment: 'ゲームアプリの開発・運営を行っています。色んな業界があることを知っていただけたら幸いです。', role: 'note' },
+  { generation: '16期 理数科', initial: 'う', bgClass: getMemberBgClass(3), note: '薬剤師', photo: '', branch: '', comment: 'サークル活動のようなワクワク感を大切に、同窓会組織を活性化していきます。', role: 'hp' },
+  { generation: '13期・14期 理数科', initial: 'じ', bgClass: getMemberBgClass(4), note: 'GScale 代表取締役 | Google Developer Expert', photo: '', branch: '', comment: 'システムやデータ分析を手伝います', role: 'hp' },
+  { generation: '35期 学術探究科', initial: 'の', bgClass: getMemberBgClass(5), note: '学生', photo: '', branch: '', comment: '開邦雄飛会デジタル帳簿を作って、より手軽に盛んな交流をはかりたいです', role: 'lecture' },
+  { generation: '20期 英語科', initial: 'か', bgClass: getMemberBgClass(6), note: '経営 | バレエ講師', photo: '', branch: '', comment: '楽しいことが大好きです！同窓会を盛り上げて行きましょう♪', role: 'lecture' },
+  { generation: '19期 理数科', initial: 'ゆ', bgClass: getMemberBgClass(7), note: '地域価値創造プロデューサー | キャリア協育', photo: '', branch: '', comment: 'なかなか参加できないことも多いですが、微力ながらより良い運営の一助となればと思います。よろしくお願いいたします。', role: 'lecture' },
+  { generation: '3期 芸術科', initial: '宮', bgClass: getMemberBgClass(8), note: '地域サポートわかさ理事', photo: '', branch: '', comment: '同窓生の活動を応援したい。まずは気軽にご相談ください。', role: 'koen' },
+  { generation: '19期 英語科', initial: '久', bgClass: getMemberBgClass(9), note: 'キャリア相談', photo: '', branch: '', comment: 'キャリアの相談乗ります！どんなことでも聞いてOKですよ！', role: 'car' },
+  { generation: '15期 理数科', initial: '又', bgClass: getMemberBgClass(10), note: '事務局長', photo: '', branch: '', comment: '', role: 'officer' },
+  { generation: '20期 理数科', initial: '知', bgClass: getMemberBgClass(11), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
+  { generation: '24期 理数科', initial: '瀬', bgClass: getMemberBgClass(12), note: '会計', photo: '', branch: '', comment: '', role: 'officer' },
+  { generation: '12期 英語科', initial: '久', bgClass: getMemberBgClass(13), note: '会計監査', photo: '', branch: '', comment: '', role: 'officer' },
+  { generation: '23期 理数科', initial: '浦', bgClass: getMemberBgClass(14), note: '常任委員', photo: '', branch: '', comment: '', role: 'officer' },
 ]
 
 const memberCorners = [
@@ -1351,17 +1348,17 @@ function formatDateShort(iso: string | null): string {
 
 const spotlightCreators = [
   {
-    name: '辺土',
+    name: '',
     generation: '33期',
     department: '芸術科',
     initial: '辺',
     photo: '',
     bgClass: getMemberBgClass(0),
-    bio: '沖縄県立芸術大学大学院修士課程1年の辺土百々花と申します。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
+    bio: '沖縄県立芸術大学大学院修士課程1年。大学院では民族音楽学を専攻し、沖縄の愛唱歌《てぃんさぐぬ花》について研究しています。',
     noteCreatorKey: 'くるみ',
   },
   {
-    name: '我喜屋',
+    name: '',
     generation: '36期',
     department: '学術探究科',
     initial: '我',
@@ -1371,7 +1368,7 @@ const spotlightCreators = [
     noteCreatorKey: 'がっきー',
   },
   {
-    name: '上間',
+    name: '',
     generation: '16期',
     department: '理数科',
     initial: '上',
@@ -1381,7 +1378,7 @@ const spotlightCreators = [
     noteCreatorKey: ['開邦雄飛会', 'uema1125'],
   },
   {
-    name: '具志',
+    name: '',
     generation: '26期',
     department: '理数科',
     initial: '具',
@@ -1397,7 +1394,7 @@ const spotlightCreators = [
     },
   },
   {
-    name: 'はぐ',
+    name: '',
     generation: '38期',
     department: '芸術科',
     initial: 'は',
