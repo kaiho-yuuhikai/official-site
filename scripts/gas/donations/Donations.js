@@ -70,6 +70,10 @@ function buildPayload_() {
   if (!sheet) throw new Error('Donations sheet not found')
 
   const lastRow = sheet.getLastRow()
+  // 見出し行が想定の列順でなければ、公開用データ（特にメール列の取り違え）を返さない
+  if (lastRow >= 1 && !headerMatches_(sheet.getRange(1, 1, 1, 11).getValues()[0])) {
+    return { error: 'schema_mismatch' }
+  }
   if (lastRow < 2) {
     return emptyPayload_()
   }
@@ -103,6 +107,21 @@ function buildPayload_() {
     donorCount: confirmed.length,
     donors: donors,
   }
+}
+
+/**
+ * 見出し行が COL_* の想定と合っているか確認する。
+ *   氏名(C)=「名前」or「氏名」を含む / 入学期(D)=「入学期」を含む / ステータス(I)=「振込確認」を含む
+ *   かつ C・D・G・H にメール列が紛れていないこと。
+ */
+function headerMatches_(h) {
+  function t(i) { return String(h[i] === undefined || h[i] === null ? '' : h[i]).trim() }
+  const hasMail = function (i) { return /メール|mail/i.test(t(i)) }
+  if (!/名前|氏名/.test(t(COL_NAME))) return false
+  if (t(COL_PERIOD).indexOf('入学期') < 0) return false
+  if (t(COL_STATUS).indexOf('振込確認') < 0) return false
+  if (hasMail(COL_NAME) || hasMail(COL_PERIOD) || hasMail(COL_MESSAGE) || hasMail(COL_PUBLISH)) return false
+  return true
 }
 
 function findDonationsSheet_() {

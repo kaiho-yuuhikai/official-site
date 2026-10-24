@@ -20,15 +20,17 @@
 const SETUP_SPREADSHEET_TITLE = '開邦雄飛会 寄付申し出データ'
 const SETUP_FORM_TITLE = '開邦雄飛会 寄付申し出フォーム'
 
+// 列順は Donations.js の COL_* と一致させること（A=ts, B=メール, C=お名前, D=入学期, E=基金, F=口数, G=メッセージ, H=掲載可否）。
+// B のメールは「メールアドレスを収集する」設定で Form が自動で付ける。
 const HEADERS = [
   'タイムスタンプ',
+  'メールアドレス',
   'お名前',
   '入学期',
-  'メールアドレス',
   '寄付先基金',
-  '申し出金額',
-  'HP掲載可否',
-  'メッセージ',
+  '寄付口数',
+  'メッセージ（任意）',
+  'HP掲載の可否',
   '振込確認ステータス',
   '確認日',
   '確認者',
@@ -111,47 +113,36 @@ function ensureForm_(props, ss) {
     '【入学期早見表】',
     '1期＝1986年度入学／14期＝1999年度入学／20期＝2005年度入学（参考）',
   ].join('\n'))
-  form.setCollectEmail(false)
+  // B 列にメールを自動で入れる（Donations.js の列順に合わせる。公開 JSON には出さない）
+  form.setCollectEmail(true)
   form.setProgressBar(true)
 
-  // Q1: 氏名
+  // Q1: 氏名 (C)
   form.addTextItem().setTitle('お名前').setRequired(true)
 
-  // Q2: 入学期
+  // Q2: 入学期 (D)
   form.addListItem().setTitle('入学期').setChoiceValues(PERIOD_OPTIONS).setRequired(true)
 
-  // Q3: メールアドレス
-  const emailItem = form.addTextItem().setTitle('メールアドレス').setRequired(true)
-  const emailValidation = FormApp.createTextValidation()
-    .setHelpText('メールアドレスの形式で入力してください')
-    .requireTextIsEmail()
-    .build()
-  emailItem.setValidation(emailValidation)
-
-  // Q4: 寄付先基金（情報のみ）
-  form.addSectionHeaderItem()
-    .setTitle('寄付先基金: 開邦雄飛会基金')
-    .setHelpText('現在は「開邦雄飛会基金」の1本に統一しています。在校生の探究活動・同窓生の活動支援・運営費に充当されます。')
-
-  // Q5: 寄付金額
+  // Q3: 寄付先基金 (E・固定文言)
   form.addMultipleChoiceItem()
-    .setTitle('寄付金額')
-    .setChoiceValues(['10,000円', 'その他（次の質問で金額を記入）'])
+    .setTitle('寄付先基金')
+    .setChoiceValues(['開邦雄飛応援金'])
     .setRequired(true)
 
-  // Q6: その他金額
-  form.addTextItem()
-    .setTitle('その他の場合の金額（円）')
-    .setHelpText('上記で「その他」を選んだ場合のみ、半角数字で金額を入力してください')
+  // Q4: 寄付口数 (F・1口 = 10,000円)
+  form.addMultipleChoiceItem()
+    .setTitle('寄付口数')
+    .setChoiceValues(['1口', '2口', '3口', 'その他'])
+    .setRequired(true)
 
-  // Q7: メッセージ
+  // Q5: メッセージ (G)
   form.addParagraphTextItem()
     .setTitle('メッセージ（任意）')
     .setHelpText('応援メッセージなどあればご記入ください')
 
-  // Q8: HP掲載可否
+  // Q6: HP掲載可否 (H)
   form.addMultipleChoiceItem()
-    .setTitle('お名前のHP掲載について')
+    .setTitle('HP掲載の可否')
     .setChoiceValues(PUBLISH_OPTIONS)
     .setRequired(true)
 
@@ -509,8 +500,8 @@ function runSetupSheetColumns() {
  * 使い方: GAS エディタで関数 addSmokeTestRow を選んで「▶ 実行」
  *
  * 挿入される行:
- *   B(氏名)=「テスト太郎」 / C(入学期)=「14期」 / D(メール)=「test@example.com」
- *   E(寄付金額)=「10,000円」 / G(メッセージ)=「疎通テスト」 / H(掲載)=「氏名で掲載OK」
+ *   B(メール)=「test@example.com」 / C(氏名)=「テスト太郎」 / D(入学期)=「14期」
+ *   E(基金)=「開邦雄飛応援金」 / F(口数)=「1口」 / G(メッセージ)=「疎通テスト」 / H(掲載)=「氏名で掲載OK」
  *   I(ステータス)=「確認済」 / J(確認日)=今日 / K(確認者)=「自動テスト」
  *
  * 戻り値の行番号を控え、後で deleteSmokeTestRow(rowNumber) で削除できる。
@@ -525,11 +516,11 @@ function addSmokeTestRow() {
   const today = new Date()
   const row = [
     today,                  // A: タイムスタンプ
-    'テスト太郎',           // B: お名前
-    '14期',                 // C: 入学期
-    'test@example.com',     // D: メールアドレス
-    '10,000円',             // E: 寄付金額
-    '',                     // F: その他金額
+    'test@example.com',     // B: メールアドレス
+    'テスト太郎',           // C: お名前
+    '14期',                 // D: 入学期
+    '開邦雄飛応援金',       // E: 寄付先基金
+    '1口',                  // F: 寄付口数
     '疎通テスト（後で削除）', // G: メッセージ
     '氏名で掲載OK',         // H: HP掲載可否
     '確認済',               // I: 振込確認ステータス
