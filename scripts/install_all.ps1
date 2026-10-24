@@ -415,27 +415,21 @@ else {
   if (Has gh) { Log ("  OK " + ((gh --version 2>$null) | Select-Object -First 1)) } else { Log "  X gh 未導入（新シェルで反映の場合あり）" }
 }
 
-# ---- Claude Code 既定設定（auto モード・摩擦ゼロ化）-------------
-# 許可プロンプトを激減させる auto モードを既定化（安全チェックは維持）。
-# auto は ~/.claude/settings.json（ユーザー設定）に置く必要がある（プロジェクト設定では無効化される）。
+# ---- Claude Code 既定設定（読み取り中心の許可リスト）-------------
+# ~/.claude/settings.json に、読み取り中心の許可リストと rm -rf 系の拒否リストを補う（defaultMode・env は書かない）。
 # FDE_CLAUDE_BLOCK_BEGIN
-Log "`n[+] Claude Code 既定設定（auto モード）"
+Log "`n[+] Claude Code 既定設定（読み取り中心の許可リスト）"
 try {
   $cdir = "$env:USERPROFILE\.claude"
   if (-not (Test-Path $cdir)) { New-Item -ItemType Directory -Force -Path $cdir | Out-Null }
   $cset = Join-Path $cdir 'settings.json'
   $defaultAllow = @(
     'Read', 'Write', 'Edit',
-    'Bash(git:*)', 'Bash(gh:*)',
-    'Bash(python:*)', 'Bash(python3:*)', 'Bash(pip:*)', 'Bash(pip3:*)',
-    'Bash(node:*)', 'Bash(npm:*)', 'Bash(npx:*)', 'Bash(clasp:*)',
-    'Bash(uv:*)', 'Bash(uvx:*)', 'Bash(gcloud:*)',
-    'Bash(rg:*)', 'Bash(grep:*)', 'Bash(sed:*)', 'Bash(awk:*)',
-    'Bash(ls:*)', 'Bash(cat:*)', 'Bash(find:*)', 'Bash(mkdir:*)',
-    'Bash(mv:*)', 'Bash(cp:*)', 'Bash(chmod:*)', 'Bash(which:*)', 'Bash(where:*)',
+    'Bash(git:*)',
+    'Bash(rg:*)', 'Bash(grep:*)',
+    'Bash(ls:*)', 'Bash(cat:*)', 'Bash(find:*)', 'Bash(where:*)', 'Bash(which:*)',
     'Bash(echo:*)', 'Bash(head:*)', 'Bash(tail:*)',
-    'Bash(open:*)', 'Bash(start:*)', 'Bash(explorer:*)', 'Bash(code:*)',
-    'Bash(powershell:*)', 'Bash(pwsh:*)', 'Bash(bash:*)'
+    'Bash(npm run:*)', 'Bash(npm test:*)'
   )
   $defaultDeny = @('Bash(rm -rf:*)', 'Bash(sudo rm:*)', 'Bash(del /s:*)', 'Bash(rmdir /s:*)')
   # 既存ファイルは読めれば尊重・壊さない。無効JSON/コメントなら「上書きせずスキップ」（破壊回避）。
@@ -456,27 +450,19 @@ try {
     if ($null -eq $o.env -or $o.env -isnot [System.Management.Automation.PSCustomObject]) {
       $o | Add-Member -NotePropertyName 'env' -NotePropertyValue ([pscustomobject]@{}) -Force
     }
-    $o.env | Add-Member -NotePropertyName 'CLAUDE_CODE_ENABLE_AUTO_MODE' -NotePropertyValue '1' -Force
     # permissions（同上）
     if ($null -eq $o.permissions -or $o.permissions -isnot [System.Management.Automation.PSCustomObject]) {
       $o | Add-Member -NotePropertyName 'permissions' -NotePropertyValue ([pscustomobject]@{}) -Force
     }
-    # 既存 defaultMode は尊重（破壊しない）。無いときだけ auto。
-    $dmExisting = $null
-    if ($o.permissions.PSObject.Properties.Name -contains 'defaultMode') { $dmExisting = $o.permissions.defaultMode }
-    if (-not $dmExisting) { $o.permissions | Add-Member -NotePropertyName 'defaultMode' -NotePropertyValue 'auto' -Force }
+    # defaultMode は書かない（既存値はそのまま尊重）
     # allow/deny は「無い or 配列でない(null/文字列等)」とき既定リストを補完（Node版 !Array.isArray() と等価・死にコード解消）
     if (-not ($o.permissions.PSObject.Properties.Name -contains 'allow') -or $o.permissions.allow -isnot [System.Array]) { $o.permissions | Add-Member -NotePropertyName 'allow' -NotePropertyValue $defaultAllow -Force }
     if (-not ($o.permissions.PSObject.Properties.Name -contains 'deny')  -or $o.permissions.deny  -isnot [System.Array]) { $o.permissions | Add-Member -NotePropertyName 'deny'  -NotePropertyValue $defaultDeny  -Force }
     $json = $o | ConvertTo-Json -Depth 30
     [System.IO.File]::WriteAllText($cset, $json, (New-Object System.Text.UTF8Encoding($false)))
-    if ($dmExisting -and $dmExisting -ne 'auto') {
-      Log ("  + settings.json を更新（auto有効化＋安全リスト補完）。既存 defaultMode='" + $dmExisting + "' を尊重（auto未適用）。")
-    } else {
-      Log "  + settings.json に auto モード＋安全な許可/拒否リストを反映（既存値は保持）"
-    }
+    Log "  + settings.json に読み取り中心の許可/拒否リストを反映（既存値は保持）"
   }
-  Log "  * auto モードは Opus 4.7/4.8 で有効（許可待ちを激減・危険操作は自動ブロック）。"
+  Log "  * 広い実行権限（bash/python/node/gh/gcloud など）は許可していません。必要なら都度の確認で許可してください。"
 } catch { Log ("  X Claude 既定設定 失敗: " + $_.Exception.Message) }
 # FDE_CLAUDE_BLOCK_END
 
@@ -520,7 +506,7 @@ if ($RestoreCreds) { Restore-Creds $RestoreCreds | Out-Null }
 # ---- サマリ -----------------------------------------------------
 $rc = Show-Summary
 Log "`n※ 反映を確実にするには PowerShell を開き直してください。"
-Log "※ Claude Code は auto モード既定（許可待ち最小化／Opus 4.7+）。変更は %USERPROFILE%\.claude\settings.json。"
+Log "※ Claude Code の許可リストは読み取り中心です。変更は %USERPROFILE%\.claude\settings.json。"
 Log "※ 次のログイン/登録は別途(対話): claude（初回起動＋フォルダ信頼）/ clasp login / gcloud auth login / gws(MCP)登録。"
 Log "※ 実行ログ: $logPath（つまずいたらこのファイルをサポートへ送ってください）"
 if ($transcriptOn) { try { Stop-Transcript | Out-Null } catch {} }

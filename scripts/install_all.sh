@@ -430,10 +430,10 @@ if [ "$MINIMAL" != "1" ] || [ "${WITH_VSCODE:-0}" = "1" ]; then
   fi
 fi
 
-# ---- Claude Code 既定設定（auto モード・摩擦ゼロ化）------------
-# 許可プロンプトを激減させる auto モードを ~/.claude/settings.json に既定化（安全チェックは維持）。
+# ---- Claude Code 既定設定（読み取り中心の許可リスト）------------
+# ~/.claude/settings.json に、読み取り中心の許可リストと rm -rf 系の拒否リストを補う（defaultMode・env は書かない）。
 # FDE_CLAUDE_BLOCK_BEGIN
-log ""; log "[+] Claude Code 既定設定（auto モード）"
+log ""; log "[+] Claude Code 既定設定（読み取り中心の許可リスト）"
 CLAUDE_DIR="$HOME/.claude"; mkdir -p "$CLAUDE_DIR"; CSET="$CLAUDE_DIR/settings.json"
 if has node; then
   # 無効JSON/コメント混入の既存ファイルは「上書きせずスキップ」（破壊回避）。env/permissions の型も防御。
@@ -444,33 +444,30 @@ if has node; then
     catch(e){ console.error("settings.json 解析失敗（無効JSON/コメント）→ 破壊回避でスキップ"); process.exit(3); }
     if(!o || typeof o!=="object" || Array.isArray(o)) o={};
     o.env=(o.env && typeof o.env==="object" && !Array.isArray(o.env)) ? o.env : {};
-    o.env.CLAUDE_CODE_ENABLE_AUTO_MODE="1";
     o.permissions=(o.permissions && typeof o.permissions==="object" && !Array.isArray(o.permissions)) ? o.permissions : {};
-    if(!o.permissions.defaultMode) o.permissions.defaultMode="auto";
-    if(!Array.isArray(o.permissions.allow)) o.permissions.allow=["Read","Write","Edit","Bash(git:*)","Bash(gh:*)","Bash(python:*)","Bash(python3:*)","Bash(pip:*)","Bash(pip3:*)","Bash(node:*)","Bash(npm:*)","Bash(npx:*)","Bash(clasp:*)","Bash(uv:*)","Bash(uvx:*)","Bash(gcloud:*)","Bash(rg:*)","Bash(grep:*)","Bash(sed:*)","Bash(awk:*)","Bash(ls:*)","Bash(cat:*)","Bash(find:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(cp:*)","Bash(chmod:*)","Bash(which:*)","Bash(echo:*)","Bash(head:*)","Bash(tail:*)","Bash(open:*)","Bash(code:*)","Bash(bash:*)"];
+    // defaultMode は書かない（既存値はそのまま尊重）
+    if(!Array.isArray(o.permissions.allow)) o.permissions.allow=["Read","Write","Edit","Bash(git:*)","Bash(ls:*)","Bash(cat:*)","Bash(grep:*)","Bash(rg:*)","Bash(find:*)","Bash(head:*)","Bash(tail:*)","Bash(which:*)","Bash(echo:*)","Bash(npm run:*)","Bash(npm test:*)"];
     if(!Array.isArray(o.permissions.deny)) o.permissions.deny=["Bash(rm -rf:*)","Bash(sudo rm:*)"];
     fs.writeFileSync(p, JSON.stringify(o,null,2)+"\n");
   '
   rc=$?
-  if [ "$rc" = "0" ]; then ok "settings.json に auto モード＋安全な許可/拒否リストを設定（既存値は保持）"
-  elif [ "$rc" = "3" ]; then ng "既存 settings.json が無効JSON → 破壊回避でスキップ（auto未適用・手動設定可）"
+  if [ "$rc" = "0" ]; then ok "settings.json に読み取り中心の許可/拒否リストを設定（既存値は保持）"
+  elif [ "$rc" = "3" ]; then ng "既存 settings.json が無効JSON → 破壊回避でスキップ（手動設定可）"
   else log "  X Claude 既定設定 失敗"; fi
 else
   if [ ! -f "$CSET" ]; then
     cat > "$CSET" <<'JSON'
 {
-  "env": { "CLAUDE_CODE_ENABLE_AUTO_MODE": "1" },
   "permissions": {
-    "defaultMode": "auto",
-    "allow": ["Read","Write","Edit","Bash(git:*)","Bash(gh:*)","Bash(python:*)","Bash(python3:*)","Bash(pip:*)","Bash(pip3:*)","Bash(node:*)","Bash(npm:*)","Bash(npx:*)","Bash(clasp:*)","Bash(uv:*)","Bash(uvx:*)","Bash(gcloud:*)","Bash(rg:*)","Bash(grep:*)","Bash(sed:*)","Bash(awk:*)","Bash(ls:*)","Bash(cat:*)","Bash(find:*)","Bash(mkdir:*)","Bash(mv:*)","Bash(cp:*)","Bash(chmod:*)","Bash(which:*)","Bash(echo:*)","Bash(head:*)","Bash(tail:*)","Bash(open:*)","Bash(code:*)","Bash(bash:*)"],
+    "allow": ["Read","Write","Edit","Bash(git:*)","Bash(ls:*)","Bash(cat:*)","Bash(grep:*)","Bash(rg:*)","Bash(find:*)","Bash(head:*)","Bash(tail:*)","Bash(which:*)","Bash(echo:*)","Bash(npm run:*)","Bash(npm test:*)"],
     "deny": ["Bash(rm -rf:*)", "Bash(sudo rm:*)"]
   }
 }
 JSON
-    ok "settings.json を作成（auto モード＋安全な許可/拒否リスト）"
-  else ng "node 無しのため既存 settings.json は保持（auto は手動設定可）"; fi
+    ok "settings.json を作成（読み取り中心の許可/拒否リスト）"
+  else ng "node 無しのため既存 settings.json は保持（手動設定可）"; fi
 fi
-log "  * auto モードは Opus 4.7/4.8 で有効（許可待ちを激減・危険操作は自動ブロック）。"
+log "  * 広い実行権限（bash/python/node/gh/gcloud など）は許可していません。必要なら都度の確認で許可してください。"
 # FDE_CLAUDE_BLOCK_END
 
 # ---- Claude Code 信頼済みフォルダの事前登録（任意・TRUST_DIR）--
@@ -506,7 +503,7 @@ detect_summary
 RC=$?
 log ""
 log "※ 反映を確実にするにはターミナルを開き直してください。"
-log "※ Claude Code は auto モード既定（許可待ち最小化／Opus 4.7+）。変更は ~/.claude/settings.json。"
+log "※ Claude Code の許可リストは読み取り中心です。変更は ~/.claude/settings.json。"
 log "※ 次のログイン/登録は別途(対話): claude（初回起動＋フォルダ信頼）/ clasp login / gcloud auth login / gws(MCP)登録。"
 log "※ 実行ログ: ${LOG_FILE}（つまずいたらこのファイルをサポートへ送ってください）"
 exit $RC
