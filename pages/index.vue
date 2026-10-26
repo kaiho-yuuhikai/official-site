@@ -42,7 +42,7 @@
           <a href="mailto:alumni@kaihoyuhi.com?subject=運営メンバー参加について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             運営メンバーに参加
           </a>
-          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             寄付・支援をする
           </a>
         </div>
@@ -751,11 +751,11 @@
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
-              <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について"
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer"
                 class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
-                メールで申し出る
+                申請フォームへ
               </a>
-              <p class="text-xs text-neutral-400 mt-3 text-center">alumni@kaihoyuhi.com へご連絡後、振込先口座をご案内します</p>
+              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をご案内します</p>
             </div>
           </div>
         </div>
@@ -1005,12 +1005,12 @@
           </a>
 
           <!-- CTA 2 -->
-          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128157;</div>
             <h3 class="text-lg font-bold mb-2">開邦雄飛応援金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              メールで問い合わせ &rarr;
+              申請フォームへ &rarr;
             </span>
           </a>
 
