@@ -169,7 +169,14 @@ const forms = [
     comingSoon: false,
   },
   {
-    title: 'メンター登録・メンティー申し込み・運営参加・寄付',
+    title: '寄付申請フォーム',
+    description: '開邦雄飛応援金（寄付・支援）のお申し込みはこちらから',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header',
+    internal: false,
+    comingSoon: false,
+  },
+  {
+    title: 'メンター登録・メンティー申し込み・運営参加',
     description: 'alumni@kaihoyuhi.com へメールにてお問い合わせください',
     url: 'mailto:alumni@kaihoyuhi.com',
     internal: false,

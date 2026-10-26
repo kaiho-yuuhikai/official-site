@@ -42,7 +42,7 @@
           <a href="mailto:alumni@kaihoyuhi.com?subject=運営メンバー参加について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             運営メンバーに参加
           </a>
-          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-kaiho-green transition-all duration-300">
             寄付・支援をする
           </a>
         </div>
@@ -454,55 +454,14 @@
           <p class="text-neutral-500 mt-4 max-w-xl mx-auto">開邦卒業生の芸術活動を支援しています</p>
           <div class="section-divider mt-6"></div>
         </div>
-        <!-- Ⅲ concert（フィーチャードカード） -->
-        <div class="max-w-4xl mx-auto fade-in">
-          <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-kaiho-gold/30 group">
-            <div class="h-2 bg-gradient-to-r from-kaiho-gold via-yellow-400 to-kaiho-gold"></div>
-            <!-- バッジ・タイトル -->
-            <div class="px-8 pt-8 pb-4">
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span class="bg-kaiho-gold text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">後援事業</span>
-                <span class="bg-kaiho-gold/10 text-kaiho-gold text-xs font-bold px-3 py-1 rounded-full">開邦高校芸術科33期</span>
-              </div>
-              <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-1 text-neutral-900">Ⅲ concert</h3>
-              <p class="text-neutral-500 text-sm">～サクソフォンとピアノで彩る室内楽～</p>
-            </div>
-            <!-- 画像2枚を横並びで大きく表示 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 px-8 pb-6">
-              <div class="rounded-2xl overflow-hidden">
-                <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-auto">
-              </div>
-              <div class="rounded-2xl overflow-hidden">
-                <img :src="`${baseURL}images/concert-iii-artists.png`" alt="Ⅲ concert 出演者プロフィール" class="w-full h-auto">
-              </div>
-            </div>
-            <!-- コンサート詳細 -->
-            <div class="px-8 pb-8">
-              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widest mb-1">日時</p>
-                  <p class="text-lg font-black text-neutral-900">10/24 <span class="text-sm font-bold">Sat.</span></p>
-                  <p class="text-sm text-neutral-600">開場 13:30 ／ 開演 14:00</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">会場</p>
-                  <p class="text-sm font-bold text-neutral-900">テンブスホール</p>
-                  <p class="text-xs text-neutral-500">那覇市牧志3丁目2-10</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">チケット</p>
-                  <p class="text-sm font-bold text-neutral-900">一般 ¥1,500 ／ 学生 ¥1,000</p>
-                  <p class="text-xs text-neutral-500">当日500円増</p>
-                </div>
-                <div class="bg-neutral-50 rounded-xl p-4">
-                  <p class="text-xs font-bold text-neutral-400 tracking-widests mb-1">出演者</p>
-                  <p class="text-xs text-neutral-700 leading-relaxed">大城そのか（Sax）<br>新城一大（Pf）<br>日野命子（Sax）</p>
-                </div>
-              </div>
-              <p class="text-xs text-neutral-500 mb-1 font-bold">Program</p>
-              <p class="text-xs text-neutral-500">F.プーランク/トリオより第1楽章　J.B.サンジュレー/協奏的二重奏曲　長生淳/パガニーニ・ロスト　他</p>
-              <p class="text-xs text-neutral-400 mt-3">ご予約: 080-1726-1369（大城）</p><!-- allow-secret:jp-mobile-phone 公演の予約窓口として意図的に公開している番号 -->
-            </div>
+        <div class="max-w-2xl mx-auto fade-in">
+          <div class="bg-kaiho-gold/5 border border-kaiho-gold/30 rounded-2xl p-8 text-center">
+            <p class="text-kaiho-gold font-black text-lg mb-2">相談受付中</p>
+            <p class="text-neutral-700 text-sm leading-relaxed mb-6">各期同窓会・卒業生グループによるコンサート・展示・発表会などの事業に対し、後援名義の提供・広報サポートを行っています。<br>お気軽にご相談ください。</p>
+            <a href="mailto:alumni@kaihoyuhi.com?subject=後援事業のご相談" class="inline-flex items-center gap-2 px-6 py-3 bg-kaiho-gold text-white font-bold rounded-full hover:bg-kaiho-gold/80 transition-colors text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              メールで相談する
+            </a>
           </div>
         </div>
       </div>
@@ -792,11 +751,11 @@
               <p class="text-neutral-500 text-sm mb-6 leading-relaxed">
                 在校生の探究活動支援、同窓生のキャリア・芸術活動応援、運営活動費など、開邦雄飛会の事業全般に充当されます。1口 10,000 円から、銀行振込にて受け付けています。
               </p>
-              <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について"
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer"
                 class="block w-full py-3 bg-kaiho-purple text-white font-bold rounded-xl hover:bg-purple-700 transition-colors text-center">
-                メールで申し出る
+                申請フォームへ
               </a>
-              <p class="text-xs text-neutral-400 mt-3 text-center">alumni@kaihoyuhi.com へご連絡後、振込先口座をご案内します</p>
+              <p class="text-xs text-neutral-400 mt-3 text-center">フォーム送信後、振込先口座をご案内します</p>
             </div>
           </div>
         </div>
@@ -916,7 +875,27 @@
                 <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-orange transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               </a>
             </div>
-          </div>
+          
+
+          <!-- Ⅲ concert アーカイブ -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
+            <div class="h-56 relative overflow-hidden">
+              <img :src="`${baseURL}images/concert-iii-poster.png`" alt="Ⅲ concert ポスター" class="w-full h-full object-cover object-top">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                <div>
+                  <p class="text-white/70 text-xs mb-1">2026.10.24 開催</p>
+                  <h3 class="text-2xl font-black text-white mb-1">Ⅲ concert</h3>
+                  <p class="text-kaiho-gold font-medium text-sm">開邦高校芸術科33期 後援事業</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <NuxtLink to="/news/iii-concert-notice" class="group flex items-center justify-between hover:bg-neutral-50 -mx-2 px-2 py-2 rounded-xl transition-colors">
+                <p class="text-neutral-500 text-sm">演奏会のお知らせ（実行委員会より）</p>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-kaiho-gold transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </NuxtLink>
+            </div>
+          </div></div>
         </div>
 
         <div class="mt-10 text-center fade-in">
@@ -1026,12 +1005,12 @@
           </a>
 
           <!-- CTA 2 -->
-          <a href="mailto:alumni@kaihoyuhi.com?subject=寄付・支援について" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL4SGNU3HisSJ7-h737kfsu-JgTFnYd-jZHTRIQT8l5ntIjw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="card-hover block bg-gradient-to-br from-kaiho-purple to-purple-600 rounded-2xl p-8 text-white text-center">
             <div class="text-4xl mb-4">&#128157;</div>
             <h3 class="text-lg font-bold mb-2">開邦雄飛応援金</h3>
             <p class="text-white/80 text-sm mb-4">在校生と同窓生の未来を支える</p>
             <span class="inline-flex items-center gap-1 text-sm font-bold bg-white/20 px-4 py-2 rounded-full">
-              メールで問い合わせ &rarr;
+              申請フォームへ &rarr;
             </span>
           </a>
 
@@ -1242,7 +1221,7 @@ const staffRoleLabels: Record<string, string> = {
 // ── News items ──
 const showAllNews = ref(false)
 const newsItems = [
-  { date: '2026.09.12', category: '後援事業', title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について', link: '/news/iii-concert-notice', isNew: true },
+  { date: '2026.09.12', category: '後援事業', title: '【Ⅲ concert実行委員会より】一部作品の演奏担当変更およびゲストピアニスト出演について', link: '/news/iii-concert-notice', isNew: false },
   { date: '2026.09.12', category: '特設授業', title: '2026年度 創立記念特設授業 開催日時決定（10月30日（金）14:45〜16:35）', link: '/activities/special-lecture', isNew: true },
   { date: '2026.07.18', category: '総会', title: '令和8年度 開邦雄飛会 総会イベント（講演会＋総会＋懇親会）（案）（7月18日（土）講演会16:00〜・総会17:00〜・懇親会18:30〜　若狭公民館ほか）', link: 'https://note.com/kaihoyuuhikai/n/nc83976dffecc?sub_rt=share_sb', isNew: true },
   { date: '2026.07.05', category: 'お知らせ', title: '総会に向けた事前ミーティング実施（10:00〜12:00　ほしぞら公民館第三学習室）', link: null, isNew: true },
